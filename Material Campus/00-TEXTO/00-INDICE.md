@@ -1,0 +1,13 @@
+# Material del campus en texto
+
+_Indice de la carpeta._
+
+Un `.md` por cada PDF o apunte de `Material Campus/`. Sirve para leer o buscar el material sin abrir los PDF: `grep -ri "modelo de madurez" "Material Campus/00-TEXTO"`.
+
+- `Clase 1 - Diapositivas Clase 1.md` (410 lineas)
+- `Clase 2 - Diapositivas Clase 2.md` (893 lineas)
+- `Clase 3 - Diapositivas Clase 3.md` (829 lineas)
+- `Cátedra - Presentación introductoria.md` (118 lineas)
+- `Proyecto Final - Ejemplo Modelo de Madurez.md` (120 lineas)
+- `Proyecto Final - Guía Ejemplo Proyecto Final - Parte 1.md` (185 lineas)
+- `Proyecto Final - Trabajo Práctico Final - Parte 1.md` (71 lineas)

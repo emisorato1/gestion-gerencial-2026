@@ -1,0 +1,14 @@
+# credenciales y herramientas de sincronizacion con el campus
+sincronizacion-campus/
+.secrets/
+*.webloc
+
+# config local del editor / agentes
+.claude/
+
+# python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
