@@ -1,8 +1,8 @@
 # Material del campus en texto
 
-_Indice de la carpeta._
+_Generado por `sincronizacion-campus/sync.py` el 2026-09-19 18:47. No editar a mano._
 
-Un `.md` por cada PDF o apunte de `Material Campus/`. Sirve para leer o buscar el material sin abrir los PDF: `grep -ri "modelo de madurez" "Material Campus/00-TEXTO"`.
+Un `.md` por cada PDF o apunte de `Material Campus/`. Sirve para leer o buscar el material sin abrir los PDF: `grep -ri "modelo de madurez" "Material Campus/00-TEXTO"`. Los foros estan aparte, en `Material Campus/Foros/`.
 
 - `Clase 1 - Diapositivas Clase 1.md` (410 lineas)
 - `Clase 2 - Diapositivas Clase 2.md` (893 lineas)

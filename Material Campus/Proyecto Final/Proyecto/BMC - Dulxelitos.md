@@ -51,7 +51,7 @@ Es el núcleo absoluto del negocio: **57 distribuidores activos declarados en 7 
 
 > **Nota sobre la naturaleza de la relación con Aiello:** no se trata de un vínculo asimétrico con un gran retailer nacional, sino de un acuerdo entre dos empresas familiares de la misma generación (Aiello 1972, Dulxelitos 1973) y de escala comparable. Esto es determinante para interpretar los plazos de cobranza del bloque 5.
 
-> ❓ **Dato faltante crítico:** no se conoce el peso relativo de cada distribuidor sobre la facturación. Con 57 clientes en cartera, no puede afirmarse si el modelo está sanamente atomizado o si unos pocos concentran el volumen.
+> ❓ **Dato faltante crítico:** no se conoce el peso relativo de cada distribuidor sobre la facturación. Con 57 clientes en cartera, no puede afirmarse si el modelo está sanamente atomizado o si unos pocos concentran el volumen. Se consultó a la empresa y **el dato no existe**: no se mide la concentración de la propia cartera ✅. La ausencia es en sí misma un hallazgo, y se analiza como tal en la Sección 5.
 
 ## 2. Propuesta de valor
 
@@ -100,10 +100,10 @@ La propuesta **no está dirigida al consumidor final sino al canal**, y la propi
 
 **Canal digital: presencia sin venta**
 
-- **La empresa no opera una tienda online.** ✅ El sitio dulxelitos.com.ar conserva infraestructura de e-commerce —carrito, checkout, registro de usuario y panel de órdenes— pero **el catálogo está vacío** y el canal nunca se puso en operación. 🔎
+- **La empresa no vende online, aunque la tienda está construida.** ✅ El sitio dulxelitos.com.ar tiene infraestructura de e-commerce completa —carrito, checkout, registro de usuario y panel de órdenes— **y el catálogo publicado**, con las tres líneas de producto, sus variedades y presentaciones. 🔎 Lo que no existe es la operación: no hay medio de pago visible y la empresa vende exclusivamente a canal.
 - **Redes sociales** ✅ — Instagram con ~2.777 seguidores y publicaciones activas; Facebook existente. Sostienen presencia de marca y contacto, no venta. 🔎
 
-> **Evidencia de abandono del canal digital:** el pie del sitio consigna **"2020"** como último año de actualización. Se construyó infraestructura que después no se mantuvo ni se puso a producir.
+> **Un canal terminado y desactivado, no abandonado a medio hacer.** El pie del sitio consigna **"2020"** como último año de actualización. La lectura inicial del equipo fue que la infraestructura había quedado inconclusa; la verificación posterior del sitio mostró que el catálogo está cargado y la tienda operativa a nivel técnico. Lo que falta es la decisión de usarla, coherente con un modelo que vende solo a mayoristas. Es capacidad ya pagada y sin activar.
 
 ## 4. Relación con clientes
 
@@ -138,7 +138,7 @@ La propuesta **no está dirigida al consumidor final sino al canal**, y la propi
 
 - **La red de 57 distribuidores** ✅🔎 — es el activo más valioso y menos reconocido de la empresa. Construir cobertura en 7 provincias toma décadas; es la verdadera barrera de entrada que Dulxelitos posee.
 - **Línea de producción operando al límite de su capacidad** ✅ — la planta no da abasto. La producción es hoy el cuello de botella para crecer.
-- **Conocimiento concentrado en los dueños** ✅ — recetas, estructura de costos, contactos comerciales y decisiones residen en pocas personas.
+- **Conocimiento concentrado en la familia** ✅ — recetas, estructura de costos y contactos comerciales residen en pocas personas. Con un matiz relevado después: **hay segunda generación operando**. El dueño toma todas las decisiones importantes y sus dos hijos las secundarias (reposición, compras, cuentas de clientes), de modo que si faltara un dueño durante un mes la operación no se frena ✅. Lo concentrado no es la operación sino el criterio estratégico.
 - **Marca "Dulxelitos — Ponele sabor"** 🔎 — con 53 años de historia, presencia en góndola de supermercado y reconocimiento acumulado en el canal mayorista de siete provincias.
 - **Flota propia de reparto** ✅ y capacidad logística acumulada, que la propia empresa reivindica como diferencial.
 - **Planilla de cálculo de costos por producto** ✅ — se la incluye como recurso porque de ella depende hoy la fijación de precios de todo el catálogo, **pese a ser inexacta y contener errores reconocidos**.
@@ -192,8 +192,8 @@ El canvas deja expuestos cinco puntos de fragilidad:
 1. **La ventaja es el precio, pero el costo no se conoce.** El modelo compite por costo y fija precios sobre una planilla que la propia empresa admite errónea.
 2. **La capacidad de planta está saturada** mientras la empresa sigue tomando pedidos por canales que no se comunican entre sí: viajante, WhatsApp, teléfono y sistema de gestión.
 3. **El activo más valioso —la red de distribuidores— es el peor administrado.** No hay CRM, no se mide el peso de cada cliente, y el registro publicado contiene duplicaciones.
-4. **Los recursos críticos son personas, no procesos.** Las recetas, los costos y la relación con los 57 distribuidores se administran de forma centralizada y descansan sobre los dueños, sin un sistema que los sostenga. La empresa evitó el riesgo de que la cartera se fuera con un vendedor, pero a cambio concentró toda la carga comercial en su núcleo directivo.
-5. **Se construyó infraestructura de canal que nunca se puso a producir.** El sitio conserva un e-commerce completo —carrito, checkout, cuentas de usuario— con el catálogo vacío desde 2020. El acceso al canal se construyó; la capacidad operativa para sostenerlo, no.
+4. **Los recursos críticos son personas, no procesos.** Las recetas, los costos y la relación con los 57 distribuidores se administran de forma centralizada y descansan sobre la familia, sin un sistema que los sostenga. La empresa evitó el riesgo de que la cartera se fuera con un vendedor, pero a cambio concentró toda la carga comercial en su núcleo directivo. La **continuidad operativa está cubierta** por la segunda generación ✅; la que sigue concentrada en una sola persona es la **decisión estratégica**.
+5. **Se construyó un canal digital completo y se lo dejó apagado.** El sitio tiene e-commerce —carrito, checkout, cuentas de usuario— **con el catálogo cargado** desde 2020, pero sin medio de pago ni operación. No es una obra inconclusa: es capacidad instalada que la empresa decidió no usar. Es, por lejos, la oportunidad más barata del modelo, porque la inversión ya está hecha.
 
 ---
 
@@ -205,8 +205,8 @@ El canvas deja expuestos cinco puntos de fragilidad:
 - Listados de mayoristas regionales de la zona de influencia.
 - Entrevistas y observación del equipo sobre la organización.
 
-**Nota sobre domicilios:** el sitio oficial consigna Av. Pedro Vargas 2400, San Rafael. Listados comerciales de terceros registran además Luis Tirasso 1171 y Coronel Suárez 1180 en la misma ciudad. ❓ Corresponde confirmar en la entrevista cuál corresponde a planta, cuál a depósito y cuál a administración.
+**Nota sobre domicilios (resuelta):** el sitio oficial consigna Av. Pedro Vargas 2400, San Rafael, y listados comerciales de terceros registran además Luis Tirasso 1171 y Coronel Suárez 1180. Confirmado con la empresa: **la fábrica, el depósito y la oficina funcionan los tres en Av. Pedro Vargas 2400** ✅; las otras dos direcciones no corresponden a la operación actual.
 
 ---
 
-*Pendiente: lectura analítica del canvas (lógica de valor, Explotación vs. Exploración, debilidades y dependencias, tensiones del modelo actual) — Sección 3 del enunciado.*
+*La lectura analítica del canvas (lógica de valor, Explotación vs. Exploración, debilidades y dependencias, tensiones del modelo actual) está en `03 - Lectura analítica del BMC.md`, y completa la Sección 3 del enunciado.*

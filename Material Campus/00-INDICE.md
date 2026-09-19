@@ -1,12 +1,15 @@
 # Material del campus - Gestion Gerencial 2026
 
-Copia del material de la cátedra, reordenada en un solo nivel de carpetas: una carpeta por
-clase, `Proyecto Final/` con las consignas y el trabajo del grupo, y `00-TEXTO/` con cada PDF
-pasado a Markdown para leer o buscar rápido sin abrir los PDF.
+_Generado por `sincronizacion-campus/sync.py` el 2026-09-19 18:47. No editar a mano._
 
-```bash
-grep -ri "modelo de madurez" "Material Campus/00-TEXTO"
-```
+Todo el material en texto (para leer o buscar rapido) esta en `00-TEXTO/`, un `.md` por cada PDF o apunte del campus. Ver `00-TEXTO/00-INDICE.md`.
+
+Reordenado para que sea mas simple que el campus: un solo nivel de carpetas. `Cátedra/` lo administrativo y los enlaces fijos, `Bibliografía/` los libros, `Foros/` el contenido de los foros volcado a texto, y una carpeta por clase o unidad con todo lo de ese tema junto (apuntes, prácticas y videos con el prefijo `Video - `). Los `.webloc` abren el enlace original en el navegador.
+
+## Cátedra/
+
+- **Link Clase virtual** (enlace, abrir el .webloc)
+- **Presentación introductoria.pdf** (0.1 MB) - del campus en _General_
 
 ## Clase 1/
 
@@ -22,17 +25,20 @@ grep -ri "modelo de madurez" "Material Campus/00-TEXTO"
 
 ## Proyecto Final/
 
-- **Trabajo Práctico Final - Parte 1.md** - la consigna
-- **Guía Ejemplo Proyecto Final - Parte 1.md**
-- **Ejemplo Modelo de Madurez.md**
-- **Proyecto/BMC - Dulxelitos.md** / **.pdf** - el business model canvas del grupo
+- **Ejemplo Modelo de Madurez.md** (0.0 MB)
+- **Guía Ejemplo Proyecto Final - Parte 1.md** (0.0 MB)
+- **Proyecto** (0.0 MB)
+- **Trabajo Práctico Final - Parte 1.md** (0.0 MB)
 
-## 00-TEXTO/
+## Foros/
 
-Un `.md` por cada PDF o apunte. Ver `00-TEXTO/00-INDICE.md`.
+- **Avisos.md** (0.0 MB)
+- **Consultas.md** (0.0 MB)
+- **Cosas interesantes.md** (0.0 MB)
 
-## Qué no está acá
+## Solo online (no se puede bajar)
 
-Los foros, el enlace a la clase virtual y el PDF de la presentación introductoria quedaron
-fuera del repo porque incluyen datos de contacto y enlaces de invitación. Están en el campus.
-El texto de la presentación introductoria sí está, en `00-TEXTO/`, con los mails removidos.
+- Asistencia (attendance)
+
+Las entregas y su estado estan en `sincronizacion-campus/ESTADO.md`.
+

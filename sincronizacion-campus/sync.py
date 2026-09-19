@@ -582,10 +582,10 @@ def generar_indice_material(cfg, snap, nombre_curso):
             ruta = os.path.join(DESCARGAS_DIR, carpeta, a)
             mb = os.path.getsize(ruta) / (1024 * 1024)
             if a.endswith(".webloc"):
-                with open(ruta, encoding="utf-8") as fh:
-                    url = re.search(r"<string>(.*?)</string>", fh.read())
-                detalle = html.unescape(url.group(1)) if url else "enlace"
-                L.append(f"- **{a[:-7]}** (enlace) - {detalle}")
+                # la URL no se escribe en el indice: puede ser una sala de clase
+                # virtual y el indice termina en un repositorio publico.
+                # El enlace vive en el .webloc, que el .gitignore excluye.
+                L.append(f"- **{a[:-7]}** (enlace, abrir el .webloc)")
             else:
                 proc = origen.get((carpeta, a))
                 nota = f" - del campus en _{proc}_" if proc and proc != carpeta else ""

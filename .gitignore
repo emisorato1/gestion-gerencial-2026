@@ -6,7 +6,7 @@ wstoken
 
 # === reportes y volcados generados: traen datos personales ===
 # (nombre de alumno, notas, userid, enlaces de sala virtual)
-sincronizacion-campus/ESTADO.md
+sincronizacion-campus/ESTADO*.md
 sincronizacion-campus/data/
 snapshot-*.json
 
@@ -17,6 +17,8 @@ Material Campus/Foros/
 *.webloc
 # el PDF introductorio trae los mails personales de la catedra
 Material Campus/Cátedra/
+# ...y su version en texto trae los mismos mails
+Material Campus/00-TEXTO/Cátedra - Presentación introductoria.md
 
 # === config local del editor / agentes ===
 .claude/
