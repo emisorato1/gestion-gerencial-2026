@@ -1,14 +1,29 @@
-# credenciales y herramientas de sincronizacion con el campus
-sincronizacion-campus/
+# === credenciales del campus: NUNCA versionar ===
 .secrets/
-*.webloc
+**/.secrets/
+*.token
+wstoken
 
-# config local del editor / agentes
+# === reportes y volcados generados: traen datos personales ===
+# (nombre de alumno, notas, userid, enlaces de sala virtual)
+sincronizacion-campus/ESTADO.md
+sincronizacion-campus/data/
+snapshot-*.json
+
+# === datos de terceros: no van en un repo publico ===
+# foros (nombres de companeros y link de invitacion al grupo)
+Material Campus/Foros/
+# enlaces a la sala de clase virtual
+*.webloc
+# el PDF introductorio trae los mails personales de la catedra
+Material Campus/Cátedra/
+
+# === config local del editor / agentes ===
 .claude/
 
-# python
+# === python ===
 __pycache__/
-*.pyc
+*.py[cod]
 
-# macOS
+# === macOS ===
 .DS_Store

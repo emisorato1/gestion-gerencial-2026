@@ -1,0 +1,31 @@
+{
+  "moodle_url": "https://campus.frsr.utn.edu.ar/moodle",
+  "courseid": 1556,
+  "curso_nombre": "Gestion Gerencial 2026",
+  "otros_cursos": {
+    "1340": "Ingenieria y Calidad de Software 2026",
+    "1503": "Inteligencia Artificial 2026",
+    "1504": "Seguridad en los Sistemas de Informacion 2026",
+    "1505": "Proyecto Final 2026",
+    "1506": "Sistemas de gestion 2026",
+    "1538": "Vision por computadora 2026",
+    "1523": "Ingles II Comision 1 - 2026"
+  },
+  "organizacion": {
+    "_comentario": "Como se ordena Material Campus/. 'secciones' mapea seccion del campus -> carpeta local; sin regla, 'Clase N'/'Unidad N' conservan el numero y el resto cae en 'Catedra'. 'archivos' son destinos explicitos por nombre de archivo del campus (ruta relativa a Material Campus/).",
+    "secciones": {
+      "General": "Cátedra",
+      "Link de Clases Virtuales": "Cátedra",
+      "Proyecto Final": "Proyecto Final"
+    },
+    "archivos": {
+      "slides_introduccion.pdf": "Cátedra/Presentación introductoria.pdf",
+      "slides_clase_1.pdf": "Clase 1/Diapositivas Clase 1.pdf",
+      "slides_clase_2.pdf": "Clase 2/Diapositivas Clase 2.pdf",
+      "slides_clase_3.pdf": "Clase 3/Diapositivas Clase 3.pdf",
+      "Trabajo Práctico Final - Parte 1.md": "Proyecto Final/Trabajo Práctico Final - Parte 1.md",
+      "ej_encuesta.md": "Proyecto Final/Ejemplo Modelo de Madurez.md",
+      "guia_ej_tp_p1.md": "Proyecto Final/Guía Ejemplo Proyecto Final - Parte 1.md"
+    }
+  }
+}

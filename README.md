@@ -8,10 +8,12 @@ que en el campus.
 
 ```
 Material Campus/
-├── 00-INDICE.md        índice de todo
-├── 00-TEXTO/           cada PDF pasado a Markdown (para grep)
-├── Clase 1/ 2/ 3/      diapositivas
-└── Proyecto Final/     consignas, guía, ejemplo y el BMC del grupo
+├── 00-INDICE.md          índice de todo
+├── 00-TEXTO/             cada PDF pasado a Markdown (para grep)
+├── Clase 1/ 2/ 3/        diapositivas
+└── Proyecto Final/       consignas, guía, ejemplo y el BMC del grupo
+
+sincronizacion-campus/    el script que baja todo esto del campus
 ```
 
 Para buscar en todo el material sin abrir un solo PDF:
@@ -19,6 +21,23 @@ Para buscar en todo el material sin abrir un solo PDF:
 ```bash
 grep -ri "modelo de madurez" "Material Campus/00-TEXTO"
 ```
+
+## El sincronizador
+
+`sincronizacion-campus/` baja el material del campus (Moodle de la FRSR) y lo reordena en
+`Material Campus/`, además de pasar los PDF a texto. Es sólo librería estándar de Python.
+
+```bash
+cd sincronizacion-campus
+python3 sync.py --login       # pide legajo y contraseña, guarda el token en .secrets/
+python3 sync.py --descargar   # baja lo que falte
+python3 sync.py --curso 1340  # otra materia (ids en config.json)
+```
+
+La contraseña no se guarda: sólo queda un token de web service en `.secrets/wstoken`, que
+está en el `.gitignore`. **Nunca lo subas.** Cada uno usa su propia cuenta del campus.
+
+Ver `sincronizacion-campus/README.md` para el detalle.
 
 ## Cómo colaborar
 
@@ -33,12 +52,14 @@ Si subís algo nuevo, agregalo también a `Material Campus/00-INDICE.md`.
 
 ## Qué NO va en este repo
 
-Es un repo público, así que quedan afuera a propósito:
+Es un repo público, así que el `.gitignore` deja afuera a propósito:
 
-- los foros del campus (tienen nombres de compañeros y un link de invitación al grupo)
-- el enlace a la sala de la clase virtual
-- el PDF de la presentación introductoria (trae los mails personales de la cátedra); su
-  texto sí está en `00-TEXTO/`, con los contactos removidos
-- credenciales y tokens del campus
+| Qué | Por qué |
+|---|---|
+| `.secrets/`, `wstoken` | credenciales del campus |
+| `ESTADO.md`, `data/snapshot-*.json` | reportes generados con nombre de alumno, notas y userid |
+| `Material Campus/Foros/` | nombres de compañeros y un link de invitación al grupo |
+| `Material Campus/Cátedra/`, `*.webloc` | mails personales de la cátedra y la sala de clase virtual |
 
-Todo eso sigue estando en el campus, que es donde corresponde.
+Todo eso sigue estando en el campus, que es donde corresponde. El texto de la presentación
+introductoria sí está en `00-TEXTO/`, con los contactos removidos.
