@@ -2,31 +2,61 @@
 
 ## Diagnóstico gerencial de Dulxelitos
 
-Gestión Gerencial. Quinto año de Ingeniería en Sistemas de Información.
-Universidad Tecnológica Nacional, Facultad Regional San Rafael. Plan 2026.
-Cátedra: Ing. Jeremías Pino e Ing. Martín Noguerol.
 
-**Organización analizada:** Dulxelitos, fabricación, fraccionamiento y distribución de snacks. San Rafael, Mendoza. Desde 1973.
+**Universidad Tecnológica Nacional**
 
-**Integrantes:** _(completar)_
+**Facultad Regional San Rafael**
 
-**Fecha:** 20/09/2026
+Carrera: Ingeniería en Sistemas de Información. Plan 2026.
+
+Cátedra: Gestión Gerencial, quinto año.
+
+Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol.
+
+
+**Organización analizada**
+
+Dulxelitos. Fabricación, fraccionamiento y distribución de snacks.
+San Rafael, Mendoza. En actividad desde 1973.
+
+
+**Integrantes del grupo**
+
+_(completar con apellido y nombre de cada integrante)_
+
+
+**Año:** 2026
+
+**Fecha de entrega:** 20/09/2026
 
 ---
 
-### Contenido
+## Índice
 
 1. La organización
 2. El contexto
 3. Modelo de negocio actual
 4. Propuesta de valor actual
 5. Madurez y capacidades
+6. Conclusiones del diagnóstico
+7. Bibliografía
+8. Anexos
 
-La sección 6, el problema gerencial priorizado, no va en esta entrega: la presentamos aparte.
+---
 
-### De dónde sale la información
+## Introducción
 
-Uno de nosotros trabaja en Dulxelitos, así que buena parte de lo que dice este informe está confirmado adentro de la empresa. El resto lo sacamos de la página oficial, del Instagram, de listados de mayoristas de la zona y de la página de Aiello. Cuando un dato no lo pudimos conseguir lo decimos, en vez de estimarlo. En el punto 1.6 explicamos cómo tratamos de cuidarnos del sesgo que trae tener a alguien adentro.
+Este trabajo es la primera parte del proyecto integrador de Gestión Gerencial. Consiste en un diagnóstico gerencial de una organización real, y la que elegimos fue Dulxelitos, una empresa familiar de San Rafael que fabrica, fracciona y distribuye snacks desde 1973.
+
+El objetivo de esta etapa es entender cómo funciona la empresa hoy y detectar, con evidencia, cuál es su problema gerencial. Todavía no proponemos ninguna solución: eso viene después. Por eso todo el análisis está hecho sobre el estado actual y no sobre un escenario deseado.
+
+El documento sigue las cinco secciones que pide el enunciado. Arranca describiendo la organización, sigue con el análisis del contexto aplicando PESTEL, las cinco fuerzas de Porter, la cadena de valor y un FODA cruzado, después presenta el modelo de negocio actual con un Business Model Canvas y su lectura, continúa con la propuesta de valor vista desde el cliente con un Value Proposition Canvas, y cierra evaluando la madurez de la empresa con el modelo de la cátedra y estimando el costo de no actuar.
+
+La sección 6 del enunciado, el problema gerencial priorizado, no está en esta entrega: la presentamos por separado.
+
+Elegimos Dulxelitos por una razón práctica que conviene decir de entrada: uno de nosotros trabaja ahí. Eso nos dio un nivel de acceso que no hubiéramos tenido de otra manera, y también un riesgo de sesgo que explicamos y tratamos de controlar en el punto 1.6.
+
+En el documento aparte `herramientas.md` está el detalle de qué herramienta aplicamos en cada sección y cómo se encadenan entre sí.
 
 ---
 
@@ -708,20 +738,57 @@ Con dos cifras alcanzaría para cuantificar la mitad del CoI sin salir a relevar
 
 ---
 
-## Anexo: fuentes y datos que no conseguimos
+## 6. Conclusiones del diagnóstico
 
-### Fuentes consultadas
+Al empezar el trabajo dábamos por sentado que íbamos a encontrar los problemas de Dulxelitos del lado del cliente. Nos pasó lo contrario, y eso terminó ordenando todo el análisis.
 
-- Página oficial dulxelitos.com.ar, secciones Bienvenido, Productos, Nosotros y Distribuidores (consultada el 4 de septiembre de 2026).
-- Instagram @dulxelitos: perfil, biografía y publicaciones.
-- Página oficial superaiello.com.ar, secciones Nuestra Historia y Horarios y Sucursales.
-- Listados de mayoristas regionales de la zona.
-- Entrevistas y observación del equipo en la empresa.
+El canal está conforme. Los distribuidores eligen a la empresa por compromiso y precio, casi no hay quejas, y la entrega a la Patagonia llega en menos de una semana sobre 1.500 kilómetros. La propuesta de valor funciona.
 
-Sobre las direcciones: la página oficial dice Av. Pedro Vargas 2400, San Rafael, y algunos listados comerciales agregan Luis Tirasso 1171 y Coronel Suárez 1180. Lo preguntamos: la fábrica, el depósito y la oficina están los tres en Pedro Vargas 2400, las otras dos no corresponden a la operación de hoy.
+Los problemas están puertas adentro, y son tres. La empresa compite por precio sin saber cuánto le cuesta cada producto, porque el costeo vive en una planilla que ellos mismos reconocen imprecisa. La planta está saturada desde hace tiempo y en vez de resolverlo lo absorben con horas extras, que es un gasto mensual que nadie midió. Y el activo más valioso que tienen, la red de 57 distribuidores armada en 53 años, no tiene ningún sistema detrás: no saben cuánto factura cada uno ni se enteran cuando alguno se va.
 
+La evaluación de madurez dio 1.79 sobre 5, nivel Inicial. Tres dimensiones llegan a Básico, pero las dos más bajas son Estrategia y Gobierno, que justamente no son sobre herramientas sino sobre decidir y controlar. Una empresa que lleva 53 años y sostiene siete provincias no está mal gestionada. Lo que le pasa es que decide sin instrumentos.
 
-### Lo que la empresa no mide
+No pudimos cuantificar el costo de no actuar, y eso es parte del diagnóstico. Cuando preguntamos por las magnitudes, la empresa no las tenía, y la percepción interna es que los problemas son menores. Es la respuesta esperable de una organización que no mide: el costo no está bajo, está sin observar. Con dos cifras que ya existen, las horas extras del último año y el tiempo que lleva rehacer la lista de precios, se podría cuantificar la mitad sin salir a relevar nada nuevo.
+
+Sobre el trabajo en sí: tener a alguien adentro nos dio mucho acceso y también nos obligó a cuidarnos. El cruce con fuentes públicas sirvió en las dos direcciones, y de hecho nos corrigió un error que habíamos cometido mirando la página web de la empresa.
+
+---
+
+## 7. Bibliografía
+
+**Herramientas de análisis**
+
+- Aguilar, F. J. (1967). *Scanning the Business Environment*. Macmillan.
+- Osterwalder, A. y Pigneur, Y. (2010). *Business Model Generation*. John Wiley & Sons.
+- Osterwalder, A., Pigneur, Y., Bernarda, G. y Smith, A. (2014). *Value Proposition Design*. John Wiley & Sons.
+- Porter, M. E. (1979). How competitive forces shape strategy. *Harvard Business Review*, 57(2), 137-145.
+- Porter, M. E. (1980). *Competitive Strategy: Techniques for Analyzing Industries and Competitors*. Free Press.
+- Porter, M. E. (1985). *Competitive Advantage: Creating and Sustaining Superior Performance*. Free Press.
+
+**Material de cátedra**
+
+- Cátedra de Gestión Gerencial (2026). Presentación introductoria al cursado. UTN FRSR.
+- Cátedra de Gestión Gerencial (2026). Clase 1: gobernanza de TI y valor de negocio. UTN FRSR.
+- Cátedra de Gestión Gerencial (2026). Clase 2: análisis estratégico y modelos de negocio. UTN FRSR.
+- Cátedra de Gestión Gerencial (2026). Clase 3: transformación digital, madurez y gestión bimodal. UTN FRSR.
+- Cátedra de Gestión Gerencial (2026). Modelo de madurez digital. UTN FRSR.
+- Cátedra de Gestión Gerencial (2026). Trabajo Práctico Final, Parte 1: consigna y guía del caso Distribuidora Montaña. UTN FRSR.
+
+**Fuentes primarias del caso**
+
+- Dulxelitos. Sitio oficial dulxelitos.com.ar, secciones Bienvenido, Productos, Nosotros y Distribuidores. Consultado el 4 de septiembre de 2026.
+- Dulxelitos. Perfil de Instagram @dulxelitos.
+- Aiello Supermercados. Sitio oficial superaiello.com.ar, secciones Nuestra Historia y Sucursales.
+- Listados de mayoristas regionales de la zona de influencia.
+- Entrevistas y observación directa del equipo en la organización.
+
+---
+
+## 8. Anexos
+
+Además de este documento entregamos dos archivos de apoyo: `herramientas.md`, con el detalle de las herramientas de análisis y cómo se encadenan, y una planilla de cálculo con la encuesta de madurez completa, el FODA y esa misma tabla de herramientas.
+
+### Anexo I: datos que la empresa no mide
 
 Lo dejamos escrito en vez de estimarlo. Nada de esto impide el diagnóstico, y varios de estos huecos son en sí mismos parte de lo que encontramos en la sección 5.
 
@@ -736,3 +803,70 @@ Lo dejamos escrito en vez de estimarlo. Nada de esto impide el diagnóstico, y v
 | Qué producto compite con el snack en el punto de venta | 2.2 |
 | Hitos de la empresa entre 1973 y hoy | 1.4 |
 | Si las marcas nacionales les compiten en el canal | 2.2 |
+
+
+---
+
+### Anexo II: herramientas de análisis aplicadas
+
+**Cuadro general**
+
+| Sección | Herramienta | Autor / origen | Para qué la usamos | Dónde la vimos |
+|---|---|---|---|---|
+| 1. La organización | No aplica | | Es relevamiento descriptivo. Seguimos la estructura que pide el enunciado | Enunciado del TP |
+| 2. El contexto | PESTEL | Aguilar (1967) | Mirar el entorno general: político, económico, social, tecnológico, ecológico y legal | Clase 2 |
+| 2. El contexto | Cinco fuerzas | Porter (1979, 1980) | Analizar el sector: rivalidad, proveedores, compradores, entrantes y sustitutos | Clase 2 |
+| 2. El contexto | Cadena de valor | Porter (1985) | Ver dónde se crea y dónde se pierde margen puertas adentro | Clase 2 (aparece también en la Clase 1) |
+| 2. El contexto | FODA cruzado | Herramienta clásica de planeamiento | Combinar todo lo anterior y sacar iniciativas concretas | Clase 2 |
+| 3. Modelo de negocio | Business Model Canvas | Osterwalder y Pigneur (2010) | Describir cómo la empresa crea, entrega y captura valor hoy | Clase 2 |
+| 3. Modelo de negocio | Explotación y exploración (Run / Change the Business) | Enfoque bimodal de la materia | Separar lo que sostiene la operación de lo que la transforma | Presentación introductoria y Clase 3 |
+| 3. Modelo de negocio | Liderazgo en costos vs. diferenciación | Porter (1980) | Definir cuál es la ventaja competitiva real de la empresa | Clase 2 |
+| 4. Propuesta de valor | Value Proposition Canvas | Osterwalder, Pigneur, Bernarda y Smith (2014) | Cruzar lo que el cliente necesita con lo que la empresa ofrece, y medir el encaje | Clase 2 |
+| 5. Madurez | Modelo de madurez digital de la cátedra | Cátedra de Gestión Gerencial | Evaluar seis dimensiones con escala A a E, más una séptima que agregamos | Material de cátedra |
+| 5. Madurez | Costo de No Actuar (CoI) | Fórmula de tres componentes | Poner en plata lo que cuesta no resolver cada brecha | Clase 3 |
+
+**Cómo se encadenan**
+
+El orden en que las aplicamos no es casual. Cada herramienta produce algo que la siguiente necesita.
+
+```
+SECCIÓN 1
+  Relevamiento de la organización
+       |
+       v
+SECCIÓN 2
+  PESTEL ---------------+
+                        |--> Oportunidades y Amenazas --+
+  Cinco fuerzas --------+                               |
+                                                        +--> FODA CRUZADO
+  Cadena de valor ----> Fortalezas y Debilidades -------+     (iniciativas)
+       |
+       v
+SECCIÓN 3                          SECCIÓN 4                    SECCIÓN 5
+  Business Model Canvas              Value Proposition Canvas      Modelo de madurez
+  + Run / Change the Business        (segmento prioritario)        + Costo de No Actuar
+       |                                   |                             |
+       +-----------------------------------+-----------------------------+
+                                           |
+                                           v
+                                    SECCIÓN 6 (se entrega aparte)
+                                    Problema gerencial priorizado
+```
+
+En concreto:
+
+- El **PESTEL** y las **cinco fuerzas** producen las oportunidades y las amenazas del FODA.
+- La **cadena de valor** produce las fortalezas y las debilidades.
+- El **FODA cruzado** combina las cuatro y de ahí salen las iniciativas.
+- El **segmento prioritario** de la sección 4 se justifica con lo que vimos en las cinco fuerzas.
+- La **madurez** de la sección 5 se apoya en evidencia que fue apareciendo en las secciones 1 a 4.
+
+**Herramientas que no usamos, y por qué**
+
+| Herramienta | Por qué la dejamos afuera |
+|---|---|
+| Hipótesis de Oportunidad Tecnológica | Es una propuesta de solución (To-Be) y este trabajo es diagnóstico del estado actual (AS-IS) |
+| Business Model Canvas en versión To-Be | Mismo motivo: el enunciado pide el modelo actual, no el propuesto |
+| Balanced Scorecard y OKR | Corresponden al Hito 3, no a esta entrega |
+| Design Thinking | Se vio en la Clase 3 pero apunta a idear soluciones, que todavía no toca |
+| Plantilla canónica del problema gerencial | Es para la sección 6, que entregamos aparte |

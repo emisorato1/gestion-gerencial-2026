@@ -52,45 +52,92 @@ def renombrar(ls, mapa):
 
 
 hoy = datetime.date.today()
+PB = "<!--PAGEBREAK-->"
+
 L = []
+# ---------------------------------------------------------------- caratula
 L.append("# Trabajo Práctico Final, Parte 1")
 L.append("")
 L.append("## Diagnóstico gerencial de Dulxelitos")
 L.append("")
-L.append("Gestión Gerencial. Quinto año de Ingeniería en Sistemas de Información.")
-L.append("Universidad Tecnológica Nacional, Facultad Regional San Rafael. Plan 2026.")
-L.append("Cátedra: Ing. Jeremías Pino e Ing. Martín Noguerol.")
 L.append("")
-L.append("**Organización analizada:** Dulxelitos, fabricación, fraccionamiento y "
-         "distribución de snacks. San Rafael, Mendoza. Desde 1973.")
+L.append("**Universidad Tecnológica Nacional**")
 L.append("")
-L.append("**Integrantes:** _(completar)_")
+L.append("**Facultad Regional San Rafael**")
 L.append("")
-L.append("**Fecha:** %s" % hoy.strftime("%d/%m/%Y"))
+L.append("Carrera: Ingeniería en Sistemas de Información. Plan 2026.")
 L.append("")
-L.append("---")
+L.append("Cátedra: Gestión Gerencial, quinto año.")
 L.append("")
-L.append("### Contenido")
+L.append("Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol.")
+L.append("")
+L.append("")
+L.append("**Organización analizada**")
+L.append("")
+L.append("Dulxelitos. Fabricación, fraccionamiento y distribución de snacks.")
+L.append("San Rafael, Mendoza. En actividad desde 1973.")
+L.append("")
+L.append("")
+L.append("**Integrantes del grupo**")
+L.append("")
+L.append("_(completar con apellido y nombre de cada integrante)_")
+L.append("")
+L.append("")
+L.append("**Año:** 2026")
+L.append("")
+L.append("**Fecha de entrega:** %s" % hoy.strftime("%d/%m/%Y"))
+L.append("")
+L.append(PB)
+L.append("")
+
+# ---------------------------------------------------------------- indice
+L.append("## Índice")
 L.append("")
 L.append("1. La organización")
 L.append("2. El contexto")
 L.append("3. Modelo de negocio actual")
 L.append("4. Propuesta de valor actual")
 L.append("5. Madurez y capacidades")
+L.append("6. Conclusiones del diagnóstico")
+L.append("7. Bibliografía")
+L.append("8. Anexos")
 L.append("")
-L.append("La sección 6, el problema gerencial priorizado, no va en esta entrega: la "
-         "presentamos aparte.")
+L.append(PB)
 L.append("")
-L.append("### De dónde sale la información")
+
+# ---------------------------------------------------------------- introduccion
+L.append("## Introducción")
 L.append("")
-L.append("Uno de nosotros trabaja en Dulxelitos, así que buena parte de lo que dice este "
-         "informe está confirmado adentro de la empresa. El resto lo sacamos de la página "
-         "oficial, del Instagram, de listados de mayoristas de la zona y de la página de "
-         "Aiello. Cuando un dato no lo pudimos conseguir lo decimos, en vez de estimarlo. "
-         "En el punto 1.6 explicamos cómo tratamos de cuidarnos del sesgo que trae tener "
-         "a alguien adentro.")
+L.append("Este trabajo es la primera parte del proyecto integrador de Gestión Gerencial. "
+         "Consiste en un diagnóstico gerencial de una organización real, y la que elegimos "
+         "fue Dulxelitos, una empresa familiar de San Rafael que fabrica, fracciona y "
+         "distribuye snacks desde 1973.")
 L.append("")
-L.append("---")
+L.append("El objetivo de esta etapa es entender cómo funciona la empresa hoy y detectar, "
+         "con evidencia, cuál es su problema gerencial. Todavía no proponemos ninguna "
+         "solución: eso viene después. Por eso todo el análisis está hecho sobre el estado "
+         "actual y no sobre un escenario deseado.")
+L.append("")
+L.append("El documento sigue las cinco secciones que pide el enunciado. Arranca "
+         "describiendo la organización, sigue con el análisis del contexto aplicando PESTEL, "
+         "las cinco fuerzas de Porter, la cadena de valor y un FODA cruzado, después "
+         "presenta el modelo de negocio actual con un Business Model Canvas y su lectura, "
+         "continúa con la propuesta de valor vista desde el cliente con un Value Proposition "
+         "Canvas, y cierra evaluando la madurez de la empresa con el modelo de la cátedra y "
+         "estimando el costo de no actuar.")
+L.append("")
+L.append("La sección 6 del enunciado, el problema gerencial priorizado, no está en esta "
+         "entrega: la presentamos por separado.")
+L.append("")
+L.append("Elegimos Dulxelitos por una razón práctica que conviene decir de entrada: uno de "
+         "nosotros trabaja ahí. Eso nos dio un nivel de acceso que no hubiéramos tenido de "
+         "otra manera, y también un riesgo de sesgo que explicamos y tratamos de controlar "
+         "en el punto 1.6.")
+L.append("")
+L.append("En el documento aparte `herramientas.md` está el detalle de qué herramienta "
+         "aplicamos en cada sección y cómo se encadenan entre sí.")
+L.append("")
+L.append(PB)
 L.append("")
 
 # 1
@@ -138,11 +185,82 @@ L += demote(desde(leer("05 - Madurez y Costo de No Actuar.md"), "## 5.1 "))
 L += ["", "---", ""]
 
 # anexo
-L.append("## Anexo: fuentes y datos que no conseguimos")
+L.append("## 6. Conclusiones del diagnóstico")
 L.append("")
-L += renombrar(demote(fuentes), {"### Fuentes": "### Fuentes consultadas"})
+L.append("Al empezar el trabajo dábamos por sentado que íbamos a encontrar los problemas "
+         "de Dulxelitos del lado del cliente. Nos pasó lo contrario, y eso terminó "
+         "ordenando todo el análisis.")
 L.append("")
-L.append("### Lo que la empresa no mide")
+L.append("El canal está conforme. Los distribuidores eligen a la empresa por compromiso y "
+         "precio, casi no hay quejas, y la entrega a la Patagonia llega en menos de una "
+         "semana sobre 1.500 kilómetros. La propuesta de valor funciona.")
+L.append("")
+L.append("Los problemas están puertas adentro, y son tres. La empresa compite por precio "
+         "sin saber cuánto le cuesta cada producto, porque el costeo vive en una planilla "
+         "que ellos mismos reconocen imprecisa. La planta está saturada desde hace tiempo y "
+         "en vez de resolverlo lo absorben con horas extras, que es un gasto mensual que "
+         "nadie midió. Y el activo más valioso que tienen, la red de 57 distribuidores "
+         "armada en 53 años, no tiene ningún sistema detrás: no saben cuánto factura cada "
+         "uno ni se enteran cuando alguno se va.")
+L.append("")
+L.append("La evaluación de madurez dio 1.79 sobre 5, nivel Inicial. Tres dimensiones llegan "
+         "a Básico, pero las dos más bajas son Estrategia y Gobierno, que justamente no son "
+         "sobre herramientas sino sobre decidir y controlar. Una empresa que lleva 53 años y "
+         "sostiene siete provincias no está mal gestionada. Lo que le pasa es que decide sin "
+         "instrumentos.")
+L.append("")
+L.append("No pudimos cuantificar el costo de no actuar, y eso es parte del diagnóstico. "
+         "Cuando preguntamos por las magnitudes, la empresa no las tenía, y la percepción "
+         "interna es que los problemas son menores. Es la respuesta esperable de una "
+         "organización que no mide: el costo no está bajo, está sin observar. Con dos cifras "
+         "que ya existen, las horas extras del último año y el tiempo que lleva rehacer la "
+         "lista de precios, se podría cuantificar la mitad sin salir a relevar nada nuevo.")
+L.append("")
+L.append("Sobre el trabajo en sí: tener a alguien adentro nos dio mucho acceso y también "
+         "nos obligó a cuidarnos. El cruce con fuentes públicas sirvió en las dos "
+         "direcciones, y de hecho nos corrigió un error que habíamos cometido mirando la "
+         "página web de la empresa.")
+L.append("")
+L.append(PB)
+L.append("")
+L.append("## 7. Bibliografía")
+L.append("")
+L.append("**Herramientas de análisis**")
+L.append("")
+L.append("- Aguilar, F. J. (1967). *Scanning the Business Environment*. Macmillan.")
+L.append("- Osterwalder, A. y Pigneur, Y. (2010). *Business Model Generation*. John Wiley & Sons.")
+L.append("- Osterwalder, A., Pigneur, Y., Bernarda, G. y Smith, A. (2014). *Value Proposition Design*. John Wiley & Sons.")
+L.append("- Porter, M. E. (1979). How competitive forces shape strategy. *Harvard Business Review*, 57(2), 137-145.")
+L.append("- Porter, M. E. (1980). *Competitive Strategy: Techniques for Analyzing Industries and Competitors*. Free Press.")
+L.append("- Porter, M. E. (1985). *Competitive Advantage: Creating and Sustaining Superior Performance*. Free Press.")
+L.append("")
+L.append("**Material de cátedra**")
+L.append("")
+L.append("- Cátedra de Gestión Gerencial (2026). Presentación introductoria al cursado. UTN FRSR.")
+L.append("- Cátedra de Gestión Gerencial (2026). Clase 1: gobernanza de TI y valor de negocio. UTN FRSR.")
+L.append("- Cátedra de Gestión Gerencial (2026). Clase 2: análisis estratégico y modelos de negocio. UTN FRSR.")
+L.append("- Cátedra de Gestión Gerencial (2026). Clase 3: transformación digital, madurez y gestión bimodal. UTN FRSR.")
+L.append("- Cátedra de Gestión Gerencial (2026). Modelo de madurez digital. UTN FRSR.")
+L.append("- Cátedra de Gestión Gerencial (2026). Trabajo Práctico Final, Parte 1: consigna y guía del caso Distribuidora Montaña. UTN FRSR.")
+L.append("")
+L.append("**Fuentes primarias del caso**")
+L.append("")
+L.append("- Dulxelitos. Sitio oficial dulxelitos.com.ar, secciones Bienvenido, Productos, Nosotros y Distribuidores. Consultado el 4 de septiembre de 2026.")
+L.append("- Dulxelitos. Perfil de Instagram @dulxelitos.")
+L.append("- Aiello Supermercados. Sitio oficial superaiello.com.ar, secciones Nuestra Historia y Sucursales.")
+L.append("- Listados de mayoristas regionales de la zona de influencia.")
+L.append("- Entrevistas y observación directa del equipo en la organización.")
+L.append("")
+L.append(PB)
+L.append("")
+L.append("## 8. Anexos")
+L.append("")
+L.append("Además de este documento entregamos dos archivos de apoyo: `herramientas.md`, "
+         "con el detalle de las herramientas de análisis y cómo se encadenan, y una planilla "
+         "de cálculo con la encuesta de madurez completa, el FODA y esa misma tabla de "
+         "herramientas.")
+L.append("")
+L.append("### Anexo I: datos que la empresa no mide")
 L.append("")
 L.append("Lo dejamos escrito en vez de estimarlo. Nada de esto impide el diagnóstico, y "
          "varios de estos huecos son en sí mismos parte de lo que encontramos en la "
@@ -161,12 +279,42 @@ L.append("| Hitos de la empresa entre 1973 y hoy | 1.4 |")
 L.append("| Si las marcas nacionales les compiten en el canal | 2.2 |")
 L.append("")
 
-md = re.sub(r"\n{4,}", "\n\n\n", "\n".join(L)).rstrip() + "\n"
+crudo = re.sub(r"\n{4,}", "\n\n\n", "\n".join(L)).rstrip() + "\n"
+
+# El .md que se entrega no lleva marcas de salto: ahi el separador es la regla.
+L.append("")
+L.append(PB)
+L.append("")
+L.append("### Anexo II: herramientas de análisis aplicadas")
+L.append("")
+herr = leer("herramientas.md")
+# arranca en el cuadro general y termina antes de la adaptacion, que ya esta en 5.1
+herr = hasta(desde(herr, "## Cuadro general"), "## Una adaptación que hicimos")
+L += renombrar(demote(herr, 2), {
+    "#### Cuadro general": "**Cuadro general**",
+    "#### Cómo se encadenan": "**Cómo se encadenan**",
+    "#### Herramientas que no usamos, y por qué": "**Herramientas que no usamos, y por qué**",
+})
+L.append("")
+
+crudo = re.sub(r"\n{4,}", "\n\n\n", "\n".join(L)).rstrip() + "\n"
+
+md = crudo.replace(PB, "---")
+
+# Para docx y pdf el salto tiene que ser un salto de pagina de verdad.
+SALTO_DOCX = "```{=openxml}\n<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>\n```"
+SALTO_HTML = '<div style="page-break-after: always;"></div>'
+md_docx = crudo.replace(PB, SALTO_DOCX)
+md_html = crudo.replace(PB, SALTO_HTML)
 
 os.makedirs(DEST, exist_ok=True)
 ruta_md = os.path.join(DEST, NOMBRE + ".md")
 with io.open(ruta_md, "w", encoding="utf-8") as fh:
     fh.write(md)
+tmp_docx = os.path.join(DEST, "_tmp_docx.md")
+tmp_html = os.path.join(DEST, "_tmp_html.md")
+io.open(tmp_docx, "w", encoding="utf-8").write(md_docx)
+io.open(tmp_html, "w", encoding="utf-8").write(md_html)
 print("%s.md  (%d lineas, ~%d palabras)" % (NOMBRE, md.count("\n") + 1, len(md.split())))
 
 CSS = """
@@ -174,7 +322,10 @@ CSS = """
   content: counter(page); font-family: Georgia, serif; font-size: 9pt; color: #666; } }
 body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.5pt;
   line-height: 1.5; color: #1a1a1a; }
-h1 { font-size: 20pt; margin: 0 0 .2em; line-height: 1.2; }
+h1 { font-size: 24pt; margin: 3.5cm 0 .3em; line-height: 1.2; text-align: center; }
+h1 + h2 { font-size: 15pt; border: none; text-align: center; font-weight: normal;
+  font-style: italic; margin: 0 0 2.5cm; color: #333; }
+h1 + h2 + p, h1 + h2 + p ~ p { text-align: center; }
 h2 { font-size: 14pt; margin: 1.6em 0 .5em; border-bottom: 1px solid #ccc;
   padding-bottom: .2em; page-break-after: avoid; }
 h3 { font-size: 11.5pt; margin: 1.2em 0 .4em; page-break-after: avoid; }
@@ -204,12 +355,12 @@ def corre(cmd, que):
     return False
 
 if shutil.which("pandoc"):
-    corre(["pandoc", ruta_md, "-o", os.path.join(DEST, NOMBRE + ".docx"),
-           "--from", "markdown", "--toc", "--toc-depth=2"], "docx")
+    corre(["pandoc", tmp_docx, "-o", os.path.join(DEST, NOMBRE + ".docx"),
+           "--from", "markdown"], "docx")
     html = os.path.join(DEST, "_tmp.html")
     css = os.path.join(DEST, "_tmp.css")
     io.open(css, "w", encoding="utf-8").write(CSS)
-    if corre(["pandoc", ruta_md, "-o", html, "--standalone", "--css", "_tmp.css",
+    if corre(["pandoc", tmp_html, "-o", html, "--standalone", "--css", "_tmp.css",
               "--metadata", "title=" + NOMBRE], "html intermedio"):
         # pandoc agrega su propio bloque de titulo ademas del H1 del documento:
         # queda duplicado en la portada del pdf, asi que lo sacamos.
@@ -220,7 +371,7 @@ if shutil.which("pandoc"):
             corre(["weasyprint", html, os.path.join(DEST, NOMBRE + ".pdf")], "pdf")
         else:
             print("  falta weasyprint, no se genero el pdf")
-    for t in (html, css):
+    for t in (html, css, tmp_docx, tmp_html):
         if os.path.exists(t):
             os.remove(t)
 else:
