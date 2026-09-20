@@ -53,10 +53,10 @@ Este documento no agrega contenido: **traza cómo se encadenan las secciones**. 
 | El canal está conforme ("compromiso y precio") | §4.2, relevamiento interno | §4.4 encaje bueno · reencuadra el diagnóstico hacia lo interno · §5 Clientes y Canales |
 | El distribuidor no puede consultar stock sin llamar | §4.2 | §2 FODA cruzado (DO) · §4.4 brecha 1 · §5 Clientes y Canales |
 | Capa de e-commerce construida y desactivada | §3.2 + verificación del sitio | §2 FODA (O1) · §2.5 iniciativa DO · §4.4 cierre de la brecha |
-| "No, muy pyme" — cero medición | §5, relevamiento interno | §2 Cadena de Valor (infraestructura) · §5 Gobierno 1.25 · **explica por qué el CoI no se puede cuantificar** |
+| "No, muy pyme" — estadísticas operativas sin tablero de dirección | §5, relevamiento interno | §2 Cadena de Valor (infraestructura) · §5 Gobierno 1.50 · **explica por qué el CoI no se puede cuantificar** |
 | Segunda generación operando | §1.5 | §2 FODA (F5) · §3.3 corrige el BMC · §5 Gobierno (continuidad parcial) |
 
-> **El encadenamiento más importante del trabajo:** "no, muy pyme" (§5) → Gobierno en 1.25 (§5.3) → la empresa no puede cuantificar su propio CoI (§5.5) → y por eso mismo **todos los hallazgos de este informe son cosas que la organización no sabía que le pasaban**. El diagnóstico se explica a sí mismo.
+> **El encadenamiento más importante del trabajo:** "no, muy pyme" (§5) → estadísticas operativas que no se integran en indicadores de dirección → Gobierno en 1.50 (§5.3) → la empresa no puede cuantificar su propio CoI (§5.5). El diagnóstico muestra así la distancia entre **producir datos** y **usarlos sistemáticamente para decidir y controlar**.
 
 ## Correcciones al BMC
 
