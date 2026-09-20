@@ -1,147 +1,122 @@
-# 5. Madurez y capacidades — Dulxelitos
+# 5. Madurez y capacidades
 
-**Trabajo Práctico Final — Parte 1, Sección 5**
+## 5.1 Qué modelo usamos
 
----
+Usamos el modelo de madurez digital de la cátedra, con su escala de A a E (1 a 5) y su encuesta de 24 preguntas sobre seis dimensiones.
 
-## 5.1 Modelo aplicado y adaptación justificada
+El enunciado del trabajo pide evaluar siete dimensiones: estrategia, liderazgo, procesos, tecnología y datos, personas, clientes y gobierno. El modelo tiene seis, porque mete gobierno adentro de "Procesos y Operaciones", en la pregunta que dice si existe una gobernanza clara sobre los procesos digitales.
 
-Se aplica el **modelo de madurez digital de la cátedra**, con su escala A–E (1 a 5) y su encuesta de 24 preguntas sobre seis dimensiones.
+Lo que hicimos fue dejar las seis dimensiones del modelo con sus 24 preguntas originales y agregar Gobierno como séptima, con cuatro preguntas nuestras armadas con el mismo criterio y la misma escala. No lo hicimos por cumplir con el enunciado sino porque en este caso puntual tiene sentido: en una empresa sin reuniones de dirección, sin indicadores gerenciales definidos y sin revisión periódica de los números, el gobierno da para una dimensión propia y no para quedar metido en una sola pregunta sobre procesos.
 
-El enunciado del trabajo práctico pide evaluar **siete** dimensiones: estrategia, liderazgo, procesos, tecnología y datos, personas, clientes y **gobierno**. El modelo de la cátedra tiene seis, porque incorpora gobierno dentro de "Procesos y Operaciones" (pregunta 16: *¿existe una gobernanza clara sobre los procesos digitales?*).
+Una aclaración sobre la proporcionalidad, que el enunciado marca: la madurez hay que evaluarla según el tamaño de la empresa y no se premia la sofisticación innecesaria. Lo tuvimos en cuenta. Para una pyme de 15 a 20 personas, no tener un ERP integrado o un área de datos no es una falla. Lo que sí señalamos como brecha es lo que afecta directo a la plata y a la continuidad.
 
-> **Adaptación justificada:** se mantienen las seis dimensiones del modelo con sus 24 preguntas originales y se agrega **Gobierno** como séptima dimensión, con cuatro preguntas propias construidas con el mismo criterio y la misma escala. La razón no es formal sino de caso: en una empresa sin reuniones de dirección, sin indicadores gerenciales definidos y sin revisión periódica integrada de los números, el gobierno es un hallazgo con entidad suficiente como para no quedar subsumido en una sola pregunta sobre procesos.
+### La escala
 
-**Sobre la proporcionalidad.** El enunciado advierte que la madurez debe evaluarse según el tamaño de la organización y que no se premia la sofisticación innecesaria. Se aplica ese criterio: para una PyME de 15 a 20 personas, la ausencia de un ERP integrado o de un área de datos **no es una falla**. Lo que sí se señala como brecha es aquello que afecta directamente al dinero y a la continuidad del negocio.
-
-### Escala
-
-| Opción | Descripción | Puntaje |
+| Opción | Qué significa | Puntos |
 |---|---|---|
-| A | No se aplica / No está implementado | 1 |
-| B | Implementado parcialmente / informal | 2 |
-| C | Implementado de forma básica / reactivo | 3 |
+| A | No se aplica o no está implementado | 1 |
+| B | Implementado parcialmente o de manera informal | 2 |
+| C | Implementado de forma básica o reactiva | 3 |
 | D | Estandarizado y documentado | 4 |
-| E | Optimizado / Integrado / Predictivo | 5 |
+| E | Optimizado, integrado o predictivo | 5 |
 
 | Promedio | Nivel |
 |---|---|
-| 1.0–1.9 | Inicial — sin estructura digital formal |
-| 2.0–2.9 | Básico — digitalización parcial y aislada |
-| 3.0–3.9 | Intermedio |
-| 4.0–4.5 | Avanzado |
-| 4.6–5.0 | Transformacional |
+| 1.0 a 1.9 | Inicial, sin estructura digital formal |
+| 2.0 a 2.9 | Básico, digitalización parcial y aislada |
+| 3.0 a 3.9 | Intermedio |
+| 4.0 a 4.5 | Avanzado |
+| 4.6 a 5.0 | Transformacional |
 
-## 5.2 Encuesta respondida
+## 5.2 La encuesta
 
-Respondida por el equipo consultor sobre la base de la evidencia relevada, no por autoevaluación de la empresa.
+La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empresa para que se autoevaluara.
 
-| Dimensión | Pregunta | Resp. | Pts | Evidencia |
+| Dimensión | Pregunta | Resp. | Pts | En qué nos basamos |
 |---|---|:---:|:---:|---|
-| **Liderazgo y Cultura Digital** | ¿Existe una visión digital clara comunicada por los líderes? | A | 1 | No hay ninguna iniciativa de cambio marcada ✅ |
-| | ¿Los líderes promueven activamente la transformación digital? | A | 1 | Sin plan ni responsable asignado ✅ |
-| | ¿La cultura organizacional apoya la innovación tecnológica? | B | 2 | Se aprovechan oportunidades de producto nuevo cuando aparecen ✅ |
-| | ¿Se fomenta la experimentación y aprendizaje continuo? | B | 2 | Hay ganas de capacitarse, sin programa ✅ |
-| **Estrategia y Modelo de Negocio** | ¿La estrategia digital está integrada en la estrategia general? | A | 1 | No existe estrategia digital formulada ✅ |
-| | ¿Se exploran nuevos modelos de negocio habilitados por tecnología? | B | 2 | Se construyó una capa de e-commerce en 2020 y no se activó 🔎 |
-| | ¿Existen indicadores de éxito digital claramente definidos? | A | 1 | No hay indicadores de éxito digital definidos ✅ |
-| | ¿La empresa revisa periódicamente su estrategia digital? | A | 1 | No hay revisión periódica ✅ |
-| **Tecnología y Datos** | ¿Cuenta con infraestructura tecnológica actualizada? | B | 2 | Discovery (BAS) **desactualizado y con errores** ✅ |
-| | ¿Existen sistemas integrados (ERP, CRM, etc.)? | A | 1 | El sistema **no se puede integrar** a otros ✅. No hay CRM ✅ |
-| | ¿Qué nivel de automatización tienen los procesos clave? | C | 3 | Facturación, stock y cuentas corrientes en sistema; costeo y precios a mano ✅ |
-| | ¿Se recopilan y analizan datos para la toma de decisiones? | C | 3 | Se elaboran estadísticas mensuales, sin tablero ni indicadores gerenciales integrados ✅ |
-| **Procesos y Operaciones** | ¿Los procesos están estandarizados y documentados? | C | 3 | Producción estandarizada por 53 años de oficio y documentada en un nivel básico ✅ |
-| | ¿Se han digitalizado los procesos clave? | C | 3 | Facturación y stock sí; costeo, pedidos y relación con el canal no ✅ |
-| | ¿Se mide y mejora continuamente la eficiencia operativa? | C | 3 | Se generan datos continuos de producción, facturación y ventas de clientes específicos; su uso es reactivo ✅ |
-| | ¿Existe una gobernanza clara sobre los procesos digitales? | A | 1 | El responsable de sistemas no tiene asignada la gobernanza de los procesos digitales ni hay un criterio definido ✅ |
-| **Personas y Habilidades** | ¿El personal tiene habilidades digitales adecuadas? | B | 2 | Operan el sistema, sin autonomía más allá de la carga ✅ |
-| | ¿Se ofrecen programas de capacitación continua en tecnología? | A | 1 | **Nadie se capacitó en los últimos dos años** ✅ |
-| | ¿Promueve el desarrollo de competencias digitales? | B | 2 | Hay predisposición declarada del equipo ✅ |
-| | ¿Existe colaboración interdisciplinaria en proyectos digitales? | A | 1 | No hay proyectos digitales ✅ |
-| **Clientes y Canales** | ¿Se utilizan canales digitales para interactuar con clientes? | C | 3 | WhatsApp como canal principal de pedidos ✅; Instagram activo con ~2.777 seguidores 🔎 |
-| | ¿La experiencia del cliente se gestiona con herramientas tecnológicas? | A | 1 | Sin CRM ni registro de interacciones ✅ |
-| | ¿Se recopilan datos del cliente para mejorar el servicio? | A | 1 | No se conoce ni la concentración de facturación ni las causas de baja ✅ |
-| | ¿Existen mecanismos digitales de atención y soporte? | C | 3 | WhatsApp, dentro de la franja horaria de oficina ✅🔎 |
-| **Gobierno** *(dimensión agregada)* | ¿Hay reuniones periódicas de dirección para revisar números? | A | 1 | "No, muy pyme" ✅ |
-| | ¿Hay indicadores definidos y revisados con periodicidad? | A | 1 | No hay indicadores gerenciales definidos ni una revisión periódica de dirección ✅ |
-| | ¿Hay roles y responsabilidades formalizados sobre datos y sistemas? | B | 2 | Tienen responsable del área de sistemas ✅ |
-| | ¿Se revisan riesgos de continuidad (proveedor único, backup, sucesión)? | B | 2 | Hay backup de las planillas ✅; segunda generación operando ✅; proveedor único de film no gestionado como riesgo ✅ |
+| Liderazgo y Cultura Digital | ¿Existe una visión digital clara comunicada por los líderes? | A | 1 | No hay ninguna iniciativa de cambio marcada |
+| | ¿Los líderes promueven activamente la transformación digital? | A | 1 | Sin plan ni responsable asignado |
+| | ¿La cultura organizacional apoya la innovación tecnológica? | B | 2 | Aprovechan oportunidades de producto nuevo cuando aparecen |
+| | ¿Se fomenta la experimentación y el aprendizaje continuo? | B | 2 | Hay ganas de capacitarse, pero no hay programa |
+| Estrategia y Modelo de Negocio | ¿La estrategia digital está integrada en la general? | A | 1 | No hay estrategia digital formulada |
+| | ¿Se exploran nuevos modelos de negocio habilitados por tecnología? | B | 2 | Construyeron la tienda online en 2020 y no la activaron |
+| | ¿Existen indicadores de éxito digital claramente definidos? | A | 1 | No hay indicadores de éxito digital definidos |
+| | ¿La empresa revisa periódicamente su estrategia digital? | A | 1 | No hay revisión periódica |
+| Tecnología y Datos | ¿Cuenta con infraestructura tecnológica actualizada? | B | 2 | Discovery (BAS), desactualizado y con errores |
+| | ¿Existen sistemas integrados (ERP, CRM)? | A | 1 | El sistema no se integra con nada y no hay CRM |
+| | ¿Qué nivel de automatización tienen los procesos clave? | C | 3 | Facturación, stock y cuentas corrientes en el sistema; costeo y precios a mano |
+| | ¿Se recopilan y analizan datos para la toma de decisiones? | C | 3 | Hacen estadísticas mensuales, sin tablero ni indicadores gerenciales integrados |
+| Procesos y Operaciones | ¿Los procesos están estandarizados y documentados? | C | 3 | Producción estandarizada por 53 años de oficio y documentada a nivel básico |
+| | ¿Se han digitalizado los procesos clave? | C | 3 | Facturación y stock sí; costeo, pedidos y relación con el canal no |
+| | ¿Se mide y mejora continuamente la eficiencia operativa? | C | 3 | Generan datos de producción, facturación y ventas por cliente, pero el uso es reactivo |
+| | ¿Existe una gobernanza clara sobre los procesos digitales? | A | 1 | El responsable de sistemas no tiene asignada esa gobernanza ni hay criterio definido |
+| Personas y Habilidades | ¿El personal tiene habilidades digitales adecuadas? | B | 2 | Operan el sistema, sin autonomía más allá de la carga |
+| | ¿Se ofrecen programas de capacitación continua en tecnología? | A | 1 | Nadie se capacitó en los últimos dos años |
+| | ¿Se promueve el desarrollo de competencias digitales? | B | 2 | Hay predisposición del equipo |
+| | ¿Existe colaboración interdisciplinaria en proyectos digitales? | A | 1 | No hay proyectos digitales |
+| Clientes y Canales | ¿Se usan canales digitales para interactuar con clientes? | C | 3 | WhatsApp como canal principal de pedidos e Instagram activo |
+| | ¿La experiencia del cliente se gestiona con herramientas tecnológicas? | A | 1 | Sin CRM ni registro de interacciones |
+| | ¿Se recopilan datos del cliente para mejorar el servicio? | A | 1 | No conocen ni la concentración de facturación ni las causas de baja |
+| | ¿Existen mecanismos digitales de atención y soporte? | C | 3 | WhatsApp, dentro del horario de oficina |
+| Gobierno (agregada) | ¿Hay reuniones periódicas de dirección para revisar números? | A | 1 | "No, muy pyme", nos dijeron |
+| | ¿Hay indicadores definidos y revisados con periodicidad? | A | 1 | No hay indicadores gerenciales definidos ni revisión de dirección |
+| | ¿Hay roles y responsabilidades formalizados sobre datos y sistemas? | B | 2 | Tienen responsable del área de sistemas |
+| | ¿Se revisan riesgos de continuidad (proveedor único, backup, sucesión)? | B | 2 | Hay backup de planillas y segunda generación operando, pero el proveedor único de film no se gestiona como riesgo |
 
-## 5.3 Resultado por dimensión
+## 5.3 Resultado
 
-| Dimensión | Puntaje | Promedio | Nivel |
+| Dimensión | Puntos | Promedio | Nivel |
 |---|:---:|:---:|---|
-| Liderazgo y Cultura Digital | 1+1+2+2 = 6 | **1.50** | Inicial |
-| Estrategia y Modelo de Negocio | 1+2+1+1 = 5 | **1.25** | Inicial |
-| Tecnología y Datos | 2+1+3+3 = 9 | **2.25** | Básico |
-| Procesos y Operaciones | 3+3+3+1 = 10 | **2.50** | Básico |
-| Personas y Habilidades | 2+1+2+1 = 6 | **1.50** | Inicial |
-| Clientes y Canales | 3+1+1+3 = 8 | **2.00** | Básico |
-| Gobierno | 1+1+2+2 = 6 | **1.50** | Inicial |
-| **GLOBAL** | **50 / 28** | **1.79** | **Inicial** |
+| Liderazgo y Cultura Digital | 1+1+2+2 = 6 | 1.50 | Inicial |
+| Estrategia y Modelo de Negocio | 1+2+1+1 = 5 | 1.25 | Inicial |
+| Tecnología y Datos | 2+1+3+3 = 9 | 2.25 | Básico |
+| Procesos y Operaciones | 3+3+3+1 = 10 | 2.50 | Básico |
+| Personas y Habilidades | 2+1+2+1 = 6 | 1.50 | Inicial |
+| Clientes y Canales | 3+1+1+3 = 8 | 2.00 | Básico |
+| Gobierno | 1+1+2+2 = 6 | 1.50 | Inicial |
+| **Total** | **50 sobre 28 preguntas** | **1.79** | **Inicial** |
 
-> **Lectura del resultado.** Dulxelitos se ubica en nivel **Inicial** (1.79): sin estructura digital formal. Tres dimensiones alcanzan el nivel **Básico**: Procesos y Operaciones (2.50), Tecnología y Datos (2.25) y Clientes y Canales (2.00). La empresa cuenta con procesos asentados, genera estadísticas operativas y utiliza WhatsApp e Instagram, pero esas capacidades permanecen aisladas y no se articulan en una estrategia ni en un sistema de dirección.
->
-> El piso está en **Estrategia** (1.25), seguida por Liderazgo, Personas y Gobierno (1.50). La distancia entre los datos operativos disponibles y su uso gerencial es el hallazgo central: una empresa que factura hace 53 años y sostiene 57 distribuidores no es una empresa mal gestionada, sino una empresa que todavía decide y controla **sin instrumentos integrados**.
+Dulxelitos queda en nivel Inicial, con 1.79. Tres dimensiones llegan a Básico: Procesos y Operaciones con 2.50, Tecnología y Datos con 2.25 y Clientes y Canales con 2.00. Tienen procesos asentados, generan estadísticas operativas y usan WhatsApp e Instagram, pero todo eso queda suelto y no se articula ni en una estrategia ni en un sistema de dirección.
 
-## 5.4 Análisis por dimensión
+El piso está en Estrategia con 1.25, y después Liderazgo, Personas y Gobierno, las tres con 1.50. Lo que nos parece el hallazgo central es la distancia entre los datos operativos que ya tienen y el uso gerencial que les dan. Una empresa que factura hace 53 años y sostiene 57 distribuidores no está mal gestionada. Lo que le pasa es que decide y controla sin instrumentos integrados.
 
-Para cada dimensión: nivel, evidencia, brecha prioritaria y costo de no actuar.
+## 5.4 Dimensión por dimensión
 
-### Estrategia y Modelo de Negocio — 1.25, Inicial
-**Evidencia.** No hay estrategia digital formulada, ni indicadores, ni revisión periódica. La única inversión tecnológica identificable de los últimos años es la capa de e-commerce de 2020, que nunca se activó. La exploración existe como reflejo oportunista ante productos nuevos ✅, no como cartera.
-**Brecha prioritaria.** No hay ningún mecanismo que convierta una oportunidad en una decisión con presupuesto y responsable.
-**Costo de no actuar.** La empresa depende de que el entorno siga siendo tan cómodo como lo ha sido (ver Sección 2). Cuando deje de serlo, no hay capacidad de respuesta instalada.
+Para cada una ponemos el nivel, en qué nos basamos, cuál es la brecha más importante y qué cuesta no hacer nada.
 
-### Liderazgo y Cultura Digital — 1.50, Inicial
-**Evidencia.** El dueño toma todas las decisiones importantes y los hijos las secundarias ✅. No hay visión digital comunicada. Sí hay apertura: el equipo tiene ganas de capacitarse ✅ y se aprovechan las oportunidades de producto nuevo.
-**Brecha prioritaria.** La predisposición existe y no está canalizada. Falta alguien que tenga el cambio como responsabilidad, no como añadido.
-**Costo de no actuar.** Toda mejora depende de que el dueño la impulse personalmente, lo que la pone en competencia con la operación diaria y la posterga indefinidamente.
+**Estrategia y Modelo de Negocio, 1.25, Inicial.** No hay estrategia digital formulada, ni indicadores, ni revisión periódica. La única inversión tecnológica identificable de los últimos años es la tienda de 2020, que nunca se activó. La exploración existe como reflejo ante productos nuevos, no como cartera. La brecha es que no hay ningún mecanismo que convierta una oportunidad en una decisión con presupuesto y responsable. Y el costo de no actuar es que la empresa depende de que el entorno siga siendo tan cómodo como fue hasta ahora: el día que deje de serlo, no hay capacidad de respuesta instalada.
 
-### Procesos y Operaciones — 2.50, Básico
-**Evidencia.** La producción está estandarizada por 53 años de oficio y cuenta con documentación básica ✅. Facturación y stock están digitalizados; el costeo y la toma de pedidos, no. Se generan datos continuos de producción, facturación y ventas, pero su uso para mejorar la eficiencia es reactivo y no forma un ciclo de mejora formal ✅.
-**Brecha prioritaria.** **La planta opera al límite, pero los datos disponibles no traducen esa saturación en un indicador de costo y capacidad.** La restricción se absorbe con horas extras ✅.
-**Costo de no actuar.** Es el CoI más cuantificable de todos (ver 5.5): las horas extras son un costo recurrente y medible que hoy figura como gasto de personal y no como costo de capacidad insuficiente.
+**Liderazgo y Cultura Digital, 1.50, Inicial.** El dueño toma todas las decisiones importantes y los hijos las secundarias. No hay una visión digital comunicada. Sí hay apertura: el equipo tiene ganas de capacitarse y aprovechan las oportunidades de producto nuevo. La brecha es que esa predisposición existe y no está canalizada, porque falta alguien que tenga el cambio como responsabilidad y no como un agregado. El costo de no actuar es que toda mejora depende de que el dueño la empuje personalmente, lo que la pone a competir contra la operación diaria y la posterga siempre.
 
-### Tecnología y Datos — 2.25, Básico
-**Evidencia.** El sistema es **Discovery, de Buenos Aires Software (BAS)**, orientado a la gestión de PyMEs comerciales e industriales: stock, cuentas corrientes de clientes y proveedores, listas de precios, cobros y pagos 🔎. Está **desactualizado, tiene algunos errores y no se puede integrar con otros sistemas** ✅. En paralelo viven planillas de cálculo con **las listas de precios, la manufactura y los costos** ✅, con backup ✅. La empresa elabora estadísticas mensuales, aunque no las integra en un tablero ni en indicadores gerenciales ✅.
-**Brecha prioritaria.** **El costeo por producto está fuera del sistema.** Lo que define el precio —la única ventaja competitiva del modelo— se calcula a mano, sobre una base que la propia empresa reconoce imprecisa.
-**Costo de no actuar.** Cada ajuste de lista de precios en contexto inflacionario amplía un error que nadie puede auditar. La empresa afirma que siempre vende con ganancia porque son productos de consumo masivo ✅, pero **no tiene cómo demostrarlo producto por producto**: es una creencia razonable, no un dato.
+**Procesos y Operaciones, 2.50, Básico.** La producción está estandarizada por 53 años de oficio y tiene documentación básica. Facturación y stock están digitalizados; el costeo y la toma de pedidos no. Generan datos continuos de producción, facturación y ventas, pero los usan de manera reactiva y no forman un ciclo de mejora. La brecha es que la planta opera al límite y los datos que tienen no traducen esa saturación en un indicador de costo y capacidad: la restricción se absorbe con horas extras. El costo de no actuar es el más medible de todos, y lo desarrollamos en el punto siguiente.
 
-### Personas y Habilidades — 1.50, Inicial
-**Evidencia.** Equipo estable, con oficio y sin rotación aparente. **Nadie se capacitó en nada digital en los últimos dos años, aunque tienen ganas** ✅.
-**Brecha prioritaria.** La distancia entre la predisposición declarada y la ausencia total de programa.
-**Costo de no actuar.** Es la brecha más barata de cerrar y la que condiciona a todas las demás: ninguna herramienta nueva rinde si nadie sabe usarla.
+**Tecnología y Datos, 2.25, Básico.** El sistema es Discovery, de Buenos Aires Software, pensado para pymes comerciales e industriales: maneja stock, cuentas corrientes de clientes y proveedores, listas de precios, cobros y pagos. Está desactualizado, tiene errores y no se puede integrar con otros sistemas. En paralelo viven planillas con las listas de precios, la manufactura y los costos, con backup. La empresa hace estadísticas mensuales, aunque no las integra en un tablero ni en indicadores gerenciales. La brecha es que el costeo por producto está fuera del sistema: lo que define el precio, que es la única ventaja competitiva que tienen, se calcula a mano sobre una base que ellos mismos reconocen imprecisa. El costo de no actuar es que cada ajuste de lista en contexto inflacionario agranda un error que nadie puede auditar. La empresa nos dijo que siempre venden con ganancia porque son productos de consumo masivo, pero no tienen cómo demostrarlo producto por producto. Es una creencia razonable, no un dato.
 
-### Clientes y Canales — 2.00, Básico
-**Evidencia.** WhatsApp es el canal principal de pedidos ✅ e Instagram sostiene presencia de marca 🔎. No hay CRM ✅, no se registran interacciones y no se conoce ni la concentración de facturación ni las causas de baja de distribuidores ✅. El distribuidor consulta stock por teléfono o yendo al depósito ✅.
-**Brecha prioritaria.** **El activo más valioso de la empresa —la red de 57 distribuidores— no tiene ningún sistema detrás.**
-**Costo de no actuar.** Una baja de cartera no se detecta, se descubre. Con clientes a 1.500 km y contacto mensual, el aviso puede llegar con meses de retraso. Es especialmente peligroso porque hoy el canal está conforme (ver Sección 4) y esa conformidad no se está midiendo.
+**Personas y Habilidades, 1.50, Inicial.** Equipo estable, con oficio y sin rotación aparente. Nadie se capacitó en nada digital en los últimos dos años, aunque tienen ganas. La brecha es la distancia entre esa predisposición y la ausencia total de programa. El costo de no actuar es indirecto pero pesa: es la brecha más barata de cerrar y condiciona a todas las demás, porque ninguna herramienta nueva rinde si nadie sabe usarla.
 
-### Gobierno — 1.50, Inicial
-**Evidencia.** No hay reuniones periódicas de dirección ni indicadores gerenciales definidos: *"no, muy pyme"* ✅. Existe un responsable del área de sistemas, aunque no hay roles formalizados para el gobierno de los datos y los procesos digitales ✅. Sí hay backup de planillas ✅ y sucesión operativa de hecho ✅. El proveedor único de film no está gestionado como riesgo ✅.
-**Brecha prioritaria.** **No existe una instancia periódica de dirección que consolide las estadísticas disponibles, las convierta en indicadores y las use para revisar el negocio.**
-**Costo de no actuar.** Es la dimensión que explica a todas las demás. Sin una instancia de revisión integrada, los problemas que no tienen un indicador formal —como el costo de la saturación, la concentración de la cartera o el margen por producto— pueden persistir sin ser dimensionados por la organización.
+**Clientes y Canales, 2.00, Básico.** WhatsApp es el canal principal de pedidos e Instagram sostiene presencia de marca. No hay CRM, no se registran las interacciones y no conocen ni la concentración de facturación ni las causas de baja de distribuidores. El distribuidor consulta stock por teléfono o yendo al depósito. La brecha es que el activo más valioso de la empresa, la red de 57 distribuidores, no tiene ningún sistema detrás. El costo de no actuar es que una baja de cartera no se detecta, se descubre: con clientes a 1.500 km y contacto mensual, el aviso puede llegar meses tarde. Y es más peligroso todavía porque hoy el canal está conforme, y esa conformidad no se está midiendo.
 
-## 5.5 Costo de No Actuar (CoI)
+**Gobierno, 1.50, Inicial.** No hay reuniones periódicas de dirección ni indicadores gerenciales definidos. Existe un responsable del área de sistemas, aunque no hay roles formalizados para el gobierno de los datos y los procesos digitales. Sí hay backup de planillas y sucesión operativa de hecho. El proveedor único de film no se gestiona como riesgo. La brecha es que no existe una instancia periódica de dirección que junte las estadísticas que ya tienen, las convierta en indicadores y las use para revisar el negocio. Y el costo de no actuar es que esta dimensión explica a todas las demás: sin una instancia de revisión integrada, los problemas que no tienen un indicador formal, como el costo de la saturación, la concentración de la cartera o el margen por producto, pueden seguir ahí sin que nadie los dimensione.
 
-Se aplica la fórmula de tres componentes vista en la Clase 3: **ventas perdidas + horas hombre + ineficiencias de inventario y calidad**.
+## 5.5 Costo de no actuar
 
-| Componente | Situación relevada | Estado del dato |
+Usamos la fórmula de tres componentes que vimos en la clase 3: ventas perdidas más horas hombre más ineficiencias de inventario y calidad.
+
+| Componente | Qué encontramos | Qué falta |
 |---|---|---|
-| **Ventas perdidas** | En algunas temporadas **no se llegaba a satisfacer la demanda de papas fritas** ✅. Hoy contenido con horas extras, con margen de respuesta nulo | ❓ Falta: cuántos pedidos/mes se recortan o rechazan, y el margen unitario |
-| **Horas hombre** | **Rehacer la lista de precios lleva mucho tiempo porque no hay sistema de costos** ✅. El resto de las tareas manuales no se percibe como carga | ❓ Falta: horas por actualización de lista, frecuencia anual y costo horario |
-| **Inventario y calidad** | **Paquetes rotos en tránsito**: único reclamo habitual del canal ✅. Pedidos incompletos poco frecuentes y de resolución sencilla ✅ | ❓ Falta: unidades rotas/mes y costo de reposición |
-| **Capacidad insuficiente** *(componente agregado)* | **Horas extras pagadas de forma sostenida** para cubrir la saturación de planta ✅ | ❓ Falta: horas extras mensuales y costo |
+| Ventas perdidas | En algunas temporadas no llegaban a cubrir la demanda de papas fritas. Hoy está contenido con horas extras, sin margen de respuesta | Cuántos pedidos por mes se recortan o se rechazan, y el margen por unidad |
+| Horas hombre | Rehacer la lista de precios lleva mucho tiempo porque no hay sistema de costos. El resto de las tareas manuales no se percibe como carga | Cuántas horas lleva cada actualización de lista, cuántas veces al año y el costo por hora |
+| Inventario y calidad | Paquetes rotos en el viaje, que es el único reclamo habitual del canal. Los pedidos incompletos son poco frecuentes y se resuelven fácil | Cuántas unidades se rompen por mes y qué cuesta reponerlas |
+| Capacidad insuficiente (lo agregamos nosotros) | Pagan horas extras de forma sostenida para tapar la saturación de la planta | Cuántas horas extras por mes y cuánto cuestan |
 
-> **Por qué el CoI no se cuantifica y eso es, en sí, el hallazgo.** Consultadas las tres magnitudes, las respuestas fueron que no se dispone del dato y que, en la percepción interna, los problemas son menores: los pedidos incompletos son raros y se arreglan fácil, las tareas manuales no llevan mucho tiempo, y la saturación hoy está cubierta.
->
-> **Esa percepción es coherente con un nivel de madurez Inicial en Gobierno (1.50).** La empresa genera estadísticas operativas, pero no mide las cuatro magnitudes necesarias para cuantificar el CoI ni las integra en una revisión periódica de dirección. Por eso, la respuesta solo puede ser "no parece mucho". El CoI no está bajo: está **no observado**. Y el propio hecho de que las cuatro magnitudes falten es la evidencia más fuerte de toda esta sección.
->
-> Se optó por **dejar los cuatro componentes explícitos con el dato faltante identificado**, en lugar de completarlos con estimaciones. Un número que la empresa no puede reconstruir no resistiría la primera pregunta de la dirección, y el propósito del CoI es justamente poder sostenerlo ante ella.
+Acá tenemos que ser honestos: no pudimos cuantificar el CoI, y eso en sí mismo es el hallazgo.
 
-### El componente accionable
+Cuando preguntamos por las tres magnitudes, las respuestas fueron que no tienen el dato y que, para lo que perciben adentro, los problemas son menores: los pedidos incompletos son raros y se arreglan fácil, las tareas manuales no llevan mucho tiempo, y la saturación hoy está cubierta.
 
-De los cuatro, **las horas extras son el único que la empresa ya está pagando y puede reconstruir de inmediato**: figuran en la liquidación de sueldos. Ese número transforma el argumento por completo. Hoy la saturación de planta aparece en los libros como gasto de personal; convertido en CoI, aparece como **el costo mensual de no haber ampliado la capacidad**, y se vuelve comparable contra la inversión que lo resolvería.
+Esa percepción encaja perfecto con un nivel Inicial en Gobierno. La empresa genera estadísticas operativas, pero no mide las cuatro magnitudes que harían falta para calcular el CoI ni las integra en una revisión periódica. Por eso la única respuesta posible es "no parece mucho". El costo no está bajo: está sin observar. Y que las cuatro magnitudes falten es la evidencia más fuerte de toda esta sección.
 
-> **Recomendación para cerrar la sección:** solicitar dos cifras —horas extras mensuales del último año y horas insumidas en rehacer la lista de precios— permite cuantificar dos de los cuatro componentes con datos existentes, sin ningún relevamiento nuevo.
+Decidimos dejar los cuatro componentes explícitos con el dato faltante identificado, en vez de completarlos con estimaciones. Un número que la empresa no puede reconstruir no aguanta la primera pregunta de la dirección, y el sentido del CoI es justamente poder sostenerlo delante de ella.
+
+De los cuatro, hay uno que la empresa ya está pagando y podría reconstruir enseguida: las horas extras, que figuran en la liquidación de sueldos. Ese número cambia el argumento por completo. Hoy la saturación de planta aparece en los libros como gasto de personal; convertida en CoI, aparece como el costo mensual de no haber ampliado la capacidad, y recién ahí se puede comparar contra lo que costaría resolverlo.
+
+Con dos cifras alcanzaría para cuantificar la mitad del CoI sin salir a relevar nada nuevo: las horas extras mensuales del último año y las horas que lleva rehacer la lista de precios.

@@ -1,202 +1,167 @@
-# Business Model Canvas AS-IS — Dulxelitos
-
-**Organización:** Dulxelitos — empresa familiar (razón social vinculada: Chinarro y Gijón)
-**Rubro:** Fabricación, fraccionamiento y distribución de snacks
-**Origen:** San Rafael, Mendoza — **fundada en 1973** (53 años de trayectoria)
-**Domicilio:** Av. Pedro Vargas 2400, (5600) San Rafael, Mendoza
-**Dotación:** 15 a 20 personas
-**Alcance comercial:** 57 distribuidores en 7 provincias y una cadena regional de supermercados
-**Trabajo Práctico Final — Parte 1, Sección 3 (Modelo de negocio actual)**
-
----
-
-## Referencias de origen del dato
-
-| Marca | Significado |
-|---|---|
-| ✅ | Confirmado por el equipo con acceso a la organización |
-| 🔎 | Verificado en fuentes públicas (sitio oficial, Instagram, listados de mayoristas y cadenas) |
-| ❓ | Pendiente de relevar en entrevista |
-
----
+# Business Model Canvas AS-IS
 
 ## 1. Segmentos de clientes
 
 *¿Para quién creamos valor?*
 
-**Segmento principal — Distribuidores mayoristas** ✅🔎
+**Distribuidores mayoristas.** Es el corazón del negocio: 57 distribuidores activos en 7 provincias.
 
-Es el núcleo absoluto del negocio: **57 distribuidores activos declarados en 7 provincias**.
-
-| Provincia | Distribuidores | Localidades cubiertas |
+| Provincia | Distribuidores | Localidades |
 |---|---:|---|
 | Río Negro | 19 | Gral. Roca, Cipolletti, Catriel, Cinco Saltos, Bariloche, El Bolsón, Villa Regina, Allen, Huergo, Fray Luis Beltrán, Barda del Medio, Choele Choel, Sierra Grande |
 | Neuquén | 12 | Capital, Plottier, Senillosa, Zapala, Chos Malal, Rincón de los Sauces |
-| San Luis | 9 | Ciudad de San Luis, Villa Mercedes |
+| San Luis | 9 | San Luis, Villa Mercedes |
 | Mendoza | 6 | San Rafael, Gral. Alvear, Malargüe |
 | Chubut | 4 | Comodoro Rivadavia, Esquel, Puerto Madryn |
 | Buenos Aires | 4 | Bahía Blanca, Mar del Plata, Lincoln |
 | La Pampa | 3 | Santa Rosa, 25 de Mayo, Gral. Pico |
 | **Total** | **57** | |
 
-> **Hallazgo central:** la **Patagonia concentra 35 de los 57 distribuidores (61%)**, mientras que Mendoza —la provincia de origen— reúne apenas 6 (10,5%). Dulxelitos es una empresa mendocina cuyo mercado real está fuera de Cuyo. Toda decisión sobre logística, precios y servicio debe leerse con esa geografía, no con la de San Rafael.
+Lo que salta a la vista es que la Patagonia concentra 35 de los 57 distribuidores, el 61 por ciento, mientras que Mendoza, que es donde está la fábrica, tiene 6. Cualquier decisión sobre logística, precios o servicio hay que pensarla con ese mapa y no con el de San Rafael.
 
-**Segundo segmento — Cadena regional de supermercados**
+**Una cadena de supermercados.** Aiello Supermercados, de San Luis. Es la única con la que trabajan, de manera directa y sin distribuidor en el medio. Aiello es una empresa familiar puntana fundada en 1972, líder en su provincia, con 10 sucursales, y tiene como política comprarle a proveedores locales. Eso explica bastante cómo una pyme mendocina llegó a su góndola.
 
-- **Aiello Supermercados S.A. (San Luis)** ✅ — es la **única cadena con la que Dulxelitos opera**, con relación contractual directa y sin intermediación de distribuidor. Aiello es una empresa familiar puntana **fundada en 1972**, líder del mercado provincial, con **10 sucursales** en la ciudad de San Luis y alrededores, y con una estrategia declarada de **estímulo a los proveedores locales**. 🔎 Esa política es la puerta de entrada que explica el acceso de una PyME mendocina a su góndola.
+La empresa le vende únicamente al canal, nunca al consumidor final. No hay segmento minorista: todo el modelo está armado sobre distribuidores y esa única cadena. Que algunos clientes retiren la mercadería en la fábrica es una forma de entrega, no un segmento aparte.
 
-> **La empresa vende exclusivamente a canal, nunca a consumidor final.** ✅ No existe segmento minorista: el modelo entero está construido sobre distribuidores mayoristas y una única cadena. La modalidad de retiro en fábrica es una forma de entrega, no un segmento distinto (ver bloque 3).
-
-> ❓ **Dato faltante crítico:** no se conoce el peso relativo de cada distribuidor sobre la facturación. Con 57 clientes en cartera, no puede afirmarse si el modelo está sanamente atomizado o si unos pocos concentran el volumen. Se consultó a la empresa y **el dato no existe**: no se mide la concentración de la propia cartera ✅. La ausencia es en sí misma un hallazgo, y se analiza como tal en la Sección 5.
+Lo que no pudimos saber es cuánto factura cada distribuidor. Con 57 clientes no sabemos si está bien repartido o si unos pocos concentran el volumen. Lo preguntamos y el dato no existe: la empresa no mide la concentración de su propia cartera. Esa ausencia ya es un hallazgo y la retomamos en la sección 5.
 
 ## 2. Propuesta de valor
 
 *¿Qué problema resolvemos?*
 
-La propuesta **no está dirigida al consumidor final sino al canal**, y la propia empresa la formula así:
+La propuesta no apunta al que se come el snack sino al que lo revende, y la empresa lo dice así en su propia página:
 
-- **Rentabilidad para el distribuidor** — *"Tenemos una amplia variedad de productos para venta mayorista y minorista con una excelente rentabilidad"*. 🔎
-- **Capacidad logística como diferencial** — *"Nuestra experiencia en logística nos ha convertido en una alternativa eficaz para aumentar ganancias a distribuidores mayoristas en una amplia zona de nuestro país"*. 🔎
-- **Precio competitivo mediante control de costos** — *"encontrar el equilibrio justo entre la calidad de las materias primas que utilizamos y el costo final para poder competir en el mercado"*. 🔎
-- **Portafolio amplio en un único proveedor**, que le evita al mayorista fragmentar sus compras. 🔎
-- **Formatos de reventa fraccionable** (1 Kg y 2 Kg), que permiten al comercio minorista generar margen propio. 🔎
-
-**Catálogo verificado, con presentaciones**
+- Rentabilidad para el distribuidor: "tenemos una amplia variedad de productos para venta mayorista y minorista con una excelente rentabilidad".
+- La logística como diferencial: "nuestra experiencia en logística nos ha convertido en una alternativa eficaz para aumentar ganancias a distribuidores mayoristas en una amplia zona de nuestro país".
+- Precio competitivo por control de costos: "encontrar el equilibrio justo entre la calidad de las materias primas que utilizamos y el costo final para poder competir en el mercado".
+- Catálogo amplio en un solo proveedor, así el mayorista no tiene que fragmentar sus compras.
+- Formatos de 1 y 2 Kg para que el comercio chico fraccione y le saque margen.
 
 | Línea | Producto | Variedades | Presentaciones |
 |---|---|---|---|
-| Salados | Papas Fritas | Clásicas / Tipo Pay / Saborizadas | Varias |
-| Salados | Palitos de Maíz | Queso | 80 g / 180 g / 360 g / 800 g |
-| Salados | Palitos Salados | Clásico | 70 g / 160 g / 1 Kg |
+| Salados | Papas fritas | Clásicas, tipo pay, saborizadas | Varias |
+| Salados | Palitos de maíz | Queso | 80 g / 180 g / 360 g / 800 g |
+| Salados | Palitos salados | Clásico | 70 g / 160 g / 1 Kg |
 | Salados | Conitos | Pizza | 800 g |
 | Salados | Cascarones | Pizza | 500 g |
-| Salados | Maní | Repelado salado / Tostado / Con cáscara | Varias |
-| Dulces | Maíz Inflado | Tipo "tutuca" | 35 g / 80 g / 180 g / 1 Kg / 2 Kg |
-| Dulces | Bolitas Crocantes | Sabor frutas | 180 g / 500 g / 1 Kg |
-| **Repostería** | Almidón de Maíz | Fécula | 500 g / 1 Kg |
-| **Repostería** | Granas | Variedad de colores | 20 g |
-| **Repostería** | Esencia de Vainilla | Artificial | 100 cm³ |
+| Salados | Maní | Repelado salado, tostado, con cáscara | Varias |
+| Dulces | Maíz inflado | Tipo tutuca | 35 g / 80 g / 180 g / 1 Kg / 2 Kg |
+| Dulces | Bolitas crocantes | Sabor frutas | 180 g / 500 g / 1 Kg |
+| Repostería | Almidón de maíz | Fécula | 500 g / 1 Kg |
+| Repostería | Granas | Varios colores | 20 g |
+| Repostería | Esencia de vainilla | Artificial | 100 cm³ |
 
-**Lectura estratégica:** la propuesta de valor es de **liderazgo en costos** (Porter), no de diferenciación. Compite por precio y por servicio al canal, no por atributos del producto percibidos por el consumidor.
+Mirándolo con lo que vimos en clase, la propuesta es de liderazgo en costos, no de diferenciación. Compiten por precio y por servicio al canal, no por atributos del producto que el consumidor perciba.
 
 ## 3. Canales
 
 *¿Cómo llegamos a ellos?*
 
-**Canales operativos**
+- Flota propia de reparto.
+- Transporte tercerizado, que es lo que hace posible llegar a la Patagonia.
+- Retiro en fábrica.
+- Un viajante con zona asignada, que entrega y da presencia en el territorio. No administra la cartera: eso se maneja desde la empresa.
+- WhatsApp y teléfono, que es por donde entran los pedidos y es el contacto declarado para los 57 distribuidores.
+- Contacto comercial directo con Aiello.
 
-- **Flota propia de reparto.** ✅
-- **Transporte tercerizado** ✅ — es lo que hace viable el alcance patagónico.
-- **Retiro en fábrica por el propio cliente.** ✅
-- **Viajante con zona asignada** ✅ — cumple una **función de entrega y de presencia en el territorio**. No es un preventista que administre la cartera: la relación comercial se gestiona desde la empresa.
-- **WhatsApp y teléfono** ✅ — canal principal de toma de pedidos. Es también el canal de contacto declarado para los 57 distribuidores. 🔎
-- **Contacto comercial directo con Aiello** ✅ para el canal supermercadista.
+Sobre lo digital: la empresa no vende online, aunque la tienda esté construida. El sitio tiene carrito, checkout, registro de usuario y panel de órdenes, y el catálogo está publicado con las tres líneas, sus variedades y presentaciones. Lo que no hay es operación: no se ve medio de pago y la empresa le vende solo al canal.
 
-**Canal digital: presencia sin venta**
+En redes tienen Instagram con unos 2.777 seguidores y publicaciones activas, más Facebook. Sirven para que la marca esté presente y para que los contacten, no para vender.
 
-- **La empresa no vende online, aunque la tienda está construida.** ✅ El sitio dulxelitos.com.ar tiene infraestructura de e-commerce completa —carrito, checkout, registro de usuario y panel de órdenes— **y el catálogo publicado**, con las tres líneas de producto, sus variedades y presentaciones. 🔎 Lo que no existe es la operación: no hay medio de pago visible y la empresa vende exclusivamente a canal.
-- **Redes sociales** ✅ — Instagram con ~2.777 seguidores y publicaciones activas; Facebook existente. Sostienen presencia de marca y contacto, no venta. 🔎
-
-> **Un canal terminado y desactivado, no abandonado a medio hacer.** El pie del sitio consigna **"2020"** como último año de actualización. La lectura inicial del equipo fue que la infraestructura había quedado inconclusa; la verificación posterior del sitio mostró que el catálogo está cargado y la tienda operativa a nivel técnico. Lo que falta es la decisión de usarla, coherente con un modelo que vende solo a mayoristas. Es capacidad ya pagada y sin activar.
+El pie de la página dice 2020 como último año de actualización. Al principio pensamos que la infraestructura había quedado a medio hacer, pero cuando fuimos a mirar bien resultó que está terminada y el catálogo cargado. Lo que falta es la decisión de usarla, que además es coherente con venderle solo a mayoristas. O sea que es capacidad que ya se pagó y está apagada.
 
 ## 4. Relación con clientes
 
 *¿Cómo los fidelizamos?*
 
-- **El vínculo comercial lo mantiene la empresa, no el viajante.** ✅ El viajante entrega mercadería y da presencia en el territorio, pero la relación con cada distribuidor se administra de forma centralizada. Esto evita el riesgo clásico de que la cartera se vaya con el vendedor, pero **traslada la carga de sostener 57 relaciones a la estructura interna**, que es reducida.
-- **Exclusividad territorial** acordada con los distribuidores ✅ — coherente con la distribución geográfica observada: en la mayoría de las localidades figuran uno o dos distribuidores, no una competencia abierta entre ellos. 🔎
-- **Atención al público limitada** ✅ — la atención se presta en franjas horarias acotadas de lunes a viernes, sin ningún canal de autogestión disponible fuera de ese rango. Un distribuidor de Comodoro Rivadavia o Bariloche solo puede operar dentro de esa ventana. 🔎
-- **Sin política formal de fidelización ni sistema de gestión de la relación (CRM).** ✅ El cliente se sostiene por costumbre, precio y contacto directo.
+- La relación la mantiene la empresa, no el viajante. Eso evita el problema clásico de que la cartera se vaya con el vendedor, pero pone la carga de sostener 57 relaciones sobre una estructura chica.
+- Hay exclusividad territorial acordada con los distribuidores, y se nota en el mapa: en casi todas las localidades figura uno o dos, no varios compitiendo entre sí.
+- La atención es de lunes a viernes en un horario acotado, y no hay ningún canal de autogestión fuera de esa franja. Un distribuidor de Comodoro Rivadavia o de Bariloche solo puede operar en esa ventana.
+- No hay política de fidelización ni CRM. El cliente se queda por costumbre, precio y trato directo.
 
-> **Evidencia de datos maestros sin control:** la propia lista pública de distribuidores contiene registros duplicados. "Organización Don Tomás" (General Roca) y "Distribuidora Don Bruno" (Huergo) figuran con el mismo número de WhatsApp; "Steck Héctor" (Choele Choel) y "Amestoy Javier" (Sierra Grande) figuran con la misma dirección. Si el listado que la empresa publica hacia afuera tiene errores, es razonable presumir que el registro interno de clientes tampoco está normalizado. 🔎
+Un detalle que encontramos revisando la lista pública de distribuidores: hay registros duplicados. "Organización Don Tomás" de General Roca y "Distribuidora Don Bruno" de Huergo figuran con el mismo número de WhatsApp, y "Steck Héctor" de Choele Choel y "Amestoy Javier" de Sierra Grande con la misma dirección. Si la lista que la empresa publica hacia afuera tiene errores, es razonable suponer que el registro interno tampoco está prolijo.
 
 ## 5. Fuentes de ingreso
 
 *¿Por qué pagan nuestros clientes?*
 
-- **Venta mayorista a distribuidores** ✅ — fuente principal, apalancada en volumen y baja rentabilidad unitaria.
-- **Venta directa a la cadena Aiello (San Luis).** ✅
-- **Venta de producto fraccionado** (línea de repostería y formatos de 1-2 Kg). ✅
+- Venta mayorista a distribuidores, que es la fuente principal, basada en volumen con poca ganancia por unidad.
+- Venta directa a Aiello.
+- Venta de producto fraccionado, o sea la línea de repostería y los formatos de 1 y 2 Kg.
 
-**Mecanismos de cobro:** contado y efectivo, cuenta corriente a aproximadamente 30 días, y cheques diferidos. ✅
+No hay ingreso por venta minorista ni por internet: toda la facturación viene del canal mayorista y de Aiello.
 
-**Comportamiento de la demanda:** pareja a lo largo del año, sin estacionalidad marcada ✅ — consistente con un producto de consumo cotidiano y con una cobertura geográfica amplia que compensa estacionalidades locales.
+Cobran de contado y en efectivo, con cuenta corriente a unos 30 días, y con cheques diferidos.
+
+La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene sentido para un producto de consumo diario y con una cobertura geográfica amplia que compensa las estacionalidades de cada zona.
 
 ## 6. Recursos clave
 
 *¿Qué activos necesitamos?*
 
-- **La red de 57 distribuidores** ✅🔎 — es el activo más valioso y menos reconocido de la empresa. Construir cobertura en 7 provincias toma décadas; es la verdadera barrera de entrada que Dulxelitos posee.
-- **Línea de producción operando al límite de su capacidad** ✅ — la planta no da abasto. La producción es hoy el cuello de botella para crecer.
-- **Conocimiento concentrado en la familia** ✅ — recetas, estructura de costos y contactos comerciales residen en pocas personas. Con un matiz relevado después: **hay segunda generación operando**. El dueño toma todas las decisiones importantes y sus dos hijos las secundarias (reposición, compras, cuentas de clientes), de modo que si faltara un dueño durante un mes la operación no se frena ✅. Lo concentrado no es la operación sino el criterio estratégico.
-- **Marca "Dulxelitos — Ponele sabor"** 🔎 — con 53 años de historia, presencia en góndola de supermercado y reconocimiento acumulado en el canal mayorista de siete provincias.
-- **Flota propia de reparto** ✅ y capacidad logística acumulada, que la propia empresa reivindica como diferencial.
-- **Planilla de cálculo de costos por producto** ✅ — se la incluye como recurso porque de ella depende hoy la fijación de precios de todo el catálogo, **pese a ser inexacta y contener errores reconocidos**.
-- **Habilitación bromatológica y registros de producto (RNE / RNPA)** ✅ — activo regulatorio vigente. Es la condición que habilita el tránsito interprovincial de la mercadería y el ingreso a góndola de supermercado, y constituye una barrera de entrada real frente a competidores informales.
+- **La red de 57 distribuidores.** Para nosotros es el activo más valioso y el menos reconocido. Armar cobertura en 7 provincias lleva décadas y es la verdadera barrera de entrada que tienen.
+- **La línea de producción al límite.** La planta no da abasto y hoy es el cuello de botella para crecer.
+- **El conocimiento de la familia.** Recetas, estructura de costos y contactos comerciales están en pocas manos. Con un matiz que averiguamos después: hay segunda generación trabajando. El dueño decide lo importante y los dos hijos lo secundario (reposición, compras, cuentas de clientes), así que si faltara un dueño un mes la operación no se frena. Lo concentrado no es la operación sino el criterio estratégico.
+- **La marca**, con 53 años, presencia en góndola de supermercado y reconocimiento en el canal mayorista de siete provincias.
+- **La flota propia** y la capacidad logística que la empresa reivindica como diferencial.
+- **La planilla de costos por producto.** La ponemos como recurso porque de ella depende el precio de todo el catálogo, aunque sea imprecisa y con errores que la propia empresa reconoce.
+- **Las habilitaciones bromatológicas y los registros RNE y RNPA.** Es lo que les permite mover mercadería entre provincias y entrar a un supermercado, y es una barrera real frente a competidores informales.
 
 ## 7. Actividades clave
 
 *¿Qué hacemos para entregar valor?*
 
-- **Producción:** extrusión, freído y saborizado de las líneas propias. ✅🔎
-- **Fraccionamiento y envasado** ✅ — actividad plenamente vigente, visible en la línea de repostería y en los formatos a granel.
-- **Compras de materia prima y de packaging.** ✅
-- **Distribución y logística** ✅ — combinando flota propia y transporte tercerizado para sostener el alcance patagónico. Es la actividad que la empresa declara como su diferencial.
-- **Reparto y presencia en territorio mediante viajante** ✅ — con la gestión comercial retenida en la empresa.
-- **Gestión centralizada de la relación con los 57 distribuidores.** ✅
-- **Administración, facturación y cobranza** ✅ — repartidas entre planillas de cálculo y un sistema de gestión, **sin integración entre ambos**.
+- Producción: extrusión, freído y saborizado de las líneas propias.
+- Fraccionamiento y envasado, que está bien vivo y se ve en la línea de repostería y en los formatos a granel.
+- Compras de materia prima y de packaging.
+- Distribución y logística, combinando flota propia y transporte tercerizado para llegar a la Patagonia. Es lo que la empresa declara como su diferencial.
+- Reparto y presencia en el territorio con el viajante, con la gestión comercial retenida en la empresa.
+- Manejo centralizado de la relación con los 57 distribuidores.
+- Administración, facturación y cobranza, repartidas entre planillas y un sistema de gestión que no se hablan entre sí.
 
 ## 8. Socios clave
 
-*¿Quiénes son nuestros aliados estratégicos?*
+*¿Quiénes son nuestros aliados?*
 
-- **Proveedores de packaging y film impreso** ✅ — **dependencia real**: exigen mínimos de compra y el arte impreso es específico de la marca, lo que encarece y demora cualquier cambio de proveedor.
-- **Proveedores de materia prima a granel** ✅ — **críticos pero sustituibles**: su interrupción detiene la producción, pero existen alternativas de mercado. No constituyen una dependencia.
-- **Proveedores de producto terminado a granel** ✅ — abastecen la línea de fraccionamiento (esencias, granas, almidón, maní). Son socios necesarios para sostener la amplitud de catálogo sin ampliar la planta.
-- **Los 57 distribuidores** ✅🔎 — cumplen simultáneamente el rol de socio y de cliente: son quienes ponen el capital de trabajo y el conocimiento del territorio en cada provincia.
-- **Transportistas tercerizados** ✅ — habilitan la cobertura que la empresa no puede alcanzar con flota propia.
-- **Aiello Supermercados (San Luis)** ✅ — socio comercial de escala comparable, no un retailer que imponga condiciones. Su política de estímulo a proveedores locales lo vuelve un aliado estratégico más que un simple cliente. 🔎
-- **Proveedor del software de gestión** ✅ y proveedor del sitio web (Productus). 🔎
+- **Proveedores de packaging y film impreso.** Es una dependencia real: hay uno solo, piden mínimos de compra y el arte es específico de la marca, así que cambiar de proveedor encarece y demora.
+- **Proveedores de materia prima a granel.** Críticos pero reemplazables: si fallan se frena la producción, pero hay alternativas.
+- **Proveedores de producto terminado a granel**, que abastecen la línea de fraccionamiento (esencias, granas, almidón, maní). Permiten tener un catálogo amplio sin agrandar la planta.
+- **Los 57 distribuidores**, que son socios y clientes a la vez: ponen el capital de trabajo y conocen el territorio de cada provincia.
+- **Transportistas tercerizados**, que dan la cobertura que la flota propia no alcanza.
+- **Aiello Supermercados**, que es un socio comercial de tamaño parecido y no un retailer que imponga condiciones.
+- **El proveedor del sistema de gestión** y el de la página web (Productus).
 
 ## 9. Estructura de costos
 
-*¿Cuáles son nuestros principales costos?*
+*¿Cuáles son los principales costos?*
 
-- **Materia prima** ✅ — el componente más pesado de la estructura, consistente con un modelo de liderazgo en costos donde el margen depende de comprar bien.
-- **Packaging y film impreso** 🔎 — en la categoría snacks el envase representa una porción del costo comparable al contenido. Se agrava por la cantidad de presentaciones del catálogo (más de 25 combinaciones de producto y formato), cada una con su propio arte y su mínimo de compra.
-- **Mano de obra** ✅ — 15 a 20 personas entre producción, envasado, reparto y administración.
-- **Logística y flete** ✅ — el snack es un producto de alto volumen y bajo peso, lo que encarece el costo por unidad transportada. Con el 61% de la cartera en Patagonia, la distancia media al cliente es alta.
-- **Energía y mantenimiento de la línea de producción** ✅ — costo relevante y agravado por operar al límite de capacidad: una línea saturada se desgasta más rápido y deja menos ventanas para el mantenimiento preventivo.
-- **Costo financiero** ✅ — derivado de la cuenta corriente a 30 días y de los cheques diferidos.
+- **Materia prima**, que es el componente más pesado y tiene sentido en un modelo donde el margen depende de comprar bien.
+- **Packaging y film impreso.** En snacks el envase pesa casi tanto como el contenido en la estructura de costos, y se agrava por la cantidad de presentaciones: más de 25 combinaciones, cada una con su arte y su mínimo de compra.
+- **Mano de obra**, entre 15 y 20 personas repartidas en producción, envasado, reparto y administración.
+- **Logística y flete.** El snack ocupa mucho y pesa poco, así que el costo por unidad transportada es alto. Con el 61 por ciento de la cartera en la Patagonia, la distancia promedio al cliente es grande.
+- **Energía y mantenimiento**, agravado por trabajar al límite: una línea saturada se desgasta más y deja menos ventanas para el mantenimiento preventivo.
+- **Costo financiero**, por la cuenta corriente a 30 días y los cheques diferidos.
 
-> ❓ **Dato faltante crítico:** ningún componente de costo está asignado con precisión a cada producto. El costeo por SKU existe en planilla, pero la propia empresa reconoce que es inexacto y contiene errores. Se fija precio sobre una base que se sabe equivocada, en un modelo cuya única ventaja declarada es el precio.
-
----
+Y acá está el problema de fondo: ningún componente de costo está asignado con precisión a cada producto. El costeo por producto existe en una planilla, pero la empresa reconoce que es impreciso y que tiene errores. O sea que fijan precio sobre una base que saben equivocada, en un modelo cuya única ventaja declarada es justamente el precio.
 
 ## Síntesis del canvas
 
-Dulxelitos opera un **modelo industrial de volumen orientado al canal mayorista**, sostenido durante 53 años. Fabrica y fracciona snacks de bajo precio unitario y los coloca a través de una red de 57 distribuidores que le da alcance en 7 provincias sin obligarla a construir una fuerza de ventas propia extendida. La única excepción a ese esquema indirecto es Aiello, en San Luis. Su ventaja declarada no es el producto, sino la combinación de **precio y capacidad logística**: le vende rentabilidad al canal.
+Dulxelitos tiene un modelo industrial de volumen orientado al canal mayorista, sostenido durante 53 años. Fabrica y fracciona snacks baratos y los coloca a través de 57 distribuidores que le dan alcance en 7 provincias sin obligarla a armar una fuerza de ventas propia enorme. La única excepción es Aiello. Su ventaja no es el producto sino la combinación de precio y logística: le vende rentabilidad al canal.
 
-El canvas deja expuestos cinco puntos de fragilidad:
+Del canvas salen cinco puntos flojos:
 
-1. **La ventaja es el precio, pero el costo no se conoce.** El modelo compite por costo y fija precios sobre una planilla que la propia empresa admite errónea.
-2. **La capacidad de planta está saturada** mientras la empresa sigue tomando pedidos por canales que no se comunican entre sí: viajante, WhatsApp, teléfono y sistema de gestión.
-3. **El activo más valioso —la red de distribuidores— es el peor administrado.** No hay CRM, no se mide el peso de cada cliente, y el registro publicado contiene duplicaciones.
-4. **Los recursos críticos son personas, no procesos.** Las recetas, los costos y la relación con los 57 distribuidores se administran de forma centralizada y descansan sobre la familia, sin un sistema que los sostenga. La empresa evitó el riesgo de que la cartera se fuera con un vendedor, pero a cambio concentró toda la carga comercial en su núcleo directivo. La **continuidad operativa está cubierta** por la segunda generación ✅; la que sigue concentrada en una sola persona es la **decisión estratégica**.
-5. **Se construyó un canal digital completo y se lo dejó apagado.** El sitio tiene e-commerce —carrito, checkout, cuentas de usuario— **con el catálogo cargado** desde 2020, pero sin medio de pago ni operación. No es una obra inconclusa: es capacidad instalada que la empresa decidió no usar. Es, por lejos, la oportunidad más barata del modelo, porque la inversión ya está hecha.
-
----
+1. **Compiten por precio pero no saben cuánto les cuesta.** Fijan precios sobre una planilla que la empresa admite equivocada.
+2. **La planta está saturada** y siguen tomando pedidos por canales que no se comunican entre sí: viajante, WhatsApp, teléfono y sistema de gestión.
+3. **El activo más valioso es el peor administrado.** No hay CRM, no se mide cuánto pesa cada cliente, y hasta la lista que publican tiene duplicados.
+4. **Los recursos críticos son personas, no procesos.** Recetas, costos y la relación con los distribuidores se manejan de forma centralizada y descansan sobre la familia. La continuidad operativa está cubierta por los hijos; la decisión estratégica sigue en una sola cabeza.
+5. **Construyeron un canal digital completo y lo dejaron apagado.** El sitio tiene e-commerce con el catálogo cargado desde 2020, pero sin medio de pago ni operación. No es una obra a medio terminar: es capacidad instalada que decidieron no usar, y por eso es la oportunidad más barata que tienen.
 
 ## Fuentes
 
-- Sitio oficial dulxelitos.com.ar — secciones Bienvenido, Productos, Nosotros y Distribuidores (consultado el 4 de septiembre de 2026).
-- Instagram @dulxelitos — perfil, biografía y publicaciones.
-- Sitio oficial superaiello.com.ar — sección Nuestra Historia, y Horarios y Sucursales.
-- Listados de mayoristas regionales de la zona de influencia.
-- Entrevistas y observación del equipo sobre la organización.
+- Página oficial dulxelitos.com.ar, secciones Bienvenido, Productos, Nosotros y Distribuidores (consultada el 4 de septiembre de 2026).
+- Instagram @dulxelitos: perfil, biografía y publicaciones.
+- Página oficial superaiello.com.ar, secciones Nuestra Historia y Horarios y Sucursales.
+- Listados de mayoristas regionales de la zona.
+- Entrevistas y observación del equipo en la empresa.
 
-**Nota sobre domicilios (resuelta):** el sitio oficial consigna Av. Pedro Vargas 2400, San Rafael, y listados comerciales de terceros registran además Luis Tirasso 1171 y Coronel Suárez 1180. Confirmado con la empresa: **la fábrica, el depósito y la oficina funcionan los tres en Av. Pedro Vargas 2400** ✅; las otras dos direcciones no corresponden a la operación actual.
-
----
-
-*La lectura analítica del canvas (lógica de valor, Explotación vs. Exploración, debilidades y dependencias, tensiones del modelo actual) está en `03 - Lectura analítica del BMC.md`, y completa la Sección 3 del enunciado.*
+Sobre las direcciones: la página oficial dice Av. Pedro Vargas 2400, San Rafael, y algunos listados comerciales agregan Luis Tirasso 1171 y Coronel Suárez 1180. Lo preguntamos: la fábrica, el depósito y la oficina están los tres en Pedro Vargas 2400, las otras dos no corresponden a la operación de hoy.
