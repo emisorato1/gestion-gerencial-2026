@@ -54,56 +54,24 @@ def renombrar(ls, mapa):
 hoy = datetime.date.today()
 PB = "<!--PAGEBREAK-->"
 
-L = []
-# ---------------------------------------------------------------- caratula
-L.append("# Trabajo Práctico Final, Parte 1")
-L.append("")
-L.append("## Diagnóstico gerencial de Dulxelitos")
-L.append("")
-L.append("")
-L.append("**Universidad Tecnológica Nacional**")
-L.append("")
-L.append("**Facultad Regional San Rafael**")
-L.append("")
-L.append("Carrera: Ingeniería en Sistemas de Información. Plan 2026.")
-L.append("")
-L.append("Cátedra: Gestión Gerencial, quinto año.")
-L.append("")
-L.append("Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol.")
-L.append("")
-L.append("")
-L.append("**Organización analizada**")
-L.append("")
-L.append("Dulxelitos. Fabricación, fraccionamiento y distribución de snacks.")
-L.append("San Rafael, Mendoza. En actividad desde 1973.")
-L.append("")
-L.append("")
-L.append("**Integrantes del grupo**")
-L.append("")
-L.append("_(completar con apellido y nombre de cada integrante)_")
-L.append("")
-L.append("")
-L.append("**Año:** 2026")
-L.append("")
-L.append("**Fecha de entrega:** %s" % hoy.strftime("%d/%m/%Y"))
-L.append("")
-L.append(PB)
-L.append("")
+# La portada va como metadatos: pandoc los mapea a los estilos Title y Subtitle
+# de Word, en vez de a un parrafo cualquiera en negrita.
+META = """---
+title: "Trabajo Práctico Final, Parte 1"
+subtitle: "Diagnóstico gerencial de Dulxelitos"
+author:
+  - "Universidad Tecnológica Nacional, Facultad Regional San Rafael"
+  - "Ingeniería en Sistemas de Información, Plan 2026"
+  - "Cátedra: Gestión Gerencial, quinto año"
+  - "Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol"
+  - "Organización analizada: Dulxelitos, San Rafael, Mendoza, desde 1973"
+  - "Integrantes: (completar con apellido y nombre de cada integrante)"
+date: "%s"
+lang: es
+---
+""" % hoy.strftime("%d/%m/%Y")
 
-# ---------------------------------------------------------------- indice
-L.append("## Índice")
-L.append("")
-L.append("1. La organización")
-L.append("2. El contexto")
-L.append("3. Modelo de negocio actual")
-L.append("4. Propuesta de valor actual")
-L.append("5. Madurez y capacidades")
-L.append("6. Conclusiones del diagnóstico")
-L.append("7. Bibliografía")
-L.append("8. Anexos")
-L.append("")
-L.append(PB)
-L.append("")
+L = []
 
 # ---------------------------------------------------------------- introduccion
 L.append("## Introducción")
@@ -281,31 +249,28 @@ L.append("")
 
 crudo = re.sub(r"\n{4,}", "\n\n\n", "\n".join(L)).rstrip() + "\n"
 
-# El .md que se entrega no lleva marcas de salto: ahi el separador es la regla.
-L.append("")
-L.append(PB)
-L.append("")
-L.append("### Anexo II: herramientas de análisis aplicadas")
-L.append("")
-herr = leer("herramientas.md")
-# arranca en el cuadro general y termina antes de la adaptacion, que ya esta en 5.1
-herr = hasta(desde(herr, "## Cuadro general"), "## Una adaptación que hicimos")
-L += renombrar(demote(herr, 2), {
-    "#### Cuadro general": "**Cuadro general**",
-    "#### Cómo se encadenan": "**Cómo se encadenan**",
-    "#### Herramientas que no usamos, y por qué": "**Herramientas que no usamos, y por qué**",
-})
-L.append("")
+# Indice: en el .md es una lista escrita; en docx y pdf lo genera pandoc (--toc),
+# que en Word es un campo TDC de verdad, actualizable con F9.
+titulos = [l[3:].strip() for l in crudo.split("\n") if l.startswith("## ")]
+indice_md = "## Índice\n\n" + "\n".join("%d. %s" % (i, t) for i, t in enumerate(titulos, 1))
 
-crudo = re.sub(r"\n{4,}", "\n\n\n", "\n".join(L)).rstrip() + "\n"
+# El titulo del documento vive en los metadatos, asi que el cuerpo arranca un
+# nivel mas abajo de lo necesario: subimos todo uno. Las secciones pasan a ser
+# Titulo 1, sus puntos Titulo 2 y los subpuntos Titulo 3, que es lo que toma
+# el indice automatico de Word (TOC \o "1-3").
+def subir_nivel(texto):
+    return "\n".join(l[1:] if l.startswith("##") else l for l in texto.split("\n"))
 
-md = crudo.replace(PB, "---")
+crudo = subir_nivel(crudo)
+indice_md = subir_nivel(indice_md)
 
-# Para docx y pdf el salto tiene que ser un salto de pagina de verdad.
+md = META + crudo.replace("<!--INDICE-->", indice_md).replace(PB, "---")
+
 SALTO_DOCX = "```{=openxml}\n<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>\n```"
 SALTO_HTML = '<div style="page-break-after: always;"></div>'
-md_docx = crudo.replace(PB, SALTO_DOCX)
-md_html = crudo.replace(PB, SALTO_HTML)
+sin_marca = crudo.replace("<!--INDICE-->\n\n" + PB + "\n\n", "")
+md_docx = META + sin_marca.replace(PB, SALTO_DOCX)
+md_html = META + sin_marca.replace(PB, SALTO_HTML)
 
 os.makedirs(DEST, exist_ok=True)
 ruta_md = os.path.join(DEST, NOMBRE + ".md")
@@ -341,6 +306,23 @@ ul, ol { margin: 0 0 .6em 1.2em; padding: 0; }
 li { margin-bottom: .25em; }
 hr { border: none; border-top: 1px solid #ddd; margin: 1.5em 0; }
 code { font-family: Menlo, monospace; font-size: 9pt; }
+/* portada */
+#title-block-header { margin-top: 4cm; text-align: center; }
+/* la regla general de p justifica el texto y le gana a la alineacion heredada */
+#title-block-header p, #title-block-header h1 { text-align: center; }
+#title-block-header .title { font-size: 24pt; font-weight: bold; display: block;
+  margin-bottom: .3em; }
+#title-block-header .subtitle { font-size: 15pt; font-style: italic; color: #333;
+  display: block; margin-bottom: 3cm; }
+#title-block-header .author { display: block; font-size: 10.5pt; margin: .35em 0; }
+#title-block-header .date { display: block; margin-top: 2cm; font-size: 10.5pt; }
+/* indice con numero de pagina */
+#TOC h2 { margin-top: 0; }
+#TOC ul { list-style: none; padding-left: 0; }
+#TOC ul ul { padding-left: 1.4em; font-size: 9.5pt; }
+#TOC li { margin: .18em 0; }
+#TOC a { text-decoration: none; color: inherit; }
+#TOC a::after { content: "  " leader(".") "  " target-counter(attr(href), page); }
 """
 
 def corre(cmd, que):
@@ -354,25 +336,68 @@ def corre(cmd, que):
         print("  fallo el %s: %s" % (que, e.stderr.decode()[:200]))
     return False
 
+def plantilla_word(destino):
+    """Arma un reference.docx: es la plantilla de estilos que usa Word.
+
+    Partimos del que trae pandoc (que ya define Title, Subtitle, Heading 1..6,
+    TOC y Compact) y le cambiamos la tipografia y el color de los titulos.
+    Asi el docx sale con estilos de verdad y no con parrafos formateados a mano.
+    """
+    import zipfile, tempfile
+    base = os.path.join(tempfile.gettempdir(), "_ref_pandoc.docx")
+    with open(base, "wb") as fh:
+        subprocess.run(["pandoc", "--print-default-data-file", "reference.docx"],
+                       check=True, stdout=fh, stderr=subprocess.DEVNULL)
+    zin = zipfile.ZipFile(base)
+    with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            datos = zin.read(item.filename)
+            if item.filename == "word/styles.xml":
+                x = datos.decode("utf-8")
+                # tipografia unica en todo el documento
+                x = re.sub(r'w:ascii="[^"]*"', 'w:ascii="Arial"', x)
+                x = re.sub(r'w:hAnsi="[^"]*"', 'w:hAnsi="Arial"', x)
+                x = re.sub(r'w:cs="[^"]*"', 'w:cs="Arial"', x)
+                # titulos en azul oscuro, como en un informe academico
+                x = x.replace('<w:color w:val="365F91"', '<w:color w:val="1F3864"')
+                x = x.replace('<w:color w:val="4F81BD"', '<w:color w:val="1F3864"')
+                # idioma espanol, para que el corrector de Word no marque todo
+                x = re.sub(r'<w:lang w:val="[^"]*"', '<w:lang w:val="es-AR"', x)
+                datos = x.encode("utf-8")
+            zout.writestr(item, datos)
+    zin.close()
+    return destino
+
+
 if shutil.which("pandoc"):
+    ref = os.path.join(DEST, "_ref.docx")
+    try:
+        plantilla_word(ref)
+    except Exception as e:
+        print("  no se pudo armar la plantilla de estilos (%s), se usa la de pandoc" % e)
+        ref = None
     corre(["pandoc", tmp_docx, "-o", os.path.join(DEST, NOMBRE + ".docx"),
-           "--from", "markdown"], "docx")
+           "--from", "markdown", "--toc", "--toc-depth=3"]
+          + (["--reference-doc", ref] if ref else []), "docx")
     html = os.path.join(DEST, "_tmp.html")
     css = os.path.join(DEST, "_tmp.css")
     io.open(css, "w", encoding="utf-8").write(CSS)
     if corre(["pandoc", tmp_html, "-o", html, "--standalone", "--css", "_tmp.css",
-              "--metadata", "title=" + NOMBRE], "html intermedio"):
-        # pandoc agrega su propio bloque de titulo ademas del H1 del documento:
-        # queda duplicado en la portada del pdf, asi que lo sacamos.
+              "--toc", "--toc-depth=3"], "html intermedio"):
+        # el bloque de titulo de pandoc es la portada: le metemos el salto de
+        # pagina y dejamos el indice en su propia hoja.
         h = io.open(html, encoding="utf-8").read()
-        h = re.sub(r'<header id="title-block-header">.*?</header>', "", h, flags=re.S)
+        h = h.replace('</header>', '</header><div style="page-break-after: always;"></div>')
+        h = h.replace('<nav id="TOC" role="doc-toc">',
+                      '<nav id="TOC" role="doc-toc"><h2>Índice</h2>')
+        h = h.replace('</nav>', '</nav><div style="page-break-after: always;"></div>')
         io.open(html, "w", encoding="utf-8").write(h)
         if shutil.which("weasyprint"):
             corre(["weasyprint", html, os.path.join(DEST, NOMBRE + ".pdf")], "pdf")
         else:
             print("  falta weasyprint, no se genero el pdf")
-    for t in (html, css, tmp_docx, tmp_html):
-        if os.path.exists(t):
+    for t in (html, css, tmp_docx, tmp_html, ref or ""):
+        if t and os.path.exists(t):
             os.remove(t)
 else:
     print("  falta pandoc: solo se genero el .md")

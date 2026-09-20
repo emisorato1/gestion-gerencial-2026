@@ -1,50 +1,17 @@
-# Trabajo Práctico Final, Parte 1
-
-## Diagnóstico gerencial de Dulxelitos
-
-
-**Universidad Tecnológica Nacional**
-
-**Facultad Regional San Rafael**
-
-Carrera: Ingeniería en Sistemas de Información. Plan 2026.
-
-Cátedra: Gestión Gerencial, quinto año.
-
-Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol.
-
-
-**Organización analizada**
-
-Dulxelitos. Fabricación, fraccionamiento y distribución de snacks.
-San Rafael, Mendoza. En actividad desde 1973.
-
-
-**Integrantes del grupo**
-
-_(completar con apellido y nombre de cada integrante)_
-
-
-**Año:** 2026
-
-**Fecha de entrega:** 20/09/2026
-
 ---
-
-## Índice
-
-1. La organización
-2. El contexto
-3. Modelo de negocio actual
-4. Propuesta de valor actual
-5. Madurez y capacidades
-6. Conclusiones del diagnóstico
-7. Bibliografía
-8. Anexos
-
+title: "Trabajo Práctico Final, Parte 1"
+subtitle: "Diagnóstico gerencial de Dulxelitos"
+author:
+  - "Universidad Tecnológica Nacional, Facultad Regional San Rafael"
+  - "Ingeniería en Sistemas de Información, Plan 2026"
+  - "Cátedra: Gestión Gerencial, quinto año"
+  - "Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol"
+  - "Organización analizada: Dulxelitos, San Rafael, Mendoza, desde 1973"
+  - "Integrantes: (completar con apellido y nombre de cada integrante)"
+date: "20/09/2026"
+lang: es
 ---
-
-## Introducción
+# Introducción
 
 Este trabajo es la primera parte del proyecto integrador de Gestión Gerencial. Consiste en un diagnóstico gerencial de una organización real, y la que elegimos fue Dulxelitos, una empresa familiar de San Rafael que fabrica, fracciona y distribuye snacks desde 1973.
 
@@ -60,9 +27,9 @@ En el documento aparte `herramientas.md` está el detalle de qué herramienta ap
 
 ---
 
-## 1. La organización
+# 1. La organización
 
-### 1.1 Qué hace y dónde
+## 1.1 Qué hace y dónde
 
 Dulxelitos fabrica, fracciona y distribuye snacks. Está en San Rafael, Mendoza, y arrancó en 1973, así que lleva 53 años.
 
@@ -80,7 +47,7 @@ En algunos listados comerciales aparecen otras dos direcciones en San Rafael (Lu
 
 Que esté todo en el mismo lugar es una ventaja que no se ve hasta que se pierde. No hay traslados internos entre producción, depósito y administración, y el dueño ve la operación completa caminando. Es algo típico de una empresa de este tamaño y se pierde apenas abrís una segunda planta, así que vale anotarlo antes de proponer cualquier cosa que implique crecer.
 
-### 1.2 Qué vende
+## 1.2 Qué vende
 
 El catálogo tiene tres líneas:
 
@@ -96,7 +63,7 @@ La línea de repostería es interesante porque muestra que el fraccionamiento no
 
 Los formatos de 1 y 2 Kg tampoco están por casualidad. Son para que el comercio chico fraccione y le saque margen propio.
 
-### 1.3 A quién le vende
+## 1.3 A quién le vende
 
 Hay dos clientes bien distintos.
 
@@ -106,7 +73,7 @@ Por otro lado está Aiello Supermercados, de San Luis, que es la única cadena c
 
 Hay un dato que nos faltó y que nos hubiera servido bastante: cuánto factura cada distribuidor. Con 57 clientes no sabemos si la facturación está bien repartida o si hay tres o cuatro que explican la mitad. Preguntamos y no existe el dato, la empresa no lo mide. Eso en sí ya dice algo y lo retomamos en la sección 5.
 
-### 1.4 Un poco de historia y cómo está hoy
+## 1.4 Un poco de historia y cómo está hoy
 
 La empresa se fundó en 1973 y sigue en manos de la familia.
 
@@ -118,7 +85,7 @@ Eso es lo más importante de esta sección. El problema de capacidad no se resol
 
 Hay un efecto que ya se notó: en algunas temporadas no llegaban a cubrir la demanda de papas fritas. Con las horas extras hoy está más o menos controlado, pero margen para crecer no hay.
 
-### 1.5 Quién hace qué
+## 1.5 Quién hace qué
 
 No hay organigrama ni áreas formales, pero las funciones existen igual:
 
@@ -139,7 +106,7 @@ Un punto que nos hizo cambiar de opinión sobre el canvas: preguntamos qué pasa
 
 Lo que sigue concentrado no es la operación sino la decisión. El día a día está cubierto; el criterio para decidir hacia dónde va la empresa está en una sola cabeza.
 
-### 1.6 Cómo conseguimos la información
+## 1.6 Cómo conseguimos la información
 
 Uno de nosotros trabaja en Dulxelitos y tiene acceso a prácticamente todo: facturación, la planilla de costos, el sistema de gestión y el listado de clientes. Es por eso que buena parte de este informe se apoya en datos de adentro y no en suposiciones.
 
@@ -148,7 +115,7 @@ Además usamos:
 - Entrevistas y lo que se observa estando ahí.
 - La página de la empresa, el Instagram, listados de mayoristas de la zona y la página de Aiello.
 
-#### Sobre el sesgo de tener a alguien adentro
+### Sobre el sesgo de tener a alguien adentro
 
 Tener un compañero trabajando en la empresa es una ventaja obvia, pero también tiene su riesgo: el que está adentro todos los días naturaliza cosas y deja de verlas como problema. Tratamos de cuidarnos de dos maneras.
 
@@ -161,11 +128,11 @@ Hay cosas que ni siquiera el acceso de adentro nos resolvió: cuánto factura ca
 
 ---
 
-## 2. El contexto
+# 2. El contexto
 
 Para esta parte usamos cuatro herramientas de las que vimos en clase: PESTEL para mirar el entorno general, las cinco fuerzas de Porter para el sector, la cadena de valor para lo que pasa adentro y el FODA cruzado para sacar conclusiones. Las aplicamos en ese orden a propósito, porque cada una alimenta a la siguiente. Las oportunidades y amenazas del FODA salen del PESTEL y de Porter, y las fortalezas y debilidades salen de la cadena de valor.
 
-### 2.1 PESTEL
+## 2.1 PESTEL
 
 | Dimensión | Qué vemos | Qué implica |
 |---|---|---|
@@ -178,9 +145,9 @@ Para esta parte usamos cuatro herramientas de las que vimos en clase: PESTEL par
 
 Sacando cuentas, el entorno no les es hostil. Lo político y lo social juegan a favor. Donde sí hay presión es en lo económico, y pega justo donde son más débiles: una empresa que compite por precio, con inflación en los insumos, cobrando a 30 días y sin saber cuánto le cuesta realmente cada producto.
 
-### 2.2 Las cinco fuerzas de Porter
+## 2.2 Las cinco fuerzas de Porter
 
-#### Rivalidad entre competidores
+### Rivalidad entre competidores
 
 Cuando preguntamos contra quién compiten, nos nombraron a Manisur (de San Rafael), Águila y Águila (de Mendoza) y Crops. Los tres son de la zona.
 
@@ -188,7 +155,7 @@ Esto nos pareció lo más interesante de toda la sección. La competencia que la
 
 Aclaramos que no relevamos si las marcas nacionales les compiten de verdad en el depósito de un distribuidor patagónico. Trabajamos con la competencia que la empresa reconoce como tal.
 
-#### Poder de los proveedores
+### Poder de los proveedores
 
 Acá hay que separar dos cosas bastante distintas.
 
@@ -198,13 +165,13 @@ La materia prima a granel y el producto terminado que fraccionan son otra histor
 
 En el canvas habíamos puesto el packaging como una dependencia dura. Después de preguntar lo bajamos un poco, porque el reemplazo se consigue. Pero lo esencial queda: hay un solo proveedor para el insumo que lleva la marca impresa.
 
-#### Poder de los compradores
+### Poder de los compradores
 
 Con 57 distribuidores y exclusividad territorial acordada, ninguno tiene poder evidente para imponer condiciones. Y con Aiello la relación es entre dos empresas familiares de tamaño parecido, no un vínculo donde el supermercado manda.
 
 Igual, sin saber cuánto factura cada uno, esto es una presunción razonable más que una conclusión firme. Si resultara que cinco distribuidores explican la mitad de la facturación, esta fuerza cambiaría completamente.
 
-#### Amenaza de nuevos entrantes
+### Amenaza de nuevos entrantes
 
 Baja, y por tres motivos que no tienen nada que ver con tecnología.
 
@@ -214,15 +181,15 @@ Dos, las habilitaciones RNE y RNPA, que dejan afuera a los informales.
 
 Tres, la capacidad logística, que la propia empresa reconoce como su diferencial.
 
-#### Productos sustitutos
+### Productos sustitutos
 
 No la pudimos evaluar. Preguntamos qué producto le saca venta al snack en el punto de venta y no supieron decirnos. Lo lógico sería pensar en galletitas, golosinas o marcas propias de supermercado, pero sin nada que lo respalde preferimos no afirmarlo.
 
 Juntando las cinco: el sector es cómodo. Rivalidad entre pares de la zona, compradores repartidos, y barreras de entrada que Dulxelitos superó hace cuarenta años. La única fuerza que realmente les juega en contra es la del proveedor de film. Y esto explica bastante: una empresa puede aguantar 53 años sin sistemas ni mediciones cuando el entorno nunca la obligó a tenerlos.
 
-### 2.3 Cadena de valor
+## 2.3 Cadena de valor
 
-#### Actividades primarias
+### Actividades primarias
 
 | Actividad | Cómo la hacen | Aporte al margen |
 |---|---|---|
@@ -232,7 +199,7 @@ Juntando las cinco: el sector es cómodo. Rivalidad entre pares de la zona, comp
 | Marketing y ventas | Viajante con zona, WhatsApp, teléfono y contacto directo con Aiello | Barato, pero no deja registro que se pueda usar después |
 | Servicio | Atención de lunes a viernes en horario acotado | Punto flojo. Un distribuidor de Comodoro Rivadavia solo puede llamar en esa franja |
 
-#### Actividades de apoyo
+### Actividades de apoyo
 
 | Actividad | Cómo la hacen | Efecto |
 |---|---|---|
@@ -243,7 +210,7 @@ Juntando las cinco: el sector es cómodo. Rivalidad entre pares de la zona, comp
 
 La conclusión es bastante directa: el margen se crea en operaciones y en logística, y se pierde en dirección y en tecnología. Dicho de otra forma, la empresa es buena haciendo y llevando, y es ciega midiendo y decidiendo. Todas las fortalezas del FODA que sigue salen del primer grupo y todas las debilidades del segundo.
 
-### 2.4 FODA
+## 2.4 FODA
 
 **Fortalezas**
 
@@ -282,14 +249,14 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 4. Perder clientes sin enterarse, porque no hay datos de la cartera.
 5. Que algún competidor de la zona invierta en gestión y capacidad y ellos no.
 
-### 2.5 FODA cruzado
+## 2.5 FODA cruzado
 
 | | Oportunidades | Amenazas |
 |---|---|---|
 | **Fortalezas** | Crecer por el lado del fraccionamiento y la repostería, que aprovecha la red y la marca sin tocar la planta saturada. Y repetir el modelo Aiello con otras cadenas regionales de tamaño parecido | La red y la logística los protegen de la competencia regional, porque es la barrera que un competidor local no copia rápido. Y las habilitaciones frenan a los informales aunque haya inflación |
 | **Debilidades** | Encender la tienda que ya está hecha, pero como canal de autogestión para distribuidores: que puedan consultar stock y cargar pedidos sin depender del teléfono en horario de oficina. Y aprovechar las ganas de capacitarse para meterlas en costos y en el uso del sistema | Armar un costeo por producto antes de tomar cualquier decisión de precio, porque si no la inflación les come el margen sin que se den cuenta. Medir la cartera para detectar las bajas a tiempo. Y resolver la capacidad de planta en vez de seguir absorbiéndola con horas extras |
 
-### 2.6 Qué significa todo esto para el negocio
+## 2.6 Qué significa todo esto para el negocio
 
 - **Precios.** Los fijan por costo y mirando a los competidores, pero el costo está mal calculado. Compiten por precio sobre una base que ellos mismos reconocen imprecisa. Para nosotros esta es la implicancia más grave de todo el análisis.
 - **Stock.** Con la planta saturada, el stock deja de ser un tema de costo de oportunidad y pasa a ser el límite del negocio. En temporada de papas fritas la restricción es física.
@@ -302,11 +269,11 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 
 ---
 
-## 3. Modelo de negocio actual
+# 3. Modelo de negocio actual
 
-### 3.1 Los nueve bloques del canvas
+## 3.1 Los nueve bloques del canvas
 
-#### 1. Segmentos de clientes
+### 1. Segmentos de clientes
 
 *¿Para quién creamos valor?*
 
@@ -331,7 +298,7 @@ La empresa le vende únicamente al canal, nunca al consumidor final. No hay segm
 
 Lo que no pudimos saber es cuánto factura cada distribuidor. Con 57 clientes no sabemos si está bien repartido o si unos pocos concentran el volumen. Lo preguntamos y el dato no existe: la empresa no mide la concentración de su propia cartera. Esa ausencia ya es un hallazgo y la retomamos en la sección 5.
 
-#### 2. Propuesta de valor
+### 2. Propuesta de valor
 
 *¿Qué problema resolvemos?*
 
@@ -359,7 +326,7 @@ La propuesta no apunta al que se come el snack sino al que lo revende, y la empr
 
 Mirándolo con lo que vimos en clase, la propuesta es de liderazgo en costos, no de diferenciación. Compiten por precio y por servicio al canal, no por atributos del producto que el consumidor perciba.
 
-#### 3. Canales
+### 3. Canales
 
 *¿Cómo llegamos a ellos?*
 
@@ -376,7 +343,7 @@ En redes tienen Instagram con unos 2.777 seguidores y publicaciones activas, má
 
 El pie de la página dice 2020 como último año de actualización. Al principio pensamos que la infraestructura había quedado a medio hacer, pero cuando fuimos a mirar bien resultó que está terminada y el catálogo cargado. Lo que falta es la decisión de usarla, que además es coherente con venderle solo a mayoristas. O sea que es capacidad que ya se pagó y está apagada.
 
-#### 4. Relación con clientes
+### 4. Relación con clientes
 
 *¿Cómo los fidelizamos?*
 
@@ -387,7 +354,7 @@ El pie de la página dice 2020 como último año de actualización. Al principio
 
 Un detalle que encontramos revisando la lista pública de distribuidores: hay registros duplicados. "Organización Don Tomás" de General Roca y "Distribuidora Don Bruno" de Huergo figuran con el mismo número de WhatsApp, y "Steck Héctor" de Choele Choel y "Amestoy Javier" de Sierra Grande con la misma dirección. Si la lista que la empresa publica hacia afuera tiene errores, es razonable suponer que el registro interno tampoco está prolijo.
 
-#### 5. Fuentes de ingreso
+### 5. Fuentes de ingreso
 
 *¿Por qué pagan nuestros clientes?*
 
@@ -401,7 +368,7 @@ Cobran de contado y en efectivo, con cuenta corriente a unos 30 días, y con che
 
 La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene sentido para un producto de consumo diario y con una cobertura geográfica amplia que compensa las estacionalidades de cada zona.
 
-#### 6. Recursos clave
+### 6. Recursos clave
 
 *¿Qué activos necesitamos?*
 
@@ -413,7 +380,7 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 - **La planilla de costos por producto.** La ponemos como recurso porque de ella depende el precio de todo el catálogo, aunque sea imprecisa y con errores que la propia empresa reconoce.
 - **Las habilitaciones bromatológicas y los registros RNE y RNPA.** Es lo que les permite mover mercadería entre provincias y entrar a un supermercado, y es una barrera real frente a competidores informales.
 
-#### 7. Actividades clave
+### 7. Actividades clave
 
 *¿Qué hacemos para entregar valor?*
 
@@ -425,7 +392,7 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 - Manejo centralizado de la relación con los 57 distribuidores.
 - Administración, facturación y cobranza, repartidas entre planillas y un sistema de gestión que no se hablan entre sí.
 
-#### 8. Socios clave
+### 8. Socios clave
 
 *¿Quiénes son nuestros aliados?*
 
@@ -437,7 +404,7 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 - **Aiello Supermercados**, que es un socio comercial de tamaño parecido y no un retailer que imponga condiciones.
 - **El proveedor del sistema de gestión** y el de la página web (Productus).
 
-#### 9. Estructura de costos
+### 9. Estructura de costos
 
 *¿Cuáles son los principales costos?*
 
@@ -450,7 +417,7 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 
 Y acá está el problema de fondo: ningún componente de costo está asignado con precisión a cada producto. El costeo por producto existe en una planilla, pero la empresa reconoce que es impreciso y que tiene errores. O sea que fijan precio sobre una base que saben equivocada, en un modelo cuya única ventaja declarada es justamente el precio.
 
-### 3.2 Síntesis del canvas
+## 3.2 Síntesis del canvas
 
 Dulxelitos tiene un modelo industrial de volumen orientado al canal mayorista, sostenido durante 53 años. Fabrica y fracciona snacks baratos y los coloca a través de 57 distribuidores que le dan alcance en 7 provincias sin obligarla a armar una fuerza de ventas propia enorme. La única excepción es Aiello. Su ventaja no es el producto sino la combinación de precio y logística: le vende rentabilidad al canal.
 
@@ -463,7 +430,7 @@ Del canvas salen cinco puntos flojos:
 5. **Construyeron un canal digital completo y lo dejaron apagado.** El sitio tiene e-commerce con el catálogo cargado desde 2020, pero sin medio de pago ni operación. No es una obra a medio terminar: es capacidad instalada que decidieron no usar, y por eso es la oportunidad más barata que tienen.
 
 
-### 3.3 Lógica de valor
+## 3.3 Lógica de valor
 
 Dulxelitos no le vende snacks al que se los come: le vende rentabilidad al que los revende.
 
@@ -473,7 +440,7 @@ La ventaja competitiva es liderazgo en costos, no diferenciación. El producto n
 
 El modelo es bastante coherente. Todo el canvas apunta para el mismo lado: la flota propia, el catálogo amplio, los formatos de 1 y 2 Kg, la exclusividad territorial y hasta no tener venta minorista son decisiones que encajan con venderle rentabilidad a un mayorista.
 
-### 3.4 Explotación y exploración
+## 3.4 Explotación y exploración
 
 Acá es donde el modelo está más desbalanceado.
 
@@ -494,7 +461,7 @@ Esto es justamente lo que se plantea en la materia sobre el riesgo de un modelo 
 
 Sobre la tienda online vale una aclaración. Es la única inversión de exploración con plata real que encontramos: se hizo en 2020 y quedó apagada. Al principio la leímos como una obra a medio terminar, pero cuando chequeamos bien resultó que el catálogo está cargado y la tienda funciona a nivel técnico. Lo que falta es la decisión de usarla. El hallazgo cambia de sentido y para nosotros mejora: no es que no pudieron terminarla, es que construyeron una capacidad y no la activaron. Que es la oportunidad más barata que tienen, porque la inversión ya está hecha.
 
-### 3.5 Debilidades y dependencias
+## 3.5 Debilidades y dependencias
 
 Del canvas salen cuatro puntos donde la operación depende de algo que no controlan o que no conocen.
 
@@ -508,7 +475,7 @@ Cuarto, que el activo más valioso es el peor administrado. La red de 57 distrib
 
 Sobre este último punto tuvimos que corregirnos. En el canvas habíamos puesto el conocimiento concentrado en los dueños como una dependencia crítica, sin matices. Después preguntamos qué pasaría si faltara un dueño durante un mes y nos dijeron que no se frena nada porque están los hijos. Así que la dependencia no desaparece, se corre de lugar: lo que está cubierto es la operación, lo que sigue en una sola cabeza es la decisión estratégica. Menos urgente, pero igual de real.
 
-### 3.6 Tensiones del modelo
+## 3.6 Tensiones del modelo
 
 Hay cuatro cosas del modelo que empiezan a mostrar desgaste.
 
@@ -525,9 +492,9 @@ Resumiendo la lectura: Dulxelitos tiene un modelo coherente, probado durante 53 
 
 ---
 
-## 4. Propuesta de valor actual
+# 4. Propuesta de valor actual
 
-### 4.1 Qué segmento elegimos
+## 4.1 Qué segmento elegimos
 
 Elegimos al distribuidor mayorista, mirando sobre todo al patagónico.
 
@@ -537,9 +504,9 @@ Descartamos a Aiello. Es el único cliente directo y con contrato, pero es uno s
 
 Tenemos que aclarar algo: la justificación del segmento es geográfica, no económica. Preguntamos qué porcentaje de la facturación explican los cinco distribuidores más grandes y la empresa no tiene el dato. Si esa concentración fuera alta y estuviera fuera de la Patagonia, habría que revisar la elección. Lo decimos en vez de estimarlo.
 
-### 4.2 Perfil del cliente
+## 4.2 Perfil del cliente
 
-#### Qué intenta hacer el distribuidor
+### Qué intenta hacer el distribuidor
 
 Lo funcional: revender con margen, tener el producto cuando el minorista se lo pide, armar un surtido amplio sin tener que comprarle a cinco proveedores distintos, y fraccionar los formatos de 1 y 2 Kg para sacar margen extra.
 
@@ -547,7 +514,7 @@ Lo financiero: mantener el capital de trabajo con plazos que le cierren la caja,
 
 Y lo de rol: ser el proveedor confiable de sus propios clientes en su territorio exclusivo.
 
-#### Qué le molesta
+### Qué le molesta
 
 Acá nos tuvimos que bajar del supuesto con el que arrancamos.
 
@@ -562,7 +529,7 @@ Así que los dolores son bastante acotados:
 | El horario acotado de atención | De lunes a viernes en franja limitada. Un distribuidor de Comodoro o Bariloche solo puede operar ahí | Medio, y se agrava por la distancia |
 | Faltantes de papas fritas en algunas temporadas | Nos lo confirmaron en la empresa | Alto cuando pasa, pero dura poco |
 
-#### Qué espera y valora
+### Qué espera y valora
 
 Compromiso y precio, que son las palabras con las que el propio canal explica por qué los elige.
 
@@ -572,7 +539,7 @@ Que le avisen cuando falta algo. Y esto nos pareció importante: cuando falta un
 
 También la exclusividad territorial, que le garantiza no competir contra otro distribuidor de la misma marca, y el catálogo amplio en un solo proveedor.
 
-### 4.3 Qué ofrece hoy la empresa
+## 4.3 Qué ofrece hoy la empresa
 
 Más de 25 combinaciones de producto y formato en tres líneas. Entrega con flota propia y transporte tercerizado, con la opción de retirar en fábrica. Un viajante con zona asignada. Pedidos por WhatsApp y teléfono. Cuenta corriente a unos 30 días.
 
@@ -587,7 +554,7 @@ Ahora, si lo cruzamos con lo que al distribuidor le molesta:
 
 Y del lado de lo que el cliente valora, sí responden bien: precio competitivo por control de costos, logística que llega a 7 provincias, exclusividad territorial, variedad de catálogo, formatos que le dan margen extra al minorista, y 53 años de marca que el canal reconoce.
 
-### 4.4 Encaje y brecha
+## 4.4 Encaje y brecha
 
 El encaje es bueno, y para nosotros ese es el hallazgo de esta sección.
 
@@ -597,7 +564,7 @@ Entramos a esta sección esperando encontrar un canal maltratado y encontramos l
 
 Esto nos reordenó el diagnóstico de todo el trabajo. Los problemas de Dulxelitos no están en la relación con el canal, están puertas adentro. Una empresa puede tener clientes conformes y al mismo tiempo no saber cuánto gana con cada uno, no poder producir más de lo que produce y no enterarse cuando uno se va. Que es más o menos el caso.
 
-#### La brecha que sí hay
+### La brecha que sí hay
 
 Existe, pero es angosta y es de información, no de producto.
 
@@ -612,9 +579,9 @@ Lo que cerraría la primera brecha ya está construido. El sitio tiene la tienda
 
 ---
 
-## 5. Madurez y capacidades
+# 5. Madurez y capacidades
 
-### 5.1 Qué modelo usamos
+## 5.1 Qué modelo usamos
 
 Usamos el modelo de madurez digital de la cátedra, con su escala de A a E (1 a 5) y su encuesta de 24 preguntas sobre seis dimensiones.
 
@@ -624,7 +591,7 @@ Lo que hicimos fue dejar las seis dimensiones del modelo con sus 24 preguntas or
 
 Una aclaración sobre la proporcionalidad, que el enunciado marca: la madurez hay que evaluarla según el tamaño de la empresa y no se premia la sofisticación innecesaria. Lo tuvimos en cuenta. Para una pyme de 15 a 20 personas, no tener un ERP integrado o un área de datos no es una falla. Lo que sí señalamos como brecha es lo que afecta directo a la plata y a la continuidad.
 
-#### La escala
+### La escala
 
 | Opción | Qué significa | Puntos |
 |---|---|---|
@@ -642,7 +609,7 @@ Una aclaración sobre la proporcionalidad, que el enunciado marca: la madurez ha
 | 4.0 a 4.5 | Avanzado |
 | 4.6 a 5.0 | Transformacional |
 
-### 5.2 La encuesta
+## 5.2 La encuesta
 
 La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empresa para que se autoevaluara.
 
@@ -677,7 +644,7 @@ La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empre
 | | ¿Hay roles y responsabilidades formalizados sobre datos y sistemas? | B | 2 | Tienen responsable del área de sistemas |
 | | ¿Se revisan riesgos de continuidad (proveedor único, backup, sucesión)? | B | 2 | Hay backup de planillas y segunda generación operando, pero el proveedor único de film no se gestiona como riesgo |
 
-### 5.3 Resultado
+## 5.3 Resultado
 
 | Dimensión | Puntos | Promedio | Nivel |
 |---|:---:|:---:|---|
@@ -694,7 +661,7 @@ Dulxelitos queda en nivel Inicial, con 1.79. Tres dimensiones llegan a Básico: 
 
 El piso está en Estrategia con 1.25, y después Liderazgo, Personas y Gobierno, las tres con 1.50. Lo que nos parece el hallazgo central es la distancia entre los datos operativos que ya tienen y el uso gerencial que les dan. Una empresa que factura hace 53 años y sostiene 57 distribuidores no está mal gestionada. Lo que le pasa es que decide y controla sin instrumentos integrados.
 
-### 5.4 Dimensión por dimensión
+## 5.4 Dimensión por dimensión
 
 Para cada una ponemos el nivel, en qué nos basamos, cuál es la brecha más importante y qué cuesta no hacer nada.
 
@@ -712,7 +679,7 @@ Para cada una ponemos el nivel, en qué nos basamos, cuál es la brecha más imp
 
 **Gobierno, 1.50, Inicial.** No hay reuniones periódicas de dirección ni indicadores gerenciales definidos. Existe un responsable del área de sistemas, aunque no hay roles formalizados para el gobierno de los datos y los procesos digitales. Sí hay backup de planillas y sucesión operativa de hecho. El proveedor único de film no se gestiona como riesgo. La brecha es que no existe una instancia periódica de dirección que junte las estadísticas que ya tienen, las convierta en indicadores y las use para revisar el negocio. Y el costo de no actuar es que esta dimensión explica a todas las demás: sin una instancia de revisión integrada, los problemas que no tienen un indicador formal, como el costo de la saturación, la concentración de la cartera o el margen por producto, pueden seguir ahí sin que nadie los dimensione.
 
-### 5.5 Costo de no actuar
+## 5.5 Costo de no actuar
 
 Usamos la fórmula de tres componentes que vimos en la clase 3: ventas perdidas más horas hombre más ineficiencias de inventario y calidad.
 
@@ -738,7 +705,7 @@ Con dos cifras alcanzaría para cuantificar la mitad del CoI sin salir a relevar
 
 ---
 
-## 6. Conclusiones del diagnóstico
+# 6. Conclusiones del diagnóstico
 
 Al empezar el trabajo dábamos por sentado que íbamos a encontrar los problemas de Dulxelitos del lado del cliente. Nos pasó lo contrario, y eso terminó ordenando todo el análisis.
 
@@ -754,7 +721,7 @@ Sobre el trabajo en sí: tener a alguien adentro nos dio mucho acceso y también
 
 ---
 
-## 7. Bibliografía
+# 7. Bibliografía
 
 **Herramientas de análisis**
 
@@ -784,11 +751,11 @@ Sobre el trabajo en sí: tener a alguien adentro nos dio mucho acceso y también
 
 ---
 
-## 8. Anexos
+# 8. Anexos
 
 Además de este documento entregamos dos archivos de apoyo: `herramientas.md`, con el detalle de las herramientas de análisis y cómo se encadenan, y una planilla de cálculo con la encuesta de madurez completa, el FODA y esa misma tabla de herramientas.
 
-### Anexo I: datos que la empresa no mide
+## Anexo I: datos que la empresa no mide
 
 Lo dejamos escrito en vez de estimarlo. Nada de esto impide el diagnóstico, y varios de estos huecos son en sí mismos parte de lo que encontramos en la sección 5.
 
@@ -803,70 +770,3 @@ Lo dejamos escrito en vez de estimarlo. Nada de esto impide el diagnóstico, y v
 | Qué producto compite con el snack en el punto de venta | 2.2 |
 | Hitos de la empresa entre 1973 y hoy | 1.4 |
 | Si las marcas nacionales les compiten en el canal | 2.2 |
-
-
----
-
-### Anexo II: herramientas de análisis aplicadas
-
-**Cuadro general**
-
-| Sección | Herramienta | Autor / origen | Para qué la usamos | Dónde la vimos |
-|---|---|---|---|---|
-| 1. La organización | No aplica | | Es relevamiento descriptivo. Seguimos la estructura que pide el enunciado | Enunciado del TP |
-| 2. El contexto | PESTEL | Aguilar (1967) | Mirar el entorno general: político, económico, social, tecnológico, ecológico y legal | Clase 2 |
-| 2. El contexto | Cinco fuerzas | Porter (1979, 1980) | Analizar el sector: rivalidad, proveedores, compradores, entrantes y sustitutos | Clase 2 |
-| 2. El contexto | Cadena de valor | Porter (1985) | Ver dónde se crea y dónde se pierde margen puertas adentro | Clase 2 (aparece también en la Clase 1) |
-| 2. El contexto | FODA cruzado | Herramienta clásica de planeamiento | Combinar todo lo anterior y sacar iniciativas concretas | Clase 2 |
-| 3. Modelo de negocio | Business Model Canvas | Osterwalder y Pigneur (2010) | Describir cómo la empresa crea, entrega y captura valor hoy | Clase 2 |
-| 3. Modelo de negocio | Explotación y exploración (Run / Change the Business) | Enfoque bimodal de la materia | Separar lo que sostiene la operación de lo que la transforma | Presentación introductoria y Clase 3 |
-| 3. Modelo de negocio | Liderazgo en costos vs. diferenciación | Porter (1980) | Definir cuál es la ventaja competitiva real de la empresa | Clase 2 |
-| 4. Propuesta de valor | Value Proposition Canvas | Osterwalder, Pigneur, Bernarda y Smith (2014) | Cruzar lo que el cliente necesita con lo que la empresa ofrece, y medir el encaje | Clase 2 |
-| 5. Madurez | Modelo de madurez digital de la cátedra | Cátedra de Gestión Gerencial | Evaluar seis dimensiones con escala A a E, más una séptima que agregamos | Material de cátedra |
-| 5. Madurez | Costo de No Actuar (CoI) | Fórmula de tres componentes | Poner en plata lo que cuesta no resolver cada brecha | Clase 3 |
-
-**Cómo se encadenan**
-
-El orden en que las aplicamos no es casual. Cada herramienta produce algo que la siguiente necesita.
-
-```
-SECCIÓN 1
-  Relevamiento de la organización
-       |
-       v
-SECCIÓN 2
-  PESTEL ---------------+
-                        |--> Oportunidades y Amenazas --+
-  Cinco fuerzas --------+                               |
-                                                        +--> FODA CRUZADO
-  Cadena de valor ----> Fortalezas y Debilidades -------+     (iniciativas)
-       |
-       v
-SECCIÓN 3                          SECCIÓN 4                    SECCIÓN 5
-  Business Model Canvas              Value Proposition Canvas      Modelo de madurez
-  + Run / Change the Business        (segmento prioritario)        + Costo de No Actuar
-       |                                   |                             |
-       +-----------------------------------+-----------------------------+
-                                           |
-                                           v
-                                    SECCIÓN 6 (se entrega aparte)
-                                    Problema gerencial priorizado
-```
-
-En concreto:
-
-- El **PESTEL** y las **cinco fuerzas** producen las oportunidades y las amenazas del FODA.
-- La **cadena de valor** produce las fortalezas y las debilidades.
-- El **FODA cruzado** combina las cuatro y de ahí salen las iniciativas.
-- El **segmento prioritario** de la sección 4 se justifica con lo que vimos en las cinco fuerzas.
-- La **madurez** de la sección 5 se apoya en evidencia que fue apareciendo en las secciones 1 a 4.
-
-**Herramientas que no usamos, y por qué**
-
-| Herramienta | Por qué la dejamos afuera |
-|---|---|
-| Hipótesis de Oportunidad Tecnológica | Es una propuesta de solución (To-Be) y este trabajo es diagnóstico del estado actual (AS-IS) |
-| Business Model Canvas en versión To-Be | Mismo motivo: el enunciado pide el modelo actual, no el propuesto |
-| Balanced Scorecard y OKR | Corresponden al Hito 3, no a esta entrega |
-| Design Thinking | Se vio en la Clase 3 pero apunta a idear soluciones, que todavía no toca |
-| Plantilla canónica del problema gerencial | Es para la sección 6, que entregamos aparte |
