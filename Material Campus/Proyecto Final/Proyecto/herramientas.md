@@ -5,7 +5,7 @@ Este documento resume qué herramienta aplicamos en cada parte del trabajo, de d
 ## Cuadro general
 
 | Sección | Herramienta | Autor / origen | Para qué la usamos | Dónde la vimos |
-|---|---|---|---|---|
+|--------------|------------------|----------------|-----------------------------|--------------|
 | 1. La organización | No aplica | | Es relevamiento descriptivo. Seguimos la estructura que pide el enunciado | Enunciado del TP |
 | 2. El contexto | PESTEL | Aguilar (1967) | Mirar el entorno general: político, económico, social, tecnológico, ecológico y legal | Clase 2 |
 | 2. El contexto | Cinco fuerzas | Porter (1979, 1980) | Analizar el sector: rivalidad, proveedores, compradores, entrantes y sustitutos | Clase 2 |

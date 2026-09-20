@@ -33,7 +33,7 @@ Una aclaración sobre la proporcionalidad, que el enunciado marca: la madurez ha
 La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empresa para que se autoevaluara.
 
 | Dimensión | Pregunta | Resp. | Pts | En qué nos basamos |
-|---|---|:---:|:---:|---|
+|--------------|---------------------------------|:-----:|:----:|---------------------------|
 | Liderazgo y Cultura Digital | ¿Existe una visión digital clara comunicada por los líderes? | A | 1 | No hay ninguna iniciativa de cambio marcada |
 | | ¿Los líderes promueven activamente la transformación digital? | A | 1 | Sin plan ni responsable asignado |
 | | ¿La cultura organizacional apoya la innovación tecnológica? | B | 2 | Aprovechan oportunidades de producto nuevo cuando aparecen |
@@ -66,7 +66,7 @@ La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empre
 ## 5.3 Resultado
 
 | Dimensión | Puntos | Promedio | Nivel |
-|---|:---:|:---:|---|
+|--------------------------------|:--------:|:--------:|----------------|
 | Liderazgo y Cultura Digital | 1+1+2+2 = 6 | 1.50 | Inicial |
 | Estrategia y Modelo de Negocio | 1+2+1+1 = 5 | 1.25 | Inicial |
 | Tecnología y Datos | 2+1+3+3 = 9 | 2.25 | Básico |

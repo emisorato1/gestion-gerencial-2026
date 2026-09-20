@@ -261,6 +261,21 @@ L.append("| Hitos de la empresa entre 1973 y hoy | 1.4 |")
 L.append("| Si las marcas nacionales les compiten en el canal | 2.2 |")
 L.append("")
 
+L.append("")
+L.append(PB)
+L.append("")
+L.append("### Anexo II: herramientas de análisis aplicadas")
+L.append("")
+# la tabla y el diagrama salen de herramientas.md, para no repetirlos a mano
+herr = hasta(desde(leer("herramientas.md"), "## Cuadro general"),
+             "## Una adaptación que hicimos")
+L += renombrar(demote(herr, 2), {
+    "#### Cuadro general": "**Cuadro general**",
+    "#### Cómo se encadenan": "**Cómo se encadenan**",
+    "#### Herramientas que no usamos, y por qué": "**Herramientas que no usamos, y por qué**",
+})
+L.append("")
+
 crudo = re.sub(r"\n{4,}", "\n\n\n", "\n".join(L)).rstrip() + "\n"
 
 # Indice: en el .md es una lista escrita; en docx y pdf lo genera pandoc (--toc),
@@ -320,9 +335,12 @@ h3 { font-size: 11pt; font-weight: bold; margin: 1em 0 .35em; page-break-after: 
 h4 { font-size: 11pt; font-weight: bold; font-style: italic; margin: .9em 0 .3em;
      page-break-after: avoid; }
 
-table { border-collapse: collapse; margin: .9em auto; font-size: 10pt;
-  page-break-inside: avoid; }
-th, td { border: 1px solid #000; padding: 3px 7px; text-align: left; vertical-align: top; }
+table { border-collapse: collapse; margin: .9em auto; font-size: 9.5pt;
+  width: 100%; table-layout: fixed; }
+tr { page-break-inside: avoid; }
+thead { display: table-header-group; }
+th, td { border: 1px solid #000; padding: 3px 6px; text-align: left; vertical-align: top;
+  overflow-wrap: break-word; }
 th { font-weight: bold; }
 ul, ol { margin: 0 0 .7em 1.4em; padding: 0; }
 li { margin-bottom: .2em; text-align: justify; }

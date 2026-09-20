@@ -631,7 +631,7 @@ Una aclaración sobre la proporcionalidad, que el enunciado marca: la madurez ha
 La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empresa para que se autoevaluara.
 
 | Dimensión | Pregunta | Resp. | Pts | En qué nos basamos |
-|---|---|:---:|:---:|---|
+|--------------|---------------------------------|:-----:|:----:|---------------------------|
 | Liderazgo y Cultura Digital | ¿Existe una visión digital clara comunicada por los líderes? | A | 1 | No hay ninguna iniciativa de cambio marcada |
 | | ¿Los líderes promueven activamente la transformación digital? | A | 1 | Sin plan ni responsable asignado |
 | | ¿La cultura organizacional apoya la innovación tecnológica? | B | 2 | Aprovechan oportunidades de producto nuevo cuando aparecen |
@@ -664,7 +664,7 @@ La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empre
 ## 5.3 Resultado
 
 | Dimensión | Puntos | Promedio | Nivel |
-|---|:---:|:---:|---|
+|--------------------------------|:--------:|:--------:|----------------|
 | Liderazgo y Cultura Digital | 1+1+2+2 = 6 | 1.50 | Inicial |
 | Estrategia y Modelo de Negocio | 1+2+1+1 = 5 | 1.25 | Inicial |
 | Tecnología y Datos | 2+1+3+3 = 9 | 2.25 | Básico |
@@ -787,3 +787,70 @@ Lo dejamos escrito en vez de estimarlo. Nada de esto impide el diagnóstico, y v
 | Qué producto compite con el snack en el punto de venta | 2.2 |
 | Hitos de la empresa entre 1973 y hoy | 1.4 |
 | Si las marcas nacionales les compiten en el canal | 2.2 |
+
+
+---
+
+## Anexo II: herramientas de análisis aplicadas
+
+**Cuadro general**
+
+| Sección | Herramienta | Autor / origen | Para qué la usamos | Dónde la vimos |
+|--------------|------------------|----------------|-----------------------------|--------------|
+| 1. La organización | No aplica | | Es relevamiento descriptivo. Seguimos la estructura que pide el enunciado | Enunciado del TP |
+| 2. El contexto | PESTEL | Aguilar (1967) | Mirar el entorno general: político, económico, social, tecnológico, ecológico y legal | Clase 2 |
+| 2. El contexto | Cinco fuerzas | Porter (1979, 1980) | Analizar el sector: rivalidad, proveedores, compradores, entrantes y sustitutos | Clase 2 |
+| 2. El contexto | Cadena de valor | Porter (1985) | Ver dónde se crea y dónde se pierde margen puertas adentro | Clase 2 (aparece también en la Clase 1) |
+| 2. El contexto | FODA cruzado | Herramienta clásica de planeamiento | Combinar todo lo anterior y sacar iniciativas concretas | Clase 2 |
+| 3. Modelo de negocio | Business Model Canvas | Osterwalder y Pigneur (2010) | Describir cómo la empresa crea, entrega y captura valor hoy | Clase 2 |
+| 3. Modelo de negocio | Explotación y exploración (Run / Change the Business) | Enfoque bimodal de la materia | Separar lo que sostiene la operación de lo que la transforma | Presentación introductoria y Clase 3 |
+| 3. Modelo de negocio | Liderazgo en costos vs. diferenciación | Porter (1980) | Definir cuál es la ventaja competitiva real de la empresa | Clase 2 |
+| 4. Propuesta de valor | Value Proposition Canvas | Osterwalder, Pigneur, Bernarda y Smith (2014) | Cruzar lo que el cliente necesita con lo que la empresa ofrece, y medir el encaje | Clase 2 |
+| 5. Madurez | Modelo de madurez digital de la cátedra | Cátedra de Gestión Gerencial | Evaluar seis dimensiones con escala A a E, más una séptima que agregamos | Material de cátedra |
+| 5. Madurez | Costo de No Actuar (CoI) | Fórmula de tres componentes | Poner en plata lo que cuesta no resolver cada brecha | Clase 3 |
+
+**Cómo se encadenan**
+
+El orden en que las aplicamos no es casual. Cada herramienta produce algo que la siguiente necesita.
+
+```
+SECCIÓN 1
+  Relevamiento de la organización
+       |
+       v
+SECCIÓN 2
+  PESTEL ---------------+
+                        |--> Oportunidades y Amenazas --+
+  Cinco fuerzas --------+                               |
+                                                        +--> FODA CRUZADO
+  Cadena de valor ----> Fortalezas y Debilidades -------+     (iniciativas)
+       |
+       v
+SECCIÓN 3                          SECCIÓN 4                    SECCIÓN 5
+  Business Model Canvas              Value Proposition Canvas      Modelo de madurez
+  + Run / Change the Business        (segmento prioritario)        + Costo de No Actuar
+       |                                   |                             |
+       +-----------------------------------+-----------------------------+
+                                           |
+                                           v
+                                    SECCIÓN 6 (se entrega aparte)
+                                    Problema gerencial priorizado
+```
+
+En concreto:
+
+- El **PESTEL** y las **cinco fuerzas** producen las oportunidades y las amenazas del FODA.
+- La **cadena de valor** produce las fortalezas y las debilidades.
+- El **FODA cruzado** combina las cuatro y de ahí salen las iniciativas.
+- El **segmento prioritario** de la sección 4 se justifica con lo que vimos en las cinco fuerzas.
+- La **madurez** de la sección 5 se apoya en evidencia que fue apareciendo en las secciones 1 a 4.
+
+**Herramientas que no usamos, y por qué**
+
+| Herramienta | Por qué la dejamos afuera |
+|---|---|
+| Hipótesis de Oportunidad Tecnológica | Es una propuesta de solución (To-Be) y este trabajo es diagnóstico del estado actual (AS-IS) |
+| Business Model Canvas en versión To-Be | Mismo motivo: el enunciado pide el modelo actual, no el propuesto |
+| Balanced Scorecard y OKR | Corresponden al Hito 3, no a esta entrega |
+| Design Thinking | Se vio en la Clase 3 pero apunta a idear soluciones, que todavía no toca |
+| Plantilla canónica del problema gerencial | Es para la sección 6, que entregamos aparte |
