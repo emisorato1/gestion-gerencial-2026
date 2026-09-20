@@ -16,6 +16,22 @@ Este documento no agrega contenido: **traza cómo se encadenan las secciones**. 
 | `04 - VPC - Distribuidor mayorista.md` | 4. Propuesta de valor actual | Completa |
 | `05 - Madurez y Costo de No Actuar.md` | 5. Madurez y capacidades | Completa, con 4 datos pendientes en el CoI |
 | — | 6. Problema gerencial priorizado | **No incluida** (se entrega después) |
+| **`TP Final Parte 1 - Dulxelitos.md`** | **el archivo único de entrega** | **generado** — no editar a mano |
+| `armar-entrega.py` | arma el archivo de entrega desde las secciones | correr `python3 armar-entrega.py` |
+
+## El archivo de entrega
+
+`TP Final Parte 1 - Dulxelitos.md` es lo que se le da al profesor: las cinco secciones
+en un solo documento, con portada, índice y un anexo de fuentes y limitaciones.
+
+**Se genera, no se edita.** Cada vez que alguien toca una sección hay que volver a correr:
+
+```bash
+python3 armar-entrega.py
+```
+
+Así el archivo de entrega nunca queda desfasado de las secciones. Lo único que hay que
+completar a mano después de generarlo son **los nombres de los integrantes** en la portada.
 
 ## El pipeline analítico
 

@@ -41,15 +41,11 @@ Es el núcleo absoluto del negocio: **57 distribuidores activos declarados en 7 
 
 > **Hallazgo central:** la **Patagonia concentra 35 de los 57 distribuidores (61%)**, mientras que Mendoza —la provincia de origen— reúne apenas 6 (10,5%). Dulxelitos es una empresa mendocina cuyo mercado real está fuera de Cuyo. Toda decisión sobre logística, precios y servicio debe leerse con esa geografía, no con la de San Rafael.
 
-> **Segundo mercado en importancia: San Luis**, que suma 9 distribuidores más la única cadena de supermercados con la que opera la empresa (ver segmento siguiente).
-
 **Segundo segmento — Cadena regional de supermercados**
 
 - **Aiello Supermercados S.A. (San Luis)** ✅ — es la **única cadena con la que Dulxelitos opera**, con relación contractual directa y sin intermediación de distribuidor. Aiello es una empresa familiar puntana **fundada en 1972**, líder del mercado provincial, con **10 sucursales** en la ciudad de San Luis y alrededores, y con una estrategia declarada de **estímulo a los proveedores locales**. 🔎 Esa política es la puerta de entrada que explica el acceso de una PyME mendocina a su góndola.
 
 > **La empresa vende exclusivamente a canal, nunca a consumidor final.** ✅ No existe segmento minorista: el modelo entero está construido sobre distribuidores mayoristas y una única cadena. La modalidad de retiro en fábrica es una forma de entrega, no un segmento distinto (ver bloque 3).
-
-> **Nota sobre la naturaleza de la relación con Aiello:** no se trata de un vínculo asimétrico con un gran retailer nacional, sino de un acuerdo entre dos empresas familiares de la misma generación (Aiello 1972, Dulxelitos 1973) y de escala comparable. Esto es determinante para interpretar los plazos de cobranza del bloque 5.
 
 > ❓ **Dato faltante crítico:** no se conoce el peso relativo de cada distribuidor sobre la facturación. Con 57 clientes en cartera, no puede afirmarse si el modelo está sanamente atomizado o si unos pocos concentran el volumen. Se consultó a la empresa y **el dato no existe**: no se mide la concentración de la propia cartera ✅. La ausencia es en sí misma un hallazgo, y se analiza como tal en la Sección 5.
 
@@ -80,8 +76,6 @@ La propuesta **no está dirigida al consumidor final sino al canal**, y la propi
 | **Repostería** | Almidón de Maíz | Fécula | 500 g / 1 Kg |
 | **Repostería** | Granas | Variedad de colores | 20 g |
 | **Repostería** | Esencia de Vainilla | Artificial | 100 cm³ |
-
-> **La línea de Repostería confirma el fraccionamiento como actividad real del negocio.** La empresa no fabrica esencia de vainilla ni granas: las compra y las envasa bajo su marca. El fraccionamiento no es un complemento marginal, es una línea de producto declarada en el catálogo oficial.
 
 **Lectura estratégica:** la propuesta de valor es de **liderazgo en costos** (Porter), no de diferenciación. Compite por precio y por servicio al canal, no por atributos del producto percibidos por el consumidor.
 
@@ -124,13 +118,9 @@ La propuesta **no está dirigida al consumidor final sino al canal**, y la propi
 - **Venta directa a la cadena Aiello (San Luis).** ✅
 - **Venta de producto fraccionado** (línea de repostería y formatos de 1-2 Kg). ✅
 
-> **No existe ingreso por venta minorista ni por comercio electrónico.** ✅ La totalidad de la facturación proviene del canal mayorista y de Aiello.
-
 **Mecanismos de cobro:** contado y efectivo, cuenta corriente a aproximadamente 30 días, y cheques diferidos. ✅
 
 **Comportamiento de la demanda:** pareja a lo largo del año, sin estacionalidad marcada ✅ — consistente con un producto de consumo cotidiano y con una cobertura geográfica amplia que compensa estacionalidades locales.
-
-> **Coherencia del esquema de cobranza:** la ausencia de plazos extendidos de 60 a 90 días —habituales cuando se provee a una gran cadena nacional— es consistente con el hecho de que la única cadena cliente sea Aiello, un actor regional de escala comparable a la propia Dulxelitos. La empresa **no está expuesta hoy al estrangulamiento financiero típico del canal supermercadista concentrado**, y esa es una fortaleza del modelo actual que conviene registrar antes de proponer cualquier crecimiento hacia el retail nacional.
 
 ## 6. Recursos clave
 
