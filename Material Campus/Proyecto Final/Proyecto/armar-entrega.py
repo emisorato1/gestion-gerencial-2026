@@ -56,22 +56,36 @@ PB = "<!--PAGEBREAK-->"
 
 # La portada va como metadatos: pandoc los mapea a los estilos Title y Subtitle
 # de Word, en vez de a un parrafo cualquiera en negrita.
+INTEGRANTES = "Lepez Joaquín - Geyer Juan José - Lopez Juan - Sorato Emiliano"
+DOCENTES = "Ing. Jeremías Pino - Ing. Martín Noguerol"
+MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto",
+         "septiembre","octubre","noviembre","diciembre"]
+
 META = """---
-title: "Trabajo Práctico Final, Parte 1"
-subtitle: "Diagnóstico gerencial de Dulxelitos"
-author:
-  - "Universidad Tecnológica Nacional, Facultad Regional San Rafael"
-  - "Ingeniería en Sistemas de Información, Plan 2026"
-  - "Cátedra: Gestión Gerencial, quinto año"
-  - "Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol"
-  - "Organización analizada: Dulxelitos, San Rafael, Mendoza, desde 1973"
-  - "Integrantes: (completar con apellido y nombre de cada integrante)"
-date: "%s"
 lang: es
 ---
-""" % hoy.strftime("%d/%m/%Y")
+"""
 
 L = []
+# Caratula calcada del Proyecto Integrador de Sistemas de gestion: titulo a la
+# derecha, materia debajo, carrera en negrita, y equipo y docentes al pie.
+L.append('<div class="portada">')
+L.append("")
+L.append('<p class="p-titulo">Trabajo Práctico Final - Parte 1</p>')
+L.append('<p class="p-sub">Diagnóstico gerencial de Dulxelitos</p>')
+L.append('<p class="p-materia">Gestión Gerencial</p>')
+L.append('<p class="p-carrera">Ingeniería en Sistemas de Información</p>')
+L.append('<p class="p-equipo">Integrantes: %s</p>' % INTEGRANTES.replace(" - ", ", "))
+L.append('<p class="p-docente">Docentes: %s</p>' % DOCENTES.replace(" - ", ", "))
+L.append("")
+L.append("</div>")
+L.append("")
+L.append(PB)
+L.append("")
+L.append("<!--INDICE-->")
+L.append("")
+L.append(PB)
+L.append("")
 
 # ---------------------------------------------------------------- introduccion
 L.append("## Introducción")
@@ -283,46 +297,61 @@ io.open(tmp_html, "w", encoding="utf-8").write(md_html)
 print("%s.md  (%d lineas, ~%d palabras)" % (NOMBRE, md.count("\n") + 1, len(md.split())))
 
 CSS = """
-@page { size: A4; margin: 2.2cm 2cm; @bottom-center {
-  content: counter(page); font-family: Georgia, serif; font-size: 9pt; color: #666; } }
-body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.5pt;
-  line-height: 1.5; color: #1a1a1a; }
-h1 { font-size: 24pt; margin: 3.5cm 0 .3em; line-height: 1.2; text-align: center; }
-h1 + h2 { font-size: 15pt; border: none; text-align: center; font-weight: normal;
-  font-style: italic; margin: 0 0 2.5cm; color: #333; }
-h1 + h2 + p, h1 + h2 + p ~ p { text-align: center; }
-h2 { font-size: 14pt; margin: 1.6em 0 .5em; border-bottom: 1px solid #ccc;
-  padding-bottom: .2em; page-break-after: avoid; }
-h3 { font-size: 11.5pt; margin: 1.2em 0 .4em; page-break-after: avoid; }
-h4 { font-size: 10.5pt; margin: 1em 0 .3em; font-style: italic;
-  page-break-after: avoid; }
-p { margin: 0 0 .6em; text-align: justify; }
-table { border-collapse: collapse; width: 100%; margin: .8em 0; font-size: 9pt;
+@page {
+  size: Letter; margin: 2.6cm 2.2cm 2.2cm;
+  @top-center {
+    content: "Integrantes: @@INT@@\\A Trabajo Práctico Final - Parte 1\\A Diagnóstico gerencial de Dulxelitos";
+    white-space: pre; font-family: Arial, Helvetica, sans-serif; font-size: 8pt;
+    line-height: 1.3; text-align: center; color: #000;
+  }
+}
+/* la caratula no lleva encabezado */
+@page :first { margin: 0; @top-center { content: none; } }
+
+body { font-family: Arial, Helvetica, sans-serif; font-size: 11pt;
+  line-height: 1.45; color: #000; }
+p { margin: 0 0 .7em; text-align: justify; }
+
+/* titulos de seccion centrados; los de punto y subpunto, a la izquierda */
+h1 { font-size: 14pt; font-weight: bold; text-align: center; margin: 0 0 .9em;
+     page-break-after: avoid; }
+h2 { font-size: 11pt; font-weight: bold; margin: 1.1em 0 .4em; page-break-after: avoid; }
+h3 { font-size: 11pt; font-weight: bold; margin: 1em 0 .35em; page-break-after: avoid; }
+h4 { font-size: 11pt; font-weight: bold; font-style: italic; margin: .9em 0 .3em;
+     page-break-after: avoid; }
+
+table { border-collapse: collapse; margin: .9em auto; font-size: 10pt;
   page-break-inside: avoid; }
-th, td { border: 1px solid #bbb; padding: 4px 6px; text-align: left;
-  vertical-align: top; }
-th { background: #eee; font-weight: bold; }
-ul, ol { margin: 0 0 .6em 1.2em; padding: 0; }
-li { margin-bottom: .25em; }
-hr { border: none; border-top: 1px solid #ddd; margin: 1.5em 0; }
-code { font-family: Menlo, monospace; font-size: 9pt; }
-/* portada */
-#title-block-header { margin-top: 4cm; text-align: center; }
-/* la regla general de p justifica el texto y le gana a la alineacion heredada */
-#title-block-header p, #title-block-header h1 { text-align: center; }
-#title-block-header .title { font-size: 24pt; font-weight: bold; display: block;
-  margin-bottom: .3em; }
-#title-block-header .subtitle { font-size: 15pt; font-style: italic; color: #333;
-  display: block; margin-bottom: 3cm; }
-#title-block-header .author { display: block; font-size: 10.5pt; margin: .35em 0; }
-#title-block-header .date { display: block; margin-top: 2cm; font-size: 10.5pt; }
-/* indice con numero de pagina */
-#TOC h2 { margin-top: 0; }
-#TOC ul { list-style: none; padding-left: 0; }
-#TOC ul ul { padding-left: 1.4em; font-size: 9.5pt; }
-#TOC li { margin: .18em 0; }
-#TOC a { text-decoration: none; color: inherit; }
-#TOC a::after { content: "  " leader(".") "  " target-counter(attr(href), page); }
+th, td { border: 1px solid #000; padding: 3px 7px; text-align: left; vertical-align: top; }
+th { font-weight: bold; }
+ul, ol { margin: 0 0 .7em 1.4em; padding: 0; }
+li { margin-bottom: .2em; text-align: justify; }
+hr { display: none; }
+code { font-family: Consolas, Menlo, monospace; font-size: 9.5pt; }
+blockquote { margin: .7em 0 .7em 1.2em; padding-left: .8em; border-left: 2px solid #999; }
+
+/* ------------------------------- caratula ------------------------------- */
+.portada { padding: 0 2.2cm; height: 100%; position: relative; }
+.portada::before {
+  content: ""; display: block; height: 3.2cm; margin: 0 0 0 -2.2cm; width: calc(100% + 4.4cm);
+  background: linear-gradient(105deg, #f4f6f8 0 62%, #e8edf1 62% 100%);
+  border-bottom: 1px solid #cfd6dc;
+}
+.portada p { text-align: right; margin: 0; }
+.p-titulo { font-size: 24pt; color: #17495c; line-height: 1.25; margin-top: 11cm !important; }
+.p-sub { font-size: 16pt; color: #5a6b74; margin-top: .25em !important; }
+.p-materia { font-size: 13pt; color: #5a6b74; margin-top: .6em !important; }
+.p-carrera { font-size: 11pt; font-weight: bold; margin-top: 1.6em !important; }
+.p-equipo { font-size: 10.5pt; margin-top: 4cm !important; }
+.p-docente { font-size: 10.5pt; margin-top: .5em !important; }
+
+/* -------------------------------- indice -------------------------------- */
+#TOC h2 { font-size: 14pt; font-weight: bold; text-align: center; margin: 0 0 1em; }
+#TOC ul { list-style: none; padding-left: 0; margin: 0; }
+#TOC ul ul { padding-left: 1.2em; }
+#TOC li { margin: .35em 0; }
+#TOC a { text-decoration: none; color: #17495c; }
+#TOC a::after { content: " " leader(".") " " target-counter(attr(href url), page); color: #000; }
 """
 
 def corre(cmd, que):
@@ -377,26 +406,45 @@ if shutil.which("pandoc"):
         print("  no se pudo armar la plantilla de estilos (%s), se usa la de pandoc" % e)
         ref = None
     corre(["pandoc", tmp_docx, "-o", os.path.join(DEST, NOMBRE + ".docx"),
-           "--from", "markdown", "--toc", "--toc-depth=3"]
+           "--from", "markdown", "--toc", "--toc-depth=2"]
           + (["--reference-doc", ref] if ref else []), "docx")
     html = os.path.join(DEST, "_tmp.html")
     css = os.path.join(DEST, "_tmp.css")
-    io.open(css, "w", encoding="utf-8").write(CSS)
+    io.open(css, "w", encoding="utf-8").write(
+        CSS.replace("@@INT@@", INTEGRANTES.replace(" - ", ", ")))
+    logo_src = os.path.join(BASE, "assets", "utn-logo.png")
+    logo_dst = os.path.join(DEST, "utn-logo.png")
+    if os.path.exists(logo_src):
+        shutil.copy(logo_src, logo_dst)
     if corre(["pandoc", tmp_html, "-o", html, "--standalone", "--css", "_tmp.css",
-              "--toc", "--toc-depth=3"], "html intermedio"):
-        # el bloque de titulo de pandoc es la portada: le metemos el salto de
-        # pagina y dejamos el indice en su propia hoja.
+              "--toc", "--toc-depth=2"], "html intermedio"):
+        # Pandoc deja este orden: titulo, indice, cuerpo. La caratula de las
+        # entregas anteriores necesita otro: bloque institucional, titulo, logo
+        # y equipo, todo junto y en su propia hoja, y recien despues el indice.
         h = io.open(html, encoding="utf-8").read()
-        h = h.replace('</header>', '</header><div style="page-break-after: always;"></div>')
-        h = h.replace('<nav id="TOC" role="doc-toc">',
-                      '<nav id="TOC" role="doc-toc"><h2>Índice</h2>')
-        h = h.replace('</nav>', '</nav><div style="page-break-after: always;"></div>')
+
+        def sacar(patron):
+            m = re.search(patron, h, re.S)
+            return (m.group(0), h.replace(m.group(0), "", 1)) if m else ("", h)
+
+        toc, h = sacar(r'<nav id="TOC".*?</nav>')
+        toc = toc.replace('<nav id="TOC" role="doc-toc">',
+                          '<nav id="TOC" role="doc-toc"><h2>Indice</h2>')
+        salto = '<div style="page-break-after: always;"></div>'
+        # pandoc pone el indice arriba de todo; va despues de la caratula,
+        # o sea despues del primer salto de pagina del cuerpo.
+        i = h.find(salto)
+        if i >= 0:
+            corte = i + len(salto)
+            h = h[:corte] + toc + salto + h[corte:]
+        else:
+            h = h.replace("<body>", "<body>" + toc + salto, 1)
         io.open(html, "w", encoding="utf-8").write(h)
         if shutil.which("weasyprint"):
             corre(["weasyprint", html, os.path.join(DEST, NOMBRE + ".pdf")], "pdf")
         else:
             print("  falta weasyprint, no se genero el pdf")
-    for t in (html, css, tmp_docx, tmp_html, ref or ""):
+    for t in (html, css, tmp_docx, tmp_html, ref or "", os.path.join(DEST, "utn-logo.png")):
         if t and os.path.exists(t):
             os.remove(t)
 else:

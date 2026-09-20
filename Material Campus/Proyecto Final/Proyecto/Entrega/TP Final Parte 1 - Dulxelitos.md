@@ -1,16 +1,33 @@
 ---
-title: "Trabajo Práctico Final, Parte 1"
-subtitle: "Diagnóstico gerencial de Dulxelitos"
-author:
-  - "Universidad Tecnológica Nacional, Facultad Regional San Rafael"
-  - "Ingeniería en Sistemas de Información, Plan 2026"
-  - "Cátedra: Gestión Gerencial, quinto año"
-  - "Docentes: Ing. Jeremías Pino e Ing. Martín Noguerol"
-  - "Organización analizada: Dulxelitos, San Rafael, Mendoza, desde 1973"
-  - "Integrantes: (completar con apellido y nombre de cada integrante)"
-date: "20/09/2026"
 lang: es
 ---
+<div class="portada">
+
+<p class="p-titulo">Trabajo Práctico Final - Parte 1</p>
+<p class="p-sub">Diagnóstico gerencial de Dulxelitos</p>
+<p class="p-materia">Gestión Gerencial</p>
+<p class="p-carrera">Ingeniería en Sistemas de Información</p>
+<p class="p-equipo">Integrantes: Lepez Joaquín, Geyer Juan José, Lopez Juan, Sorato Emiliano</p>
+<p class="p-docente">Docentes: Ing. Jeremías Pino, Ing. Martín Noguerol</p>
+
+</div>
+
+---
+
+# Índice
+
+1. Introducción
+2. 1. La organización
+3. 2. El contexto
+4. 3. Modelo de negocio actual
+5. 4. Propuesta de valor actual
+6. 5. Madurez y capacidades
+7. 6. Conclusiones del diagnóstico
+8. 7. Bibliografía
+9. 8. Anexos
+
+---
+
 # Introducción
 
 Este trabajo es la primera parte del proyecto integrador de Gestión Gerencial. Consiste en un diagnóstico gerencial de una organización real, y la que elegimos fue Dulxelitos, una empresa familiar de San Rafael que fabrica, fracciona y distribuye snacks desde 1973.
