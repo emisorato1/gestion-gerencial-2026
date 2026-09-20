@@ -296,7 +296,7 @@ indice_md = subir_nivel(indice_md)
 md = META + crudo.replace("<!--INDICE-->", indice_md).replace(PB, "---")
 
 SALTO_DOCX = "```{=openxml}\n<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>\n```"
-SALTO_HTML = '<div style="page-break-after: always;"></div>'
+SALTO_HTML = '<div class="pb"></div>'
 sin_marca = crudo.replace("<!--INDICE-->\n\n" + PB + "\n\n", "")
 md_docx = META + sin_marca.replace(PB, SALTO_DOCX)
 md_html = META + sin_marca.replace(PB, SALTO_HTML)
@@ -345,6 +345,7 @@ th { font-weight: bold; }
 ul, ol { margin: 0 0 .7em 1.4em; padding: 0; }
 li { margin-bottom: .2em; text-align: justify; }
 hr { display: none; }
+.pb { page-break-after: always; }
 code { font-family: Consolas, Menlo, monospace; font-size: 9.5pt; }
 blockquote { margin: .7em 0 .7em 1.2em; padding-left: .8em; border-left: 2px solid #999; }
 
@@ -448,15 +449,16 @@ if shutil.which("pandoc"):
         toc, h = sacar(r'<nav id="TOC".*?</nav>')
         toc = toc.replace('<nav id="TOC" role="doc-toc">',
                           '<nav id="TOC" role="doc-toc"><h2>Indice</h2>')
-        salto = '<div style="page-break-after: always;"></div>'
-        # pandoc pone el indice arriba de todo; va despues de la caratula,
-        # o sea despues del primer salto de pagina del cuerpo.
-        i = h.find(salto)
-        if i >= 0:
-            corte = i + len(salto)
-            h = h[:corte] + toc + salto + h[corte:]
-        else:
-            h = h.replace("<body>", "<body>" + toc + salto, 1)
+        salto = '<div class="pb"></div>'
+        # Pandoc pone el indice arriba de todo; tiene que ir despues de la
+        # caratula, o sea despues del primer salto de pagina. Se busca con
+        # expresion regular porque pandoc reescribe el html crudo y un find
+        # por texto exacto falla sin avisar.
+        m = re.search(r'<div class="pb"\s*/?>\s*</div>|<div class="pb"\s*/>', h)
+        if not m:
+            raise SystemExit("no encontre el salto de pagina de la caratula en el html")
+        corte = m.end()
+        h = h[:corte] + toc + salto + h[corte:]
         io.open(html, "w", encoding="utf-8").write(h)
         if shutil.which("weasyprint"):
             corre(["weasyprint", html, os.path.join(DEST, NOMBRE + ".pdf")], "pdf")
