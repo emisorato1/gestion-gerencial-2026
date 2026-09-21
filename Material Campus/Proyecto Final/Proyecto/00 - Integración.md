@@ -95,7 +95,7 @@ El canvas fue escrito antes del relevamiento con el integrante que trabaja en la
 | 7 | Nota sobre domicilios | ❓ pendiente de confirmar | Resuelta: **planta, depósito y oficina en Av. Pedro Vargas 2400** |
 | 8 | Pie del documento | "Pendiente: lectura analítica" | Remite a `03 - Lectura analítica del BMC.md` |
 
-> ⚠️ **El PDF del canvas quedó desactualizado.** `BMC - Dulxelitos.pdf` es el diagrama visual de los nueve bloques y todavía dice *"Sin tienda online operativa — el sitio existe, el catálogo está vacío"* y *"Conocimiento concentrado en los dueños"*. Fue generado desde un HTML que no está en esta carpeta, así que **hay que regenerarlo con esas dos celdas corregidas antes de entregar**. Si se entrega el PDF sin corregir, contradice al `.md`.
+> **El PDF del canvas está al día.** `BMC - Dulxelitos.pdf` es el póster A3 de los nueve bloques y se regenera con `python3 armar-canvas.py`. Lleva el mismo contenido corregido que el `.md`: catálogo publicado, segunda generación operando, y el costeo impreciso como remate. Si se corrige un bloque hay que tocarlo en los dos lados.
 
 ## Datos pendientes
 
