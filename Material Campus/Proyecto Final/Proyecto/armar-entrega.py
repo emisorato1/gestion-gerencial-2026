@@ -101,8 +101,9 @@ L.append("El objetivo de esta etapa es entender cómo funciona la empresa hoy y 
          "actual y no sobre un escenario deseado.")
 L.append("")
 L.append("El documento sigue las cinco secciones que pide el enunciado. Arranca "
-         "describiendo la organización, sigue con el análisis del contexto aplicando PESTEL, "
-         "las cinco fuerzas de Porter, la cadena de valor y un FODA cruzado, después "
+         "describiendo la organización, sigue con el análisis del contexto mirando los "
+         "factores del entorno que impactan, las cinco fuerzas de Porter, la cadena de valor "
+         "y un FODA, después "
          "presenta el modelo de negocio actual con un Business Model Canvas y su lectura, "
          "continúa con la propuesta de valor vista desde el cliente con un Value Proposition "
          "Canvas, y cierra evaluando la madurez de la empresa con el modelo de la cátedra y "
@@ -117,7 +118,8 @@ L.append("Elegimos Dulxelitos por una razón práctica que conviene decir de ent
          "en el punto 1.6.")
 L.append("")
 L.append("En el documento aparte `herramientas.md` está el detalle de qué herramienta "
-         "aplicamos en cada sección y cómo se encadenan entre sí.")
+         "aplicamos en cada sección, cuáles decidimos no usar y por qué, y cómo se "
+         "encadenan entre sí.")
 L.append("")
 L.append(PB)
 L.append("")

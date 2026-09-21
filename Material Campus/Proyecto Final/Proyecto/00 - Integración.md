@@ -1,7 +1,7 @@
 # Trabajo Práctico Final — Parte 1 · Dulxelitos
 ## Documento de integración
 
-Este documento no agrega contenido: **traza cómo se encadenan las secciones**. La rúbrica de la cátedra evalúa explícitamente que las herramientas no estén aisladas —"¿las oportunidades del FODA surgen realmente del PESTEL y las 5 Fuerzas?"— y esta es la evidencia de ese encadenamiento.
+Este documento no agrega contenido: **traza cómo se encadenan las secciones**. La rúbrica de la cátedra evalúa explícitamente que las herramientas no estén aisladas —"¿las oportunidades del FODA surgen realmente del PESTEL y las 5 Fuerzas?"— y esta es la evidencia de ese encadenamiento. En nuestro caso el lugar del PESTEL lo ocupan los factores del entorno de §2.1, por los motivos que explica §2 y `herramientas.md`.
 
 ---
 
@@ -46,11 +46,11 @@ avisa y genera igual lo que pueda.
    │  acceso interno declarado
    ▼
 §2 Contexto
-   PESTEL ──────────┐
-   5 Fuerzas ───────┼──► oportunidades y amenazas
-   Cadena de Valor ─┼──► fortalezas y debilidades
-                    ▼
-              FODA cruzado ──► iniciativas (FO / FA / DO / DA)
+   Factores del entorno ─┐
+   5 Fuerzas ────────────┼──► oportunidades y amenazas
+   Cadena de Valor ──────┼──► fortalezas y debilidades
+                         ▼
+                        FODA
    │
    ├──────────────► §3 tensiones del modelo
    ├──────────────► §4 elección del segmento
@@ -65,16 +65,18 @@ avisa y genera igual lo que pueda.
 | Hallazgo | De dónde sale | Dónde se usa después |
 |---|---|---|
 | Planta saturada absorbida con horas extras | §1.4, relevamiento interno | §2 Cadena de Valor (operaciones) · §3 segunda tensión · §5 Procesos · **CoI componente agregado** |
-| El costo por producto no se conoce | BMC bloque 9 + §1.6 | §2 PESTEL económico e implicancia de precios · §3 primera tensión · §5 Tecnología y Datos |
+| El costo por producto no se conoce | BMC bloque 9 + §1.6 | §2.1 factores económicos e implicancia de precios · §3 primera tensión · §5 Tecnología y Datos |
 | El sector es cómodo (Porter) | §2.2 | §3.2 explica por qué la exploración desestructurada fue sostenible 53 años |
 | Set competitivo enteramente regional | §2.2, relevamiento interno | §2 FODA (O5) · matiza la urgencia de toda la sección 5 |
 | Un solo proveedor de film | §2.2 fuerza 2 | §2 FODA (D5, A2) · §3.3 dependencia 1 · §5 Gobierno (riesgo no gestionado) |
 | Margen se crea en operaciones y logística, se pierde en dirección y tecnología | §2.3 Cadena de Valor | Origen directo de las fortalezas y debilidades del FODA §2.4 |
 | El canal está conforme ("compromiso y precio") | §4.2, relevamiento interno | §4.4 encaje bueno · reencuadra el diagnóstico hacia lo interno · §5 Clientes y Canales |
-| El distribuidor no puede consultar stock sin llamar | §4.2 | §2 FODA cruzado (DO) · §4.4 brecha 1 · §5 Clientes y Canales |
+| El distribuidor no puede consultar stock sin llamar | §4.2 | §2.4 FODA (debilidad 7) · §4.4 brecha 1 · §5 Clientes y Canales |
 | Capa de e-commerce construida y desactivada | §3.2 + verificación del sitio | §2 FODA (O1) · §2.5 iniciativa DO · §4.4 cierre de la brecha |
 | "No, muy pyme" — estadísticas operativas sin tablero de dirección | §5, relevamiento interno | §2 Cadena de Valor (infraestructura) · §5 Gobierno 1.50 · **explica por qué el CoI no se puede cuantificar** |
 | Segunda generación operando | §1.5 | §2 FODA (F5) · §3.3 corrige el BMC · §5 Gobierno (continuidad parcial) |
+
+> **Dos herramientas quedaron afuera a propósito.** El **PESTEL completo**, porque cuatro de sus seis dimensiones volvían vacías en este caso, y el **FODA cruzado**, porque su producto son iniciativas y esta entrega es diagnóstico. La guía de la cátedra respalda las dos decisiones: su ejemplo resuelto usa "FODA + factores clave" en vez de un PESTEL, y su FODA no está cruzado. Está justificado en §2 y en `herramientas.md`.
 
 > **El encadenamiento más importante del trabajo:** "no, muy pyme" (§5) → estadísticas operativas que no se integran en indicadores de dirección → Gobierno en 1.50 (§5.3) → la empresa no puede cuantificar su propio CoI (§5.5). El diagnóstico muestra así la distancia entre **producir datos** y **usarlos sistemáticamente para decidir y controlar**.
 
@@ -117,4 +119,4 @@ Ninguno bloquea la entrega. Se dejan declarados como limitación, que es lo que 
 
 Todo el trabajo está escrito en **estado actual (AS-IS)**, como pide el enunciado: no se propone solución. Las slides de la Clase 2 planteaban un entregable con BMC y VPC en **To-Be** más una hipótesis de oportunidad tecnológica; se siguió el enunciado oficial del trabajo práctico, que es posterior y explícito en pedir el modelo actual y en advertir que no se proponga todavía una solución.
 
-Las iniciativas derivadas del FODA cruzado (§2.5) se presentan como **derivación analítica de la herramienta**, no como propuesta: es lo que la propia técnica del FODA cruzado produce, y el enunciado pide aplicarla.
+Por eso mismo **no hicimos el FODA cruzado**: su producto son iniciativas, y proponer iniciativas es justo lo que esta entrega no debe hacer. El FODA simple sí está, en §2.4, que es además la forma que usa la guía de la cátedra en su ejemplo resuelto.

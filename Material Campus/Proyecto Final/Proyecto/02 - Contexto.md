@@ -1,19 +1,28 @@
 # 2. El contexto
 
-Para esta parte usamos cuatro herramientas de las que vimos en clase: PESTEL para mirar el entorno general, las cinco fuerzas de Porter para el sector, la cadena de valor para lo que pasa adentro y el FODA cruzado para sacar conclusiones. Las aplicamos en ese orden a propósito, porque cada una alimenta a la siguiente. Las oportunidades y amenazas del FODA salen del PESTEL y de Porter, y las fortalezas y debilidades salen de la cadena de valor.
+Para esta parte usamos tres herramientas de las que vimos en clase: los factores del entorno que realmente impactan en la empresa, las cinco fuerzas de Porter para el sector y la cadena de valor para lo que pasa puertas adentro. Con eso armamos el FODA. Las aplicamos en ese orden a propósito, porque cada una alimenta a la siguiente: las oportunidades y amenazas salen de los factores del entorno y de Porter, y las fortalezas y debilidades salen de la cadena de valor.
 
-## 2.1 PESTEL
+**Dos herramientas que decidimos no usar, y por qué.** El enunciado pide "FODA, PESTEL, cinco fuerzas u otra herramienta equivalente", o sea que deja elegir.
 
-| Dimensión | Qué vemos | Qué implica |
-|---|---|---|
-| Político y legal | Tienen la habilitación bromatológica y los registros RNE y RNPA al día. Les preguntamos si alguna regulación o control les complicó algo últimamente y nos dijeron que no, nada | La regulación hoy les juega a favor más que en contra. Les permite mover mercadería entre provincias y entrar a un supermercado, y de paso deja afuera a cualquiera que quiera competir de manera informal |
-| Económico | La inflación pega sobre materia prima y packaging. Los insumos que más se movieron el último año fueron las papas fritas y el conito. Cobran a cuenta corriente a unos 30 días y con cheques diferidos | Presión directa sobre el margen, en una empresa cuya única ventaja es el precio. Encima el costo financiero de los 30 días se suma a un costo de producto que no conocen bien |
-| Social | El snack es consumo de todos los días. La demanda es pareja durante el año, sin temporada alta ni baja | Les da previsibilidad: no tienen picos de caja ni plata inmovilizada esperando una temporada. La excepción son faltantes de papas fritas en algunos momentos |
-| Tecnológico | El sistema de gestión está viejo y no se integra con nada. No hay CRM. La tienda online está construida pero apagada. Los pedidos entran por WhatsApp y teléfono | El atraso no les impide operar, pero sí les impide saber. Sin integración no hay costo por producto ni información del cliente |
-| Ecológico | El packaging es plástico y film impreso. El snack ocupa mucho volumen y pesa poco, así que el flete por unidad sale caro | La presión ambiental todavía no la sienten, pero el film es justo su mayor riesgo de abastecimiento |
-| Legal | Rotulado, transporte entre provincias y temas fiscales, sin conflictos | Sin impacto por ahora |
+No hicimos un **PESTEL completo**. Lo probamos y cuatro de sus seis dimensiones volvían vacías: ninguna regulación los complicó, la presión ecológica no se siente, lo legal se pisa con lo político y lo tecnológico ya lo mide la sección 5 con mucho más rigor. Llenar seis casilleros para que cuatro digan "sin impacto" es exactamente lo que la guía de la cátedra advierte cuando pregunta cuál es la diferencia entre listar un factor PESTEL y explicar su impacto real en la empresa. Así que nos quedamos con los factores que sí impactan, y los desarrollamos en 2.1.
 
-Sacando cuentas, el entorno no les es hostil. Lo político y lo social juegan a favor. Donde sí hay presión es en lo económico, y pega justo donde son más débiles: una empresa que compite por precio, con inflación en los insumos, cobrando a 30 días y sin saber cuánto le cuesta realmente cada producto.
+Tampoco hicimos el **FODA cruzado**. El cruce sirve para derivar iniciativas, y esta entrega es diagnóstico: el enunciado es explícito en que todavía no hay que proponer solución. El FODA simple sí lo hicimos, porque el enunciado pide oportunidades y amenazas, y porque es la forma que usa la guía de la cátedra en su ejemplo resuelto.
+
+## 2.1 Los factores del entorno que sí impactan
+
+El enunciado pide analizar las restricciones económicas, regulatorias, sociales y tecnológicas, más los factores regionales. Las tomamos una por una, pero contando qué le hace cada una a esta empresa en concreto.
+
+**Económicas. Es la única presión seria, y pega donde más duele.** La inflación mueve la materia prima y el packaging, que son los dos componentes más pesados de su estructura de costos. Los insumos que más se movieron el último año son las papas fritas y el conito. A eso se le suma el costo financiero de cobrar a unos 30 días con cheques diferidos. El problema no es la inflación en sí sino dónde los agarra: es una empresa que compite por precio y que no sabe con precisión cuánto le cuesta cada producto, así que cada ajuste de lista agranda un error que nadie puede auditar.
+
+**Regulatorias. Les juegan a favor.** Tienen la habilitación bromatológica y los registros RNE y RNPA al día. Les preguntamos si alguna regulación o control les complicó algo últimamente y la respuesta fue que nada. Esos registros son lo que les permite mover mercadería entre provincias y entrar a una góndola de supermercado, y de paso dejan afuera a cualquiera que quiera competir de manera informal. O sea que acá la regulación funciona como barrera de entrada a su favor, no como restricción.
+
+**Sociales. Previsibilidad.** El snack es consumo de todos los días y la demanda es pareja durante todo el año, sin temporada alta ni baja. Eso les evita picos de caja y capital inmovilizado esperando una temporada. La única excepción son faltantes de papas fritas en algunos momentos, que no vienen de la demanda sino de la capacidad de planta.
+
+**Tecnológicas. El atraso no les impide operar, les impide saber.** El sistema de gestión está desactualizado y no se integra con nada, no hay CRM y la tienda online está construida y apagada. Lo desarrollamos en la sección 5, que lo mide con el modelo de madurez.
+
+**Factores regionales. La geografía manda.** El 61 por ciento de la cartera está en la Patagonia, a entre 1.000 y 1.500 km de la fábrica, y el snack es un producto de mucho volumen y poco peso, así que el flete por unidad transportada sale caro. No hay estacionalidad de cosecha ni de turismo que los afecte. Del lado de los proveedores, el film impreso tiene un solo origen, y eso lo tratamos en las cinco fuerzas.
+
+Juntando todo: **el entorno no les es hostil**. Lo regulatorio y lo social juegan a favor, lo tecnológico es un problema interno más que del entorno, y la única presión real es la económica.
 
 ## 2.2 Las cinco fuerzas de Porter
 
@@ -119,14 +128,7 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 4. Perder clientes sin enterarse, porque no hay datos de la cartera.
 5. Que algún competidor de la zona invierta en gestión y capacidad y ellos no.
 
-## 2.5 FODA cruzado
-
-| | Oportunidades | Amenazas |
-|---|---|---|
-| **Fortalezas** | Crecer por el lado del fraccionamiento y la repostería, que aprovecha la red y la marca sin tocar la planta saturada. Y repetir el modelo Aiello con otras cadenas regionales de tamaño parecido | La red y la logística los protegen de la competencia regional, porque es la barrera que un competidor local no copia rápido. Y las habilitaciones frenan a los informales aunque haya inflación |
-| **Debilidades** | Encender la tienda que ya está hecha, pero como canal de autogestión para distribuidores: que puedan consultar stock y cargar pedidos sin depender del teléfono en horario de oficina. Y aprovechar las ganas de capacitarse para meterlas en costos y en el uso del sistema | Armar un costeo por producto antes de tomar cualquier decisión de precio, porque si no la inflación les come el margen sin que se den cuenta. Medir la cartera para detectar las bajas a tiempo. Y resolver la capacidad de planta en vez de seguir absorbiéndola con horas extras |
-
-## 2.6 Qué significa todo esto para el negocio
+## 2.5 Qué significa todo esto para el negocio
 
 - **Precios.** Los fijan por costo y mirando a los competidores, pero el costo está mal calculado. Compiten por precio sobre una base que ellos mismos reconocen imprecisa. Para nosotros esta es la implicancia más grave de todo el análisis.
 - **Stock.** Con la planta saturada, el stock deja de ser un tema de costo de oportunidad y pasa a ser el límite del negocio. En temporada de papas fritas la restricción es física.
