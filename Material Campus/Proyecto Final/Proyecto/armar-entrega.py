@@ -118,8 +118,7 @@ L.append("Elegimos Dulxelitos por una razón práctica que conviene decir de ent
          "en el punto 1.6.")
 L.append("")
 L.append("En el documento aparte `herramientas.md` está el detalle de qué herramienta "
-         "aplicamos en cada sección, cuáles decidimos no usar y por qué, y cómo se "
-         "encadenan entre sí.")
+         "usamos en cada sección, cuáles no y por qué, y cómo se encadenan entre sí.")
 L.append("")
 L.append(PB)
 L.append("")
@@ -269,12 +268,14 @@ L.append("")
 L.append("### Anexo II: herramientas de análisis aplicadas")
 L.append("")
 # la tabla y el diagrama salen de herramientas.md, para no repetirlos a mano
-herr = hasta(desde(leer("herramientas.md"), "## Cuadro general"),
-             "## Una adaptación que hicimos")
+herr = hasta(desde(leer("herramientas.md"), "## El criterio"),
+             "## Una adaptación que sí hicimos")
 L += renombrar(demote(herr, 2), {
-    "#### Cuadro general": "**Cuadro general**",
+    "#### El criterio": "**El criterio**",
+    "#### La lista completa": "**La lista completa**",
+    "#### Dónde se usó cada una": "**Dónde se usó cada una**",
     "#### Cómo se encadenan": "**Cómo se encadenan**",
-    "#### Herramientas que no usamos, y por qué": "**Herramientas que no usamos, y por qué**",
+    "#### Lo que respalda las dos exclusiones": "**Lo que respalda las dos exclusiones**",
 })
 L.append("")
 

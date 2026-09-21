@@ -2,11 +2,15 @@
 
 Para esta parte usamos tres herramientas de las que vimos en clase: los factores del entorno que realmente impactan en la empresa, las cinco fuerzas de Porter para el sector y la cadena de valor para lo que pasa puertas adentro. Con eso armamos el FODA. Las aplicamos en ese orden a propósito, porque cada una alimenta a la siguiente: las oportunidades y amenazas salen de los factores del entorno y de Porter, y las fortalezas y debilidades salen de la cadena de valor.
 
-**Dos herramientas que decidimos no usar, y por qué.** El enunciado pide "FODA, PESTEL, cinco fuerzas u otra herramienta equivalente", o sea que deja elegir.
+**Por qué estas tres y no otras.** El criterio que seguimos fue simple: aplicamos una herramienta cuando producía evidencia sobre esta empresa en particular, y la dejamos afuera cuando devolvía casilleros vacíos o cuando su resultado pertenece a una etapa posterior del proyecto.
 
-No hicimos un **PESTEL completo**. Lo probamos y cuatro de sus seis dimensiones volvían vacías: ninguna regulación los complicó, la presión ecológica no se siente, lo legal se pisa con lo político y lo tecnológico ya lo mide la sección 5 con mucho más rigor. Llenar seis casilleros para que cuatro digan "sin impacto" es exactamente lo que la guía de la cátedra advierte cuando pregunta cuál es la diferencia entre listar un factor PESTEL y explicar su impacto real en la empresa. Así que nos quedamos con los factores que sí impactan, y los desarrollamos en 2.1.
+Con ese criterio quedaron afuera dos que podrían esperarse acá.
 
-Tampoco hicimos el **FODA cruzado**. El cruce sirve para derivar iniciativas, y esta entrega es diagnóstico: el enunciado es explícito en que todavía no hay que proponer solución. El FODA simple sí lo hicimos, porque el enunciado pide oportunidades y amenazas, y porque es la forma que usa la guía de la cátedra en su ejemplo resuelto.
+La primera es el **PESTEL completo**. Lo aplicamos y cuatro de sus seis dimensiones no tenían impacto real sobre esta empresa: ninguna regulación los complicó, la presión ecológica no se siente, lo legal se pisa con lo político y lo tecnológico ya lo mide la sección 5 con mucho más rigor. Un cuadro donde cuatro de seis casilleros dicen "sin impacto" no aporta al diagnóstico y sí distrae de lo que importa. La guía de la cátedra apunta a lo mismo cuando pregunta qué diferencia hay entre listar un factor PESTEL y explicar su impacto real en la empresa, y su propio ejemplo resuelto trabaja con factores clave en vez de con la matriz completa. Así que nos quedamos con los factores que sí impactan, y los desarrollamos en 2.1.
+
+La segunda es el **FODA cruzado**. El cruce sirve para derivar iniciativas de acción, y esta entrega es diagnóstico: el enunciado pide explícitamente no proponer solución todavía, y la Clase 3 advierte que la rúbrica penaliza el sesgo de la solución preconcebida. El FODA simple sí lo hicimos, porque el enunciado pide oportunidades y amenazas, y porque es la forma que usa la guía de la cátedra en su ejemplo.
+
+El detalle completo de qué herramienta usamos en cada sección y cuáles quedaron afuera está en el documento `herramientas.md`.
 
 ## 2.1 Los factores del entorno que sí impactan
 
