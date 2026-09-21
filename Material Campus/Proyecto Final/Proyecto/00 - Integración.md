@@ -11,7 +11,7 @@ Este documento no agrega contenido: **traza cómo se encadenan las secciones**. 
 |---|---|---|
 | `01 - Organización.md` | 1. Organización | Completa |
 | `02 - Contexto.md` | 2. Contexto | Completa |
-| `BMC - Dulxelitos.md` + `BMC - Dulxelitos.pdf` | 3. Modelo de negocio actual (canvas) | Completa — **requiere dos correcciones**, ver abajo |
+| `BMC - Dulxelitos.md` + `BMC - Dulxelitos.pdf` | 3. Modelo de negocio actual (canvas) | Completa — el `.md` manda, ver abajo |
 | `03 - Lectura analítica del BMC.md` | 3. Modelo de negocio actual (lectura) | Completa |
 | `04 - VPC - Distribuidor mayorista.md` | 4. Propuesta de valor actual | Completa |
 | `05 - Madurez y Costo de No Actuar.md` | 5. Madurez y capacidades | Completa, con 4 datos pendientes en el CoI |
@@ -82,7 +82,7 @@ avisa y genera igual lo que pueda.
 
 ## Correcciones al BMC
 
-El canvas fue escrito antes del relevamiento con el integrante que trabaja en la empresa. Las siguientes correcciones **ya están aplicadas en `BMC - Dulxelitos.md`**:
+El canvas fue escrito antes del relevamiento con el integrante que trabaja en la empresa. Las siguientes correcciones **ya están aplicadas en `BMC - Dulxelitos.md`** y en todo el resto del trabajo:
 
 | # | Dónde | Qué decía | Qué dice ahora |
 |---|---|---|---|
@@ -95,7 +95,7 @@ El canvas fue escrito antes del relevamiento con el integrante que trabaja en la
 | 7 | Nota sobre domicilios | ❓ pendiente de confirmar | Resuelta: **planta, depósito y oficina en Av. Pedro Vargas 2400** |
 | 8 | Pie del documento | "Pendiente: lectura analítica" | Remite a `03 - Lectura analítica del BMC.md` |
 
-> **El PDF del canvas está al día.** `BMC - Dulxelitos.pdf` es el póster A3 de los nueve bloques y se regenera con `python3 armar-canvas.py`. Lleva el mismo contenido corregido que el `.md`: catálogo publicado, segunda generación operando, y el costeo impreciso como remate. Si se corrige un bloque hay que tocarlo en los dos lados.
+> **El PDF del canvas no se toca.** `BMC - Dulxelitos.pdf` es el póster de los nueve bloques tal como lo armó el grupo el 4 de septiembre, con las fuentes públicas que había hasta ese momento. Es el punto de partida del trabajo y se entrega así. Donde el `.md` dice algo distinto —las filas 1 a 5 de la tabla de arriba— es porque el relevamiento con el integrante que trabaja adentro lo corrigió después: **la versión que vale es la del `.md`**, y el póster queda como registro de de dónde partimos.
 
 ## Datos pendientes
 
