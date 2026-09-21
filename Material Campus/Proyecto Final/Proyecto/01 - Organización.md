@@ -73,9 +73,7 @@ El viajante entrega y da la cara en la zona, pero la relación comercial con cad
 
 Con las cuentas: 7 en fábrica más 4 en oficina más el dueño son 12, y el total declarado va de 15 a 20. Así que en pedidos, embalaje y envíos hay entre 3 y 8 personas. Lo dejamos como aproximado porque es lo que nos dieron.
 
-Un punto que nos hizo cambiar de opinión sobre el canvas: preguntamos qué pasaría si faltara uno de los dueños un mes entero, y la respuesta fue que no se frena nada porque están los hijos. En el canvas habíamos puesto que el conocimiento concentrado en los dueños era un riesgo crítico, sin matices. Resulta que hay segunda generación trabajando, aunque no esté formalizado en ningún papel.
-
-Lo que sigue concentrado no es la operación sino la decisión. El día a día está cubierto; el criterio para decidir hacia dónde va la empresa está en una sola cabeza.
+Nada de esto está formalizado: no hay puestos definidos, no hay nada escrito y las funciones se reparten por costumbre. Preguntamos qué pasaría si faltara uno de los dueños un mes entero y la respuesta fue vaga, que se vería en el momento. El conocimiento del negocio (recetas, costos, con quién se habla en cada proveedor) está concentrado en los dueños, y es lo que pusimos en el canvas como recurso clave.
 
 ## 1.6 Cómo conseguimos la información
 

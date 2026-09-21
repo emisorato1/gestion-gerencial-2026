@@ -61,7 +61,7 @@ La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empre
 | Gobierno (agregada) | ¿Hay reuniones periódicas de dirección para revisar números? | A | 1 | "No, muy pyme", nos dijeron |
 | | ¿Hay indicadores definidos y revisados con periodicidad? | A | 1 | No hay indicadores gerenciales definidos ni revisión de dirección |
 | | ¿Hay roles y responsabilidades formalizados sobre datos y sistemas? | B | 2 | Tienen responsable del área de sistemas |
-| | ¿Se revisan riesgos de continuidad (proveedor único, backup, sucesión)? | B | 2 | Hay backup de planillas y segunda generación operando, pero el proveedor único de film no se gestiona como riesgo |
+| | ¿Se revisan riesgos de continuidad (proveedor único, backup, sucesión)? | B | 2 | Hay backup de planillas, pero ni la sucesión ni el proveedor único de film se gestionan como riesgo |
 
 ## 5.3 Resultado
 
@@ -86,7 +86,7 @@ Para cada una ponemos el nivel, en qué nos basamos, cuál es la brecha más imp
 
 **Estrategia y Modelo de Negocio, 1.25, Inicial.** No hay estrategia digital formulada, ni indicadores, ni revisión periódica. La única inversión tecnológica identificable de los últimos años es la tienda de 2020, que nunca se activó. La exploración existe como reflejo ante productos nuevos, no como cartera. La brecha es que no hay ningún mecanismo que convierta una oportunidad en una decisión con presupuesto y responsable. Y el costo de no actuar es que la empresa depende de que el entorno siga siendo tan cómodo como fue hasta ahora: el día que deje de serlo, no hay capacidad de respuesta instalada.
 
-**Liderazgo y Cultura Digital, 1.50, Inicial.** El dueño toma todas las decisiones importantes y los hijos las secundarias. No hay una visión digital comunicada. Sí hay apertura: el equipo tiene ganas de capacitarse y aprovechan las oportunidades de producto nuevo. La brecha es que esa predisposición existe y no está canalizada, porque falta alguien que tenga el cambio como responsabilidad y no como un agregado. El costo de no actuar es que toda mejora depende de que el dueño la empuje personalmente, lo que la pone a competir contra la operación diaria y la posterga siempre.
+**Liderazgo y Cultura Digital, 1.50, Inicial.** Las decisiones importantes las toma el dueño. No hay una visión digital comunicada. Sí hay apertura: el equipo tiene ganas de capacitarse y aprovechan las oportunidades de producto nuevo. La brecha es que esa predisposición existe y no está canalizada, porque falta alguien que tenga el cambio como responsabilidad y no como un agregado. El costo de no actuar es que toda mejora depende de que el dueño la empuje personalmente, lo que la pone a competir contra la operación diaria y la posterga siempre.
 
 **Procesos y Operaciones, 2.50, Básico.** La producción está estandarizada por 53 años de oficio y tiene documentación básica. Facturación y stock están digitalizados; el costeo y la toma de pedidos no. Generan datos continuos de producción, facturación y ventas, pero los usan de manera reactiva y no forman un ciclo de mejora. La brecha es que la planta opera al límite y los datos que tienen no traducen esa saturación en un indicador de costo y capacidad: la restricción se absorbe con horas extras. El costo de no actuar es el más medible de todos, y lo desarrollamos en el punto siguiente.
 

@@ -80,4 +80,4 @@ Por otro, la empresa no aprende de su canal. Cada pedido, consulta y reclamo pas
 
 La segunda es la más peligrosa, y tiene algo raro: el distribuidor no la sufre, él está cómodo. La sufre Dulxelitos. Un canal conforme pero no medido es un canal cuyo deterioro se va a notar recién cuando ya pasó. Y de hecho la empresa tampoco supo decirnos cuántos distribuidores se dieron de baja en los últimos dos años ni por qué, lo que confirma el punto.
 
-Lo que cerraría la primera brecha ya está construido. El sitio tiene la tienda armada con el catálogo cargado y sin operar. Encenderla como canal de autogestión para distribuidores, para consultar stock y cargar pedidos, es la iniciativa más barata que hay sobre la mesa, porque el desarrollo se pagó en 2020.
+Lo que cerraría la primera brecha está a medio hacer. El sitio tiene la tienda armada desde 2020, pero con el catálogo vacío, así que ni siquiera sirve para consultar. Terminarla y usarla como canal de autogestión para distribuidores, para ver stock y cargar pedidos, es la iniciativa más barata que hay sobre la mesa, porque el desarrollo ya está pago.

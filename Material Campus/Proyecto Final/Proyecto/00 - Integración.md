@@ -11,7 +11,7 @@ Este documento no agrega contenido: **traza cómo se encadenan las secciones**. 
 |---|---|---|
 | `01 - Organización.md` | 1. Organización | Completa |
 | `02 - Contexto.md` | 2. Contexto | Completa |
-| `BMC - Dulxelitos.md` + `BMC - Dulxelitos.pdf` | 3. Modelo de negocio actual (canvas) | Completa — el `.md` manda, ver abajo |
+| `BMC - Dulxelitos.md` + `BMC - Dulxelitos.pdf` | 3. Modelo de negocio actual (canvas) | Completa — el póster manda, ver abajo |
 | `03 - Lectura analítica del BMC.md` | 3. Modelo de negocio actual (lectura) | Completa |
 | `04 - VPC - Distribuidor mayorista.md` | 4. Propuesta de valor actual | Completa |
 | `05 - Madurez y Costo de No Actuar.md` | 5. Madurez y capacidades | Completa, con 4 datos pendientes en el CoI |
@@ -42,7 +42,7 @@ avisa y genera igual lo que pueda.
 ```
 §1 Organización
    │  planta saturada + horas extras
-   │  funciones reales + segunda generación
+   │  funciones reales, sin formalizar
    │  acceso interno declarado
    ▼
 §2 Contexto
@@ -72,30 +72,30 @@ avisa y genera igual lo que pueda.
 | Margen se crea en operaciones y logística, se pierde en dirección y tecnología | §2.3 Cadena de Valor | Origen directo de las fortalezas y debilidades del FODA §2.4 |
 | El canal está conforme ("compromiso y precio") | §4.2, relevamiento interno | §4.4 encaje bueno · reencuadra el diagnóstico hacia lo interno · §5 Clientes y Canales |
 | El distribuidor no puede consultar stock sin llamar | §4.2 | §2.4 FODA (debilidad 7) · §4.4 brecha 1 · §5 Clientes y Canales |
-| Capa de e-commerce construida y desactivada | §3.2 + verificación del sitio | §2 FODA (O1) · §2.5 iniciativa DO · §4.4 cierre de la brecha |
+| Tienda online armada y sin catálogo desde 2020 | §3.2 + verificación del sitio | §2 FODA (O1) · §2.5 iniciativa DO · §4.4 cierre de la brecha |
 | "No, muy pyme" — estadísticas operativas sin tablero de dirección | §5, relevamiento interno | §2 Cadena de Valor (infraestructura) · §5 Gobierno 1.50 · **explica por qué el CoI no se puede cuantificar** |
-| Segunda generación operando | §1.5 | §2 FODA (F5) · §3.3 corrige el BMC · §5 Gobierno (continuidad parcial) |
+| Conocimiento del negocio sin formalizar | §1.5 | §3.3 dependencia de fondo · §5 Gobierno (sucesión no gestionada) |
 
 > **Dos herramientas quedaron afuera a propósito.** El **PESTEL completo**, porque cuatro de sus seis dimensiones volvían vacías en este caso, y el **FODA cruzado**, porque su producto son iniciativas y esta entrega es diagnóstico. La guía de la cátedra respalda las dos decisiones: su ejemplo resuelto usa "FODA + factores clave" en vez de un PESTEL, y su FODA no está cruzado. Está justificado en §2 y en `herramientas.md`.
 
 > **El encadenamiento más importante del trabajo:** "no, muy pyme" (§5) → estadísticas operativas que no se integran en indicadores de dirección → Gobierno en 1.50 (§5.3) → la empresa no puede cuantificar su propio CoI (§5.5). El diagnóstico muestra así la distancia entre **producir datos** y **usarlos sistemáticamente para decidir y controlar**.
 
-## Correcciones al BMC
+## El canvas manda
 
-El canvas fue escrito antes del relevamiento con el integrante que trabaja en la empresa. Las siguientes correcciones **ya están aplicadas en `BMC - Dulxelitos.md`** y en todo el resto del trabajo:
+`BMC - Dulxelitos.pdf` es el póster de los nueve bloques, armado el 4 de septiembre.
+Es el punto de partida del trabajo y **no se toca**: se entrega tal cual está.
 
-| # | Dónde | Qué decía | Qué dice ahora |
-|---|---|---|---|
-| 1 | Bloque 3 (Canales) | "el catálogo está vacío" | El catálogo **está publicado**; lo vacío es el carrito. La tienda está construida y sin operar |
-| 2 | Bloque 3, nota al pie | "Evidencia de abandono del canal digital" | Canal **terminado y desactivado**, no abandonado a medio hacer |
-| 3 | Bloque 6 (Recursos clave) | Conocimiento concentrado en los dueños, sin matices | Se agrega la **segunda generación operando**: lo concentrado es el criterio estratégico, no la operación |
-| 4 | Síntesis, punto 4 | Dependencia crítica de los dueños | Continuidad operativa cubierta; decisión estratégica concentrada |
-| 5 | Síntesis, punto 5 | "nunca se puso a producir... catálogo vacío" | Canal completo **dejado apagado**: capacidad instalada sin usar, la oportunidad más barata del modelo |
-| 6 | Segmento 1 | ❓ concentración de facturación pendiente de relevar | Consultado: **el dato no existe**, la empresa no mide la concentración de su cartera. La ausencia es el hallazgo |
-| 7 | Nota sobre domicilios | ❓ pendiente de confirmar | Resuelta: **planta, depósito y oficina en Av. Pedro Vargas 2400** |
-| 8 | Pie del documento | "Pendiente: lectura analítica" | Remite a `03 - Lectura analítica del BMC.md` |
+`BMC - Dulxelitos.md` es el mismo canvas desarrollado, con la tabla de distribuidores
+por provincia, el catálogo completo y lo que fuimos averiguando en cada bloque. Dice lo
+mismo que el póster, con más detalle. Si algún día hay que corregir un bloque, se corrige
+primero en el póster y después acá.
 
-> **El PDF del canvas no se toca.** `BMC - Dulxelitos.pdf` es el póster de los nueve bloques tal como lo armó el grupo el 4 de septiembre, con las fuentes públicas que había hasta ese momento. Es el punto de partida del trabajo y se entrega así. Donde el `.md` dice algo distinto —las filas 1 a 5 de la tabla de arriba— es porque el relevamiento con el integrante que trabaja adentro lo corrigió después: **la versión que vale es la del `.md`**, y el póster queda como registro de de dónde partimos.
+Las dos cosas que el relevamiento sí cerró y que el póster dejaba abiertas:
+
+| Dónde | Qué pasó |
+|---|---|
+| Segmento 1 | Preguntamos por la concentración de facturación entre los 57 distribuidores: **el dato no existe**. La empresa no la mide. La ausencia es el hallazgo, y se retoma en §5 |
+| Domicilios | La página oficial y los listados comerciales daban tres direcciones distintas. Confirmado: **planta, depósito y oficina están los tres en Av. Pedro Vargas 2400** |
 
 ## Datos pendientes
 

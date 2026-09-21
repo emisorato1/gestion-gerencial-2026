@@ -22,7 +22,7 @@ El enunciado pide analizar las restricciones económicas, regulatorias, sociales
 
 **Sociales. Previsibilidad.** El snack es consumo de todos los días y la demanda es pareja durante todo el año, sin temporada alta ni baja. Eso les evita picos de caja y capital inmovilizado esperando una temporada. La única excepción son faltantes de papas fritas en algunos momentos, que no vienen de la demanda sino de la capacidad de planta.
 
-**Tecnológicas. El atraso no les impide operar, les impide saber.** El sistema de gestión está desactualizado y no se integra con nada, no hay CRM y la tienda online está construida y apagada. Lo desarrollamos en la sección 5, que lo mide con el modelo de madurez.
+**Tecnológicas. El atraso no les impide operar, les impide saber.** El sistema de gestión está desactualizado y no se integra con nada, no hay CRM y la tienda online quedó a medio armar, sin catálogo. Lo desarrollamos en la sección 5, que lo mide con el modelo de madurez.
 
 **Factores regionales. La geografía manda.** El 61 por ciento de la cartera está en la Patagonia, a entre 1.000 y 1.500 km de la fábrica, y el snack es un producto de mucho volumen y poco peso, así que el flete por unidad transportada sale caro. No hay estacionalidad de cosecha ni de turismo que los afecte. Del lado de los proveedores, el film impreso tiene un solo origen, y eso lo tratamos en las cinco fuerzas.
 
@@ -101,7 +101,7 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 2. La logística propia más la tercerizada, que ellos mismos reconocen como diferencial.
 3. Una marca con 53 años y presencia en góndola de supermercado.
 4. Las habilitaciones RNE y RNPA.
-5. Segunda generación trabajando, así que el día a día está cubierto.
+5. Habilitaciones vigentes y una estructura chica que se mueve rápido.
 6. Los distribuidores están conformes. Nos dijeron que los eligen por compromiso y precio.
 7. Demanda pareja todo el año y sin exposición a los plazos de pago de una cadena grande.
 
@@ -118,7 +118,7 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 
 **Oportunidades**
 
-1. La tienda online ya está construida y con el catálogo cargado, solo que apagada.
+1. El sitio ya está armado como tienda: falta cargar el catálogo y decidir usarlo.
 2. El equipo tiene ganas de capacitarse.
 3. Aiello funciona como modelo: se puede repetir con otras cadenas regionales parecidas.
 4. La línea de fraccionamiento y repostería permite crecer sin ampliar la planta.
@@ -138,6 +138,6 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 - **Stock.** Con la planta saturada, el stock deja de ser un tema de costo de oportunidad y pasa a ser el límite del negocio. En temporada de papas fritas la restricción es física.
 - **Cobranza y financiación.** Cobran a 30 días con cheques diferidos. Que no tengan plazos de 60 o 90 días tiene sentido si no le venden a ninguna cadena nacional, y en realidad los protege: no están expuestos al ahogo financiero típico de venderle a un supermercado grande. Es una fortaleza que conviene no perder si alguna vez piensan en crecer hacia el retail nacional.
 - **Servicio.** El horario acotado de atención es el punto de fricción más concreto con los distribuidores, y se agrava por la distancia.
-- **Canales.** Los pedidos entran por WhatsApp y teléfono, sin autogestión. Y el canal que resolvería eso ya está construido y apagado.
+- **Canales.** Los pedidos entran por WhatsApp y teléfono, sin autogestión. Y el canal que resolvería eso está a medio construir desde 2020.
 - **Personal.** El equipo absorbe la saturación haciendo horas extras. Es un costo que se repite todos los meses y que nadie calculó.
-- **Continuidad.** En lo operativo está cubierta por los hijos. En lo estratégico no, porque todas las decisiones importantes pasan por una sola persona. Y en el abastecimiento tampoco, por el proveedor único de film.
+- **Continuidad.** No está cubierta. El conocimiento del negocio está concentrado en los dueños y no hay nada escrito. Y en el abastecimiento tampoco, por el proveedor único de film.

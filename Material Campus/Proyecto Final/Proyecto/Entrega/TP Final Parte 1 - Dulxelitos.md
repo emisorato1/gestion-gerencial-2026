@@ -119,9 +119,7 @@ El viajante entrega y da la cara en la zona, pero la relación comercial con cad
 
 Con las cuentas: 7 en fábrica más 4 en oficina más el dueño son 12, y el total declarado va de 15 a 20. Así que en pedidos, embalaje y envíos hay entre 3 y 8 personas. Lo dejamos como aproximado porque es lo que nos dieron.
 
-Un punto que nos hizo cambiar de opinión sobre el canvas: preguntamos qué pasaría si faltara uno de los dueños un mes entero, y la respuesta fue que no se frena nada porque están los hijos. En el canvas habíamos puesto que el conocimiento concentrado en los dueños era un riesgo crítico, sin matices. Resulta que hay segunda generación trabajando, aunque no esté formalizado en ningún papel.
-
-Lo que sigue concentrado no es la operación sino la decisión. El día a día está cubierto; el criterio para decidir hacia dónde va la empresa está en una sola cabeza.
+Nada de esto está formalizado: no hay puestos definidos, no hay nada escrito y las funciones se reparten por costumbre. Preguntamos qué pasaría si faltara uno de los dueños un mes entero y la respuesta fue vaga, que se vería en el momento. El conocimiento del negocio (recetas, costos, con quién se habla en cada proveedor) está concentrado en los dueños, y es lo que pusimos en el canvas como recurso clave.
 
 ## 1.6 Cómo conseguimos la información
 
@@ -169,7 +167,7 @@ El enunciado pide analizar las restricciones económicas, regulatorias, sociales
 
 **Sociales. Previsibilidad.** El snack es consumo de todos los días y la demanda es pareja durante todo el año, sin temporada alta ni baja. Eso les evita picos de caja y capital inmovilizado esperando una temporada. La única excepción son faltantes de papas fritas en algunos momentos, que no vienen de la demanda sino de la capacidad de planta.
 
-**Tecnológicas. El atraso no les impide operar, les impide saber.** El sistema de gestión está desactualizado y no se integra con nada, no hay CRM y la tienda online está construida y apagada. Lo desarrollamos en la sección 5, que lo mide con el modelo de madurez.
+**Tecnológicas. El atraso no les impide operar, les impide saber.** El sistema de gestión está desactualizado y no se integra con nada, no hay CRM y la tienda online quedó a medio armar, sin catálogo. Lo desarrollamos en la sección 5, que lo mide con el modelo de madurez.
 
 **Factores regionales. La geografía manda.** El 61 por ciento de la cartera está en la Patagonia, a entre 1.000 y 1.500 km de la fábrica, y el snack es un producto de mucho volumen y poco peso, así que el flete por unidad transportada sale caro. No hay estacionalidad de cosecha ni de turismo que los afecte. Del lado de los proveedores, el film impreso tiene un solo origen, y eso lo tratamos en las cinco fuerzas.
 
@@ -248,7 +246,7 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 2. La logística propia más la tercerizada, que ellos mismos reconocen como diferencial.
 3. Una marca con 53 años y presencia en góndola de supermercado.
 4. Las habilitaciones RNE y RNPA.
-5. Segunda generación trabajando, así que el día a día está cubierto.
+5. Habilitaciones vigentes y una estructura chica que se mueve rápido.
 6. Los distribuidores están conformes. Nos dijeron que los eligen por compromiso y precio.
 7. Demanda pareja todo el año y sin exposición a los plazos de pago de una cadena grande.
 
@@ -265,7 +263,7 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 
 **Oportunidades**
 
-1. La tienda online ya está construida y con el catálogo cargado, solo que apagada.
+1. El sitio ya está armado como tienda: falta cargar el catálogo y decidir usarlo.
 2. El equipo tiene ganas de capacitarse.
 3. Aiello funciona como modelo: se puede repetir con otras cadenas regionales parecidas.
 4. La línea de fraccionamiento y repostería permite crecer sin ampliar la planta.
@@ -285,9 +283,9 @@ La conclusión es bastante directa: el margen se crea en operaciones y en logís
 - **Stock.** Con la planta saturada, el stock deja de ser un tema de costo de oportunidad y pasa a ser el límite del negocio. En temporada de papas fritas la restricción es física.
 - **Cobranza y financiación.** Cobran a 30 días con cheques diferidos. Que no tengan plazos de 60 o 90 días tiene sentido si no le venden a ninguna cadena nacional, y en realidad los protege: no están expuestos al ahogo financiero típico de venderle a un supermercado grande. Es una fortaleza que conviene no perder si alguna vez piensan en crecer hacia el retail nacional.
 - **Servicio.** El horario acotado de atención es el punto de fricción más concreto con los distribuidores, y se agrava por la distancia.
-- **Canales.** Los pedidos entran por WhatsApp y teléfono, sin autogestión. Y el canal que resolvería eso ya está construido y apagado.
+- **Canales.** Los pedidos entran por WhatsApp y teléfono, sin autogestión. Y el canal que resolvería eso está a medio construir desde 2020.
 - **Personal.** El equipo absorbe la saturación haciendo horas extras. Es un costo que se repite todos los meses y que nadie calculó.
-- **Continuidad.** En lo operativo está cubierta por los hijos. En lo estratégico no, porque todas las decisiones importantes pasan por una sola persona. Y en el abastecimiento tampoco, por el proveedor único de film.
+- **Continuidad.** No está cubierta. El conocimiento del negocio está concentrado en los dueños y no hay nada escrito. Y en el abastecimiento tampoco, por el proveedor único de film.
 
 
 ---
@@ -330,8 +328,9 @@ La propuesta no apunta al que se come el snack sino al que lo revende, y la empr
 - Rentabilidad para el distribuidor: "tenemos una amplia variedad de productos para venta mayorista y minorista con una excelente rentabilidad".
 - La logística como diferencial: "nuestra experiencia en logística nos ha convertido en una alternativa eficaz para aumentar ganancias a distribuidores mayoristas en una amplia zona de nuestro país".
 - Precio competitivo por control de costos: "encontrar el equilibrio justo entre la calidad de las materias primas que utilizamos y el costo final para poder competir en el mercado".
-- Catálogo amplio en un solo proveedor, así el mayorista no tiene que fragmentar sus compras.
-- Formatos de 1 y 2 Kg para que el comercio chico fraccione y le saque margen.
+- Portafolio amplio en un único proveedor, así el mayorista no tiene que fragmentar sus compras.
+- Formatos de reventa de 1 y 2 Kg, que le dan margen al comercio.
+- Fraccionamiento: envasa y marca producto de terceros.
 
 | Línea | Producto | Variedades | Presentaciones |
 |---|---|---|---|
@@ -358,13 +357,14 @@ Mirándolo con lo que vimos en clase, la propuesta es de liderazgo en costos, no
 - Retiro en fábrica.
 - Un viajante con zona asignada, que entrega y da presencia en el territorio. No administra la cartera: eso se maneja desde la empresa.
 - WhatsApp y teléfono, que es por donde entran los pedidos y es el contacto declarado para los 57 distribuidores.
+- Redes sociales, que sirven para marca y contacto, no para vender.
 - Contacto comercial directo con Aiello.
 
-Sobre lo digital: la empresa no vende online, aunque la tienda esté construida. El sitio tiene carrito, checkout, registro de usuario y panel de órdenes, y el catálogo está publicado con las tres líneas, sus variedades y presentaciones. Lo que no hay es operación: no se ve medio de pago y la empresa le vende solo al canal.
+Sobre lo digital: no hay tienda online operativa. El sitio existe y está armado como tienda, con carrito y registro de usuario, pero el catálogo está vacío y no se puede comprar. El pie de la página dice 2020 como último año de actualización.
 
 En redes tienen Instagram con unos 2.777 seguidores y publicaciones activas, más Facebook. Sirven para que la marca esté presente y para que los contacten, no para vender.
 
-El pie de la página dice 2020 como último año de actualización. Al principio pensamos que la infraestructura había quedado a medio hacer, pero cuando fuimos a mirar bien resultó que está terminada y el catálogo cargado. Lo que falta es la decisión de usarla, que además es coherente con venderle solo a mayoristas. O sea que es capacidad que ya se pagó y está apagada.
+Es coherente con el modelo, porque le venden solo al canal, pero deja una infraestructura pagada que hoy no rinde nada: ni siquiera funciona como catálogo para que el distribuidor consulte.
 
 ### 4. Relación con clientes
 
@@ -397,9 +397,8 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 
 - **La red de 57 distribuidores.** Para nosotros es el activo más valioso y el menos reconocido. Armar cobertura en 7 provincias lleva décadas y es la verdadera barrera de entrada que tienen.
 - **La línea de producción al límite.** La planta no da abasto y hoy es el cuello de botella para crecer.
-- **El conocimiento de la familia.** Recetas, estructura de costos y contactos comerciales están en pocas manos. Con un matiz que averiguamos después: hay segunda generación trabajando. El dueño decide lo importante y los dos hijos lo secundario (reposición, compras, cuentas de clientes), así que si faltara un dueño un mes la operación no se frena. Lo concentrado no es la operación sino el criterio estratégico.
-- **La marca**, con 53 años, presencia en góndola de supermercado y reconocimiento en el canal mayorista de siete provincias.
-- **La flota propia** y la capacidad logística que la empresa reivindica como diferencial.
+- **El conocimiento concentrado en los dueños.** Recetas, estructura de costos y contactos comerciales están en pocas manos y no hay nada escrito. Es el recurso más frágil que tienen, porque no vive en ningún proceso ni en ningún sistema.
+- **La marca, con 53 años, y la flota propia.** Reconocimiento en el canal mayorista de siete provincias, presencia en góndola de supermercado y la capacidad logística que la empresa reivindica como diferencial.
 - **La planilla de costos por producto.** La ponemos como recurso porque de ella depende el precio de todo el catálogo, aunque sea imprecisa y con errores que la propia empresa reconoce.
 - **Las habilitaciones bromatológicas y los registros RNE y RNPA.** Es lo que les permite mover mercadería entre provincias y entrar a un supermercado, y es una barrera real frente a competidores informales.
 
@@ -409,11 +408,9 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 
 - Producción: extrusión, freído y saborizado de las líneas propias.
 - Fraccionamiento y envasado, que está bien vivo y se ve en la línea de repostería y en los formatos a granel.
-- Compras de materia prima y de packaging.
 - Distribución y logística, combinando flota propia y transporte tercerizado para llegar a la Patagonia. Es lo que la empresa declara como su diferencial.
-- Reparto y presencia en el territorio con el viajante, con la gestión comercial retenida en la empresa.
-- Manejo centralizado de la relación con los 57 distribuidores.
-- Administración, facturación y cobranza, repartidas entre planillas y un sistema de gestión que no se hablan entre sí.
+- Compras de materia prima y de packaging.
+- Administración y cobranza, repartidas entre planillas y un sistema de gestión que no se hablan entre sí.
 
 ### 8. Socios clave
 
@@ -425,7 +422,6 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 - **Los 57 distribuidores**, que son socios y clientes a la vez: ponen el capital de trabajo y conocen el territorio de cada provincia.
 - **Transportistas tercerizados**, que dan la cobertura que la flota propia no alcanza.
 - **Aiello Supermercados**, que es un socio comercial de tamaño parecido y no un retailer que imponga condiciones.
-- **El proveedor del sistema de gestión** y el de la página web (Productus).
 
 ### 9. Estructura de costos
 
@@ -449,8 +445,8 @@ Del canvas salen cinco puntos flojos:
 1. **Compiten por precio pero no saben cuánto les cuesta.** Fijan precios sobre una planilla que la empresa admite equivocada.
 2. **La planta está saturada** y siguen tomando pedidos por canales que no se comunican entre sí: viajante, WhatsApp, teléfono y sistema de gestión.
 3. **El activo más valioso es el peor administrado.** No hay CRM, no se mide cuánto pesa cada cliente, y hasta la lista que publican tiene duplicados.
-4. **Los recursos críticos son personas, no procesos.** Recetas, costos y la relación con los distribuidores se manejan de forma centralizada y descansan sobre la familia. La continuidad operativa está cubierta por los hijos; la decisión estratégica sigue en una sola cabeza.
-5. **Construyeron un canal digital completo y lo dejaron apagado.** El sitio tiene e-commerce con el catálogo cargado desde 2020, pero sin medio de pago ni operación. No es una obra a medio terminar: es capacidad instalada que decidieron no usar, y por eso es la oportunidad más barata que tienen.
+4. **Los recursos críticos son personas, no procesos.** Recetas, costos y la relación con los distribuidores dependen del conocimiento concentrado en los dueños. No hay nada escrito y nada de eso vive en un sistema.
+5. **No tienen canal digital operativo.** El sitio existe desde 2020 con la tienda armada y el catálogo vacío, así que ni siquiera le sirve al distribuidor para consultar. Es infraestructura pagada y sin usar, y por eso es la oportunidad más barata que tienen.
 
 
 ## 3.3 Lógica de valor
@@ -470,7 +466,7 @@ Acá es donde el modelo está más desbalanceado.
 | Explotación (Run the Business) | Exploración (Change the Business) |
 |---|---|
 | Producción de las líneas propias | Sumar productos nuevos cuando aparece la oportunidad |
-| Fraccionamiento y envasado | La tienda online construida y apagada |
+| Fraccionamiento y envasado | La tienda online, armada y sin catálogo |
 | Distribución con flota propia y tercerizados | |
 | Gestión de los 57 distribuidores | |
 | Administración, facturación y cobranza | |
@@ -482,7 +478,7 @@ Lo que nos parece importante marcar es que la exploración no está ausente, est
 
 Esto es justamente lo que se plantea en la materia sobre el riesgo de un modelo bimodal desbalanceado: una empresa que sostiene muy bien su operación y que, el día que el entorno cambie, no va a tener con qué responder. Y el sector cómodo que describimos en la sección 2 es lo que permitió que esa asimetría se sostuviera 53 años sin consecuencias.
 
-Sobre la tienda online vale una aclaración. Es la única inversión de exploración con plata real que encontramos: se hizo en 2020 y quedó apagada. Al principio la leímos como una obra a medio terminar, pero cuando chequeamos bien resultó que el catálogo está cargado y la tienda funciona a nivel técnico. Lo que falta es la decisión de usarla. El hallazgo cambia de sentido y para nosotros mejora: no es que no pudieron terminarla, es que construyeron una capacidad y no la activaron. Que es la oportunidad más barata que tienen, porque la inversión ya está hecha.
+Sobre la tienda online vale una aclaración. Es la única inversión de exploración con plata real que encontramos: se hizo en 2020 y quedó a mitad de camino. El sitio existe y está armado como tienda, pero el catálogo está vacío y no se puede comprar, así que hoy no es un canal ni le sirve al distribuidor para consultar. Es la mejor foto de cómo funciona la exploración en esta empresa: se arranca, se deja y nadie queda a cargo. También es la oportunidad más barata que tienen, porque la mitad del trabajo ya está pagada.
 
 ## 3.5 Debilidades y dependencias
 
@@ -496,7 +492,7 @@ Tercero, los costos que no se conocen. El costeo por producto vive en planillas 
 
 Cuarto, que el activo más valioso es el peor administrado. La red de 57 distribuidores no tiene CRM, no se mide cuánto factura cada uno y la lista que publican hacia afuera tiene duplicados. Se sostiene por costumbre y trato directo.
 
-Sobre este último punto tuvimos que corregirnos. En el canvas habíamos puesto el conocimiento concentrado en los dueños como una dependencia crítica, sin matices. Después preguntamos qué pasaría si faltara un dueño durante un mes y nos dijeron que no se frena nada porque están los hijos. Así que la dependencia no desaparece, se corre de lugar: lo que está cubierto es la operación, lo que sigue en una sola cabeza es la decisión estratégica. Menos urgente, pero igual de real.
+Y atrás de todo eso está la dependencia que las engloba: el conocimiento concentrado en los dueños. Recetas, costos y la relación con cada distribuidor no están escritos en ningún lado. Mientras la empresa funcione como funciona hoy no se nota, pero es lo que convierte cualquiera de los tres problemas anteriores en algo que nadie más puede resolver.
 
 ## 3.6 Tensiones del modelo
 
@@ -508,7 +504,7 @@ Hay cuatro cosas del modelo que empiezan a mostrar desgaste.
 
 **El activo más valioso no se administra.** Armar 57 distribuidores en 7 provincias llevó décadas y es la barrera de entrada real de la empresa. Ese activo no tiene sistema, ni métricas, ni responsable. Una baja de cartera no se detecta: se descubre después.
 
-**Toman pedidos por canales que no se hablan entre sí.** Viajante, WhatsApp, teléfono y sistema de gestión conviven sin integración, mientras el canal que resolvería esa dispersión está construido y apagado. El distribuidor que quiere saber si hay stock tiene que llamar en horario de oficina o ir al depósito.
+**Toman pedidos por canales que no se hablan entre sí.** Viajante, WhatsApp, teléfono y sistema de gestión conviven sin integración, mientras el canal que resolvería esa dispersión quedó a medio construir. El distribuidor que quiere saber si hay stock tiene que llamar en horario de oficina o ir al depósito.
 
 Resumiendo la lectura: Dulxelitos tiene un modelo coherente, probado durante 53 años y bien alineado con su lógica de valor. La fragilidad no está en el modelo sino en cómo lo instrumentan. Compiten por costo sin medir el costo, crecen contra una planta saturada sin medir el costo de la saturación, y administran su activo más valioso sin ningún dato. Las cuatro tensiones apuntan al mismo lugar, y ese lugar es la sección 5.
 
@@ -597,7 +593,7 @@ Por otro, la empresa no aprende de su canal. Cada pedido, consulta y reclamo pas
 
 La segunda es la más peligrosa, y tiene algo raro: el distribuidor no la sufre, él está cómodo. La sufre Dulxelitos. Un canal conforme pero no medido es un canal cuyo deterioro se va a notar recién cuando ya pasó. Y de hecho la empresa tampoco supo decirnos cuántos distribuidores se dieron de baja en los últimos dos años ni por qué, lo que confirma el punto.
 
-Lo que cerraría la primera brecha ya está construido. El sitio tiene la tienda armada con el catálogo cargado y sin operar. Encenderla como canal de autogestión para distribuidores, para consultar stock y cargar pedidos, es la iniciativa más barata que hay sobre la mesa, porque el desarrollo se pagó en 2020.
+Lo que cerraría la primera brecha está a medio hacer. El sitio tiene la tienda armada desde 2020, pero con el catálogo vacío, así que ni siquiera sirve para consultar. Terminarla y usarla como canal de autogestión para distribuidores, para ver stock y cargar pedidos, es la iniciativa más barata que hay sobre la mesa, porque el desarrollo ya está pago.
 
 
 ---
@@ -665,7 +661,7 @@ La respondimos nosotros con la evidencia que juntamos, no se la dimos a la empre
 | Gobierno (agregada) | ¿Hay reuniones periódicas de dirección para revisar números? | A | 1 | "No, muy pyme", nos dijeron |
 | | ¿Hay indicadores definidos y revisados con periodicidad? | A | 1 | No hay indicadores gerenciales definidos ni revisión de dirección |
 | | ¿Hay roles y responsabilidades formalizados sobre datos y sistemas? | B | 2 | Tienen responsable del área de sistemas |
-| | ¿Se revisan riesgos de continuidad (proveedor único, backup, sucesión)? | B | 2 | Hay backup de planillas y segunda generación operando, pero el proveedor único de film no se gestiona como riesgo |
+| | ¿Se revisan riesgos de continuidad (proveedor único, backup, sucesión)? | B | 2 | Hay backup de planillas, pero ni la sucesión ni el proveedor único de film se gestionan como riesgo |
 
 ## 5.3 Resultado
 
@@ -690,7 +686,7 @@ Para cada una ponemos el nivel, en qué nos basamos, cuál es la brecha más imp
 
 **Estrategia y Modelo de Negocio, 1.25, Inicial.** No hay estrategia digital formulada, ni indicadores, ni revisión periódica. La única inversión tecnológica identificable de los últimos años es la tienda de 2020, que nunca se activó. La exploración existe como reflejo ante productos nuevos, no como cartera. La brecha es que no hay ningún mecanismo que convierta una oportunidad en una decisión con presupuesto y responsable. Y el costo de no actuar es que la empresa depende de que el entorno siga siendo tan cómodo como fue hasta ahora: el día que deje de serlo, no hay capacidad de respuesta instalada.
 
-**Liderazgo y Cultura Digital, 1.50, Inicial.** El dueño toma todas las decisiones importantes y los hijos las secundarias. No hay una visión digital comunicada. Sí hay apertura: el equipo tiene ganas de capacitarse y aprovechan las oportunidades de producto nuevo. La brecha es que esa predisposición existe y no está canalizada, porque falta alguien que tenga el cambio como responsabilidad y no como un agregado. El costo de no actuar es que toda mejora depende de que el dueño la empuje personalmente, lo que la pone a competir contra la operación diaria y la posterga siempre.
+**Liderazgo y Cultura Digital, 1.50, Inicial.** Las decisiones importantes las toma el dueño. No hay una visión digital comunicada. Sí hay apertura: el equipo tiene ganas de capacitarse y aprovechan las oportunidades de producto nuevo. La brecha es que esa predisposición existe y no está canalizada, porque falta alguien que tenga el cambio como responsabilidad y no como un agregado. El costo de no actuar es que toda mejora depende de que el dueño la empuje personalmente, lo que la pone a competir contra la operación diaria y la posterga siempre.
 
 **Procesos y Operaciones, 2.50, Básico.** La producción está estandarizada por 53 años de oficio y tiene documentación básica. Facturación y stock están digitalizados; el costeo y la toma de pedidos no. Generan datos continuos de producción, facturación y ventas, pero los usan de manera reactiva y no forman un ciclo de mejora. La brecha es que la planta opera al límite y los datos que tienen no traducen esa saturación en un indicador de costo y capacidad: la restricción se absorbe con horas extras. El costo de no actuar es el más medible de todos, y lo desarrollamos en el punto siguiente.
 

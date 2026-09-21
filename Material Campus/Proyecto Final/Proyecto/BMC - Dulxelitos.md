@@ -34,8 +34,9 @@ La propuesta no apunta al que se come el snack sino al que lo revende, y la empr
 - Rentabilidad para el distribuidor: "tenemos una amplia variedad de productos para venta mayorista y minorista con una excelente rentabilidad".
 - La logística como diferencial: "nuestra experiencia en logística nos ha convertido en una alternativa eficaz para aumentar ganancias a distribuidores mayoristas en una amplia zona de nuestro país".
 - Precio competitivo por control de costos: "encontrar el equilibrio justo entre la calidad de las materias primas que utilizamos y el costo final para poder competir en el mercado".
-- Catálogo amplio en un solo proveedor, así el mayorista no tiene que fragmentar sus compras.
-- Formatos de 1 y 2 Kg para que el comercio chico fraccione y le saque margen.
+- Portafolio amplio en un único proveedor, así el mayorista no tiene que fragmentar sus compras.
+- Formatos de reventa de 1 y 2 Kg, que le dan margen al comercio.
+- Fraccionamiento: envasa y marca producto de terceros.
 
 | Línea | Producto | Variedades | Presentaciones |
 |---|---|---|---|
@@ -62,13 +63,14 @@ Mirándolo con lo que vimos en clase, la propuesta es de liderazgo en costos, no
 - Retiro en fábrica.
 - Un viajante con zona asignada, que entrega y da presencia en el territorio. No administra la cartera: eso se maneja desde la empresa.
 - WhatsApp y teléfono, que es por donde entran los pedidos y es el contacto declarado para los 57 distribuidores.
+- Redes sociales, que sirven para marca y contacto, no para vender.
 - Contacto comercial directo con Aiello.
 
-Sobre lo digital: la empresa no vende online, aunque la tienda esté construida. El sitio tiene carrito, checkout, registro de usuario y panel de órdenes, y el catálogo está publicado con las tres líneas, sus variedades y presentaciones. Lo que no hay es operación: no se ve medio de pago y la empresa le vende solo al canal.
+Sobre lo digital: no hay tienda online operativa. El sitio existe y está armado como tienda, con carrito y registro de usuario, pero el catálogo está vacío y no se puede comprar. El pie de la página dice 2020 como último año de actualización.
 
 En redes tienen Instagram con unos 2.777 seguidores y publicaciones activas, más Facebook. Sirven para que la marca esté presente y para que los contacten, no para vender.
 
-El pie de la página dice 2020 como último año de actualización. Al principio pensamos que la infraestructura había quedado a medio hacer, pero cuando fuimos a mirar bien resultó que está terminada y el catálogo cargado. Lo que falta es la decisión de usarla, que además es coherente con venderle solo a mayoristas. O sea que es capacidad que ya se pagó y está apagada.
+Es coherente con el modelo, porque le venden solo al canal, pero deja una infraestructura pagada que hoy no rinde nada: ni siquiera funciona como catálogo para que el distribuidor consulte.
 
 ## 4. Relación con clientes
 
@@ -101,9 +103,8 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 
 - **La red de 57 distribuidores.** Para nosotros es el activo más valioso y el menos reconocido. Armar cobertura en 7 provincias lleva décadas y es la verdadera barrera de entrada que tienen.
 - **La línea de producción al límite.** La planta no da abasto y hoy es el cuello de botella para crecer.
-- **El conocimiento de la familia.** Recetas, estructura de costos y contactos comerciales están en pocas manos. Con un matiz que averiguamos después: hay segunda generación trabajando. El dueño decide lo importante y los dos hijos lo secundario (reposición, compras, cuentas de clientes), así que si faltara un dueño un mes la operación no se frena. Lo concentrado no es la operación sino el criterio estratégico.
-- **La marca**, con 53 años, presencia en góndola de supermercado y reconocimiento en el canal mayorista de siete provincias.
-- **La flota propia** y la capacidad logística que la empresa reivindica como diferencial.
+- **El conocimiento concentrado en los dueños.** Recetas, estructura de costos y contactos comerciales están en pocas manos y no hay nada escrito. Es el recurso más frágil que tienen, porque no vive en ningún proceso ni en ningún sistema.
+- **La marca, con 53 años, y la flota propia.** Reconocimiento en el canal mayorista de siete provincias, presencia en góndola de supermercado y la capacidad logística que la empresa reivindica como diferencial.
 - **La planilla de costos por producto.** La ponemos como recurso porque de ella depende el precio de todo el catálogo, aunque sea imprecisa y con errores que la propia empresa reconoce.
 - **Las habilitaciones bromatológicas y los registros RNE y RNPA.** Es lo que les permite mover mercadería entre provincias y entrar a un supermercado, y es una barrera real frente a competidores informales.
 
@@ -113,11 +114,9 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 
 - Producción: extrusión, freído y saborizado de las líneas propias.
 - Fraccionamiento y envasado, que está bien vivo y se ve en la línea de repostería y en los formatos a granel.
-- Compras de materia prima y de packaging.
 - Distribución y logística, combinando flota propia y transporte tercerizado para llegar a la Patagonia. Es lo que la empresa declara como su diferencial.
-- Reparto y presencia en el territorio con el viajante, con la gestión comercial retenida en la empresa.
-- Manejo centralizado de la relación con los 57 distribuidores.
-- Administración, facturación y cobranza, repartidas entre planillas y un sistema de gestión que no se hablan entre sí.
+- Compras de materia prima y de packaging.
+- Administración y cobranza, repartidas entre planillas y un sistema de gestión que no se hablan entre sí.
 
 ## 8. Socios clave
 
@@ -129,7 +128,6 @@ La demanda es pareja durante todo el año, sin temporada marcada, lo que tiene s
 - **Los 57 distribuidores**, que son socios y clientes a la vez: ponen el capital de trabajo y conocen el territorio de cada provincia.
 - **Transportistas tercerizados**, que dan la cobertura que la flota propia no alcanza.
 - **Aiello Supermercados**, que es un socio comercial de tamaño parecido y no un retailer que imponga condiciones.
-- **El proveedor del sistema de gestión** y el de la página web (Productus).
 
 ## 9. Estructura de costos
 
@@ -153,8 +151,8 @@ Del canvas salen cinco puntos flojos:
 1. **Compiten por precio pero no saben cuánto les cuesta.** Fijan precios sobre una planilla que la empresa admite equivocada.
 2. **La planta está saturada** y siguen tomando pedidos por canales que no se comunican entre sí: viajante, WhatsApp, teléfono y sistema de gestión.
 3. **El activo más valioso es el peor administrado.** No hay CRM, no se mide cuánto pesa cada cliente, y hasta la lista que publican tiene duplicados.
-4. **Los recursos críticos son personas, no procesos.** Recetas, costos y la relación con los distribuidores se manejan de forma centralizada y descansan sobre la familia. La continuidad operativa está cubierta por los hijos; la decisión estratégica sigue en una sola cabeza.
-5. **Construyeron un canal digital completo y lo dejaron apagado.** El sitio tiene e-commerce con el catálogo cargado desde 2020, pero sin medio de pago ni operación. No es una obra a medio terminar: es capacidad instalada que decidieron no usar, y por eso es la oportunidad más barata que tienen.
+4. **Los recursos críticos son personas, no procesos.** Recetas, costos y la relación con los distribuidores dependen del conocimiento concentrado en los dueños. No hay nada escrito y nada de eso vive en un sistema.
+5. **No tienen canal digital operativo.** El sitio existe desde 2020 con la tienda armada y el catálogo vacío, así que ni siquiera le sirve al distribuidor para consultar. Es infraestructura pagada y sin usar, y por eso es la oportunidad más barata que tienen.
 
 ## Fuentes
 

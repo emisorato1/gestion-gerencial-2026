@@ -17,7 +17,7 @@ Acá es donde el modelo está más desbalanceado.
 | Explotación (Run the Business) | Exploración (Change the Business) |
 |---|---|
 | Producción de las líneas propias | Sumar productos nuevos cuando aparece la oportunidad |
-| Fraccionamiento y envasado | La tienda online construida y apagada |
+| Fraccionamiento y envasado | La tienda online, armada y sin catálogo |
 | Distribución con flota propia y tercerizados | |
 | Gestión de los 57 distribuidores | |
 | Administración, facturación y cobranza | |
@@ -29,7 +29,7 @@ Lo que nos parece importante marcar es que la exploración no está ausente, est
 
 Esto es justamente lo que se plantea en la materia sobre el riesgo de un modelo bimodal desbalanceado: una empresa que sostiene muy bien su operación y que, el día que el entorno cambie, no va a tener con qué responder. Y el sector cómodo que describimos en la sección 2 es lo que permitió que esa asimetría se sostuviera 53 años sin consecuencias.
 
-Sobre la tienda online vale una aclaración. Es la única inversión de exploración con plata real que encontramos: se hizo en 2020 y quedó apagada. Al principio la leímos como una obra a medio terminar, pero cuando chequeamos bien resultó que el catálogo está cargado y la tienda funciona a nivel técnico. Lo que falta es la decisión de usarla. El hallazgo cambia de sentido y para nosotros mejora: no es que no pudieron terminarla, es que construyeron una capacidad y no la activaron. Que es la oportunidad más barata que tienen, porque la inversión ya está hecha.
+Sobre la tienda online vale una aclaración. Es la única inversión de exploración con plata real que encontramos: se hizo en 2020 y quedó a mitad de camino. El sitio existe y está armado como tienda, pero el catálogo está vacío y no se puede comprar, así que hoy no es un canal ni le sirve al distribuidor para consultar. Es la mejor foto de cómo funciona la exploración en esta empresa: se arranca, se deja y nadie queda a cargo. También es la oportunidad más barata que tienen, porque la mitad del trabajo ya está pagada.
 
 ## 3.3 Debilidades y dependencias
 
@@ -43,7 +43,7 @@ Tercero, los costos que no se conocen. El costeo por producto vive en planillas 
 
 Cuarto, que el activo más valioso es el peor administrado. La red de 57 distribuidores no tiene CRM, no se mide cuánto factura cada uno y la lista que publican hacia afuera tiene duplicados. Se sostiene por costumbre y trato directo.
 
-Sobre este último punto tuvimos que corregirnos. En el canvas habíamos puesto el conocimiento concentrado en los dueños como una dependencia crítica, sin matices. Después preguntamos qué pasaría si faltara un dueño durante un mes y nos dijeron que no se frena nada porque están los hijos. Así que la dependencia no desaparece, se corre de lugar: lo que está cubierto es la operación, lo que sigue en una sola cabeza es la decisión estratégica. Menos urgente, pero igual de real.
+Y atrás de todo eso está la dependencia que las engloba: el conocimiento concentrado en los dueños. Recetas, costos y la relación con cada distribuidor no están escritos en ningún lado. Mientras la empresa funcione como funciona hoy no se nota, pero es lo que convierte cualquiera de los tres problemas anteriores en algo que nadie más puede resolver.
 
 ## 3.4 Tensiones del modelo
 
@@ -55,6 +55,6 @@ Hay cuatro cosas del modelo que empiezan a mostrar desgaste.
 
 **El activo más valioso no se administra.** Armar 57 distribuidores en 7 provincias llevó décadas y es la barrera de entrada real de la empresa. Ese activo no tiene sistema, ni métricas, ni responsable. Una baja de cartera no se detecta: se descubre después.
 
-**Toman pedidos por canales que no se hablan entre sí.** Viajante, WhatsApp, teléfono y sistema de gestión conviven sin integración, mientras el canal que resolvería esa dispersión está construido y apagado. El distribuidor que quiere saber si hay stock tiene que llamar en horario de oficina o ir al depósito.
+**Toman pedidos por canales que no se hablan entre sí.** Viajante, WhatsApp, teléfono y sistema de gestión conviven sin integración, mientras el canal que resolvería esa dispersión quedó a medio construir. El distribuidor que quiere saber si hay stock tiene que llamar en horario de oficina o ir al depósito.
 
 Resumiendo la lectura: Dulxelitos tiene un modelo coherente, probado durante 53 años y bien alineado con su lógica de valor. La fragilidad no está en el modelo sino en cómo lo instrumentan. Compiten por costo sin medir el costo, crecen contra una planta saturada sin medir el costo de la saturación, y administran su activo más valioso sin ningún dato. Las cuatro tensiones apuntan al mismo lugar, y ese lugar es la sección 5.
