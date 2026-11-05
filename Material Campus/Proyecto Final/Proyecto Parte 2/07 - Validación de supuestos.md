@@ -46,7 +46,7 @@ Según la Clase 7, un MVP no es una versión beta ni una versión light del prod
 
 ### Hipótesis en una hoja
 
-Plantilla de la Clase 7, que afina la hipótesis de la sección 2 con los umbrales de "Qué se mide".
+Plantilla de la Clase 7, que formula la hipótesis del piloto con los umbrales de "Qué se mide".
 
 | Elemento | Contenido |
 |---|---|
@@ -60,9 +60,9 @@ Plantilla de la Clase 7, que afina la hipótesis de la sección 2 con los umbral
 
 - **Cuándo y qué.** Una semana 0 para medir la línea de base y después 2 semanas (10 días hábiles), solo con papas fritas, el producto que más falta según el relevamiento. Un solo producto protege la operación y alcanza para aprender. Puede empezar cuando se quiera, con el conteo inicial hecho el fin de semana anterior.
 - **La regla.** Stock disponible es el stock físico menos lo reservado por pedidos confirmados sin facturar, la misma que se usaría en Discovery.
-- **La rutina.** Producción carga lo producido al cierre de turno, con un responsable y un suplente. Oficina consulta y reserva antes de confirmar un pedido con papas fritas; si no alcanza, avisa con una fecha que producción confirmó. Al facturar, baja el stock físico y se libera la reserva, a mano porque la planilla no habla con Discovery. Hay un conteo físico al arrancar y uno por semana, y una reunión diaria de ~10 minutos entre ventas y producción para mirar el disponible, los pedidos y los avisos, y decidir qué producir.
+- **La rutina.** Producción carga lo producido al cierre de turno, con un responsable y un suplente. Oficina consulta y reserva antes de confirmar un pedido con papas fritas; si no alcanza, avisa con una fecha que producción confirmó. Al facturar se baja el físico y se descuenta la reserva, a mano porque la planilla no habla con Discovery. Hay un conteo físico al arrancar y uno por semana, y una reunión diaria de ~10 minutos entre ventas y producción para mirar el disponible, los pedidos y los avisos, y decidir qué producir.
 - **Vuelta atrás.** Si un día la planilla no está al día, oficina confirma como hoy, a ojo y preguntando a producción, y se anota el día. El piloto se corta cuando se quiera: no toca Discovery ni el armado de pedidos.
-- **Quién.** El dueño, como sponsor, acuerda los umbrales y respalda el arranque. El responsable de sistemas, como líder, arma la planilla y junta las medidas. Producción carga; oficina reserva y avisa. Conteo físico: [dato pendiente: quién lo hace].
+- **Quién.** El dueño, como sponsor, acuerda los umbrales y respalda el arranque. El responsable de sistemas, como líder, arma la planilla y junta las medidas. Producción carga; oficina reserva y avisa. Conteo físico: [dato pendiente: responsable del conteo inicial y del semanal].
 
 ### Qué se mide
 
@@ -75,7 +75,7 @@ Cuenta como **recortado o demorado** un pedido con papas fritas que sale con men
 | **Diferencias de conteo** | Conteo físico de papas fritas contra la planilla, al arrancar y al final de cada semana | [dato pendiente: diferencia en el conteo inicial] | En los conteos semanales, una diferencia de hasta una décima parte de lo contado | La meta de exactitud se fija con el primer conteo (sección 1): esta tolerancia es provisional |
 | **Fecha estimada cumplida** | Cada aviso con fecha: si el pedido se completó ese día | No existe hoy: el aviso no trae fecha | 4 de cada 5 avisos o más; si hubo pocos, se revisan uno por uno | Es una promesa nueva: si falla más de 1 vez de cada 5, el aviso pierde su valor. No pedimos todas por la planta saturada |
 
-Lo demás que se anota está en la tabla de mecanismos. Como control, se compara con los demás productos en las mismas semanas: si los recortes bajan en todos por igual, la mejora no es del piloto. Si la semana 0 casi no tiene recortes de papas fritas, la comparación no distingue mejora de azar: se mide otra semana, como adelantó la sección 2.
+Lo demás que se anota está en la tabla de mecanismos. Como control, se compara con los demás productos en las mismas semanas: si los recortes bajan en todos por igual, la mejora no es del piloto. Si la semana 0 casi no tiene recortes de papas fritas, la comparación no distingue mejora de azar: se mide otra semana.
 
 ### Prueba técnica de Discovery
 

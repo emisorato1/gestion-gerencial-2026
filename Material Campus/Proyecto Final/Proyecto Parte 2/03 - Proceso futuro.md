@@ -12,9 +12,9 @@ Esta sección diseña cómo se atiende un pedido de distribuidor cuando la propu
 - **Si no hay.** Oficina avisa en el momento, con una fecha estimada que Producción confirma en la reunión diaria; si todavía no la confirmó, avisa igual del faltante, sin prometer fecha, y se la da después de la próxima reunión. El pedido queda pendiente y, cuando llega la fecha, Oficina vuelve a consultar: si ya hay, reserva y sigue; si no, avisa de nuevo con otra fecha. Ningún pedido queda sin camino. Lo pendiente no tiene reserva, y se revisa en la reunión diaria. Después del aviso el distribuidor puede cancelar: ese pedido cuenta como recortado, como en la sección 7. "Hay" quiere decir que alcanza para el pedido completo; si alcanza solo para una parte, se reserva eso y el resto queda pendiente (sección 6).
 - **La producción.** Cada semana Dirección planifica leyendo los pedidos pendientes, entre ellos los avisados con faltante, el stock mínimo por producto y el tablero. Producción produce lo planificado y ese camino termina ahí. La carga es otra rutina, que arranca todos los días con el cierre del turno: Producción carga lo producido, y esa carga es la que sube el stock físico en Discovery. Hoy se carga una vez por semana.
 - **El conteo.** Una vez por semana Depósito cuenta el stock. Si hay diferencias, manda lo contado y se ajusta con motivo; el ajuste lo carga el responsable de sistemas, que es un rol y no un área, y por eso aparece en la nota del diagrama y no como un paso con carril propio.
-- **Las notas.** La reunión diaria de ~10 minutos entre ventas y producción, el tablero de 4 indicadores (lo actualiza el responsable de sistemas y lo lee Dirección al planificar) y las horas extras como excepción decidida en el plan semanal.
+- **Las notas.** La reunión diaria de ~10 minutos entre ventas y producción, el tablero de 4 indicadores (lo actualiza el responsable de sistemas, queda a la vista de Oficina, Producción y Depósito y se lee en el informe al dueño y en cada Go/No-Go, sección 8) y las horas extras como excepción decidida en el plan semanal.
 
-**Lo que el diagrama da por cierto y no está probado.** Que Discovery reserva y que la factura consume la reserva (supuesto 3 de la sección 4, que prueba la prueba técnica de la sección 7); que la fecha estimada se cumple (supuesto 4); y que el dueño y los hijos planifican mirando pedidos y stock mínimo (supuesto 5). En el piloto con planilla, Oficina libera la reserva a mano al facturar.
+**Lo que el diagrama da por cierto y no está probado.** Que Discovery reserva y que la factura consume la reserva (supuesto 3 de la sección 4, que prueba la prueba técnica de la sección 7); que la fecha estimada se cumple (supuesto 4); y que el dueño y los hijos planifican mirando pedidos y stock mínimo (supuesto 5). En el piloto con planilla, al facturar se baja el físico y se descuenta la reserva a mano.
 
 ## Qué cambia
 
@@ -54,7 +54,7 @@ Confirmar un pedido baja lo que se puede prometer sin tocar lo que hay, y recié
 
 ## Responsables y decisiones
 
-Usamos el criterio del RECI de la sección 2: una sola R por actividad, y como en una pyme quien ejecuta suele ser quien responde, casi todas las filas son R/E. Agregamos una columna, la del responsable de sistemas, porque en el proceso nuevo ejecuta dos pasos (los ajustes de stock y el tablero) y no tiene carril. Despachar con flota propia y entregar a transporte tercerizado no cambian y quedan como en la sección 2. Los asteriscos marcan propuestas nuestras que todavía no hablamos con cada área.
+Usamos el criterio del RECI de la sección 2: una sola R por actividad, y como en una pyme quien ejecuta suele ser quien responde, casi todas las filas son R/E. Agregamos una columna, la del responsable de sistemas, porque en el proceso nuevo ejecuta dos pasos (los ajustes de stock y el tablero) y no tiene carril. Despachar con flota propia y entregar a transporte tercerizado no cambian y quedan como en la sección 2. Los asteriscos marcan propuestas nuestras (una actividad entera o solo la C marcada) que todavía no hablamos con cada área.
 
 | Actividad | Oficina | Depósito | Producción | Dirección | Resp. de sistemas | Distribuidor (externo) |
 |---|---|---|---|---|---|---|
@@ -65,7 +65,7 @@ Usamos el criterio del RECI de la sección 2: una sola R por actividad, y como e
 | Avisar faltante con fecha estimada | R/E | – | C | – | – | I |
 | Preparar pedido | I | R/E | – | – | – | – |
 | Facturar en Discovery | R/E | C | – | – | – | I |
-| Planificar producción de la semana | C | – | C | R/E | – | – |
+| Planificar producción de la semana | C* | – | C* | R/E | – | – |
 | Producir lo planificado | I | I | R/E | I | – | – |
 | Cargar producción del día | I | I | R/E | – | – | – |
 | Contar stock | – | R/E | I | – | I | – |
@@ -104,7 +104,7 @@ Hoy el dato del stock no se genera nunca. En el proceso nuevo se genera en cinco
 | Al recibir el pedido | Nota de pedido (distribuidor, productos y cantidades) | Oficina |
 | Al confirmarlo | Reserva del stock | Oficina |
 | Al cierre de cada turno | Parte de producción: lo realmente producido | Responsable de carga del turno, con suplente |
-| Al facturar | La factura consume la reserva y baja el stock físico | Oficina |
+| Al facturar | La factura baja el stock físico y consume la reserva | Oficina |
 | Una vez por semana | Conteo físico y ajuste de diferencias | Depósito cuenta; el responsable de sistemas ajusta |
 
 El origen, el destino y las reglas de alta, corrección y depuración de cada dato están en la sección 6.
@@ -126,7 +126,7 @@ Cada control corresponde a un error que hoy no se detecta:
 
 Son los cuatro instrumentos que pide la consigna, y caben en una pyme sin sumar un sistema.
 
-**Tablero de 4 indicadores.** Pedidos completos y a tiempo, exactitud de stock, días con producción cargada y horas extras por mes. No guarda datos propios: se alimenta con la exportación de Discovery y con dos cargas manuales (el registro semanal de pedidos recortados o demorados y las horas extras de la liquidación). Lo actualiza el responsable de sistemas cada semana, y Dirección lo mira al planificar. La ficha, la fórmula y la meta de cada indicador están en la sección 8. Si baja un indicador, primero se revisan capacitación, carga de trabajo, incentivos y reglas, antes que el compromiso de la gente (sección 5).
+**Tablero de 4 indicadores.** Pedidos completos y a tiempo, exactitud de stock, días con producción cargada y horas extras por mes. No guarda datos propios: se alimenta con la exportación de Discovery y con dos cargas manuales (el registro semanal de pedidos recortados o demorados y las horas extras de la liquidación). Lo actualiza el responsable de sistemas cada semana. Queda a la vista de Oficina, Producción y Depósito; la reunión diaria mira solo la carga y el disponible, y los cuatro indicadores se leen en el informe al dueño y en cada Go/No-Go. La ficha, la fórmula y la meta de cada indicador están en la sección 8. Si baja un indicador, primero se revisan capacitación, carga de trabajo, incentivos y reglas, antes que el compromiso de la gente (sección 5).
 
 **Checklist.** Tres listas cortas, una por rutina:
 
@@ -144,7 +144,7 @@ Son los cuatro instrumentos que pide la consigna, y caben en una pyme sin sumar 
 
 *Cada semana, un día fijo a acordar con Depósito (Depósito, Oficina y responsable de sistemas)*
 
-- [ ] Depósito contó el stock y dejó la hoja de conteo. [dato pendiente: responsable del conteo inicial y del conteo semanal]
+- [ ] Depósito contó el stock y dejó la hoja de conteo. [dato pendiente: responsable del conteo inicial y del semanal]
 - [ ] El responsable de sistemas cargó los ajustes, cada uno con su motivo.
 - [ ] Oficina revisó las reservas abiertas: las que pasaron el plazo de su zona se confirmaron o se liberaron.
 - [ ] Se actualizó el tablero.
