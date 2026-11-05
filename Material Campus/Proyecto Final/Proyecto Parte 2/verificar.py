@@ -22,7 +22,10 @@ Reglas
   encabezados  cada archivo tiene los "##" que exige su tarea (se chequean
                solo los archivos que existen).
   trazas       02: cada lane de bpmn/as-is.py aparece en "## RECI".
-               08: cada indicador aparece con su linea de base.
+               08: cada indicador aparece con su linea de base, en su propio
+               bloque "###" (el numero exacto: "176 %" no vale por 76 %;
+               exactitud pide el hueco o el porcentaje en una linea que diga
+               "base").
                Si el archivo que hace falta no existe todavia, se saltea.
   pendientes   lista cada "[dato pendiente" con archivo y linea.
 
@@ -92,12 +95,17 @@ CIFRAS_OK = {"76", "24", "25", "30", "125", "20"}
 DURACIONES_OK = {"meses": {"6"}, "semanas": {"2"}}
 
 # Indicadores de 08 con su linea de base: (nombre, patron de la base, texto).
+# NOSOL: el numero no puede ir pegado a otra cifra ("176 %", "120 %", "125 horas").
+NOSOL = r"(?<![\d.,])"
 INDICADORES = [
-    ("Pedidos completos y a tiempo", r"76\s*%", "76 %"),
-    ("Exactitud de stock", r"\[dato pendiente|\d+(?:[.,]\d+)?\s*%",
-     "[dato pendiente o un porcentaje"),
-    ("Días con producción cargada", r"20\s*%", "20 %"),
-    ("Horas extras", r"25\s*(?:horas|hs|h)\b", "~25 horas"),
+    ("Pedidos completos y a tiempo", NOSOL + r"76\s*%", "76 %"),
+    # exactitud: el hueco o el porcentaje tienen que estar en una linea que diga
+    # "base"; un porcentaje cualquiera (la meta, por ejemplo) no alcanza
+    ("Exactitud de stock",
+     r"\bbase\b[^\n]*?(?:\[dato pendiente|" + NOSOL + r"\d+(?:[.,]\d+)?\s*%)",
+     "[dato pendiente o un porcentaje en la línea de la base"),
+    ("Días con producción cargada", NOSOL + r"20\s*%", "20 %"),
+    ("Horas extras", NOSOL + r"25\s*(?:horas|hs|h)\b", "~25 horas"),
 ]
 
 NUM = r"\d+(?:[.,]\d+)?"
@@ -276,7 +284,14 @@ def trazas_indicadores(lineas):
     bloques.append(actual)
     fallas = []
     for nombre, patron, base in INDICADORES:
-        con_nombre = [b for b in bloques if nombre.lower() in "\n".join(b).lower()]
+        clave = nombre.lower()
+        # La ficha del indicador es el bloque que lo titula (###). Los demas lo
+        # nombran (contrapesos, tablero, fuentes) y traen cifras ajenas: no
+        # cuentan. Sin subtitulos se busca el nombre en cualquier bloque.
+        propios = [b for b in bloques
+                   if b and re.match(r"#{3,}\s", b[0]) and clave in b[0].lower()]
+        con_nombre = propios or [b for b in bloques
+                                 if clave in "\n".join(b).lower()]
         if not con_nombre:
             fallas.append((ini, "falta el indicador '%s'" % nombre))
         elif not any(re.search(patron, "\n".join(b), re.IGNORECASE) for b in con_nombre):
