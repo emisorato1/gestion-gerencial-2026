@@ -1,0 +1,158 @@
+# Proceso futuro (TO-BE)
+
+Esta sección diseña cómo se atiende un pedido de distribuidor cuando la propuesta está andando. Es el proceso de la alternativa recomendada en la sección 2: el stock de Discovery como solución, probado antes con una planilla compartida en un piloto de 2 semanas con papas fritas. El piloto corre este mismo flujo con la misma regla de stock, y lo único que cambia es dónde vive el registro. Parte de la corrección de la sección 1: el stock de producto terminado no se registra hoy, y los recortes vienen de la mezcla y el momento de producción, no de la capacidad total. Por eso el proceso nuevo no acelera lo de hoy: cambia el orden (primero se mira qué hay, después se confirma) y conecta la producción con los pedidos. Lo que sigue es propuesta nuestra sobre el relevamiento; los responsables y las rutinas hay que acordarlos con cada área antes del piloto (sección 5).
+
+## Diagrama TO-BE
+
+![Proceso TO-BE](bpmn/to-be.png)
+
+**Cómo se lee.** Usa los mismos carriles y los mismos actores externos que el AS-IS de la sección 2, para comparar de un vistazo; el muñequito marca los pasos que se hacen en Discovery. Tres cosas arrancan por su cuenta: el pedido, cuando llega el mensaje del distribuidor; la semana de producción, con el reloj de Dirección; y el conteo, con el reloj de Depósito.
+
+- **El pedido.** Oficina carga la nota de pedido una sola vez en Discovery y consulta el stock disponible antes de confirmar. Si hay, reserva, confirma al distribuidor y Depósito arma desde el pedido confirmado. Después Oficina factura en Discovery, y la factura consume la reserva. El despacho es como hoy.
+- **Si no hay.** Oficina avisa en el momento, con una fecha estimada que Producción confirma en la reunión diaria. El pedido queda pendiente y, cuando llega la fecha, Oficina vuelve a consultar: si ya hay, reserva y sigue; si todavía no, avisa de nuevo con otra fecha. Ningún pedido queda sin camino. "Hay" quiere decir que alcanza para el pedido completo; si alcanza solo para una parte, se reserva eso y el resto queda pendiente (sección 6).
+- **La producción.** Cada semana Dirección planifica mirando los pedidos pendientes, entre ellos los avisados con faltante, y un stock mínimo por producto. Producción produce lo planificado y carga lo producido todos los días, al cierre del turno: esa carga es la que sube el stock físico en Discovery. Hoy se carga una vez por semana.
+- **El conteo.** Una vez por semana Depósito cuenta el stock. Si hay diferencias, manda lo contado y se ajusta con motivo; el ajuste lo carga el responsable de sistemas, que es un rol y no un área, y por eso aparece en la nota del diagrama y no como un paso con carril propio.
+- **Las notas.** La reunión diaria de ~10 minutos entre ventas y producción, el tablero de 4 indicadores que mira Dirección al planificar y las horas extras como excepción decidida en el plan semanal.
+
+**Lo que el diagrama da por cierto y no está probado.** Que Discovery reserva y que la factura consume la reserva (supuesto 3 de la sección 4, que prueba la prueba técnica de la sección 7); que la fecha estimada se cumple (supuesto 4); y que el dueño y los hijos planifican mirando pedidos y stock mínimo y no solo por criterio propio (supuesto 5). En el piloto con planilla, Oficina libera la reserva a mano al facturar, porque la planilla no habla con Discovery.
+
+## Qué cambia
+
+| Paso | Hoy (AS-IS) | Futuro (TO-BE) |
+|---|---|---|
+| **Registrar el pedido** | Se anota en papel o planilla y se pasa a una lista: tres transcripciones del mismo pedido | Se carga una sola vez, como nota de pedido en Discovery |
+| **Saber si hay** | Se mira a ojo en el depósito y se pregunta a producción | Una sola consulta del stock disponible en Discovery |
+| **Cuándo aparece el faltante** | Al armar el pedido, con el pedido ya aceptado | Antes de confirmar, en la compuerta "¿Hay stock disponible?" |
+| **Qué se le dice al distribuidor** | Se acepta sin mirar si hay; si falta, se manda incompleto avisando o se espera producción | Se confirma lo que hay, con reserva; si falta, aviso en el momento con una fecha estimada |
+| **Resolver el faltante** | Tres salidas: mandar incompleto, esperar producción u horas extras | El pedido queda pendiente hasta la fecha estimada y vuelve a consultarse; Dirección lo ve en el plan semanal |
+| **Facturar** | Después de resolver el faltante, sin relación con ningún stock | La factura consume la reserva del pedido |
+| **Qué se produce** | Lo decide el dueño o uno de los hijos por criterio propio, sin mirar los pedidos | Plan semanal contra pedidos pendientes y stock mínimo por producto; sigue decidiendo Dirección |
+| **Cargar lo producido** | Una vez por semana (20 % de los días), en un control propio sin relación con ventas | Todos los días, al cierre del turno, en Discovery, con un responsable de carga por turno y suplente |
+| **Controlar el stock** | No existe: no hay stock registrado | Conteo cíclico semanal; manda lo contado |
+| **Horas extras** | Una de las tres salidas del faltante (~25 horas por mes) | Excepción que se decide en el plan semanal, con el motivo anotado |
+| **Seguimiento** | Ninguno | Tablero de 4 indicadores y reunión diaria de ~10 minutos |
+
+**Lo que no cambia, a propósito.** El pedido sigue entrando por WhatsApp o teléfono. El armado en el depósito sigue siendo manual: según nuestro compañero es rápido y no es la restricción. El despacho, con flota propia o transporte tercerizado, queda igual. El conteo sigue siendo a mano. Qué producir sigue decidiéndolo el dueño o uno de los hijos; lo que cambia es que decide con pedidos y stock a la vista. Y el distribuidor no ve el stock: eso queda para "later" (sección 1).
+
+**Qué responde a cada lente de la sección 2.** La doble averiguación pasa a una consulta, las tres transcripciones pasan a una carga, y el silo de datos pasa a un stock cargado todos los días con una sola regla. Para la pregunta del proceso balde, el diseño ataca la gotera (registrar el stock y planificar contra pedidos) y no los baldes: avisar más rápido o hacer más horas extras para completar pedidos solo acelera el síntoma.
+
+### La regla del stock disponible
+
+Es la misma en Discovery y en la planilla del piloto, y es la cifra con la que Oficina contesta al distribuidor:
+
+**stock disponible = stock físico − reservado por pedidos confirmados sin facturar**
+
+| Qué pasa | Stock físico | Reservado | Disponible |
+|---|---|---|---|
+| Producción carga lo producido al cierre del turno | Sube | Igual | Sube |
+| Oficina reserva al confirmar un pedido | Igual | Sube | Baja |
+| Oficina factura el pedido (consume la reserva) | Baja | Baja | Igual |
+| Se libera una reserva (cancelación o pedido rehecho) | Igual | Baja | Sube |
+| El conteo encuentra una diferencia | Se corrige a lo contado | Igual | Cambia con el físico |
+
+Lo leemos así: confirmar un pedido baja lo que se puede prometer sin tocar lo que hay, y recién la factura baja lo que hay. Por eso el disponible no se mueve al facturar: ya se había descontado al reservar. Las reglas para cargar, corregir y depurar estos datos están en la sección 6.
+
+## Responsables y decisiones
+
+Usamos el criterio del RECI de la sección 2: una sola R por actividad, y como en una pyme quien ejecuta suele ser quien responde, casi todas las filas son R/E. Agregamos una columna, la del responsable de sistemas, porque en el proceso nuevo ejecuta dos pasos (los ajustes de stock y el tablero) y no tiene carril. Despachar con flota propia y entregar a transporte tercerizado no cambian y quedan como en la sección 2. Los asteriscos marcan propuestas nuestras que todavía no hablamos con cada área.
+
+| Actividad | Oficina | Depósito | Producción | Dirección | Resp. de sistemas | Distribuidor (externo) |
+|---|---|---|---|---|---|---|
+| Cargar nota de pedido en Discovery | R/E | – | – | – | – | – |
+| Consultar stock disponible | R/E | – | – | – | – | – |
+| Reservar stock | R/E | – | – | – | – | – |
+| Confirmar pedido al distribuidor | R/E | I | – | – | – | I |
+| Avisar faltante con fecha estimada | R/E | – | C | – | – | I |
+| Preparar pedido | I | R/E | – | – | – | – |
+| Facturar en Discovery | R/E | C | – | – | – | I |
+| Planificar producción de la semana | C | – | C | R/E | – | – |
+| Producir lo planificado | I | I | R/E | I | – | – |
+| Cargar producción del día | I | I | R/E | – | – | – |
+| Contar stock | – | R/E | I | – | I | – |
+| Ajustar diferencias de conteo (nota del diagrama) | I | C | I | – | R/E | – |
+| Reunión diaria ventas–producción* | C | – | C | R/E | – | – |
+| Actualizar el tablero* | C | – | I | I | R/E | – |
+
+Qué cambia en las responsabilidades respecto del AS-IS:
+
+- **El faltante tiene dueño.** En la sección 2 no relevamos quién decide qué se hace con el faltante ni quién autoriza las horas extras. La propuesta lo cierra así: avisar no es una decisión discrecional (si el disponible no alcanza, Oficina avisa), la fecha la confirma Producción, y las horas extras las decide Dirección en el plan semanal. Falta acordarlo con el dueño.
+- **"Planificar" tiene consultados.** El AS-IS no tenía a nadie consultado en "Decidir producción". Ahora Oficina aporta los pedidos pendientes y Producción dice qué puede producir.
+- **Dirección sigue siendo más de una persona.** Hay una sola R, pero decide el dueño o uno de los hijos: [dato pendiente: cuál responde por el plan semanal].
+- **La carga diaria tiene una persona con nombre.** Un responsable de carga por turno, con suplente, porque una carga que depende de alguien que falta se corta: [dato pendiente: quién es el responsable de carga de cada turno y su suplente].
+- **La reunión diaria tiene que tener quién la convoque.** Proponemos a Dirección, porque es quien decide qué producir: [dato pendiente: quién convoca la reunión diaria y si participa el dueño o un hijo todos los días].
+
+### Quién decide qué, y con qué dato
+
+| Decisión | Quién | Con qué dato | Criterio |
+|---|---|---|---|
+| ¿Se confirma el pedido? | Oficina | Stock disponible, de Discovery | Si alcanza, se reserva y se confirma. Si no, no se confirma sin avisar. Nunca se confirma sin consultar ni a ojo |
+| ¿Qué fecha se da? | Producción la confirma; Oficina la comunica | Plan semanal y producción en curso, vistos en la reunión diaria | La fecha sale de la reunión diaria. Oficina no la inventa: si Producción no la confirmó, no se promete |
+| ¿Qué se produce esta semana? | Dirección (dueño o hijos) | Pedidos pendientes, stock disponible frente al stock mínimo de cada producto, y el tablero | Primero lo que está pedido y no hay; después lo que está por debajo del mínimo. El criterio propio sigue contando, pero ya no es el único dato |
+| ¿Hay horas extras? | Dirección, en el plan semanal | Pedidos pendientes que la producción normal no cubre | Excepción con el motivo anotado (completar un pedido que faltó o saturación). No es el arreglo habitual del faltante |
+| ¿Cómo se corrige una diferencia de conteo? | Manda lo contado; el responsable de sistemas carga el ajuste | La hoja de conteo de Depósito | Se ajusta Discovery, con motivo, sin editar el stock a mano. Si el mismo producto difiere semana tras semana, se trata en la reunión diaria |
+| ¿Se libera una reserva? | Oficina, que la creó | Plazo estándar de la zona del distribuidor y su confirmación | La que pasó el plazo sin facturarse se confirma con el distribuidor y se factura o se libera |
+| ¿Se avanza a la siguiente fase? | El dueño, como sponsor | Tablero y resultado del piloto | Go/No-Go de las secciones 7 y 8; no es una decisión del día a día |
+
+## Datos y controles
+
+### Cuándo se genera el dato que hoy falta
+
+Hoy el dato del stock no se genera nunca. En el proceso nuevo se genera en cinco momentos, y todos terminan en Discovery:
+
+| Momento | Dato que se genera | Quién lo carga |
+|---|---|---|
+| Al recibir el pedido | Nota de pedido (distribuidor, productos y cantidades) | Oficina |
+| Al confirmarlo | Reserva del stock | Oficina |
+| Al cierre de cada turno | Parte de producción: lo realmente producido | Responsable de carga del turno, con suplente |
+| Al facturar | La factura consume la reserva y baja el stock físico | Oficina |
+| Una vez por semana | Conteo físico y ajuste de diferencias | Depósito cuenta; el responsable de sistemas ajusta |
+
+El origen, el destino y las reglas de alta, corrección y depuración de cada dato están en la sección 6.
+
+### Controles
+
+Cada control corresponde a un error que hoy no se detecta:
+
+| Error de hoy | Control en el proceso nuevo | Cómo se ve si falla |
+|---|---|---|
+| Confirmar sin saber qué hay | Consultar el disponible es un paso del flujo, antes de confirmar | Pedidos confirmados sin consultar, que se anotan en el piloto (sección 7) |
+| Producir sin mirar los pedidos | Plan semanal con pedidos pendientes y stock mínimo, y reunión diaria | Pedidos pendientes que el plan no cubrió |
+| Stock cargado que no coincide con el real | Conteo cíclico semanal; manda lo contado | Exactitud de stock |
+| Carga que se corta | Responsable de carga por turno con suplente, y carga al cierre del turno | Días con producción cargada |
+| Reservas viejas que bajan el disponible sin motivo | Oficina revisa cada semana las reservas abiertas | Reservas abiertas pasado el plazo de su zona |
+| Horas extras como arreglo habitual | Excepción decidida en el plan semanal, con el motivo anotado | Horas extras por mes |
+
+### Seguimiento simple
+
+Son cuatro instrumentos, los que pide la consigna, y los cuatro caben en una pyme sin sumar un sistema.
+
+**Tablero de 4 indicadores.** Pedidos completos y a tiempo, exactitud de stock, días con producción cargada y horas extras por mes. No guarda datos propios: se alimenta con la exportación de Discovery y con dos cargas manuales (el registro semanal de pedidos recortados o demorados y las horas extras de la liquidación). Lo actualiza el responsable de sistemas cada semana, y Dirección lo mira al planificar. La ficha, la fórmula y la meta de cada indicador están en la sección 8. Si baja un indicador, primero se revisan capacitación, carga de trabajo, incentivos y reglas, antes que el compromiso de la gente (sección 5).
+
+**Checklist.** Tres listas cortas, una por rutina:
+
+*Cierre de turno (responsable de carga o suplente)*
+
+- [ ] Cargué la cantidad realmente producida de cada producto, no la planificada ni la estimada.
+- [ ] Si me equivoqué en una carga de hoy, la corregí con un ajuste y su motivo.
+- [ ] Si no pude cargar, lo avisé para anotarlo en la reunión.
+
+*Antes de confirmar un pedido (Oficina)*
+
+- [ ] El pedido está cargado una sola vez, con el producto y el distribuidor elegidos de la lista.
+- [ ] Consulté el stock disponible.
+- [ ] Si alcanza, reservé antes de confirmar. Si no, avisé con la fecha que confirmó Producción.
+
+*Cada semana, un día fijo a acordar con Depósito (Depósito, Oficina y responsable de sistemas)*
+
+- [ ] Depósito contó el stock y dejó la hoja de conteo. [dato pendiente: responsable del conteo inicial y del conteo semanal]
+- [ ] El responsable de sistemas cargó los ajustes, cada uno con su motivo.
+- [ ] Oficina revisó las reservas abiertas: las que pasaron el plazo de su zona se confirmaron o se liberaron.
+- [ ] Se actualizó el tablero.
+
+**Responsable de carga.** Una persona por turno, con suplente, que responde porque lo producido llegue a Discovery al cierre. Es el control más importante de los cuatro: sin carga diaria no hay stock en el que confiar, y es el trabajo nuevo de Producción, uno de los dos actores con resistencia esperada (sección 5). El tiempo de carga se reserva dentro del turno.
+
+**Reunión diaria ventas–producción.** Dura ~10 minutos y tiene tres preguntas. ¿Qué hay y qué está pendiente? ¿Qué avisos hay abiertos y qué fecha confirma Producción? ¿Hay que mover lo que se produce? Termina con la fecha confirmada y la decisión de producción anotadas. Es también el lugar donde se tratan las diferencias de conteo que se repiten y las reservas que se liberaron. Hoy Oficina le pregunta a Producción pedido por pedido; la reunión junta esa pregunta en un solo momento del día.
+
+Este flujo es el que se prueba en el piloto de la sección 7, con la hipótesis, los umbrales y el criterio de Go/No-Go que ahí se definen; los indicadores y el roadmap están en la sección 8.
+
+**Fuentes:** relevamiento del proceso con nuestro compañero que trabaja en Dulxelitos; secciones 1, 2, 4, 5, 6 y 7 de esta parte (en especial el RECI y las tres lentes de la 2, y los datos y reglas de la 6); consigna de la Parte 2, sección 3. Cifras: ~25 horas extras por mes y carga de producción en el 20 % de los días, ambas de la sección 1. Los responsables, los criterios de decisión y las rutinas son propuesta nuestra, no datos de la empresa. Lo que no se sabe queda marcado como "dato pendiente".
