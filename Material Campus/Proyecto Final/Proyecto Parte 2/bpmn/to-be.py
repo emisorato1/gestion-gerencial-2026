@@ -6,9 +6,11 @@ reglas de datos de 06 - Arquitectura y datos.md. Se dibuja con
     .venv/bin/python bpmn/generar_bpmn.py bpmn/to-be.py
 Mismas lanes y mismos pools que el AS-IS (bpmn/as-is.py): Oficina, Depósito,
 Producción y Dirección, con los pools colapsados Distribuidor y Transporte
-tercerizado. Tres cosas arrancan por su cuenta, como en la sección 3: el pedido
-(mensaje del distribuidor), la semana de producción (Dirección) y el conteo
-semanal (Depósito).
+tercerizado. Cuatro cosas arrancan por su cuenta, como en la sección 3: el pedido
+(mensaje del distribuidor), la semana de producción (Dirección), la carga del día
+(cierre de turno, en Producción) y el conteo semanal (Depósito). Los objetos de
+datos "Stock en Discovery" son tres referencias al mismo registro: se repiten
+para que cada tarea tenga el suyo a mano y no cruzar carriles.
 """
 
 PROCESO = {
@@ -36,10 +38,17 @@ PROCESO = {
                  "col": 4, "fila": 0},
                 {"id": "espera", "tipo": "evento_tiempo", "texto": "Fecha estimada cumplida",
                  "col": 3, "fila": 0},
-                {"id": "a_regla", "tipo": "anotacion", "col": 5.2, "fila": 0, "ancho": 215,
+                {"id": "a_regla", "tipo": "anotacion", "col": 1.6, "fila": 2, "ancho": 215,
                  "texto": "Stock disponible = stock físico menos lo reservado por pedidos "
                           "confirmados sin facturar. Si alcanza solo para una parte, se "
                           "reserva eso y el resto queda pendiente."},
+                {"id": "a_pendiente", "tipo": "anotacion", "col": 5.2, "fila": 0, "ancho": 215,
+                 "texto": "Si el distribuidor cancela después del aviso, el pedido cuenta como "
+                          "recortado. Lo pendiente no tiene reserva: se revisa en la reunión diaria."},
+                {"id": "datos_stock_of", "tipo": "datos", "texto": "Stock en Discovery",
+                 "col": 4, "fila": 2},
+                {"id": "datos_stock_fact", "tipo": "datos", "texto": "Stock en Discovery",
+                 "col": 8.5, "fila": 2},
                 {"id": "a_factura", "tipo": "anotacion", "col": 8, "fila": 0, "ancho": 180,
                  "texto": "La factura consume la reserva (a probar en Discovery)."},
             ]},
@@ -61,16 +70,20 @@ PROCESO = {
             {"id": "produccion", "nombre": "Producción", "nodos": [
                 {"id": "producir", "tipo": "tarea", "texto": "Producir lo planificado",
                  "col": 1, "fila": 1},
+                {"id": "fin_semana", "tipo": "fin", "texto": "Semana producida",
+                 "col": 2, "fila": 1},
+                {"id": "ini_turno", "tipo": "evento_tiempo", "texto": "Turno cerrado",
+                 "col": 3, "fila": 0},
                 {"id": "cargar_produccion", "tipo": "tarea_usuario",
-                 "texto": "Cargar producción del día", "col": 3, "fila": 1},
+                 "texto": "Cargar producción del día", "col": 4, "fila": 0},
                 {"id": "fin_produccion", "tipo": "fin", "texto": "Producción cargada",
-                 "col": 4, "fila": 1},
+                 "col": 5, "fila": 0},
                 {"id": "datos_stock", "tipo": "datos", "texto": "Stock en Discovery",
-                 "col": 3, "fila": 0, "etiqueta": "izq"},
-                {"id": "a_carga", "tipo": "anotacion", "col": 1, "fila": 0, "ancho": 215,
+                 "col": 4, "fila": 1},
+                {"id": "a_carga", "tipo": "anotacion", "col": 1.4, "fila": 0, "ancho": 200,
                  "texto": "Se carga todos los días, al cierre del turno, y no una vez por "
                           "semana. Un responsable de carga por turno, con suplente."},
-                {"id": "a_reunion", "tipo": "anotacion", "col": 5.4, "fila": 0, "ancho": 260,
+                {"id": "a_reunion", "tipo": "anotacion", "col": 6.4, "fila": 1, "ancho": 260,
                  "texto": "Reunión diaria ventas–producción (~10 min): se mira el disponible, "
                           "los pedidos pendientes y los avisos, y Producción confirma la fecha."},
             ]},
@@ -80,10 +93,12 @@ PROCESO = {
                  "col": 1},
                 {"id": "tablero", "tipo": "datos", "texto": "Tablero de 4 indicadores",
                  "col": 1, "fila": 1},
-                {"id": "a_plan", "tipo": "anotacion", "col": 3.5, "fila": 0, "ancho": 270,
+                {"id": "datos_pendientes", "tipo": "datos", "texto": "Pedidos pendientes y stock mínimo",
+                 "col": 2, "fila": 1, "etiqueta": "der"},
+                {"id": "a_plan", "tipo": "anotacion", "col": 4, "fila": 0, "ancho": 270,
                  "texto": "Decide el dueño o uno de los hijos, mirando los pedidos pendientes "
                           "(los avisados con faltante) y el stock mínimo por producto."},
-                {"id": "a_extras", "tipo": "anotacion", "col": 3.5, "fila": 1, "ancho": 270,
+                {"id": "a_extras", "tipo": "anotacion", "col": 4, "fila": 1, "ancho": 270,
                  "texto": "Las horas extras son una excepción que se decide en este plan, no "
                           "el arreglo habitual del faltante."},
             ]},
@@ -113,18 +128,26 @@ PROCESO = {
         # Producción: planificada contra pedidos y cargada todos los días
         {"de": "ini_semana", "a": "planificar"},
         {"de": "planificar", "a": "producir"},
-        {"de": "producir", "a": "cargar_produccion"},
+        {"de": "producir", "a": "fin_semana"},
+        # La carga es diaria: arranca con el cierre del turno, no con el fin de la semana
+        {"de": "ini_turno", "a": "cargar_produccion"},
         {"de": "cargar_produccion", "a": "fin_produccion"},
         # Conteo cíclico semanal
         {"de": "ini_conteo", "a": "contar"},
         {"de": "contar", "a": "fin_conteo"},
         # Datos y anotaciones (asociaciones punteadas)
+        # Entradas de datos (flecha en la tarea) y salidas de datos (flecha en el objeto)
+        {"de": "datos_stock_of", "a": "consultar"},
+        {"de": "reservar", "a": "datos_stock_of"},
+        {"de": "facturar", "a": "datos_stock_fact"},
         {"de": "cargar_produccion", "a": "datos_stock"},
-        {"de": "planificar", "a": "tablero"},
-        {"de": "a_regla", "a": "xor_stock"},
+        {"de": "tablero", "a": "planificar"},
+        {"de": "datos_pendientes", "a": "planificar"},
+        {"de": "a_regla", "a": "consultar"},
+        {"de": "a_pendiente", "a": "avisar"},
         {"de": "a_factura", "a": "facturar"},
         {"de": "a_ajuste", "a": "contar"},
-        {"de": "a_carga", "a": "cargar_produccion"},
+        {"de": "a_carga", "a": "ini_turno"},
         {"de": "a_reunion", "a": "datos_stock"},
         {"de": "a_plan", "a": "planificar"},
         {"de": "a_extras", "a": "planificar"},

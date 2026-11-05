@@ -36,7 +36,9 @@ evento_tiempo, evento_mensaje, anotacion, datos.
   - evento_tiempo sin flujo de entrada es un inicio por tiempo; con entrada es un
     evento intermedio de tiempo.
   - Un flujo entre un nodo y una anotacion o un objeto de datos es una asociacion
-    (punteada), no un flujo de secuencia.
+    (punteada), no un flujo de secuencia. Tarea -> datos es una salida de datos (la
+    flecha queda del lado del objeto); datos -> tarea es una entrada de datos (la
+    flecha queda del lado de la tarea).
   - Un flujo de secuencia solo une nodos del mismo pool; un flujo de mensaje solo
     une pools distintos. Los pools colapsados no tienen lanes ni nodos: son origen
     o destino de mensajes (se nombran por el id del pool).
@@ -863,8 +865,9 @@ def generar_svg(P, A, L):
         a, b = item["pts"]
         f = item["f"]
         datos_salida = (nodos[f["de"]]["tipo"] in TAREAS and nodos[f["a"]]["tipo"] == "datos")
+        datos_entrada = (nodos[f["de"]]["tipo"] == "datos" and nodos[f["a"]]["tipo"] in TAREAS)
         s.append(_linea([a, b], ' stroke-dasharray="2.5,3.5" stroke-linecap="round"'))
-        if datos_salida:
+        if datos_salida or datos_entrada:
             s.append(_flecha(a, b, abierta=True))
     for item in L["flujos"]:
         s.append(_linea(item["pts"]))
@@ -934,8 +937,16 @@ def generar_xml(P, A, L):
     for item in L["asoc"]:
         f = item["f"]
         salida_datos = nodos[f["de"]]["tipo"] in TAREAS and nodos[f["a"]]["tipo"] == "datos"
+        entrada_datos = nodos[f["de"]]["tipo"] == "datos" and nodos[f["a"]]["tipo"] in TAREAS
         item["salida_datos"] = salida_datos
-        item["xml"] = id_flujo("DataOutputAssociation" if salida_datos else "Association", f["de"], f["a"])
+        item["entrada_datos"] = entrada_datos
+        if salida_datos:
+            pref_asoc = "DataOutputAssociation"
+        elif entrada_datos:
+            pref_asoc = "DataInputAssociation"
+        else:
+            pref_asoc = "Association"
+        item["xml"] = id_flujo(pref_asoc, f["de"], f["a"])
 
     colab = "Collaboration_" + re.sub(r"[^A-Za-z0-9_.-]", "_", P.get("nombre", "proceso"))[:40]
     ap('<?xml version="1.0" encoding="UTF-8"?>')
@@ -996,8 +1007,18 @@ def generar_xml(P, A, L):
                     '\n      <bpmn:dataOutputAssociation id="%s">\n        <bpmn:targetRef>%s</bpmn:targetRef>\n'
                     '      </bpmn:dataOutputAssociation>' % (i["xml"], ids_nodo[i["f"]["a"]])
                     for i in L["asoc"] if i["salida_datos"] and i["f"]["de"] == nid)
+                entradas = [i for i in L["asoc"] if i["entrada_datos"] and i["f"]["a"] == nid]
+                entradas_datos = ""
+                for k, i in enumerate(entradas):
+                    # como en bpmn.io: la entrada apunta a una propiedad de la tarea
+                    pid_prop = _id("Property", "%s_%d" % (nid, k + 1))
+                    entradas_datos += (
+                        '\n      <bpmn:property id="%s" name="__targetRef_placeholder" />'
+                        '\n      <bpmn:dataInputAssociation id="%s">\n        <bpmn:sourceRef>%s</bpmn:sourceRef>\n'
+                        '        <bpmn:targetRef>%s</bpmn:targetRef>\n'
+                        '      </bpmn:dataInputAssociation>' % (pid_prop, i["xml"], ids_nodo[i["f"]["de"]], pid_prop))
                 etiqueta = "userTask" if t == "tarea_usuario" else "task"
-                ap('    <bpmn:%s id="%s"%s>%s%s\n    </bpmn:%s>' % (etiqueta, xid, nombre, flujos_io, salidas_datos, etiqueta))
+                ap('    <bpmn:%s id="%s"%s>%s%s%s\n    </bpmn:%s>' % (etiqueta, xid, nombre, flujos_io, entradas_datos, salidas_datos, etiqueta))
             elif t in COMPUERTAS:
                 if t == "xor":
                     etiqueta = "exclusiveGateway"
@@ -1037,7 +1058,7 @@ def generar_xml(P, A, L):
                    % (ids_nodo[nid], escape(n["texto"])))
         for item in L["asoc"]:
             f = item["f"]
-            if nodos[f["de"]]["pool"] != pid or item["salida_datos"]:
+            if nodos[f["de"]]["pool"] != pid or item["salida_datos"] or item["entrada_datos"]:
                 continue
             # la asociacion sale del elemento de flujo y llega al artefacto
             origen, destino = f["de"], f["a"]
@@ -1137,7 +1158,7 @@ def revisar_xml(texto):
                 problemas.append("el diagrama dibuja '%s', que no existe" % ref)
             en_di.add(ref)
     sin_forma = ("laneSet", "process", "collaboration", "definitions", "flowNodeRef", "text",
-                 "messageEventDefinition", "timerEventDefinition", "dataObject")
+                 "messageEventDefinition", "timerEventDefinition", "dataObject", "property")
     for i, el in ids.items():
         etiqueta = el.tag.split("}")[1] if "}" in el.tag else el.tag
         if el.tag.startswith(modelo) and etiqueta not in sin_forma and \
