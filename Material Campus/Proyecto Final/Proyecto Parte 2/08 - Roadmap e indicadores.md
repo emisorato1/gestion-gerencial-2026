@@ -107,7 +107,7 @@ Son cuatro, dentro de los tres a cinco que pide la consigna: resultado y experie
 | **Dueño** | El responsable de sistemas, que carga los ajustes. Depósito cuenta |
 | **Meta** | A fijar con el conteo inicial y con el dueño, en 6 meses |
 
-**Meta en una oración:** subir la exactitud de stock de [dato pendiente: exactitud en el conteo inicial] a [dato pendiente: meta de exactitud, a fijar con ese conteo y con el dueño] en 6 meses.
+**Meta en una oración:** subir la exactitud de stock de [dato pendiente: exactitud de stock en el conteo inicial] a [dato pendiente: meta de exactitud, a fijar con ese conteo y con el dueño] en 6 meses.
 
 - **Línea de base:** [dato pendiente: exactitud de stock en el conteo inicial]. Hoy no hay stock cargado contra el cual comparar, así que en el conteo inicial Depósito anota antes de contar cuánto cree que hay de cada producto (a ojo, como hoy), y esa diferencia es la base (propuesta nuestra).
 - **Tipo:** de avance: si baja, avisa antes de que un stock equivocado llegue al distribuidor como un pedido recortado.
@@ -154,7 +154,7 @@ Son cuatro, dentro de los tres a cinco que pide la consigna: resultado y experie
 
 ### Cómo se mira el tablero
 
-El tablero es una hoja simple con una fila por semana y una columna por indicador y por contrapeso (sección 6). Arranca en la fase 1, con la semana 0, y durante el piloto lo alimentan la planilla y el registro de Oficina; desde la fase 4 suma el CSV de Discovery. Se actualiza cada semana, y las horas extras cada mes con la liquidación. Cada indicador muestra valor actual, línea de base y meta, con un color: verde si va en camino y rojo si empeora en dos lecturas seguidas. Queda a la vista de Oficina, Producción y Depósito: ver el efecto de lo que se carga refuerza el hábito (ADKAR, sección 5). La reunión diaria mira solo la carga y el disponible; los cuatro indicadores se leen en el informe al dueño y en cada Go/No-Go.
+El tablero es una hoja simple con una fila por semana y una columna por indicador y por contrapeso (sección 6). Arranca en la fase 1, con la semana 0, y durante el piloto lo alimentan la planilla y el registro de Oficina; desde la fase 4 suma el CSV de Discovery. Se actualiza cada semana, y las horas extras cada mes con la liquidación. Cada indicador muestra valor actual, línea de base y meta, con un color: verde si va en camino y rojo si empeora en dos lecturas seguidas. Queda a la vista de Oficina, Producción y Depósito: ver el efecto de lo que se carga refuerza el hábito (ADKAR, sección 5). Dirección lo mira al planificar la semana. La reunión diaria mira solo la carga y el disponible; los cuatro indicadores se leen en el informe al dueño y en cada Go/No-Go.
 
 | Si está en rojo | Se mira primero |
 |---|---|

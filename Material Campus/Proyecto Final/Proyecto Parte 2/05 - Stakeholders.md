@@ -15,7 +15,7 @@ Son ocho actores. El dueño tiene dos roles distintos: sponsor y, junto con los 
 | **Responsable de sistemas** | **Líder del proyecto** | Coordina con el proveedor, capacita y sigue los indicadores |
 | **Oficina** (4 personas: administración, facturación, cobranza) | Usuarios clave | Cargan la nota de pedido y reservan el stock antes de confirmar. Si falta algo, avisan con una fecha estimada |
 | **Producción** (7 personas) | Usuarios clave: aportan el dato | Cargan lo producido todos los días, al cierre de turno, con un responsable por turno |
-| **Depósito** (pedidos, embalaje, envíos) | Usuarios afectados | Arma desde el pedido confirmado, como hasta ahora. Conteo físico: [dato pendiente: responsable del conteo inicial y del conteo semanal] |
+| **Depósito** (pedidos, embalaje, envíos) | Usuarios afectados | Arma desde el pedido confirmado, como hasta ahora. Conteo físico: [dato pendiente: responsable del conteo inicial y del semanal] |
 | **Buenos Aires Software** (proveedor de Discovery) | Proveedor de tecnología | Activa el módulo de stock, pedidos y reserva. Licencia: [dato pendiente: versión de Discovery y soporte incluido] |
 | **Distribuidores** (57 en 7 provincias, 35 en la Patagonia) | Afectados indirectos | Siguen pidiendo por WhatsApp o teléfono. Si falta algo, reciben el aviso al confirmar, con una fecha |
 
