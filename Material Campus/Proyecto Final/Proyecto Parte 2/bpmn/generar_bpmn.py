@@ -27,7 +27,8 @@ Una especificacion es un modulo Python con una variable PROCESO:
 
 Nodos: "id", "tipo", "texto", "col" (columna de la grilla, puede ser decimal) y,
 opcionales, "fila" (subfila dentro de la lane, 0 por defecto, puede ser decimal),
-"ancho" (solo anotaciones) y "etiqueta" ("arriba", "abajo", "izq", "der") para
+"ancho" (solo anotaciones), "ancho_etiqueta" (ancho maximo del texto de una
+compuerta, 118 por defecto) y "etiqueta" ("arriba", "abajo", "izq", "der") para
 elegir de que lado va el texto de una compuerta o evento.
 
 Tipos: inicio, inicio_mensaje, fin, tarea, tarea_usuario, xor, and,
@@ -75,6 +76,7 @@ FUENTE = 13
 FUENTE_CH = 12
 INTERLINEA = 15
 INTERLINEA_CH = 14
+MARGEN_TEXTO = 9         # aire entre el texto de un flujo y los extremos del tramo
 MIN_COL_COMPUERTA = 84
 MIN_COL_EVENTO = 92
 MIN_COL_DATO = 100
@@ -616,7 +618,7 @@ def disponer(P, A):
             if t == "datos":
                 lineas = envolver(n.get("texto"), 96, FUENTE_CH)
             elif t in COMPUERTAS:
-                lineas = envolver(n.get("texto"), 118, FUENTE_CH)
+                lineas = envolver(n.get("texto"), n.get("ancho_etiqueta", 118), FUENTE_CH)
             else:
                 lineas = envolver(n.get("texto"), 92, FUENTE_CH)
             if not lineas:
@@ -658,21 +660,28 @@ def disponer(P, A):
                 pos = "fin"
             else:
                 pos = "med"
-            ancho = max(ancho_texto(l, FUENTE_CH) for l in lineas)
-            alto = len(lineas) * INTERLINEA_CH
             if pos == "med":
                 largos = [math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1])
                           for i in range(len(pts) - 1)]
                 idx = largos.index(max(largos))
             else:
                 idx = 0 if pos == "ini" else len(pts) - 2
+            # en un tramo horizontal el texto no puede pasar de un extremo del tramo: si no
+            # entra en el ancho que hay, se vuelve a partir en lineas mas angostas
+            disponible = abs(pts[idx + 1][0] - pts[idx][0]) - 2 * MARGEN_TEXTO
+            if (abs(pts[idx][1] - pts[idx + 1][1]) < 1 and pos != "med"
+                    and "ancho_etiqueta" not in f
+                    and max(ancho_texto(l, FUENTE_CH) for l in lineas) > disponible >= 40):
+                lineas = envolver(f.get("texto"), disponible, FUENTE_CH)
+            ancho = max(ancho_texto(l, FUENTE_CH) for l in lineas)
+            alto = len(lineas) * INTERLINEA_CH
             a, b = pts[idx], pts[idx + 1]
             if abs(a[1] - b[1]) < 1:                       # tramo horizontal: texto arriba
                 sg = _signo(b[0] - a[0])
                 if pos == "ini":
-                    x = a[0] + 6 if sg > 0 else a[0] - 6 - ancho
+                    x = a[0] + MARGEN_TEXTO if sg > 0 else a[0] - MARGEN_TEXTO - ancho
                 elif pos == "fin":
-                    x = b[0] - 6 - ancho if sg > 0 else b[0] + 6
+                    x = b[0] - MARGEN_TEXTO - ancho if sg > 0 else b[0] + MARGEN_TEXTO
                 else:
                     x = (a[0] + b[0]) / 2.0 - ancho / 2.0
                 yy = a[1] - 4 - alto
