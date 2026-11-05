@@ -4,15 +4,17 @@ Esta sección cierra dos pendientes de la Parte 1. Uno es el problema gerencial 
 
 ## Lo que corrige el relevamiento
 
-Para la Parte 2 volvimos a recorrer un pedido de distribuidor de punta a punta, desde que llega hasta que sale el camión, con nuestro compañero que trabaja en Dulxelitos (Juan José Geyer). Ese recorrido corrige tres cosas de la Parte 1. Nos pasó lo mismo que con el catálogo web que contamos en la Parte 1: al cruzar lo que habíamos concluido con lo que se ve adentro, un dato cambió. Esta vez el que se corrige es el diagnóstico nuestro.
+Para la Parte 2 relevamos de nuevo el proceso de atender un pedido de distribuidor con nuestro compañero que trabaja en Dulxelitos. Ese relevamiento corrige tres cosas de la Parte 1. Nos pasó lo mismo que con el catálogo web que contamos en la Parte 1: al cruzar lo que habíamos concluido con lo que se ve adentro, un dato cambió. Esta vez el que se corrige es el diagnóstico nuestro.
 
-**El stock de producto terminado no se registra.** En la sección 5.2 de la Parte 1 pusimos "Facturación y stock sí" como proceso digitalizado, y "Facturación, stock y cuentas corrientes en el sistema" como nivel de automatización. La facturación sí está en Discovery y eso se mantiene. El stock de producto terminado no: no se lleva ni en Discovery ni en ningún otro registro. Para saber si hay mercadería se mira a ojo en el depósito y se le pregunta a producción. Producción lleva su propio control, lo carga una vez por semana y no tiene relación con las ventas. El módulo de stock de Discovery está dentro de la licencia y no se usa. Lo corregimos al seguir un pedido real por el depósito.
+**El stock de producto terminado no se registra.** En la sección 5.2 de la Parte 1 pusimos "Facturación y stock sí" como proceso digitalizado, y "Facturación, stock y cuentas corrientes en el sistema" como nivel de automatización. La sección 5.4 lo repite en Procesos y Operaciones: "Facturación y stock están digitalizados". La facturación sí está en Discovery y eso se mantiene. El stock de producto terminado no: no se lleva ni en Discovery ni en ningún otro registro. Para saber si hay mercadería se mira a ojo en el depósito y se le pregunta a producción. Producción lleva su propio control, lo carga una vez por semana y no tiene relación con las ventas. El módulo de stock de Discovery está dentro de la licencia y no se usa. Esto salió al relevar el proceso con nuestro compañero que trabaja en la empresa.
 
 **Los pedidos recortados no son raros, pasan todas las semanas.** En la sección 5.5 escribimos que los pedidos incompletos "son poco frecuentes y se resuelven fácil", y que la empresa los percibía como menores. En una semana de registro, 30 de los ~125 pedidos (25 por día durante 5 días) salieron recortados o demorados. Eso es un ~24 %, o dicho al revés, un ~76 % de pedidos completos y a tiempo. El 76 % es una cuenta nuestra sobre una sola semana, no un promedio anual, y así lo usamos en el resto del trabajo.
 
-**Los recortes no vienen de la capacidad total de la planta.** En la sección 2.1 atribuimos los faltantes de papas fritas a "la capacidad de planta". La planta sigue saturada y eso no se corrige: las horas extras que la tapan siguen ahí. Pero los recortes semanales se explican sobre todo por mezcla y momento: se produce lo que no hace falta y falta lo que se pide, porque la producción la deciden el dueño o los hijos por criterio propio, sin mirar los pedidos. Que la mezcla explique la mayoría de los recortes es un supuesto crítico y lo vamos a medir en el piloto, no lo damos por probado.
+**Los recortes no vienen de la capacidad total de la planta.** En la sección 2.1 atribuimos los faltantes de papas fritas a "la capacidad de planta". La planta sigue saturada y eso no se corrige: las horas extras que la tapan siguen ahí, al menos en parte. Pero los recortes semanales se explican sobre todo por mezcla y momento: se produce lo que no hace falta y falta lo que se pide, porque la producción la deciden el dueño o los hijos por criterio propio, sin mirar los pedidos. Que la mezcla explique la mayoría de los recortes es un supuesto crítico y lo vamos a medir en el piloto, no lo damos por probado.
 
 Las tres correcciones no cambian el diagnóstico de fondo, lo refuerzan. En la Parte 1 Gobierno quedó en 1.50, con la idea de que la empresa decide y controla sin instrumentos integrados, y de que el costo de no actuar "no está bajo, está sin observar". Ahora sabemos por qué no se podía cuantificar: ni el stock ni los recortes se registraban, así que no había nada que contar.
+
+Lo que sí toca son dos puntajes. Los ítems de la sección 5.2 sobre automatización (Tecnología y Datos) y digitalización de los procesos clave (Procesos y Operaciones) tienen un 3 que se apoyó en parte en la afirmación equivocada del stock, y la sección 5.4 la repite. Con la corrección, esos dos ítems y sus dos dimensiones saldrían más bajos. El nivel global seguiría siendo Inicial: en la escala de la Parte 1 es Inicial todo promedio de 1.0 a 1.9, y el nuestro era 1.79, así que bajar puntos no lo saca de ahí. No volvemos a puntuar la encuesta: dejamos la Parte 1 como se entregó y marcamos acá cuáles son los dos ítems que quedaron sobreestimados.
 
 ## Problema gerencial
 
@@ -22,7 +24,7 @@ Es la sección 6 de la Parte 1, que quedó pendiente. Sigue la plantilla de la C
 
 Cómo se lee, bloque por bloque:
 
-- **Dolor:** pedidos recortados o demorados, con faltantes y horas extras para taparlos.
+- **Dolor:** pedidos recortados o demorados, con faltantes y horas extras que en parte se hacen para completar pedidos.
 - **Causa raíz, técnica y de organización a la vez:** no hay un registro del stock de producto terminado (lo técnico), y los pedidos se aceptan y la producción se decide sin mirarse entre sí, con el criterio del dueño o de los hijos (lo social).
 - **Magnitud:** unos 30 de ~125 pedidos por semana, y ~25 horas extras por mes.
 - **Métrica de éxito:** pedidos completos y a tiempo, del 76 % al 90 % en 6 meses. "A tiempo" quiere decir dentro del plazo estándar de cada zona (en la Patagonia, hasta una semana). Un pedido que se rechaza o se reprograma de entrada para que el número cierre no cuenta como completo.
@@ -42,7 +44,7 @@ Según lo que pide el enunciado:
 
 ## Objetivos específicos
 
-Son tres. Cada uno tiene una métrica que la empresa puede obtener, una línea de base, una meta y un plazo. Las líneas de base salen de los datos de Juan José Geyer del relevamiento; no inventamos ninguna.
+Son tres. Cada uno tiene una métrica que la empresa puede obtener, una línea de base, una meta y un plazo. Las líneas de base salen de los datos que nos pasó nuestro compañero que trabaja en Dulxelitos en el relevamiento; no inventamos ninguna.
 
 **1. Que los pedidos se confirmen sabiendo qué hay en stock.**
 
@@ -64,7 +66,7 @@ Son tres. Cada uno tiene una métrica que la empresa puede obtener, una línea d
 
 - **Métrica:** horas extras totales por mes, de la liquidación de sueldos.
 - **Línea de base:** ~25 horas por mes.
-- **Meta:** la mitad, unas 12 horas por mes. Es un supuesto de meta nuestro (25 dividido 2) que hay que confirmar con el dueño. La liquidación no distingue las horas extras que tapan un faltante de las que tapan la saturación de planta, así que la meta puede quedar corta o larga hasta que el piloto muestre cuánto pesa cada causa.
+- **Meta:** la mitad, unas 12 o 13 horas por mes (25 dividido 2). Es un supuesto de meta nuestro, a confirmar con el dueño. Se apoya en otro supuesto: que al menos la mitad de las ~25 horas se hace para completar pedidos que faltaron por mezcla y momento de producción, que es la parte que el proyecto ataca. La parte que cubre la saturación estructural de la planta no baja con esta propuesta. La liquidación no distingue una de otra, así que la meta puede quedar corta o larga hasta que el piloto muestre cuánto pesa cada causa.
 - **Plazo:** 6 meses.
 - **De dónde sale:** de la liquidación de sueldos, que la empresa ya tiene. Falta el costo de la hora extra para llevarlo a pesos: [dato pendiente: costo por hora extra].
 
