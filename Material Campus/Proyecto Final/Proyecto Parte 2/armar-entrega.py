@@ -228,11 +228,10 @@ L.append("- Freund, J. y Rücker, B. (2019). *Real-Life BPMN* (4.ª ed.). Camund
 L.append("- Heifetz, R. A. y Laurie, D. L. (1997). The work of leadership. *Harvard Business Review*, 75(1), 124-134.")
 L.append("- Heifetz, R., Grashow, A. y Linsky, M. (2009). *The Practice of Adaptive Leadership*. Harvard Business Press.")
 L.append("- Hiatt, J. M. (2006). *ADKAR: A Model for Change in Business, Government and Our Community*. Prosci.")
-L.append("- Kaplan, R. S. y Norton, D. P. (1992). The balanced scorecard: measures that drive performance. *Harvard Business Review*, 70(1), 71-79.")
 L.append("- Mendelow, A. L. (1981). Environmental scanning: the impact of the stakeholder concept. *Proceedings of the Second International Conference on Information Systems*, 407-418.")
 L.append("- Osterwalder, A. y Pigneur, Y. (2010). *Business Model Generation*. John Wiley & Sons.")
 L.append("- Osterwalder, A., Pigneur, Y., Bernarda, G. y Smith, A. (2014). *Value Proposition Design*. John Wiley & Sons.")
-L.append("- Rogers, D. L. (2023). Material de davidrogers.digital, tal como lo cita la Clase 7 de la cátedra.")
+L.append("- Rogers, D. L. (2023). *davidrogers.digital* [sitio web]. Citado en la Clase 7.")
 L.append("- Savoia, A. (2019). *The Right It*. HarperOne.")
 L.append("")
 L.append("**Material de cátedra (UTN FRSR)**")
@@ -242,6 +241,9 @@ L.append("- Cátedra de Gestión Gerencial (2026). Clase 4: gestión del cambio 
 L.append("- Cátedra de Gestión Gerencial (2026). Clase 5: medir la estrategia (objetivos, OKR, KPI y tablero).")
 L.append("- Cátedra de Gestión Gerencial (2026). Clase 6: modelado de procesos con BPMN.")
 L.append("- Cátedra de Gestión Gerencial (2026). Clase 7: de procesos a estrategia digital.")
+L.append("- Cátedra de Gestión Gerencial (2026). Clase del 05-10: línea de base y procesos balde.")
+L.append("- Cátedra de Gestión Gerencial (2026). Clase del 19-10: evaluación de tecnologías.")
+L.append("- Cátedra de Gestión Gerencial (2026). Clase del 23-10: partes interesadas y roadmap.")
 L.append("- Cátedra de Gestión Gerencial (2026). Trabajo Práctico Final, Parte 2: consigna y guía de ejemplo.")
 L.append("")
 L.append("**Fuentes primarias del caso**")
@@ -602,7 +604,7 @@ blockquote { margin: .7em 0 .7em 1.2em; padding-left: .8em; border-left: 2px sol
 
 /* ------------------------------ imagenes ------------------------------- */
 figure { margin: .8em 0; text-align: center; }
-figure img { max-width: 100%; max-height: 17cm; width: auto; height: auto; }
+figure img { max-width: 100%; max-height: 13cm; width: auto; height: auto; }
 figcaption { font-size: 9pt; font-style: italic; margin-top: .3em; text-align: center; }
 .bpmn { page: apaisada; }
 .bpmn h2, .bpmn h3 { margin-top: 0; }
@@ -613,7 +615,7 @@ figcaption { font-size: 9pt; font-style: italic; margin-top: .3em; text-align: c
 .portada { padding: 0 2.2cm; height: 100%; position: relative; }
 .portada::before {
   content: ""; display: block; height: 3.2cm; margin: 0 0 0 -2.2cm; width: calc(100% + 4.4cm);
-  background: linear-gradient(105deg, #f4f6f8 0 62%, #e8edf1 62% 100%);
+  background: linear-gradient(105deg, #f4f6f8 62%, #e8edf1 62%);
   border-bottom: 1px solid #cfd6dc;
 }
 .portada p { text-align: right; margin: 0; }
@@ -643,10 +645,13 @@ def herramienta(nombre):
     return shutil.which(nombre)
 
 
-def corre(cmd, que):
+def corre(cmd, que, entregable=True):
     try:
         subprocess.run(cmd, check=True, capture_output=True, cwd=BASE)
-        print("%s.%s" % (NOMBRE, que))
+        if entregable:
+            print("%s.%s" % (NOMBRE, que))
+        else:
+            print("  (paso intermedio, no se entrega: %s)" % que)
         return True
     except FileNotFoundError:
         print("  falta la herramienta para el %s, no se genero" % que)
@@ -654,6 +659,12 @@ def corre(cmd, que):
         print("  fallo el %s: %s" % (que, e.stderr.decode()[-400:]))
     return False
 
+
+LINEA = '<w:%s w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
+BORDES_TABLA = ("<w:tblBorders>" + "".join(
+    LINEA % lado for lado in ("top", "left", "bottom", "right", "insideH", "insideV"))
+    + "</w:tblBorders>")
+RPR_TABLA = '<w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>'
 
 # estilos de la portada y del indice que se agregan a la plantilla de Word
 ESTILOS_EXTRA = """
@@ -681,6 +692,10 @@ ESTILOS_EXTRA = """
  <w:basedOn w:val="Normal"/><w:qFormat/>
  <w:pPr><w:spacing w:before="100" w:after="0"/><w:jc w:val="right"/></w:pPr>
  <w:rPr><w:sz w:val="21"/><w:szCs w:val="21"/></w:rPr></w:style>
+<w:style w:type="table" w:customStyle="1" w:styleId="TablaAncha"><w:name w:val="Tabla ancha"/>
+ <w:basedOn w:val="Table"/><w:uiPriority w:val="59"/><w:qFormat/>
+ <w:rPr><w:sz w:val="15"/><w:szCs w:val="15"/></w:rPr>
+ <w:tblPr><w:tblCellMar><w:left w:w="60" w:type="dxa"/><w:right w:w="60" w:type="dxa"/></w:tblCellMar></w:tblPr></w:style>
 <w:style w:type="paragraph" w:styleId="TOC1"><w:name w:val="toc 1"/><w:basedOn w:val="Normal"/>
  <w:next w:val="Normal"/><w:uiPriority w:val="39"/><w:unhideWhenUsed/>
  <w:pPr><w:tabs><w:tab w:val="right" w:leader="dot" w:pos="9400"/></w:tabs><w:spacing w:before="60" w:after="40"/></w:pPr></w:style>
@@ -731,19 +746,15 @@ def plantilla_word(destino):
                 for sid in ("Title", "Subtitle"):
                     x = re.sub(r'<w:style [^>]*w:styleId="%s">.*?</w:style>' % sid,
                                "", x, count=1, flags=re.S)
-                # tablas: bordes finos, letra de 9 pt y encabezado en negrita
-                x = re.sub(
-                    r'(<w:style [^>]*w:styleId="Table">.*?<w:tblPr>)(.*?)(</w:tblPr>)',
-                    lambda m: m.group(1) + m.group(2) +
-                    '<w:tblBorders><w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-                    '<w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-                    '<w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-                    '<w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-                    '<w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-                    '<w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-                    '</w:tblBorders>' + m.group(3) +
-                    '<w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>',
-                    x, count=1, flags=re.S)
+                # tablas: bordes finos, letra de 9 pt y encabezado en negrita. El
+                # orden de los hijos es el del esquema: rPr antes de tblPr, y dentro
+                # de tblPr los bordes antes de los margenes de celda.
+                def estilo_tabla(m):
+                    t = m.group(0)
+                    t = t.replace("<w:tblPr>", RPR_TABLA + "<w:tblPr>", 1)
+                    return t.replace("<w:tblCellMar>", BORDES_TABLA + "<w:tblCellMar>", 1)
+                x = re.sub(r'<w:style [^>]*w:styleId="Table">.*?</w:style>',
+                           estilo_tabla, x, count=1, flags=re.S)
                 x = x.replace('<w:tblStylePr w:type="firstRow">',
                               '<w:tblStylePr w:type="firstRow"><w:rPr><w:b/><w:bCs/></w:rPr>', 1)
                 x = x.replace("</w:styles>", ESTILOS_EXTRA + "</w:styles>")
@@ -764,46 +775,156 @@ def plantilla_word(destino):
     return destino
 
 
-def ajustar_docx(ruta):
-    """Pandoc achica toda imagen al ancho de la hoja vertical; las apaisadas no.
+PIE_REL = "rIdPie"
+PIE_XML = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+           '<w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
+           'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
+           '<w:p><w:pPr><w:spacing w:before="0" w:after="0"/><w:jc w:val="center"/></w:pPr>'
+           '<w:fldSimple w:instr=" PAGE "><w:r><w:rPr><w:sz w:val="16"/><w:szCs w:val="16"/>'
+           '</w:rPr><w:t>1</w:t></w:r></w:fldSimple></w:p></w:ftr>')
 
-    Despues de armar el docx se fija el tamano de cada imagen (alto y ancho en
-    EMU, 914400 por pulgada) y se confirma que la ultima seccion trae tamano de
-    hoja. Devuelve la cantidad de imagenes ajustadas.
+
+def ajustar_docx(ruta):
+    """Retoques al docx que pandoc no hace solo. Devuelve (imagenes, tablas anchas).
+
+    - Pandoc achica toda imagen al ancho de la hoja vertical, y las apaisadas
+      no entran asi: se fija el tamano de cada una (EMU, 914400 por pulgada).
+    - Las tablas de 6 o mas columnas pasan al estilo "Tabla ancha" (7,5 pt y
+      margenes de celda chicos) para que no se partan las palabras.
+    - Pie de pagina con el numero de pagina, sin pie en la portada.
     """
     import zipfile
     tmp = ruta + ".tmp"
-    n = 0
-    with zipfile.ZipFile(ruta) as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
-        for item in zin.infolist():
-            datos = zin.read(item.filename)
-            if item.filename == "word/document.xml":
-                x = datos.decode("utf-8")
+    cuentas = {"imagenes": 0, "tablas": 0}
+    with zipfile.ZipFile(ruta) as zin:
+        partes = [(i, zin.read(i.filename)) for i in zin.infolist()]
+    salida = []
+    for item, datos in partes:
+        nombre = item.filename
+        if nombre == "word/document.xml":
+            x = datos.decode("utf-8")
 
-                def dibujo(m):
-                    nonlocal n
-                    bloque = m.group(0)
-                    d = re.search(r'<wp:docPr[^>]*descr="([^"]*)"', bloque)
-                    alt = d.group(1) if d else None
-                    if alt not in TAMANOS:
-                        return bloque
-                    w, rel = TAMANOS[alt]
-                    dim = dims_png(os.path.join(BASE, rel))
-                    if not dim:
-                        return bloque
-                    cx = int(w * 914400)
-                    cy = int(cx * dim[1] / float(dim[0]))
-                    bloque = re.sub(r'(<wp:extent )cx="\d+" cy="\d+"',
-                                    r'\1cx="%d" cy="%d"' % (cx, cy), bloque)
-                    bloque = re.sub(r'(<a:ext )cx="\d+" cy="\d+"',
-                                    r'\1cx="%d" cy="%d"' % (cx, cy), bloque)
-                    n += 1
+            def dibujo(m):
+                bloque = m.group(0)
+                d = re.search(r'<wp:docPr[^>]*descr="([^"]*)"', bloque)
+                alt = d.group(1) if d else None
+                if alt not in TAMANOS:
                     return bloque
-                x = re.sub(r"<w:drawing>.*?</w:drawing>", dibujo, x, flags=re.S)
-                datos = x.encode("utf-8")
+                w, rel = TAMANOS[alt]
+                dim = dims_png(os.path.join(BASE, rel))
+                if not dim:
+                    return bloque
+                cx = int(w * 914400)
+                cy = int(cx * dim[1] / float(dim[0]))
+                bloque = re.sub(r'(<wp:extent )cx="\d+" cy="\d+"',
+                                r'\1cx="%d" cy="%d"' % (cx, cy), bloque)
+                bloque = re.sub(r'(<a:ext )cx="\d+" cy="\d+"',
+                                r'\1cx="%d" cy="%d"' % (cx, cy), bloque)
+                cuentas["imagenes"] += 1
+                return bloque
+            x = re.sub(r"<w:drawing>.*?</w:drawing>", dibujo, x, flags=re.S)
+
+            def tabla(m):
+                t = m.group(0)
+                if len(re.findall(r"<w:gridCol\b", t)) < 6:
+                    return t
+                t, k = re.subn(r'<w:tblStyle w:val="Table"\s*/>',
+                               '<w:tblStyle w:val="TablaAncha"/>', t, count=1)
+                cuentas["tablas"] += k
+                return t
+            x = re.sub(r"<w:tbl>.*?</w:tbl>", tabla, x, flags=re.S)
+
+            contador = [0]
+
+            def seccion(m):
+                contador[0] += 1
+                # la primera seccion arranca con la portada: sin pie en la primera hoja
+                extra = "<w:titlePg/>" if contador[0] == 1 else ""
+                return ('<w:sectPr><w:footerReference w:type="default" r:id="%s"/>%s%s'
+                        '</w:sectPr>' % (PIE_REL, m.group(1), extra))
+            x = re.sub(r"<w:sectPr>(.*?)</w:sectPr>", seccion, x, flags=re.S)
+            datos = x.encode("utf-8")
+        elif nombre == "[Content_Types].xml":
+            datos = datos.decode("utf-8").replace(
+                "</Types>",
+                '<Override PartName="/word/footer1.xml" ContentType="application/'
+                'vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/></Types>'
+            ).encode("utf-8")
+        elif nombre == "word/_rels/document.xml.rels":
+            datos = datos.decode("utf-8").replace(
+                "</Relationships>",
+                '<Relationship Id="%s" Type="http://schemas.openxmlformats.org/'
+                'officeDocument/2006/relationships/footer" Target="footer1.xml"/>'
+                "</Relationships>" % PIE_REL).encode("utf-8")
+        salida.append((item, datos))
+    with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item, datos in salida:
             zout.writestr(item, datos)
+        zout.writestr("word/footer1.xml", PIE_XML)
     os.replace(tmp, ruta)
-    return n
+    return cuentas["imagenes"], cuentas["tablas"]
+
+
+# Orden de los hijos que exige el esquema de Word en los elementos que
+# tocamos a mano (Word se queja de un "contenido ilegible" si no se respeta).
+ORDEN_OOXML = {
+    "pPr": ["pStyle", "keepNext", "keepLines", "pageBreakBefore", "framePr",
+            "widowControl", "numPr", "suppressLineNumbers", "pBdr", "shd", "tabs",
+            "suppressAutoHyphens", "kinsoku", "wordWrap", "overflowPunct",
+            "topLinePunct", "autoSpaceDE", "autoSpaceDN", "bidi", "adjustRightInd",
+            "snapToGrid", "spacing", "ind", "contextualSpacing", "mirrorIndents",
+            "suppressOverlap", "jc", "textDirection", "textAlignment",
+            "textboxTightWrap", "outlineLvl", "divId", "cnfStyle", "rPr", "sectPr",
+            "pPrChange"],
+    "tblPr": ["tblStyle", "tblpPr", "tblOverlap", "bidiVisual", "tblStyleRowBandSize",
+              "tblStyleColBandSize", "tblW", "jc", "tblCellSpacing", "tblInd",
+              "tblBorders", "shd", "tblLayout", "tblCellMar", "tblLook", "tblCaption",
+              "tblDescription"],
+    "style": ["name", "aliases", "basedOn", "next", "link", "autoRedefine", "hidden",
+              "uiPriority", "semiHidden", "unhideWhenUsed", "qFormat", "locked",
+              "personal", "personalCompose", "personalReply", "rsid", "pPr", "rPr",
+              "tblPr", "trPr", "tcPr", "tblStylePr"],
+    "tblStylePr": ["pPr", "rPr", "tblPr", "trPr", "tcPr"],
+    "sectPr": ["headerReference", "footerReference", "footnotePr", "endnotePr", "type",
+               "pgSz", "pgMar", "paperSrc", "pgBorders", "lnNumType", "pgNumType",
+               "cols", "formProt", "vAlign", "noEndnote", "titlePg", "textDirection",
+               "bidi", "rtlGutter", "docGrid", "printerSettings"],
+    "tcPr": ["cnfStyle", "tcW", "gridSpan", "hMerge", "vMerge", "tcBorders", "shd",
+             "noWrap", "tcMar", "textDirection", "tcFitText", "vAlign", "hideMark"],
+}
+
+
+def validar_orden_docx(ruta):
+    """Revisa el orden de los hijos en document.xml, styles.xml y el pie.
+
+    Devuelve la lista de faltas (vacia si todo esta en orden).
+    """
+    import zipfile
+    import xml.etree.ElementTree as ET
+    W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    faltas = []
+    with zipfile.ZipFile(ruta) as z:
+        for parte in ("word/document.xml", "word/styles.xml", "word/footer1.xml"):
+            if parte not in z.namelist():
+                continue
+            raiz = ET.fromstring(z.read(parte))
+            for el in raiz.iter():
+                if not isinstance(el.tag, str) or not el.tag.startswith(W):
+                    continue
+                orden = ORDEN_OOXML.get(el.tag[len(W):])
+                if not orden:
+                    continue
+                ultimo = -1
+                for hijo in el:
+                    h = hijo.tag[len(W):] if hijo.tag.startswith(W) else None
+                    if h not in orden:
+                        continue
+                    i = orden.index(h)
+                    if i < ultimo:
+                        faltas.append("%s: <%s> viene despues de <%s> dentro de <%s>"
+                                      % (parte, h, orden[ultimo], el.tag[len(W):]))
+                    ultimo = max(ultimo, i)
+    return faltas
 
 
 PANDOC = herramienta("pandoc")
@@ -822,9 +943,15 @@ if PANDOC:
     if corre([PANDOC, tmp_docx, "-o", ruta_docx,
               "--from", ENTRADA, "--resource-path", BASE]
              + (["--reference-doc", ref] if ref else []), "docx"):
-        ajustadas = ajustar_docx(ruta_docx)
+        ajustadas, anchas = ajustar_docx(ruta_docx)
         if ajustadas != len(TAMANOS):
             aviso("docx: se ajustaron %d de %d imagenes" % (ajustadas, len(TAMANOS)))
+        print("  docx: %d imagenes y %d tablas anchas ajustadas" % (ajustadas, anchas))
+        faltas = validar_orden_docx(ruta_docx)
+        for f in faltas[:10]:
+            aviso("docx fuera de orden: " + f)
+        if not faltas:
+            print("  docx: orden de los elementos de Word verificado")
     html = os.path.join(DEST, "_tmp.html")
     css = os.path.join(DEST, "_tmp.css")
     with io.open(css, "w", encoding="utf-8") as fh:
@@ -833,7 +960,7 @@ if PANDOC:
     if corre([PANDOC, tmp_html, "-o", html, "--standalone", "--from", ENTRADA,
               "--resource-path", BASE, "--toc", "--toc-depth=2",
               "--metadata", "pagetitle=" + NOMBRE,
-              "--css", "_tmp.css"], "html intermedio"):
+              "--css", "_tmp.css"], "html", entregable=False):
         # Pandoc deja este orden: titulo, indice, cuerpo. La caratula necesita
         # otro: bloque institucional, titulo y equipo, todo junto y en su propia
         # hoja, y recien despues el indice.
