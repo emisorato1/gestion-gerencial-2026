@@ -31,7 +31,7 @@ Los bloques son los del canvas AS-IS de la Parte 1. Los separamos en lo que ve e
 
 ### Cómo se lee el conjunto
 
-De los nueve bloques, **cuatro cambian de verdad** (relación con clientes, actividades, recursos y costos), **dos cambian apenas** (la propuesta de valor, que se cumple mejor, y los socios, por el proveedor de Discovery) y **tres quedan igual** (segmentos, canales e ingresos). Solo uno de los cuatro que cambian lo ve el cliente, y lo ve de una manera modesta: un aviso a tiempo.
+De los nueve bloques, **cuatro cambian** (actividades y recursos a fondo; relación con clientes y costos de manera acotada), **dos cambian apenas** (la propuesta de valor, que se cumple mejor, y los socios, por el proveedor de Discovery) y **tres quedan igual** (segmentos, canales e ingresos). Solo uno de los cuatro que cambian lo ve el cliente, y lo ve de una manera modesta: un aviso a tiempo.
 
 Tres cosas conviene decir con claridad:
 
@@ -43,13 +43,13 @@ Tres cosas conviene decir con claridad:
 
 El segmento es el mismo de la Parte 1: el distribuidor mayorista, mirando sobre todo al patagónico. Volvemos a la tabla de dolores y de lo que el distribuidor espera de esa parte y vemos qué hace la propuesta con cada uno. Importa también lo que no hace.
 
-**Una corrección al VPC.** La Parte 1 ubicaba los faltantes de papas fritas "en algunas temporadas", con un peso alto cuando pasan pero de corta duración. Esta parte lo corrige: pasan todas las semanas, 30 de ~125 pedidos en la semana que registramos. Es el mismo dolor, pero más frecuente de lo que dijimos.
+**Una corrección al VPC.** La Parte 1 ubicaba los faltantes de papas fritas "en algunas temporadas", con un peso alto cuando pasan pero de corta duración. Esta parte lo corrige: los faltantes pasan todas las semanas, y en la semana que registramos 30 de ~125 pedidos, de cualquier producto, salieron recortados o demorados. Las papas fritas siguen siendo lo que más falta, pero no lo único que falta. Es el mismo dolor, pero más frecuente y más ancho de lo que dijimos.
 
 ### Dolores
 
 | Dolor del distribuidor (Parte 1) | Qué hace la propuesta | Efecto |
 |---|---|---|
-| **Faltantes de papas fritas** | Planificar la producción contra pedidos pendientes y un stock mínimo ataca la causa que encontramos, la mezcla y el momento. Si falta algo, se avisa al confirmar | **Lo alivia**, y es el dolor central. Depende del supuesto crítico de más abajo |
+| **Faltantes** (en la Parte 1, sobre todo de papas fritas) | Planificar la producción contra pedidos pendientes y un stock mínimo ataca la causa que encontramos, la mezcla y el momento. Si falta algo, se avisa al confirmar | **Lo alivia**, y es el dolor central. Depende del supuesto crítico de más abajo |
 | **No poder saber si hay stock sin llamar o ir al depósito** | El distribuidor sigue llamando o escribiendo, pero la respuesta pasa a ser cierta: oficina consulta el stock disponible antes de contestar | **En parte.** Mejora la respuesta, no el autoservicio, que queda para "later" |
 | **Horario acotado de atención** | Nada: no se amplía el horario ni se abre un canal fuera de él | **No lo toca** |
 | **Paquetes rotos en el viaje** | Nada: es un problema de embalaje y transporte, que está fuera de alcance | **No lo toca** |
@@ -60,12 +60,12 @@ El segmento es el mismo de la Parte 1: el distribuidor mayorista, mirando sobre 
 |---|---|---|
 | **Que le avisen cuando falta algo** | Hoy lo hace la empresa y es su punto más fuerte, pero se entera al armar el pedido. Pasa a avisarse en el momento, con una fecha estimada | **Se mantiene y mejora**: el aviso llega antes y trae una fecha |
 | **Entrega previsible** (en la Patagonia, hasta una semana) | Un pedido confirmado se cumple completo y dentro del plazo estándar de la zona. Es el indicador principal: del 76 % a la meta de la sección 1 | **Mejora**, medida por pedidos completos y a tiempo |
-| **Compromiso** | Confirmar un pedido pasa a significar que hay mercadería o una fecha cierta para completarlo | **Mejora** |
+| **Compromiso** | Confirmar un pedido pasa a significar que hay mercadería o una fecha estimada para completarlo | **Mejora** |
 | **Precio, exclusividad territorial, catálogo amplio y formatos de reventa** | Nada: no se toca ninguno | Sin cambio |
 
 ### Qué beneficio nuevo aparece
 
-Uno solo, y es chico: **saber con una fecha cuándo llega lo que falta.** Hoy el distribuidor se entera de que falta algo y no sabe hasta cuándo. Con producción planificada contra pedidos, la empresa puede darle una fecha estimada. No hay ningún beneficio digital nuevo, porque no hay canal nuevo.
+Uno solo, y es chico: **saber con una fecha estimada cuándo llega lo que falta.** Hoy el distribuidor se entera de que falta algo y no sabe hasta cuándo. Con producción planificada contra pedidos, la empresa puede darle una fecha estimada. Es además una promesa nueva de cara al cliente, y sobre una planta saturada: si la fecha no se cumple, el aviso pierde el valor que hoy tiene (ver el supuesto 4). No hay ningún beneficio digital nuevo, porque no hay canal nuevo.
 
 ### Quién gana más
 
@@ -80,14 +80,16 @@ Son las cosas que damos por ciertas y no hemos probado. Las ordenamos por tipo, 
 | 1 | **La mezcla y el momento de producción, y no la capacidad total de la planta, explican la mayoría de los recortes.** | **Factibilidad (crítico)** | Planificar contra pedidos no baja los recortes porque lo que falta es capacidad. La meta no se cumple, las horas extras siguen y la propuesta ataca el problema equivocado |
 | 2 | Producción carga lo producido todos los días, y oficina consulta y reserva antes de confirmar, aun con la planta saturada y sin gente de más. | Factibilidad | Sin carga diaria no hay stock en el que confiar: la exactitud cae y se vuelve a mirar a ojo. Es la resistencia que esperamos en producción y en oficina |
 | 3 | El módulo de stock de Discovery funciona como esperamos: permite pedidos, reserva el stock y la facturación consume la reserva, con el mismo criterio de stock disponible que la planilla del piloto. | Factibilidad | Nuestro compañero que trabaja en la empresa sabe que Discovery permite pedidos y reserva, pero nadie lo usó en Dulxelitos. Si no funciona así, hay que sumar costo y tiempo con el proveedor o seguir con la planilla compartida, que es la alternativa A |
-| 4 | El dueño y los hijos van a decidir la producción de la semana mirando pedidos pendientes y stock mínimo, y no solo por criterio propio. | Deseabilidad | Se registra el stock pero la decisión no cambia: se digitaliza sin rediseñar y los recortes siguen. Es el cambio adaptativo del proyecto, no el técnico |
-| 5 | Al distribuidor no le resulta peor oír "hay en tal fecha" al confirmar que recibir el pedido recortado, como hoy. | Deseabilidad | Se pierden pedidos o se resiente una relación que hoy está bien. Hoy el distribuidor no se queja, así que no tenemos una señal previa de que quiera este cambio |
-| 6 | El ahorro en horas extras y reprogramaciones justifica el costo de implementar y sostener el cambio, que es bajo. | Viabilidad | La inversión no se recupera. Hay un límite: la saturación estructural de la planta no baja con esta propuesta, así que no todas las ~25 horas por mes se pueden ahorrar |
-| 7 | La semana de registro (30 recortados o demorados de ~125) es representativa. | Viabilidad | El tamaño del problema, y de lo que se gana, es otro. Se apoya en que la demanda es pareja todo el año, pero es una sola semana |
+| 4 | La fecha estimada que se le da al distribuidor cuando falta algo se cumple, con la planta saturada. | Factibilidad | Es una promesa nueva de cara al cliente. Si la fecha falla, el aviso deja de ser confiable, y ese aviso es lo más fuerte que hoy tiene la empresa: se empeora justo lo que anda bien |
+| 5 | El dueño y los hijos van a decidir la producción de la semana mirando pedidos pendientes y stock mínimo, y no solo por criterio propio. | Deseabilidad | Se registra el stock pero la decisión no cambia: se digitaliza sin rediseñar y los recortes siguen. Es el cambio adaptativo del proyecto, no el técnico |
+| 6 | Al distribuidor no le resulta peor oír una fecha estimada al confirmar que recibir el pedido recortado, como hoy. | Deseabilidad | Se pierden pedidos o se resiente una relación que hoy está bien. Hoy el distribuidor no se queja, así que no tenemos una señal previa de que quiera este cambio |
+| 7 | Al menos la mitad de las ~25 horas extras por mes se hace para completar pedidos que faltaron por mezcla y momento de producción. | Viabilidad | Es la base de la meta de horas extras de la sección 1. La liquidación de sueldos no distingue una hora de otra. Si la mayoría de las horas es por saturación estructural de la planta, que esta propuesta no toca, la meta queda larga y el ahorro es menor |
+| 8 | El ahorro en horas extras y reprogramaciones justifica el costo de implementar y sostener el cambio, que esperamos bajo y se confirma cuando estén los datos de costo. | Viabilidad | La inversión no se recupera. Hoy no hay ninguna cifra de costo, así que "bajo" es una expectativa y no un dato: el módulo ya está en la licencia y la planilla del piloto cuesta casi nada, pero falta el costo de activarlo y de la carga diaria |
+| 9 | La semana de registro (30 recortados o demorados de ~125) es representativa. | Viabilidad | El tamaño del problema, y de lo que se gana, es otro. Se apoya en que la demanda es pareja todo el año, pero es una sola semana |
 
 **El supuesto 1 es el que decide si la propuesta vale la pena.** La planta está saturada, y eso lo dijo la Parte 1 y no lo corregimos. Lo que corregimos es que los recortes semanales no se explican solo por ahí: se produce lo que no hace falta y falta lo que se pide, porque la producción se decide sin mirar los pedidos. Esa es la hipótesis del grupo, razonada sobre cómo funciona el proceso, no un dato medido. Si resulta que la mayoría de los recortes se daría igual con la mezcla ideal, la meta de pedidos completos y a tiempo se revisa y la propuesta no alcanza por sí sola. El piloto de 2 semanas con papas fritas está pensado, entre otras cosas, para ver cuántos recortes se evitan al planificar contra pedidos.
 
-**Cómo se prueba el retorno, sin inventar cifras.** No tenemos todavía el costo por hora extra, ni el margen de un pedido recortado, ni lo que cuesta activar el módulo. Mientras tanto no calculamos ningún VAN: planteamos un punto de equilibrio. La alternativa B se paga si evita, por mes, tantas horas extras como resulte de dividir su costo mensual por el costo de una hora extra: [dato pendiente: costo mensual de la alternativa B] sobre [dato pendiente: costo por hora extra]. El tope de lo que se puede evitar son las ~25 horas por mes de hoy, y la meta que fijamos en la sección 1 es la mitad. Con esos tres datos el cálculo se completa, y el dueño ya dijo que acepta una inversión mayor si se demuestra el retorno.
+**Cómo se prueba el retorno, sin inventar cifras.** Todavía no tenemos el costo de la hora extra ni lo que cuesta activar el módulo, así que no calculamos ningún VAN: planteamos un punto de equilibrio con dos variables. La alternativa B se paga si evita, por mes, al menos tantas horas extras como dé esta división: el costo mensual de B sobre el costo de una hora extra, o sea [dato pendiente: costo mensual de la alternativa B] sobre [dato pendiente: costo por hora extra]. Tres aclaraciones sobre cómo se lee. Primero, los costos que se pagan una sola vez, como el conteo inicial y la capacitación, se reparten en los 6 meses del plazo y se suman al costo mensual: no se pueden dejar afuera. Segundo, el margen de los pedidos que dejan de recortarse es un beneficio extra que **no contamos** en esta cuenta (falta [dato pendiente: margen o valor promedio de un pedido recortado]), así que la prueba es conservadora: si B se paga solo con horas extras, se paga con más razón sumando ese margen. Tercero, el tope de lo que se puede evitar son las ~25 horas por mes de hoy, y la meta de la sección 1 es la mitad, que vale solo si se cumple el supuesto 7. Con las dos variables el cálculo se completa, y el dueño ya dijo que acepta una inversión mayor si se demuestra el retorno.
 
 Cómo se valida cada supuesto, con su probabilidad, su impacto y su señal temprana, se desarrolla en la sección 7.
 
