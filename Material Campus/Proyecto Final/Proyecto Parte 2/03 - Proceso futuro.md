@@ -8,7 +8,7 @@ Esta sección diseña cómo se atiende un pedido de distribuidor cuando la propu
 
 **Cómo se lee.** Usa los mismos carriles y los mismos actores externos que el AS-IS de la sección 2, para comparar de un vistazo; el muñequito marca los pasos que se hacen en Discovery. Tres cosas arrancan por su cuenta: el pedido, cuando llega el mensaje del distribuidor; la semana de producción, con el reloj de Dirección; y el conteo, con el reloj de Depósito.
 
-- **El pedido.** Oficina carga la nota de pedido una sola vez en Discovery y consulta el stock disponible antes de confirmar. Si hay, reserva, confirma al distribuidor y Depósito arma desde el pedido confirmado. Después Oficina factura en Discovery, y la factura consume la reserva. El despacho es como hoy.
+- **El pedido.** Oficina carga la nota de pedido una sola vez en Discovery y consulta el stock disponible antes de confirmar. Si hay, reserva, confirma al distribuidor y Depósito arma desde la lista de armado que Discovery da para ese pedido confirmado (sección 6). Después Oficina factura en Discovery, y la factura consume la reserva. El despacho es como hoy.
 - **Si no hay.** Oficina avisa en el momento, con una fecha estimada que Producción confirma en la reunión diaria. El pedido queda pendiente y, cuando llega la fecha, Oficina vuelve a consultar: si ya hay, reserva y sigue; si todavía no, avisa de nuevo con otra fecha. Ningún pedido queda sin camino. "Hay" quiere decir que alcanza para el pedido completo; si alcanza solo para una parte, se reserva eso y el resto queda pendiente (sección 6).
 - **La producción.** Cada semana Dirección planifica mirando los pedidos pendientes, entre ellos los avisados con faltante, y un stock mínimo por producto. Producción produce lo planificado y carga lo producido todos los días, al cierre del turno: esa carga es la que sube el stock físico en Discovery. Hoy se carga una vez por semana.
 - **El conteo.** Una vez por semana Depósito cuenta el stock. Si hay diferencias, manda lo contado y se ajusta con motivo; el ajuste lo carga el responsable de sistemas, que es un rol y no un área, y por eso aparece en la nota del diagrama y no como un paso con carril propio.
@@ -20,7 +20,7 @@ Esta sección diseña cómo se atiende un pedido de distribuidor cuando la propu
 
 | Paso | Hoy (AS-IS) | Futuro (TO-BE) |
 |---|---|---|
-| **Registrar el pedido** | Se anota en papel o planilla y se pasa a una lista: tres transcripciones del mismo pedido | Se carga una sola vez, como nota de pedido en Discovery |
+| **Registrar el pedido** | Se anota en papel o planilla y se pasa a una lista: tres transcripciones del mismo pedido | Se carga una sola vez, como nota de pedido en Discovery, y de ahí sale la lista de armado |
 | **Saber si hay** | Se mira a ojo en el depósito y se pregunta a producción | Una sola consulta del stock disponible en Discovery |
 | **Cuándo aparece el faltante** | Al armar el pedido, con el pedido ya aceptado | Antes de confirmar, en la compuerta "¿Hay stock disponible?" |
 | **Qué se le dice al distribuidor** | Se acepta sin mirar si hay; si falta, se manda incompleto avisando o se espera producción | Se confirma lo que hay, con reserva; si falta, aviso en el momento con una fecha estimada |
@@ -133,7 +133,7 @@ Son cuatro instrumentos, los que pide la consigna, y los cuatro caben en una pym
 *Cierre de turno (responsable de carga o suplente)*
 
 - [ ] Cargué la cantidad realmente producida de cada producto, no la planificada ni la estimada.
-- [ ] Si me equivoqué en una carga de hoy, la corregí con un ajuste y su motivo.
+- [ ] Si me equivoqué en una carga de hoy, la corregí el mismo día, con su motivo.
 - [ ] Si no pude cargar, lo avisé para anotarlo en la reunión.
 
 *Antes de confirmar un pedido (Oficina)*
