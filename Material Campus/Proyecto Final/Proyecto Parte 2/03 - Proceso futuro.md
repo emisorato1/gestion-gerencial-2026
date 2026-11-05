@@ -14,7 +14,7 @@ Esta sección diseña cómo se atiende un pedido de distribuidor cuando la propu
 - **El conteo.** Una vez por semana Depósito cuenta el stock. Si hay diferencias, manda lo contado y se ajusta con motivo; el ajuste lo carga el responsable de sistemas, que es un rol y no un área, y por eso aparece en la nota del diagrama y no como un paso con carril propio.
 - **Las notas.** La reunión diaria de ~10 minutos entre ventas y producción, el tablero de 4 indicadores (lo actualiza el responsable de sistemas y lo lee Dirección al planificar) y las horas extras como excepción decidida en el plan semanal.
 
-**Lo que el diagrama da por cierto y no está probado.** Que Discovery reserva y que la factura consume la reserva (supuesto 3 de la sección 4, que prueba la prueba técnica de la sección 7); que la fecha estimada se cumple (supuesto 4); y que el dueño y los hijos planifican mirando pedidos y stock mínimo y no solo por criterio propio (supuesto 5). En el piloto con planilla, Oficina libera la reserva a mano al facturar, porque la planilla no habla con Discovery.
+**Lo que el diagrama da por cierto y no está probado.** Que Discovery reserva y que la factura consume la reserva (supuesto 3 de la sección 4, que prueba la prueba técnica de la sección 7); que la fecha estimada se cumple (supuesto 4); y que el dueño y los hijos planifican mirando pedidos y stock mínimo (supuesto 5). En el piloto con planilla, Oficina libera la reserva a mano al facturar.
 
 ## Qué cambia
 
@@ -32,7 +32,7 @@ Esta sección diseña cómo se atiende un pedido de distribuidor cuando la propu
 | **Horas extras** | Una de las tres salidas del faltante (~25 horas por mes) | Excepción que se decide en el plan semanal, con el motivo anotado |
 | **Seguimiento** | Ninguno | Tablero de 4 indicadores y reunión diaria de ~10 minutos |
 
-**Lo que no cambia, a propósito.** El pedido sigue entrando por WhatsApp o teléfono. El armado en el depósito sigue siendo manual: según nuestro compañero es rápido y no es la restricción. El despacho y el conteo físico quedan como están. Qué producir lo sigue decidiendo el dueño o uno de los hijos, ahora con pedidos y stock a la vista. Y el distribuidor no ve el stock: eso queda para "later" (sección 1).
+**Lo que no cambia, a propósito.** El pedido sigue entrando por WhatsApp o teléfono. El armado en el depósito sigue siendo manual: según nuestro compañero es rápido y no es la restricción. El despacho, con flota propia o transporte tercerizado, queda igual. Qué producir lo sigue decidiendo el dueño o uno de los hijos, ahora con pedidos y stock a la vista. Y el distribuidor no ve el stock: eso queda para "later" (sección 1).
 
 **Qué responde a cada lente de la sección 2.** La doble averiguación pasa a una consulta, las tres transcripciones a una carga y el silo de datos a un stock cargado todos los días con una sola regla. El diseño ataca la gotera (registrar el stock y planificar contra pedidos) y no los baldes (avisar más rápido, horas extras para completar pedidos).
 
@@ -85,7 +85,7 @@ Qué cambia en las responsabilidades respecto del AS-IS:
 
 | Decisión | Quién | Con qué dato | Criterio |
 |---|---|---|---|
-| ¿Se confirma el pedido? | Oficina | Stock disponible, de Discovery | Si alcanza, se reserva y se confirma. Si no, no se confirma sin avisar. Nunca se confirma sin consultar ni a ojo |
+| ¿Se confirma el pedido? | Oficina | Stock disponible, de Discovery | Si alcanza, se reserva y se confirma. Si no, no se confirma sin avisar. No se confirma sin consultar ni a ojo, salvo el día en que el dato no está al día (vuelta atrás, sección 7) |
 | ¿Qué fecha se da? | Producción la confirma; Oficina la comunica | Plan semanal y producción en curso, vistos en la reunión diaria | La fecha sale de la reunión diaria. Oficina no la inventa: si Producción todavía no la confirmó, avisa del faltante sin prometer fecha y se la da después de la próxima reunión diaria |
 | ¿Qué se produce esta semana? | Dirección (dueño o hijos) | Pedidos pendientes, stock disponible frente al stock mínimo de cada producto, y el tablero | Primero lo que está pedido y no hay; después lo que está por debajo del mínimo. El criterio propio sigue contando, pero ya no es el único dato |
 | ¿Hay horas extras? | Dirección, en el plan semanal | Pedidos pendientes que la producción normal no cubre | Excepción con el motivo anotado (completar un pedido que faltó o saturación). No es el arreglo habitual del faltante |
@@ -97,7 +97,7 @@ Qué cambia en las responsabilidades respecto del AS-IS:
 
 ### Cuándo se genera el dato que hoy falta
 
-Hoy el dato del stock no se genera nunca. En el proceso nuevo se genera en cinco momentos, y todos terminan en Discovery:
+Hoy el dato del stock no se genera nunca. En el proceso nuevo se genera en cinco momentos, todos en Discovery:
 
 | Momento | Dato que se genera | Quién lo carga |
 |---|---|---|
@@ -140,7 +140,7 @@ Son los cuatro instrumentos que pide la consigna, y caben en una pyme sin sumar 
 
 - [ ] El pedido está cargado una sola vez, con el producto y el distribuidor elegidos de la lista.
 - [ ] Consulté el stock disponible.
-- [ ] Si alcanza, reservé antes de confirmar. Si no, avisé con la fecha que confirmó Producción.
+- [ ] Si alcanza, reservé antes de confirmar. Si no, avisé del faltante: con la fecha que confirmó Producción o, si todavía no la confirmó, sin fecha, y la doy después de la próxima reunión diaria.
 
 *Cada semana, un día fijo a acordar con Depósito (Depósito, Oficina y responsable de sistemas)*
 
@@ -151,7 +151,7 @@ Son los cuatro instrumentos que pide la consigna, y caben en una pyme sin sumar 
 
 **Responsable de carga.** Una persona por turno, con suplente, que responde porque lo producido llegue a Discovery al cierre. Es el control más importante: sin carga diaria no hay stock en el que confiar, y es trabajo nuevo para Producción (sección 5). El tiempo de carga se reserva dentro del turno.
 
-**Reunión diaria ventas–producción.** Dura ~10 minutos y tiene tres preguntas. ¿Qué hay y qué está pendiente? ¿Qué avisos hay abiertos y qué fecha confirma Producción? ¿Hay que mover lo que se produce? Termina con la fecha confirmada y la decisión de producción anotadas. Es también el lugar donde se tratan las diferencias de conteo que se repiten y las reservas que se liberaron. Hoy Oficina le pregunta a Producción pedido por pedido; la reunión junta esa pregunta en un solo momento del día.
+**Reunión diaria ventas–producción.** Dura ~10 minutos y tiene tres preguntas. ¿Qué hay y qué está pendiente? ¿Qué avisos hay abiertos y qué fecha confirma Producción? ¿Hay que mover lo que se produce? Termina con la fecha confirmada y la decisión de producción anotadas. Es también el lugar donde se tratan las diferencias de conteo que se repiten y las reservas liberadas. Hoy Oficina le pregunta a Producción pedido por pedido; la reunión junta esa pregunta en un solo momento del día.
 
 Este flujo es el que se prueba en el piloto de la sección 7, con la hipótesis, los umbrales y el criterio de Go/No-Go que ahí se definen; los indicadores y el roadmap están en la sección 8.
 

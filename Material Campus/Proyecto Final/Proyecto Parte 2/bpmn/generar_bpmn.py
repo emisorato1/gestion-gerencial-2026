@@ -1008,15 +1008,17 @@ def generar_xml(P, A, L):
                     '      </bpmn:dataOutputAssociation>' % (i["xml"], ids_nodo[i["f"]["a"]])
                     for i in L["asoc"] if i["salida_datos"] and i["f"]["de"] == nid)
                 entradas = [i for i in L["asoc"] if i["entrada_datos"] and i["f"]["a"] == nid]
-                entradas_datos = ""
-                for k, i in enumerate(entradas):
-                    # como en bpmn.io: la entrada apunta a una propiedad de la tarea
-                    pid_prop = _id("Property", "%s_%d" % (nid, k + 1))
-                    entradas_datos += (
-                        '\n      <bpmn:property id="%s" name="__targetRef_placeholder" />'
-                        '\n      <bpmn:dataInputAssociation id="%s">\n        <bpmn:sourceRef>%s</bpmn:sourceRef>\n'
-                        '        <bpmn:targetRef>%s</bpmn:targetRef>\n'
-                        '      </bpmn:dataInputAssociation>' % (pid_prop, i["xml"], ids_nodo[i["f"]["de"]], pid_prop))
+                # como en bpmn.io: cada entrada apunta a una propiedad de la tarea. El esquema
+                # pide todas las <property> antes de todas las <dataInputAssociation>
+                props = [_id("Property", "%s_%d" % (nid, k + 1)) for k in range(len(entradas))]
+                entradas_datos = "".join(
+                    '\n      <bpmn:property id="%s" name="__targetRef_placeholder" />' % pp
+                    for pp in props)
+                entradas_datos += "".join(
+                    '\n      <bpmn:dataInputAssociation id="%s">\n        <bpmn:sourceRef>%s</bpmn:sourceRef>\n'
+                    '        <bpmn:targetRef>%s</bpmn:targetRef>\n'
+                    '      </bpmn:dataInputAssociation>' % (i["xml"], ids_nodo[i["f"]["de"]], pp)
+                    for i, pp in zip(entradas, props))
                 etiqueta = "userTask" if t == "tarea_usuario" else "task"
                 ap('    <bpmn:%s id="%s"%s>%s%s%s\n    </bpmn:%s>' % (etiqueta, xid, nombre, flujos_io, entradas_datos, salidas_datos, etiqueta))
             elif t in COMPUERTAS:

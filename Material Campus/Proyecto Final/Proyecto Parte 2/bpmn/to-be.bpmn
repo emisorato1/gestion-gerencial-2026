@@ -166,11 +166,11 @@
       <bpmn:incoming>Flow_ini_semana_planificar</bpmn:incoming>
       <bpmn:outgoing>Flow_planificar_producir</bpmn:outgoing>
       <bpmn:property id="Property_planificar_1" name="__targetRef_placeholder" />
+      <bpmn:property id="Property_planificar_2" name="__targetRef_placeholder" />
       <bpmn:dataInputAssociation id="DataInputAssociation_tablero_planificar">
         <bpmn:sourceRef>DataObjectReference_tablero</bpmn:sourceRef>
         <bpmn:targetRef>Property_planificar_1</bpmn:targetRef>
       </bpmn:dataInputAssociation>
-      <bpmn:property id="Property_planificar_2" name="__targetRef_placeholder" />
       <bpmn:dataInputAssociation id="DataInputAssociation_datos_pendientes_planificar">
         <bpmn:sourceRef>DataObjectReference_datos_pendientes</bpmn:sourceRef>
         <bpmn:targetRef>Property_planificar_2</bpmn:targetRef>
