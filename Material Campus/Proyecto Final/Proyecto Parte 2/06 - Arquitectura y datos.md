@@ -2,7 +2,7 @@
 
 Esta sección dibuja la alternativa recomendada (la B: el stock de Discovery, probado antes con una planilla compartida) como cajas y flechas, y dice qué datos se mueven, quién los carga, cómo pasan de un lugar a otro y qué reglas los mantienen limpios. Parte de lo que corrige la sección 1: el stock de producto terminado no se registra. Por eso lo primero que dibujamos es el lugar donde va a vivir.
 
-La guía de la cátedra pregunta si una empresa chica necesita un diagrama de la NASA o un flujo simple. Para una pyme de 15 a 20 personas la respuesta es el flujo simple, y lo planteamos así: **un solo sistema, y ya lo tienen.** Es Discovery, que hoy usan para facturar. A eso se suman una planilla compartida que existe solo durante el piloto de 2 semanas y un tablero con cuatro indicadores. No hay nada que comprar, ninguna integración automática y ningún canal nuevo: tres áreas cargan datos en un solo lugar, y de ahí salen los números que miran la dirección y el responsable de sistemas.
+La guía de la cátedra pregunta si una empresa chica necesita un diagrama de la NASA o un flujo simple. Para una pyme de 15 a 20 personas la respuesta es el flujo simple, y lo planteamos así: **un solo sistema, y ya lo tienen.** Es Discovery, que hoy usan para facturar. A eso se suman una planilla compartida que existe solo durante el piloto de 2 semanas y un tablero con cuatro indicadores. No hay ningún sistema nuevo que comprar (el costo de activar el módulo de stock está pendiente, sección 4), ninguna integración automática y ningún canal nuevo: las áreas aportan sus datos a un solo lugar, y de ahí salen la lista para armar cada pedido y los números que miran la dirección y el responsable de sistemas.
 
 ## Diagrama
 
@@ -10,23 +10,13 @@ La guía de la cátedra pregunta si una empresa chica necesita un diagrama de la
 
 ### Cómo se lee
 
-- **Tres áreas cargan, un solo lugar guarda.** Oficina carga la nota de pedido y reserva el stock antes de confirmar. Producción carga lo producido todos los días, al cierre del turno. Depósito cuenta el stock una vez por semana y lo que encuentra se vuelve un ajuste. Las tres cargas entran juntas a Discovery.
+- **Tres áreas aportan, un solo lugar guarda.** Oficina carga la nota de pedido y reserva el stock antes de confirmar. Producción carga lo producido todos los días, al cierre del turno. Depósito cuenta el stock una vez por semana y deja la hoja de conteo, que el responsable de sistemas carga como ajuste. Los tres aportes entran juntos a Discovery. Y de Discovery sale, para cada pedido confirmado, la lista de armado que usa Depósito: es lo que se gana por cargar el pedido una sola vez.
 - **Una sola regla de stock.** Dentro de Discovery, **stock disponible = stock físico − reservado por pedidos confirmados sin facturar.** Oficina consulta el disponible antes de confirmar; la reserva lo baja, y la factura consume la reserva. La producción del día suma al stock físico y el conteo lo corrige.
-- **La planilla es solo del piloto.** Va punteada en el diagrama porque dura 2 semanas, con papas fritas, el producto que más falta. Recibe las mismas tres cargas y usa la misma regla de stock disponible. Después del Go/No-Go se archiva. Sirve para probar el hábito de la carga diaria antes de depender de Discovery.
-- **El tablero no guarda nada propio.** Muestra los cuatro indicadores de la sección 8 y se alimenta de tres lados: la exportación CSV de Discovery, el registro semanal de pedidos recortados o demorados y las horas extras de la liquidación de sueldos.
+- **La planilla de stock es solo del piloto.** Va punteada en el diagrama porque dura 2 semanas, con papas fritas, el producto que más falta. Recibe los mismos tres aportes (por eso el diagrama los muestra juntos antes de bifurcar) y usa la misma regla de stock disponible. Después del Go/No-Go se archiva. Sirve para probar el hábito de la carga diaria antes de depender de Discovery.
+- **El tablero no guarda nada propio.** Muestra los cuatro indicadores de la sección 8 y se alimenta de tres lados: la exportación CSV de Discovery, el registro semanal de pedidos recortados o demorados y las horas extras de la liquidación de sueldos. No hace falta otra herramienta: puede ser una hoja simple, y el formato lo fija la sección 8.
 - **El distribuidor queda afuera de los datos.** Sigue pidiendo por WhatsApp o teléfono y recibe el aviso con una fecha estimada si falta algo, pero no ve el stock. Esa visibilidad queda para "later" (sección 1).
 
-### Qué hay y qué no hay
-
-| Pieza | ¿Está? | Por qué |
-|---|---|---|
-| Discovery | Sí | Ya está en uso para facturar y el módulo de stock, pedidos y reserva está dentro de la licencia. Es la solución (alternativa B) |
-| Planilla compartida | Solo en el piloto | Es la alternativa A, usada como prueba. No queda como un segundo registro |
-| Tablero de indicadores | Sí, sin ser un sistema nuevo | Es una vista de cuatro números que se actualiza con los CSV y dos cargas manuales. Puede ser una hoja simple; el formato lo fija la sección 8 |
-| WhatsApp y teléfono | Sí, como hoy | Son el canal de pedidos. No sumamos WhatsApp Business ni CRM, que están fuera de alcance |
-| SaaS de gestión, API, conectores, tienda online, portal del distribuidor | No | El SaaS se evaluó y se descartó en la sección 2. El resto no hace falta para el problema y no entra en el alcance |
-
-**Lo que el diagrama da por cierto y no está probado.** Supone que el módulo de stock de Discovery permite pedidos y reserva, y que la facturación consume la reserva. Es lo que sabe nuestro compañero que trabaja en la empresa, pero nadie lo usó en Dulxelitos: es el supuesto 3 de la sección 4. Por eso el diseño de los datos no depende de la herramienta: la planilla del piloto maneja los mismos datos con la misma regla. Si Discovery no se comporta así, el flujo sigue en pie con la planilla (alternativa A) y lo único que cambia es dónde está el registro.
+**Lo que el diagrama da por cierto y no está probado.** Supone que el módulo de stock de Discovery permite pedidos y reserva, y que la facturación consume la reserva. Supone también que ese módulo está dentro de la licencia que ya pagan, y que activarlo no cuesta de más. Todo eso es lo que sabe nuestro compañero que trabaja en la empresa, pero nadie lo usó en Dulxelitos y falta confirmarlo con Buenos Aires Software (versión de Discovery, soporte incluido y costo de activarlo, que siguen pendientes en las secciones 4, 5 y 7). Es el supuesto 3 de la sección 4. Por eso el diseño de los datos no depende de la herramienta: la planilla del piloto maneja los mismos datos con la misma regla. Si Discovery no se comporta así, el flujo sigue en pie con la planilla (alternativa A) y lo único que cambia es dónde está el registro.
 
 ## Datos
 
@@ -51,9 +41,10 @@ Se generan todos los días con el trabajo. Son los que hoy no existen o están r
 | **Notas de pedido** (distribuidor, productos, cantidades) | Pedido del distribuidor por WhatsApp o teléfono, recibido por Oficina | Discovery | Confirmar sabiendo qué hay, armar el pedido, facturar y contar los pedidos recibidos. Reemplaza las tres transcripciones de hoy (chat, papel, lista) | Oficina |
 | **Reservas** (producto y cantidad por pedido confirmado sin facturar) | La nota de pedido, en el momento de confirmarla | Discovery (stock reservado) | Calcular el stock disponible. La factura la consume | Oficina |
 | **Partes de producción** (producto y cantidad producida en el día) | Producción, al cierre del turno | Discovery (suma al stock físico) | Tener el stock físico al día y planificar contra pedidos. Reemplaza al control semanal propio de Producción (falta confirmar qué contiene) | Responsable de carga del turno, con suplente |
-| **Conteos físicos** (producto, cantidad contada, fecha) | Depósito, en el conteo cíclico semanal | Discovery, como ajuste con motivo, y el cálculo de exactitud | Corregir el stock físico y medir la exactitud de stock. [dato pendiente: responsable del conteo inicial y del semanal] | Depósito |
-| **Facturas** | Discovery, cuando Oficina factura el pedido | Discovery | Cobrar y cerrar el pedido. Consume la reserva y baja el stock físico (a confirmar en el supuesto 3) | Oficina (facturación) |
-| **Registro semanal de pedidos recortados o demorados** | Oficina, que sabe qué pedidos salieron incompletos o fuera de plazo | Tablero | Indicador de pedidos completos y a tiempo. Es el registro que dio la semana base | Oficina* |
+| **Conteos físicos** (producto, cantidad contada, fecha) | Depósito, que cuenta y deja la hoja de conteo en el conteo cíclico semanal | Discovery, como ajuste con motivo que carga el responsable de sistemas, y el cálculo de exactitud | Corregir el stock físico y medir la exactitud de stock. [dato pendiente: responsable del conteo inicial y del semanal] | Depósito cuenta; responsable de sistemas carga el ajuste |
+| **Lista de armado** (productos y cantidades de cada pedido confirmado) | Discovery, a partir de la nota de pedido confirmada | Depósito, impresa o en pantalla | Armar el pedido desde un solo registro, sin volver a pasar el chat al papel y el papel a una lista. Ver el listado en Integraciones | Oficina, al confirmar el pedido |
+| **Facturas** | La nota de pedido confirmada, cuando Oficina factura | Discovery | Cobrar y cerrar el pedido. Consume la reserva y baja el stock físico (a confirmar en el supuesto 3) | Oficina (facturación) |
+| **Registro semanal de pedidos recortados o demorados** | Oficina, que sabe qué pedidos salieron incompletos o fuera de plazo, en una hoja compartida simple | Tablero | Indicador de pedidos completos y a tiempo. Es el registro que dio la semana base | Oficina* |
 | **Horas extras del mes** (totales) | Liquidación de sueldos | Tablero | Indicador de horas extras. La liquidación no distingue las planificadas de las no planificadas | Oficina (administración)* |
 
 ### Datos calculados
@@ -71,6 +62,7 @@ Nadie los carga: se calculan solos o con una fórmula fija.
 |---|---|---|---|---|
 | Pedido del distribuidor → Discovery | Carga manual, una sola vez, directo en Discovery | Al recibir el pedido; la reserva, al confirmarlo | Oficina | Producto y distribuidor se eligen de los maestros, no se escriben a mano. No se confirma sin consultar el disponible |
 | Producción → Discovery | Carga manual del parte del día | Todos los días, al cierre del turno | Responsable de carga del turno, con suplente | Una carga por producto producido. Si un día no se carga, el indicador de días con producción cargada lo muestra |
+| Discovery → Depósito | Lista de armado por pedido confirmado, impresa o en pantalla [dato pendiente: qué listado de armado emite Discovery] | Al confirmar cada pedido | Oficina confirma; Depósito arma | Depósito arma solo desde pedidos confirmados, que ya tienen la reserva hecha |
 | Depósito → Discovery | Hoja de conteo, y después el ajuste cargado a mano | Una vez por semana | Depósito cuenta; el responsable de sistemas carga el ajuste | Se compara contra Discovery antes de ajustar. La diferencia queda registrada y es la exactitud de stock |
 | Discovery → tablero | Exportación CSV | Cada semana* | Responsable de sistemas | Los totales del tablero se pueden recalcular desde el CSV. Si el resultado no coincide con Discovery, manda Discovery |
 | Registro de recortes → tablero | Carga manual | Cada semana* | Oficina* | Se anota un pedido por línea, con el motivo del recorte o de la demora |
@@ -83,7 +75,8 @@ Nadie los carga: se calculan solos o con una fórmula fija.
 
 **Lo que no integramos y por qué.**
 
-- **WhatsApp con Discovery.** El pedido sigue entrando por chat y se carga a mano. Conectarlos pediría una API que no existe y un CRM, que es otro problema y está fuera de alcance.
+- **WhatsApp con Discovery.** El pedido sigue entrando por chat y se carga a mano. Conectarlos pediría una API que no existe y un CRM, que es otro problema y está fuera de alcance. Tampoco sumamos WhatsApp Business.
+- **SaaS de gestión, tienda online y portal del distribuidor.** El SaaS se evaluó y se descartó en la sección 2. La tienda y el portal no hacen falta para este problema y quedan fuera del alcance.
 - **Discovery con el distribuidor.** El distribuidor no consulta el stock. Primero tiene que haber un stock confiable; recién después se le puede mostrar ("later").
 - **Costeo, listas de precios, insumos y packaging.** No son parte de este problema (sección 1).
 
@@ -91,7 +84,7 @@ Nadie los carga: se calculan solos o con una fórmula fija.
 
 Las reglas valen para los datos críticos: el stock físico, las reservas, los productos, los distribuidores y el stock mínimo. Son simples a propósito, porque las tiene que poder cumplir una empresa de 15 a 20 personas con la planta saturada. Tres principios las sostienen:
 
-1. **Un solo lugar por dato.** Cada dato vive en Discovery. La planilla solo existe en el piloto, y solo para el producto del piloto.
+1. **Un solo lugar por dato.** Cada dato de pedidos y stock vive en Discovery. La planilla de stock solo existe en el piloto, y solo para el producto del piloto. Dos datos viven afuera porque Discovery no los tiene: el registro semanal de recortes, en una hoja compartida simple que lleva Oficina, y las horas extras, que salen de la liquidación de sueldos.
 2. **No se borra, se corrige.** Un error se arregla con un movimiento nuevo y un motivo escrito, que deja rastro. Nadie pisa un número.
 3. **Lo que se cuenta manda sobre lo que se cargó.** Si el conteo físico y Discovery no coinciden, se corrige Discovery.
 
@@ -99,10 +92,10 @@ Las reglas valen para los datos críticos: el stock físico, las reservas, los p
 
 | Rol | Puede cargar | No toca |
 |---|---|---|
-| Oficina | Notas de pedido, reservas y facturas | El stock físico |
-| Producción (responsable de carga del turno y suplente) | Partes de producción | Reservas ni facturas |
+| Oficina | Notas de pedido, reservas, facturas y altas de distribuidores | El stock físico ni los productos |
+| Producción (responsable de carga del turno y suplente) | Partes de producción, y la corrección de sus propios partes el mismo día | Reservas ni facturas |
 | Depósito | La hoja de conteo | Los ajustes de stock |
-| Responsable de sistemas | Maestros, ajustes de stock y permisos | Pedidos ni partes, salvo para corregirlos |
+| Responsable de sistemas | Productos y stock mínimo, ajustes de stock, depuración de maestros y permisos | Pedidos ni partes, salvo para corregirlos |
 | Dirección | Fija el stock mínimo y pide las altas de productos | Discovery: no carga ahí |
 
 Si Discovery no permite separar los permisos así, la regla se sostiene por procedimiento y se revisa en el conteo semanal. Varias de estas tareas caen en el responsable de sistemas (ajustes, maestros, exportación), así que el tiempo que puede dedicarle cada semana, que la sección 5 deja como dato pendiente, también decide si las reglas se sostienen.
@@ -119,10 +112,10 @@ Si Discovery no permite separar los permisos así, la regla se sostiene por proc
 ### Corrección
 
 - **Diferencia de conteo.** Manda lo contado. Depósito deja la hoja de conteo; el responsable de sistemas carga un ajuste con motivo (rotura, error de carga, merma u otro) y avisa a Producción si la diferencia viene de un parte. No se edita el stock directamente. Si el mismo producto difiere semana tras semana, el motivo se trata en la reunión diaria.
-- **Parte de producción mal cargado.** Lo corrige el mismo día quien lo cargó, con un ajuste que resta lo mal cargado y carga lo correcto. Si se descubre después, lo recoge el conteo.
+- **Parte de producción mal cargado.** Lo corrige el mismo día el responsable de carga del turno, que es quien lo cargó, con una corrección que resta lo mal cargado y carga lo correcto. Es la única corrección de stock que no pasa por el responsable de sistemas. Si se descubre después, lo recoge el conteo y el ajuste ya es del responsable de sistemas.
 - **Nota de pedido equivocada.** Antes de facturar se corrige la nota y se rehace la reserva. Una factura emitida no se edita: se corrige con el procedimiento contable que ya usa administración, y si la mercadería quedó mal, se ajusta por conteo.
 - **Reserva que no corresponde.** La libera Oficina, que fue quien la creó, y deja el motivo (el distribuidor canceló, el pedido se rehízo, se cargó mal).
-- **Quién corrige.** Quien cargó el dato, salvo los ajustes de stock y los maestros, que son del responsable de sistemas. En todos los casos con motivo escrito.
+- **Quién corrige.** Quien cargó el dato. Los ajustes de stock físico son del responsable de sistemas, con una sola excepción: el parte de producción mal cargado, que corrige el mismo día quien lo cargó. Los productos y su depuración son del responsable de sistemas; los distribuidores, de Oficina. En todos los casos con motivo escrito.
 
 ### Depuración
 

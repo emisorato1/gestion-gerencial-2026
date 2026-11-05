@@ -117,11 +117,11 @@ texto(40, 40, "Arquitectura conceptual y flujo de datos", 24, "start", True)
 texto(40, 68, "Alternativa B (stock de Discovery), probada antes con una planilla compartida",
       16, "start")
 
-# columnas de las personas, encima del registro
-XO, XP, XD, WA = 40, 320, 600, 250          # Oficina, Produccion, Deposito; ancho
-CO, CP, CD = XO + WA / 2, XP + WA / 2, XD + WA / 2
+# columnas de las personas, encima del registro: Deposito, Produccion, Oficina
+XD, XP, XO, WA = 40, 320, 600, 250
+SD, SP, SO = 240, XP + WA / 2, XO + WA / 2   # donde baja la carga de cada una
 
-# fila 1: el distribuidor
+# fila 1: el distribuidor, encima de Oficina
 caja(XO, 95, WA, 100, "Distribuidor", "Pide por WhatsApp o teléfono. No ve el stock (queda para más adelante).",
      relleno="#f1f3f5")
 flecha([(XO + 60, 195), (XO + 60, 265)])
@@ -129,25 +129,32 @@ texto(XO + 70, 238, "pedido", 14, "start")
 flecha([(XO + 190, 265), (XO + 190, 195)])
 texto(XO + 200, 238, "aviso con fecha, si falta", 14, "start")
 
-# fila 2: quienes cargan
+# fila 2: quienes aportan datos
 AZUL = "#e6eefb"
-caja(XO, 265, WA, 125, "Oficina",
-     "Carga la nota de pedido y reserva el stock antes de confirmar. Factura.", relleno=AZUL)
+caja(XD, 265, WA, 125, "Depósito",
+     "Arma con la lista de cada pedido confirmado. Cuenta el stock una vez por semana y "
+     "deja la hoja de conteo.", relleno=AZUL)
 caja(XP, 265, WA, 125, "Producción",
      "Carga lo producido, todos los días, al cierre de turno.", relleno=AZUL)
-caja(XD, 265, WA, 125, "Depósito",
-     "Cuenta el stock una vez por semana y arma desde el pedido confirmado.", relleno=AZUL)
+caja(XO, 265, WA, 125, "Oficina",
+     "Carga la nota de pedido y reserva el stock antes de confirmar. Factura.", relleno=AZUL)
+
+# Discovery le devuelve a Deposito la lista de armado (flecha hacia arriba, sin cruzar el bus)
+flecha([(70, 520), (70, 390)], color="#2b6e3f")
+texto(78, 427, "lista de armado", 14, "start", color="#2b6e3f")
+texto(78, 444, "por pedido confirmado", 14, "start", color="#2b6e3f")
 
 # bus: las tres cargas entran juntas a Discovery (solido) o a la planilla (punteado, piloto)
 Y_BUS = 462
-for cx, et in ((CO, "nota de pedido y reserva"), (CP, "ingreso de stock"), (CD, "ajuste de stock")):
+for cx, et in ((SD, "hoja de conteo"), (SP, "ingreso de stock"), (SO, "nota de pedido y reserva")):
     flecha([(cx, 390), (cx, Y_BUS)], punta=False)
-    texto(cx + 9, 432, et, 14, "start")
-flecha([(CO, Y_BUS), (CD, Y_BUS)], punta=False)
+    texto(cx + 9, 427, et, 14, "start")
+texto(SD + 9, 444, "(ajuste: sistemas)", 14, "start")
+flecha([(SD, Y_BUS), (SO, Y_BUS)], punta=False)
 X_PLAN = 1030
-flecha([(CD, Y_BUS), (X_PLAN, Y_BUS), (X_PLAN, 520)], punteada=True, color="#8a5a00")
-texto(870, Y_BUS - 9, "solo en el piloto", 14, "start", color="#8a5a00")
-flecha([(CP, Y_BUS), (CP, 520)])
+flecha([(SO, Y_BUS), (X_PLAN, Y_BUS), (X_PLAN, 520)], punteada=True, color="#8a5a00")
+texto(905, Y_BUS - 9, "los tres aportes, solo en el piloto", 14, "start", color="#8a5a00")
+flecha([(SP, Y_BUS), (SP, 520)])
 
 # fila 3: Discovery y la planilla
 XDI, YDI, WDI, HDI = 40, 520, 810, 315
@@ -174,7 +181,7 @@ texto(445, 782, "Datos maestros: productos, distribuidores y stock mínimo por p
       15, "middle", True)
 
 caja(900, 520, 260, 235, "Planilla compartida",
-     "Solo en el piloto: 2 semanas, solo papas fritas. Recibe las mismas tres cargas y usa el "
+     "Solo en el piloto: 2 semanas, solo papas fritas. Recibe los mismos tres aportes y usa el "
      "mismo criterio: disponible = físico − reservado. Reemplaza a Discovery en la prueba y "
      "después se archiva.",
      relleno="#fff7e0", borde="#8a5a00", punteada=True)
@@ -182,21 +189,21 @@ caja(900, 520, 260, 235, "Planilla compartida",
 # fila 4: lo que alimenta al tablero
 YT, HT = 915, 110
 XT, WT = 370, 410
-caja(XO, YT, WA, HT, "Registro semanal de recortes",
-     "Pedidos recortados o demorados. Carga manual.", relleno="#f3ecfa")
+caja(40, YT, 250, HT, "Registro semanal de recortes",
+     "Pedidos recortados o demorados, en una hoja de Oficina.", relleno="#f3ecfa")
 caja(900, YT, 260, HT, "Liquidación de sueldos", "Horas extras del mes, totales. Carga manual.",
      relleno="#f3ecfa")
 caja(XT, YT, WT, HT, "Tablero de 4 indicadores",
      "Pedidos completos y a tiempo, exactitud de stock, días con producción cargada y horas "
      "extras por mes.", relleno="#eef1f5", trazo=2.4)
-flecha([(XO + WA, YT + 55), (XT, YT + 55)])
-texto((XO + WA + XT) / 2, YT + 43, "a mano", 14)
+flecha([(40 + 250, YT + 55), (XT, YT + 55)])
+texto((40 + 250 + XT) / 2, YT + 43, "a mano", 14)
 flecha([(900, YT + 55), (XT + WT, YT + 55)])
 texto((900 + XT + WT) / 2, YT + 43, "a mano, por mes", 14)
 flecha([(520, 835), (520, YT)], color=VERDE)
 texto(530, 880, "exportación CSV", 14, "start", color=VERDE)
 flecha([(X_PLAN, 755), (X_PLAN, 872), (700, 872), (700, YT)], punteada=True, color="#8a5a00")
-texto(1020, 862, "CSV, solo piloto", 14, "end", color="#8a5a00")
+texto(1020, 862, "CSV o a mano, solo piloto", 14, "end", color="#8a5a00")
 
 # fila 5: quien mira
 caja(320, 1070, 510, 100, "Dirección y responsable de sistemas",
