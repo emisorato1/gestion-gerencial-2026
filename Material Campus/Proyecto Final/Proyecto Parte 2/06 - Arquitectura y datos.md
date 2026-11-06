@@ -72,11 +72,13 @@ Se generan todos los días con el trabajo. Son los que hoy no existen o están r
 
 ## Reglas de datos
 
-Las reglas valen para los datos críticos: el stock físico, las reservas, los productos, los distribuidores y el stock mínimo. Son simples a propósito, porque las tiene que poder cumplir una empresa de 15 a 20 personas con la planta saturada. Tres principios las sostienen: La revisión de las reglas es parte de cada Go/No-Go (sección 8); si baja la exactitud de stock o los días con producción cargada, primero se revisan capacitación, carga de trabajo, incentivos y reglas, antes que el compromiso de la gente (sección 5).
+Las reglas valen para los datos críticos: el stock físico, las reservas, los productos, los distribuidores y el stock mínimo. Son simples a propósito, porque las tiene que poder cumplir una empresa de 15 a 20 personas con la planta saturada. Tres principios las sostienen:
 
 1. **Un solo lugar por dato.** Cada dato de pedidos y stock vive en Discovery. La planilla de stock solo existe en el piloto, y solo para el producto del piloto. Dos datos viven afuera porque Discovery no los tiene: el registro semanal de recortes, en una hoja compartida simple que lleva Oficina, y las horas extras, que salen de la liquidación de sueldos.
 2. **No se borra, se corrige.** Un error se arregla con un movimiento nuevo y un motivo escrito, que deja rastro. Nadie pisa un número.
 3. **Lo que se cuenta manda sobre lo que se cargó.** Si el conteo físico y Discovery no coinciden, se corrige Discovery.
+
+La revisión de las reglas es parte de cada Go/No-Go (sección 8). Si baja la exactitud de stock o los días con producción cargada, primero se revisan capacitación, carga de trabajo, incentivos y reglas, antes que el compromiso de la gente (sección 5).
 
 ### Quién puede qué
 

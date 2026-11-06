@@ -12,7 +12,7 @@ Son los nueve de la sección 4, con su número. **Probabilidad** es la de que el
 |---|---|---|---|---|---|
 | 1 | La mezcla y el momento de producción, y no la capacidad total, explican la mayoría de los recortes | Factibilidad (crítico) · Problema | Media | Alto | En la semana 0, la mayoría de los recortes se anota como "no alcanzaba la planta" |
 | 2 | Producción carga todos los días, y oficina consulta y reserva antes de confirmar, aun con la planta saturada | Factibilidad · Producto | Alta | Alto | Días sin carga al cierre de turno; la planilla no coincide con lo que se ve a ojo |
-| 3 | El módulo de stock de Discovery permite pedidos y reserva, y la factura consume la reserva, con el mismo criterio de disponible | Factibilidad · Producto | Media | Medio | El proveedor no lo confirma por escrito, o un paso de la prueba falla |
+| 3 | El módulo de stock de Discovery permite pedidos y reserva (también una parte de un pedido), y la factura consume la reserva, con el mismo criterio de disponible | Factibilidad · Producto | Media | Medio | El proveedor no lo confirma por escrito, o un paso de la prueba falla |
 | 4 | La fecha estimada que se da al distribuidor se cumple, con la planta saturada | Factibilidad · Producto | Media | Alto | Producción no confirma la fecha en la reunión diaria, o una fecha se pasa |
 | 5 | Dueño e hijos deciden la producción mirando pedidos pendientes y stock mínimo, y no solo por criterio propio | Deseabilidad · Solución | Media | Alto | La reunión diaria no cambia lo que se produce con pedidos sin cubrir |
 | 6 | Al distribuidor no le resulta peor una fecha estimada al confirmar que recibir el pedido recortado | Deseabilidad · Solución | Baja | Medio | El distribuidor cancela, reprograma o reclama cuando oye la fecha |
@@ -33,7 +33,7 @@ El 2 es alta porque hoy producción carga 1 de cada 5 días (20 %) y esperamos r
 | 5 | Pedirle al dueño y a los hijos que fijen el stock mínimo y anotar si la reunión cambió lo que se produjo de papas fritas | Piloto, señal inicial |
 | 6 | Observar cómo reacciona el distribuidor a cada aviso (acepta, espera, cancela o reclama) | Piloto |
 | 7 | Registrar el motivo de cada hora extra (completar un pedido que faltó, saturación u otro) | Piloto como señal; después, la liquidación de sueldos |
-| 8 | Completar el punto de equilibrio de la sección 4 con el tiempo de carga, reserva y reunión (costo en horas) | Datos de costo y consulta al proveedor |
+| 8 | Completar el punto de equilibrio de la sección 2 con el tiempo de carga, reserva y reunión (costo en horas) | Datos de costo y consulta al proveedor |
 | 9 | Repetir el registro semanal de todos los productos, con el mismo criterio, y anotar el total de la semana | Semana 0 y piloto |
 
 El piloto contesta, al menos en parte, siete de los nueve. El 3 tiene su prueba técnica y el 8 depende de dos datos que faltan: [dato pendiente: costo mensual de la alternativa B] y [dato pendiente: costo por hora extra]. Van primero los de impacto alto y probabilidad media o alta (1, 2, 4, 5 y 8).
@@ -62,7 +62,7 @@ Plantilla de la Clase 7. Los umbrales están en "Qué se mide" y la rutina, en "
 
 ### Qué se mide
 
-Cuenta como **recortado o demorado** un pedido con papas fritas que sale con menos cantidad de la pedida o después del plazo estándar de su zona. Como en la sección 1, uno rechazado o reprogramado de entrada, o cancelado después del aviso, también cuenta: si no, el número mejoraría empujando pedidos afuera. El criterio es el mismo en la semana 0 y en el piloto.
+Cuenta como **recortado o demorado** un pedido con papas fritas que sale con menos cantidad de la pedida o después del plazo estándar de su zona. Como en las secciones 1 y 3, uno rechazado o reprogramado de entrada, o cancelado después del aviso, también cuenta: si no, el número mejoraría empujando pedidos afuera. El criterio es el mismo en la semana 0 y en el piloto.
 
 | Medida | Cómo se mide | Línea de base | Umbral para un Go | Por qué ese umbral |
 |---|---|---|---|---|
@@ -95,7 +95,7 @@ Las reglas se acuerdan con el dueño **antes de arrancar**: él decide el Go/No-
 
 | Qué pasó | Qué significa | Decisión |
 |---|---|---|
-| Se cumplen los cuatro umbrales (incluido que los rechazados no suban) y la prueba técnica pasa (con el paso de la factura pendiente si no hay ambiente de prueba) | Rutina sostenida, mezcla como causa y módulo que funciona | **Go.** Activar Discovery por línea de producto, con la misma rutina, si además el punto de equilibrio de la sección 4 cierra con los datos de costo |
+| Se cumplen los cuatro umbrales (incluido que los rechazados no suban) y la prueba técnica pasa (con el paso de la factura pendiente si no hay ambiente de prueba) | Rutina sostenida, mezcla como causa y módulo que funciona | **Go.** Activar Discovery por línea de producto, con la misma rutina, si además el punto de equilibrio de la sección 2 cierra con los datos de costo |
 | Se cumplen la carga y los recortes, pero fallan el conteo o la fecha | La rutina anda; el dato o la promesa necesitan ajuste | **Go con ajustes.** Corregir capacitación, responsable o regla de fecha y repetir una sola vez |
 | La carga no llega a 8 de los 10 días | La rutina no se sostiene | **No-Go.** B no se gasta: una herramienta mejor no arregla un problema de disciplina. Se revisan capacitación, carga de trabajo, incentivos y reglas, no el compromiso de la gente (sección 5) |
 | La carga anda, los recortes no bajan a la mitad y las causas anotadas son sobre todo de capacidad | El supuesto 1 cae | **No-Go** de B para este problema; se revisa la meta de la sección 1, porque lo que queda es un problema de planta, fuera de alcance. Si hubo pocos recortes para concluir, se repite una sola vez |

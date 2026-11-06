@@ -59,7 +59,7 @@ Un desafío técnico se resuelve con procedimientos que ya existen; uno adaptati
 | **Reservar stock antes de confirmar** (Oficina) | Un paso en Discovery con una sola regla de stock disponible | Aprender a decir "hay en tal fecha estimada" en vez de confirmar siempre | **Mixto** |
 | **Planificar la producción contra pedidos y stock mínimo** (dueño e hijos) | Definir el mínimo por producto y mirar los pedidos pendientes | Cambiar el criterio propio por uno informado y compartir la decisión | **Adaptativo** |
 
-Lo técnico se resuelve con procedimiento y capacitación; lo adaptativo pide conversar, acotar el cambio, ofrecer soporte y reservar tiempo (Clase 4). El de fondo es la última fila (supuesto 5 de la sección 4), y por eso el piloto es de un solo producto.
+Lo técnico se resuelve con procedimiento y capacitación; lo adaptativo pide conversar, acotar el cambio, ofrecer soporte y reservar tiempo (Clase 4). El de fondo es la última fila (supuesto 5 de la sección 4), y por eso el piloto es de un solo producto. Si la carga diaria se cae, primero se revisan capacitación, carga de trabajo, incentivos y reglas, no el compromiso de la gente (Clase 4).
 
 ### Qué siente cada grupo y dónde se traba (FUD y ADKAR)
 
@@ -99,5 +99,4 @@ En clase se dijo que la matriz no es una foto fija: el jefe de finanzas, sin pre
 - **El responsable de sistemas está en Cerca todo el proyecto**, porque la propuesta le delega el poder desde el arranque. **Buenos Aires Software importa dos veces:** al principio, para saber si el módulo funciona, y en la activación, por su soporte.
 - **Dueño e hijos no se mueven, y esa es la señal:** la decisión de producción es el cambio adaptativo y el que más tarda en consolidarse. Depósito y distribuidores casi no se mueven, salvo que a Depósito le toque el conteo o se junten quejas por los avisos (son 57 distribuidores).
 
-La matriz se revisa en cada Go/No-Go.
 La matriz se revisa en cada Go/No-Go.
