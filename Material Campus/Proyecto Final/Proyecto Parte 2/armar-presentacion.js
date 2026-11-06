@@ -1,0 +1,674 @@
+// Presentacion de la Parte 2 de Dulxelitos, 10 laminas, ~10 minutos, 5 expositores.
+// Mismo estilo que la Parte 1 (../Proyecto/armar-presentacion.js): paleta, tipografias y
+// helpers. El contenido sale de las secciones 01 a 08 de esta carpeta; ninguna cifra es
+// nueva. Los diagramas BPMN se recortan en el propio pptx (srcRect), sin archivos nuevos.
+//
+// Uso: nice -n 10 node armar-presentacion.js "Entrega/Presentación TP Final Parte 2 - Dulxelitos.pptx"
+const fs = require("fs");
+const path = require("path");
+const pptxgen = require("pptxgenjs");
+
+const DARK = "1B2B34";
+const CREAM = "F7F4EC";
+const WHITE = "FFFFFF";
+const ORANGE = "C8791E";
+const GREEN = "2F6B5E";
+const RED = "A33B22";
+const BLUE = "1E5C85";
+const GREY = "55636B";
+const MUTED = "8FA3AB";
+const PALE = "C3D0D4";
+const LINE = "E2DCCC";
+
+const T_NEUTRAL = "EFEADC";
+const T_GREEN = "DCEAE3";
+const T_RED = "F3DFD9";
+const T_BLUE = "DDE8EF";
+const T_ORANGE = "F6EBD8";
+
+const H = "Arial";
+const B = "Calibri";
+
+const W = 13.3;
+const M = 0.65;
+const CW = W - 2 * M; // 12.0
+
+const AS_IS = path.join(__dirname, "bpmn", "as-is.png");
+const TO_BE = path.join(__dirname, "bpmn", "to-be.png");
+
+// Tamano real de un PNG, leido del encabezado, para calcular recortes.
+function tamanoPng(ruta) {
+  const b = fs.readFileSync(ruta);
+  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+}
+
+const pres = new pptxgen();
+pres.layout = "LAYOUT_WIDE";
+pres.author = "Lepez Joaquin, Geyer Juan Jose, Lopez Juan, Olivares Manuel, Sorato Emiliano";
+pres.title = "Dulxelitos - Propuesta de mejora";
+
+function nuevo(bg) {
+  const s = pres.addSlide();
+  s.background = { color: bg || CREAM };
+  return s;
+}
+
+function titulo(s, texto, color, pt) {
+  s.addText(texto, {
+    x: M, y: 0.5, w: CW, h: 0.62, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: pt || 34, bold: true, charSpacing: 1.2,
+    color: color || DARK, valign: "middle",
+  });
+}
+
+function bajada(s, texto, color) {
+  s.addText(texto, {
+    x: M, y: 1.14, w: CW, h: 0.38, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 15, italic: true,
+    color: color || GREY, valign: "middle",
+  });
+}
+
+function pie(s, color) {
+  s.addText("Dulxelitos · Gestión Gerencial · UTN FRSR", {
+    x: M, y: 6.85, w: CW, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 10, color: color || MUTED, align: "right", valign: "middle",
+  });
+}
+
+function circulo(s, n, x, y, d, relleno, tinta, pt) {
+  s.addShape(pres.ShapeType.ellipse, { x: x, y: y, w: d, h: d, fill: { color: relleno } });
+  s.addText(String(n), {
+    x: x, y: y, w: d, h: d, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: pt || 22, bold: true,
+    color: tinta || WHITE, align: "center", valign: "middle",
+  });
+}
+
+function tarjeta(s, o) {
+  s.addShape(pres.ShapeType.roundRect, {
+    x: o.x, y: o.y, w: o.w, h: o.h, fill: { color: o.fill }, rectRadius: 0.08,
+  });
+  let cy = o.y + 0.26;
+  if (o.titulo) {
+    s.addText(o.titulo, {
+      x: o.x + 0.28, y: cy, w: o.w - 0.56, h: 0.34, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: o.tituloPt || 15, bold: true, charSpacing: 0.8,
+      color: o.tinta || DARK, valign: "middle",
+    });
+    cy += 0.44;
+  }
+  if (o.items) {
+    s.addText(
+      o.items.map((t, i) => ({ text: t, options: { bullet: true, breakLine: i < o.items.length - 1 } })),
+      {
+        x: o.x + 0.28, y: cy, w: o.w - 0.56, h: o.y + o.h - cy - 0.2,
+        isTextBox: true, margin: 0,
+        fontFace: B, fontSize: o.pt || 14, color: o.cuerpo || DARK,
+        paraSpaceAfter: 6, valign: "top",
+      }
+    );
+  }
+  if (o.texto) {
+    s.addText(o.texto, {
+      x: o.x + 0.28, y: cy, w: o.w - 0.56, h: o.y + o.h - cy - 0.2,
+      isTextBox: true, margin: 0,
+      fontFace: B, fontSize: o.pt || 14, color: o.cuerpo || DARK, valign: "top",
+    });
+  }
+}
+
+// Recorta una zona (en pixeles de la imagen original) y la dibuja con un ancho dado.
+// Devuelve el alto resultante en pulgadas.
+function recorte(s, ruta, caja, dest) {
+  const img = tamanoPng(ruta);
+  const k = dest.w / caja.w; // pulgadas por pixel
+  const h = caja.h * k;
+  s.addImage({
+    path: ruta,
+    x: dest.x, y: dest.y, w: img.w * k, h: img.h * k,
+    sizing: { type: "crop", x: caja.x * k, y: caja.y * k, w: dest.w, h: h },
+  });
+  return h;
+}
+
+// Las coordenadas de abajo se midieron sobre la imagen mostrada a 2000 px de ancho;
+// este factor las pasa a pixeles reales del PNG.
+const kAs = 3900 / 2000;
+const kTo = 3732 / 2000;
+const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: (y1 - y0) * k });
+
+/* 1 - Portada */
+{
+  const s = nuevo(DARK);
+  s.addText("GESTIÓN GERENCIAL · UTN FRSR", {
+    x: M, y: 0.8, w: CW, h: 0.35, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 14, bold: true, charSpacing: 3, color: ORANGE,
+  });
+  s.addText("DULXELITOS", {
+    x: M, y: 2.0, w: CW, h: 1.5, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 88, bold: true, charSpacing: 2, color: CREAM, valign: "middle",
+  });
+  s.addText("Trabajo Práctico Final · Parte 2 · Propuesta de mejora", {
+    x: M, y: 3.6, w: CW, h: 0.45, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 20, color: PALE,
+  });
+  s.addText("Gestión del stock de producto terminado", {
+    x: M, y: 4.1, w: CW, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 17, italic: true, color: MUTED,
+  });
+  s.addText("Lepez Joaquín · Geyer Juan José · Lopez Juan · Olivares Manuel · Sorato Emiliano", {
+    x: M, y: 5.85, w: CW, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 14, color: PALE,
+  });
+  s.addText("Docentes: Ing. Jeremías Pino · Ing. Martín Noguerol", {
+    x: M, y: 6.3, w: CW, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 14, color: MUTED,
+  });
+  s.addNotes("Joaquín. Presentamos la parte 2: la propuesta para Dulxelitos. Esta parte arranca con una corrección a lo que dijimos en la parte 1.");
+}
+
+/* 2 - El problema */
+{
+  const s = nuevo(CREAM);
+  titulo(s, "EL PROBLEMA");
+  bajada(s, "Dulxelitos acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió");
+  const g = 0.3;
+  const aw = (CW - 3 * g) / 4;
+  const datos = [
+    ["30", "de ~125 por semana", "pedidos recortados o demorados", RED],
+    ["76 %", "→ 90 % en 6 meses", "pedidos completos y a tiempo", DARK],
+    ["~25 h", "por mes", "horas extras sobre una planta saturada", ORANGE],
+    ["20 %", "→ 100 % de los días", "con la producción cargada", DARK],
+  ];
+  datos.forEach((d, i) => {
+    const x = M + i * (aw + g);
+    s.addShape(pres.ShapeType.rect, { x: x, y: 1.95, w: aw, h: 0.05, fill: { color: d[3] } });
+    s.addText(d[0], {
+      x: x, y: 2.1, w: aw, h: 1.0, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 54, bold: true, color: d[3], valign: "bottom",
+    });
+    s.addText(d[1], {
+      x: x, y: 3.2, w: aw, h: 0.4, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 17, bold: true, color: DARK, valign: "middle",
+    });
+    s.addText(d[2], {
+      x: x, y: 3.65, w: aw, h: 0.65, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 15, color: GREY, valign: "top",
+    });
+  });
+  // Corrección a la Parte 1, en una línea.
+  s.addShape(pres.ShapeType.roundRect, {
+    x: M, y: 4.85, w: CW, h: 1.55, fill: { color: DARK }, rectRadius: 0.1,
+  });
+  s.addText("CORRECCIÓN A LA PARTE 1", {
+    x: M + 0.4, y: 5.05, w: CW - 0.8, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 13, bold: true, charSpacing: 2, color: ORANGE,
+  });
+  s.addText("El stock de producto terminado no se registra, y los recortes vienen de la mezcla y el momento de producción, no de la capacidad.", {
+    x: M + 0.4, y: 5.4, w: CW - 0.8, h: 0.85, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 21, color: CREAM, valign: "top",
+  });
+  pie(s);
+  s.addNotes("Joaquín. Leer el problema completo en voz alta (el guion lo trae). Después la corrección: en la parte 1 dijimos que el stock estaba en Discovery y que los faltantes eran por capacidad. Las dos cosas se corrigen. El 76 % es una cuenta nuestra sobre una semana de registro.");
+}
+
+/* 3 - AS-IS: el diagrama completo, con las tres lentes marcadas */
+{
+  const s = nuevo(CREAM);
+  s.addText("ASÍ SE ATIENDE UN PEDIDO HOY", {
+    x: M, y: 0.2, w: 7.0, h: 0.55, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 26, bold: true, charSpacing: 1.2, color: DARK, valign: "middle",
+  });
+  // Leyenda de las lentes, a la derecha del titulo.
+  const ley = [["1", "Ineficiencia"], ["2", "Tarea manual"], ["3", "Flujo de datos"]];
+  let lx = 7.55;
+  ley.forEach((l) => {
+    circulo(s, l[0], lx, 0.3, 0.34, ORANGE, WHITE, 13);
+    s.addText(l[1], {
+      x: lx + 0.42, y: 0.25, w: 1.4, h: 0.44, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 15, bold: true, color: DARK, valign: "middle",
+    });
+    lx += 1.85;
+  });
+  const iw = 11.8, ix = (W - iw) / 2, iy = 0.92;
+  const img = tamanoPng(AS_IS);
+  const ih = iw * img.h / img.w;
+  s.addShape(pres.ShapeType.rect, { x: ix - 0.06, y: iy - 0.06, w: iw + 0.12, h: ih + 0.12, fill: { color: WHITE }, line: { color: LINE, width: 1 } });
+  s.addImage({ path: AS_IS, x: ix, y: iy, w: iw, h: ih });
+  // Marcadores a la derecha de cada nota del diagrama (coordenadas sobre 2000 px).
+  const mx = (dx) => ix + (dx / 2000) * iw;
+  const my = (dy) => iy + (dy / (2000 * img.h / img.w)) * ih;
+  [["1", 752, 548], ["2", 634, 300], ["3", 1074, 662]].forEach((m) => {
+    circulo(s, m[0], mx(m[1]) - 0.18, my(m[2]) - 0.18, 0.36, ORANGE, WHITE, 14);
+  });
+  s.addNotes("Juan José. El diagrama completo. El pedido nace en el mensaje del distribuidor; el faltante se dibujó entero porque pasa todas las semanas. Los tres números naranja son las tres lentes de la lámina que sigue. Abajo, la producción corre aparte: el dueño o los hijos deciden qué producir sin mirar los pedidos.");
+}
+
+/* 4 - Las tres lentes */
+{
+  const s = nuevo(CREAM);
+  titulo(s, "LAS TRES LENTES");
+  bajada(s, "Una sola causa vista desde tres lados");
+  const g = 0.35;
+  const cw = (CW - 2 * g) / 3;
+  const ay = 1.75, ah = 4.95;
+  const lentes = [
+    {
+      n: "1", nombre: "INEFICIENCIA",
+      txt: "La disponibilidad se averigua dos veces: a ojo y preguntando a producción.",
+      arregla: "Reservar el stock contra pedidos antes de confirmar",
+      caja: px(kAs, 440, 392, 735, 590),
+    },
+    {
+      n: "2", nombre: "TAREA MANUAL",
+      txt: "El mismo pedido se anota tres veces: chat, papel y lista.",
+      arregla: "Cargar el pedido una sola vez",
+      caja: px(kAs, 190, 165, 608, 365),
+    },
+    {
+      n: "3", nombre: "FLUJO DE DATOS",
+      txt: "Producción, depósito y ventas no comparten ningún dato.",
+      arregla: "Un stock cargado todos los días, con una sola regla",
+      caja: px(kAs, 806, 612, 1054, 714),
+    },
+  ];
+  lentes.forEach((l, i) => {
+    const x = M + i * (cw + g);
+    s.addShape(pres.ShapeType.roundRect, { x: x, y: ay, w: cw, h: ah, fill: { color: T_NEUTRAL }, rectRadius: 0.08 });
+    circulo(s, l.n, x + 0.28, ay + 0.24, 0.5, ORANGE, WHITE, 20);
+    s.addText(l.nombre, {
+      x: x + 0.95, y: ay + 0.24, w: cw - 1.2, h: 0.5, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 18, bold: true, charSpacing: 0.8, color: DARK, valign: "middle",
+    });
+    // recuadro blanco con el recorte del diagrama
+    const sx = x + 0.28, sw = cw - 0.56, sy = ay + 0.98, sh = 1.85;
+    s.addShape(pres.ShapeType.roundRect, { x: sx, y: sy, w: sw, h: sh, fill: { color: WHITE }, rectRadius: 0.05 });
+    const ratio = l.caja.w / l.caja.h;
+    let dw = sw - 0.2;
+    if (dw / ratio > sh - 0.2) dw = (sh - 0.2) * ratio;
+    const dh = dw / ratio;
+    recorte(s, AS_IS, l.caja, { x: sx + (sw - dw) / 2, y: sy + (sh - dh) / 2, w: dw });
+    s.addText(l.txt, {
+      x: x + 0.28, y: ay + 3.0, w: cw - 0.56, h: 0.9, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 17, bold: true, color: DARK, valign: "top",
+    });
+    s.addText("SE ARREGLA CON", {
+      x: x + 0.28, y: ay + 3.95, w: cw - 0.56, h: 0.25, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 11, bold: true, charSpacing: 1.5, color: ORANGE,
+    });
+    s.addText(l.arregla, {
+      x: x + 0.28, y: ay + 4.22, w: cw - 0.56, h: 0.6, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 15, color: GREY, valign: "top",
+    });
+  });
+  pie(s);
+  s.addNotes("Juan José. Las tres lentes dan una sola causa, no tres proyectos. Lo que se ordena no son iniciativas sino los pasos de una: primero un quick win, la planilla del piloto, y después la inversión, el stock en Discovery. Y la pregunta del proceso balde: acelerar el aviso por WhatsApp sería poner un balde; la gotera es que el stock no se registra.");
+}
+
+/* 5 - Alternativas y recomendación */
+{
+  const s = nuevo(CREAM);
+  titulo(s, "ALTERNATIVAS Y RECOMENDACIÓN");
+  bajada(s, "Puntaje de la matriz de 10 criterios, sobre 50: es nuestro juicio, no una medición");
+  const g = 0.3;
+  const aw = (CW - 3 * g) / 4;
+  const ay = 1.7, ah = 3.75;
+  const alts = [
+    { tag: "NO RESUELVE", nombre: "Do Nothing", pts: "31", fill: T_RED, tinta: RED, num: RED,
+      txt: "Seguir igual. No ataca la causa: los recortes siguen cada semana." },
+    { tag: "PILOTO", nombre: "A · Planilla compartida", pts: "36", fill: T_GREEN, tinta: GREEN, num: GREEN,
+      txt: "Casi cero de costo. Se arma en días, pero no se conecta con Discovery." },
+    { tag: "RECOMENDADA", nombre: "B · Stock de Discovery", pts: "35", fill: DARK, tinta: ORANGE, num: ORANGE, cuerpo: CREAM, titulo: CREAM,
+      txt: "El módulo ya está en la licencia y no se usa. Un solo registro donde ya se factura." },
+    { tag: "DESCARTADA", nombre: "C · SaaS de gestión", pts: "20", fill: T_NEUTRAL, tinta: GREY, num: MUTED,
+      txt: "Cuota nueva, migración y doble carga. No resuelve la disciplina de carga." },
+  ];
+  alts.forEach((a, i) => {
+    const x = M + i * (aw + g);
+    s.addShape(pres.ShapeType.roundRect, { x: x, y: ay, w: aw, h: ah, fill: { color: a.fill }, rectRadius: 0.08 });
+    s.addText(a.tag, {
+      x: x + 0.28, y: ay + 0.24, w: aw - 0.56, h: 0.3, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 12, bold: true, charSpacing: 1.8, color: a.tinta, valign: "middle",
+    });
+    s.addText(a.nombre, {
+      x: x + 0.28, y: ay + 0.62, w: aw - 0.56, h: 0.72, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 16, bold: true, color: a.titulo || DARK, valign: "top",
+    });
+    s.addText(a.pts, {
+      x: x + 0.28, y: ay + 1.4, w: 1.3, h: 0.85, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 56, bold: true, color: a.num, valign: "middle",
+    });
+    s.addText("de 50", {
+      x: x + 1.6, y: ay + 1.4, w: 0.8, h: 0.8, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 14, color: a.cuerpo ? PALE : GREY, valign: "bottom",
+    });
+    s.addText(a.txt, {
+      x: x + 0.28, y: ay + 2.4, w: aw - 0.56, h: 1.25, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 15, color: a.cuerpo || DARK, valign: "top",
+    });
+  });
+  // Casi empate y recomendación.
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: 5.75, w: CW, h: 0.95, fill: { color: T_ORANGE }, rectRadius: 0.08 });
+  s.addText(
+    [
+      { text: "36 contra 35 es un empate: ", options: { bold: true } },
+      { text: "decide el argumento, no el puntaje. A va primero, como piloto de 2 semanas con papas fritas; B es el destino." },
+    ],
+    {
+      x: M + 0.3, y: 5.75, w: CW - 0.6, h: 0.95, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 18, color: DARK, valign: "middle",
+    }
+  );
+  pie(s);
+  s.addNotes("Juan. Do Nothing suma 31 porque la suma premia lo fácil; se descarta porque no resuelve nada. C se descarta: la suma más baja y no es la mejor en ningún criterio. A y B quedan casi empatadas y un punto entre juicios no es una diferencia. Las notas bajas de A son estructurales; las medias de B son incógnitas que el piloto y la prueba técnica despejan. Si el equipo no sostiene la carga en una planilla, tampoco en Discovery.");
+}
+
+/* 6 - TO-BE y la regla del stock disponible */
+{
+  const s = nuevo(CREAM);
+  s.addText("PRIMERO SE MIRA QUÉ HAY, DESPUÉS SE CONFIRMA", {
+    x: M, y: 0.3, w: CW, h: 0.6, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 28, bold: true, charSpacing: 1.0, color: DARK, valign: "middle",
+  });
+  // Recorte de la calle de Oficina del TO-BE, el tramo clave.
+  const caja = px(kTo, 85, 105, 1262, 520);
+  const dx = M, dw = 9.7, dy = 1.15;
+  const dh = dw * caja.h / caja.w;
+  s.addShape(pres.ShapeType.rect, { x: dx - 0.06, y: dy - 0.06, w: dw + 0.12, h: dh + 0.12, fill: { color: WHITE }, line: { color: LINE, width: 1 } });
+  recorte(s, TO_BE, caja, { x: dx, y: dy, w: dw });
+  // Tres cambios a la derecha.
+  const cx = dx + dw + 0.35, cwid = W - M - cx;
+  const cambios = [
+    ["1", "consulta, no 2"],
+    ["1", "carga del pedido, no 3"],
+    ["a diario", "carga de producción, no semanal"],
+  ];
+  const chh = (dh + 0.12 - 2 * 0.15) / 3;
+  cambios.forEach((c, i) => {
+    const y = dy - 0.06 + i * (chh + 0.15);
+    s.addShape(pres.ShapeType.roundRect, { x: cx, y: y, w: cwid, h: chh, fill: { color: T_NEUTRAL }, rectRadius: 0.06 });
+    s.addText(c[0], {
+      x: cx + 0.15, y: y + 0.1, w: cwid - 0.3, h: chh * 0.42, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: i === 2 ? 20 : 30, bold: true, color: ORANGE, valign: "middle",
+    });
+    s.addText(c[1], {
+      x: cx + 0.15, y: y + chh * 0.5, w: cwid - 0.3, h: chh * 0.45, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 13, color: DARK, valign: "top",
+    });
+  });
+  // La regla.
+  const ry = dy + dh + 0.35;
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: ry, w: CW, h: 6.65 - ry, fill: { color: DARK }, rectRadius: 0.1 });
+  s.addText("LA REGLA, IGUAL EN LA PLANILLA DEL PILOTO Y EN DISCOVERY", {
+    x: M + 0.4, y: ry + 0.17, w: CW - 0.8, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 12, bold: true, charSpacing: 2, color: ORANGE,
+  });
+  s.addText(
+    [
+      { text: "stock disponible", options: { bold: true, color: ORANGE } },
+      { text: " = stock físico − reservado por pedidos confirmados sin facturar", options: { color: CREAM } },
+    ],
+    {
+      x: M + 0.4, y: ry + 0.5, w: CW - 0.8, h: 6.65 - ry - 0.65, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 22, valign: "middle",
+    }
+  );
+  pie(s);
+  s.addNotes("Juan. El tramo clave del TO-BE: Oficina carga la nota de pedido una sola vez, consulta el stock disponible y recién ahí reserva y confirma; si no hay, avisa en el momento con una fecha estimada. Lo que no entra en el recorte: Producción carga todos los días al cierre del turno, Dirección planifica la semana con pedidos pendientes y stock mínimo, y Depósito cuenta una vez por semana. El diagrama entero está en la sección 3 del informe.");
+}
+
+/* 7 - Stakeholders: Mendelow */
+{
+  const s = nuevo(CREAM);
+  titulo(s, "STAKEHOLDERS");
+  bajada(s, "Matriz de Mendelow: poder e interés");
+  // Figura 2x2
+  const gx = 1.2, gy = 1.75, gap = 0.1;
+  const cw = 3.35, ch = 2.1;
+  const cuadrantes = [
+    // [col, fila, fondo, nombre, accion]
+    [0, 0, T_BLUE, "MANTENER SATISFECHO", "poder alto, interés bajo"],
+    [1, 0, T_ORANGE, "GESTIONAR DE CERCA", "poder alto, interés alto"],
+    [0, 1, T_NEUTRAL, "MANTENER INFORMADO", "poder bajo, interés bajo"],
+    [1, 1, T_GREEN, "MONITOREAR Y DAR VOZ", "poder bajo, interés alto"],
+  ];
+  cuadrantes.forEach((c) => {
+    const x = gx + c[0] * (cw + gap), y = gy + c[1] * (ch + gap);
+    s.addShape(pres.ShapeType.roundRect, { x: x, y: y, w: cw, h: ch, fill: { color: c[2] }, rectRadius: 0.06 });
+    s.addText(c[3], {
+      x: x + 0.2, y: y + 0.13, w: cw - 0.4, h: 0.3, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 12, bold: true, charSpacing: 1.0, color: DARK, valign: "middle",
+    });
+    s.addText(c[4], {
+      x: x + 0.2, y: y + 0.42, w: cw - 0.4, h: 0.25, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 11, italic: true, color: GREY, valign: "middle",
+    });
+  });
+  // Ejes
+  const gw = 2 * cw + gap, gh = 2 * ch + gap;
+  s.addText("PODER", {
+    x: gx - 1.1, y: gy + gh / 2 - 0.2, w: 1.7, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 14, bold: true, charSpacing: 3, color: GREY, align: "center", valign: "middle", rotate: 270,
+  });
+  s.addText("alto", { x: gx - 0.5, y: gy, w: 0.42, h: 0.3, isTextBox: true, margin: 0, fontFace: B, fontSize: 12, color: GREY, align: "right" });
+  s.addText("bajo", { x: gx - 0.5, y: gy + gh - 0.3, w: 0.42, h: 0.3, isTextBox: true, margin: 0, fontFace: B, fontSize: 12, color: GREY, align: "right", valign: "bottom" });
+  s.addText("bajo", { x: gx, y: gy + gh + 0.05, w: 0.7, h: 0.3, isTextBox: true, margin: 0, fontFace: B, fontSize: 12, color: GREY });
+  s.addText("INTERÉS", {
+    x: gx + gw / 2 - 1.0, y: gy + gh + 0.05, w: 2.0, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 14, bold: true, charSpacing: 3, color: GREY, align: "center", valign: "middle",
+  });
+  s.addText("alto", { x: gx + gw - 0.7, y: gy + gh + 0.05, w: 0.7, h: 0.3, isTextBox: true, margin: 0, fontFace: B, fontSize: 12, color: GREY, align: "right" });
+
+  // Actores como fichas
+  function ficha(texto, x, y, w, tipo) {
+    const fill = tipo === "res" ? ORANGE : tipo === "lid" ? DARK : WHITE;
+    const tinta = tipo ? WHITE : DARK;
+    s.addShape(pres.ShapeType.roundRect, {
+      x: x, y: y, w: w, h: 0.38, fill: { color: fill }, rectRadius: 0.19,
+      line: tipo ? undefined : { color: "C9C2AE", width: 0.75 },
+    });
+    s.addText(texto, {
+      x: x, y: y, w: w, h: 0.38, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 13, bold: true, color: tinta, align: "center", valign: "middle",
+    });
+  }
+  const c0 = gx, c1 = gx + cw + gap, r0 = gy, r1 = gy + ch + gap;
+  // Poder alto, interés bajo
+  ficha("Dueño (sponsor)", c0 + 0.2, r0 + 0.85, 1.75, "lid");
+  ficha("Buenos Aires Software", c0 + 0.2, r0 + 1.35, 2.3);
+  // Poder alto, interés alto (Oficina y Producción, en naranja: resistencia esperada)
+  ficha("Dueño (decisor)", c1 + 0.2, r0 + 0.78, 1.6);
+  ficha("Hijos", c1 + 1.95, r0 + 0.78, 0.9);
+  ficha("Oficina", c1 + 0.2, r0 + 1.2, 1.1, "res");
+  ficha("Producción", c1 + 1.45, r0 + 1.2, 1.4, "res");
+  ficha("Resp. de sistemas", c1 + 0.2, r0 + 1.62, 1.75, "lid");
+  // Poder bajo
+  ficha("Distribuidores", c0 + 0.2, r1 + 0.85, 1.6);
+  ficha("Depósito", c1 + 0.2, r1 + 0.85, 1.3);
+
+  // Panel derecho
+  const px0 = gx + gw + 0.5, pw = W - M - px0;
+  s.addText("Quien aprueba no es quien lo hace andar.", {
+    x: px0, y: 1.75, w: pw, h: 1.2, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 22, bold: true, color: DARK, valign: "top",
+  });
+  tarjeta(s, {
+    x: px0, y: 3.05, w: pw, h: 1.3, fill: WHITE, tinta: ORANGE, titulo: "PRODUCCIÓN", tituloPt: 13,
+    texto: "Cargar todos los días es trabajo nuevo, con la planta saturada.", pt: 14,
+  });
+  tarjeta(s, {
+    x: px0, y: 4.5, w: pw, h: 1.3, fill: WHITE, tinta: ORANGE, titulo: "OFICINA", tituloPt: 13,
+    texto: "Consultar y reservar antes de confirmar suma un paso.", pt: 14,
+  });
+  // Leyenda de las fichas
+  [[DARK, "sponsor y líder"], [ORANGE, "resistencia esperada"]].forEach((l, i) => {
+    const y = 5.98 + i * 0.4;
+    s.addShape(pres.ShapeType.roundRect, { x: px0, y: y, w: 0.5, h: 0.28, fill: { color: l[0] }, rectRadius: 0.14 });
+    s.addText(l[1], {
+      x: px0 + 0.62, y: y - 0.02, w: pw - 0.62, h: 0.32, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 14, color: GREY, valign: "middle",
+    });
+  });
+  pie(s);
+  s.addNotes("Emiliano. La matriz de Mendelow, con la lectura de la clase del 23-10. El dueño aprueba el presupuesto y el Go/No-Go, pero el cambio lo hacen andar Producción y Oficina, y esas son las dos resistencias que anticipamos: trabajo nuevo con la planta saturada y un paso más antes de confirmar. Poder, interés y resistencias son lectura nuestra y las vamos a contrastar con cada grupo antes del piloto.");
+}
+
+/* 8 - El piloto */
+{
+  const s = nuevo(CREAM);
+  titulo(s, "EL PILOTO");
+  bajada(s, "Dos semanas, solo papas fritas, en una planilla compartida. Si un día la planilla no está al día, se confirma como hoy.");
+  const g = 0.3;
+  const aw = (CW - 3 * g) / 4;
+  const ay = 1.75, ah = 2.6;
+  const medidas = [
+    ["CARGA", "8 de 10", "días hábiles con la producción cargada", "hoy: 20 % de los días"],
+    ["RECORTES", "la mitad", "o menos de pedidos recortados o demorados, contra la semana 0", ""],
+    ["CONTEO", "1/10", "es la diferencia máxima entre la planilla y lo contado", "tolerancia provisional"],
+    ["FECHAS", "4 de 5", "avisos con fecha estimada, cumplidos", "hoy el aviso no trae fecha"],
+  ];
+  medidas.forEach((m, i) => {
+    const x = M + i * (aw + g);
+    s.addShape(pres.ShapeType.roundRect, { x: x, y: ay, w: aw, h: ah, fill: { color: WHITE }, rectRadius: 0.08, line: { color: LINE, width: 1 } });
+    s.addText(m[0], {
+      x: x + 0.25, y: ay + 0.2, w: aw - 0.5, h: 0.3, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 12, bold: true, charSpacing: 1.8, color: ORANGE, valign: "middle",
+    });
+    s.addText(m[1], {
+      x: x + 0.25, y: ay + 0.55, w: aw - 0.5, h: 0.8, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 36, bold: true, color: DARK, valign: "middle",
+    });
+    s.addText(m[2], {
+      x: x + 0.25, y: ay + 1.4, w: aw - 0.5, h: 0.75, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 14, color: DARK, valign: "top",
+    });
+    if (m[3]) {
+      s.addText(m[3], {
+        x: x + 0.25, y: ay + 2.12, w: aw - 0.5, h: 0.3, isTextBox: true, margin: 0,
+        fontFace: B, fontSize: 12, italic: true, color: GREY, valign: "middle",
+      });
+    }
+  });
+  // Go / No-Go
+  s.addText("GO / NO-GO · LO DECIDE EL DUEÑO, CON LOS UMBRALES ACORDADOS ANTES", {
+    x: M, y: 4.62, w: CW, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 12, bold: true, charSpacing: 1.5, color: GREY, valign: "middle",
+  });
+  const tw = (CW - 2 * g) / 3;
+  const salidas = [
+    ["GO", GREEN, T_GREEN, "Los cuatro umbrales y la prueba técnica de Discovery: activar por línea de producto."],
+    ["GO CON AJUSTES", "8A5714", T_ORANGE, "Falla el conteo o la fecha: corregir y repetir una sola vez."],
+    ["NO-GO", RED, T_RED, "La carga no llega a 8 de 10: no se gasta en Discovery."],
+  ];
+  salidas.forEach((o, i) => {
+    const x = M + i * (tw + g);
+    s.addShape(pres.ShapeType.roundRect, { x: x, y: 5.0, w: tw, h: 1.65, fill: { color: o[2] }, rectRadius: 0.08 });
+    s.addText(o[0], {
+      x: x + 0.28, y: 5.15, w: tw - 0.56, h: 0.35, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 15, bold: true, charSpacing: 0.8, color: o[1], valign: "middle",
+    });
+    s.addText(o[3], {
+      x: x + 0.28, y: 5.55, w: tw - 0.56, h: 1.0, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 15, color: DARK, valign: "top",
+    });
+  });
+  s.addNotes("Emiliano. El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales los acordamos con el dueño antes de arrancar, para no leer el resultado a favor. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
+}
+
+/* 9 - Roadmap e indicadores */
+{
+  const s = nuevo(CREAM);
+  titulo(s, "ROADMAP E INDICADORES");
+  bajada(s, "Objetivo: que cada pedido se confirme sabiendo qué hay · 6 meses");
+  const g = 0.3;
+  const cw3 = (CW - 2 * g) / 3;
+  const rey = 1.7, reh = 1.95;
+  const cols = [
+    ["AHORA · SEMANAS 1 A 6", GREEN, T_GREEN, ["Preparación y conteo inicial", "Piloto de 2 semanas", "Go/No-Go del dueño"]],
+    ["PRÓXIMO · SEMANAS 7 A 26", BLUE, T_BLUE, ["Activar Discovery, una línea por vez", "Estabilización y cierre"]],
+    ["MÁS ADELANTE", GREY, T_NEUTRAL, ["Stock visible para el distribuidor", "La tienda online"]],
+  ];
+  cols.forEach((c, i) => {
+    tarjeta(s, {
+      x: M + i * (cw3 + g), y: rey, w: cw3, h: reh, fill: c[2], tinta: c[1], titulo: c[0], tituloPt: 13,
+      items: c[3], pt: 15,
+    });
+  });
+  s.addText("INDICADORES", {
+    x: M, y: 3.9, w: CW, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 12, bold: true, charSpacing: 1.5, color: GREY, valign: "middle",
+  });
+  const aw = (CW - 3 * g) / 4;
+  const iy = 4.25, ih = 2.4;
+  const inds = [
+    ["Pedidos completos y a tiempo", "76 → 90 %", "de los pedidos de la semana", "RESULTADO CLAVE", ORANGE],
+    ["Exactitud de stock", "a fijar", "la base sale del conteo inicial", "KPI PERMANENTE", GREY],
+    ["Días con producción cargada", "20 → 100 %", "de los días hábiles", "RESULTADO CLAVE", ORANGE],
+    ["Horas extras por mes", "25 → 12-13", "horas por mes, totales", "RESULTADO CLAVE", ORANGE],
+  ];
+  inds.forEach((d, i) => {
+    const x = M + i * (aw + g);
+    s.addShape(pres.ShapeType.roundRect, { x: x, y: iy, w: aw, h: ih, fill: { color: WHITE }, rectRadius: 0.08, line: { color: LINE, width: 1 } });
+    s.addText(d[3], {
+      x: x + 0.22, y: iy + 0.18, w: aw - 0.44, h: 0.25, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 10, bold: true, charSpacing: 1.5, color: d[4], valign: "middle",
+    });
+    s.addText(d[0], {
+      x: x + 0.22, y: iy + 0.48, w: aw - 0.44, h: 0.6, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 14, bold: true, color: DARK, valign: "top",
+    });
+    s.addText(d[1], {
+      x: x + 0.22, y: iy + 1.1, w: aw - 0.3, h: 0.7, isTextBox: true, margin: 0, fit: "shrink",
+      fontFace: H, fontSize: 28, bold: true, color: d[4] === GREY ? DARK : DARK, valign: "middle",
+    });
+    s.addText(d[2], {
+      x: x + 0.22, y: iy + 1.82, w: aw - 0.44, h: 0.45, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 13, color: GREY, valign: "top",
+    });
+  });
+  pie(s);
+  s.addNotes("Manuel. Es un roadmap y no un Gantt: detalla lo próximo y deja abierto lo lejano, porque la activación depende de lo que muestre el piloto. Hay un solo Go/No-Go grande, al terminar el piloto, y después cada línea se activa con las mismas medidas. El OKR tiene tres resultados clave, que son los objetivos específicos. La exactitud de stock no es resultado clave: su línea de base todavía no existe, sale del conteo inicial, y es una condición que tiene que estar siempre bien.");
+}
+
+/* 10 - Cierre */
+{
+  const s = nuevo(DARK);
+  s.addText("LA PROPUESTA", {
+    x: M, y: 0.5, w: CW, h: 0.6, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 30, bold: true, charSpacing: 1.2, color: CREAM, valign: "middle",
+  });
+  s.addText("Primero se mira qué hay.\nDespués se confirma.", {
+    x: M, y: 1.18, w: CW, h: 1.3, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 32, bold: true, color: ORANGE, valign: "middle", lineSpacing: 38,
+  });
+  const cw3 = (CW - 2 * 0.35) / 3;
+  const puntos = [
+    ["1", "Corregimos la Parte 1", "El stock no se registra y los recortes vienen de la mezcla y el momento de producción."],
+    ["2", "B, probada antes con A", "El stock de Discovery como solución. Una planilla de 2 semanas lo prueba antes de gastar."],
+    ["3", "Se mide y decide el dueño", "Cuatro indicadores y un OKR. El dueño decide con umbrales acordados antes."],
+  ];
+  puntos.forEach((p, i) => {
+    const x = M + i * (cw3 + 0.35);
+    s.addShape(pres.ShapeType.roundRect, {
+      x: x, y: 2.75, w: cw3, h: 2.95, fill: { color: "22353F" }, rectRadius: 0.1,
+    });
+    circulo(s, p[0], x + 0.32, 3.0, 0.6, ORANGE, DARK);
+    s.addText(p[1], {
+      x: x + 0.32, y: 3.8, w: cw3 - 0.64, h: 0.5, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 17, bold: true, color: CREAM, valign: "top",
+    });
+    s.addText(p[2], {
+      x: x + 0.32, y: 4.35, w: cw3 - 0.64, h: 1.2, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 14, color: PALE, valign: "top",
+    });
+  });
+  s.addText("Lo que todavía no sabemos: el costo de la hora extra y de activar el módulo. Sin esos dos datos no hay VAN, hay punto de equilibrio.", {
+    x: M, y: 5.95, w: CW, h: 0.6, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 15, italic: true, color: PALE, valign: "middle",
+  });
+  pie(s, MUTED);
+  s.addNotes("Manuel. Cerrar con la frase. Después, las preguntas. El punto de equilibrio: B se paga si evita por mes al menos el costo mensual de B dividido el costo de una hora extra; con la meta de la mitad de las horas, el umbral es de unas 12 o 13 horas.");
+}
+
+pres.writeFile({ fileName: process.argv[2] || "Dulxelitos-Parte2.pptx" }).then((f) => console.log("listo:", f));
