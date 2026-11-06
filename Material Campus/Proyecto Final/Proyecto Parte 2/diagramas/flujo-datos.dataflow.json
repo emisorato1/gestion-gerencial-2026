@@ -154,7 +154,8 @@
       "sublabel": "físico − reservado",
       "tag": "Discovery",
       "stage": 2,
-      "row": 1
+      "row": 1,
+      "width": 128
     },
     {
       "id": "pedidos",
@@ -163,7 +164,8 @@
       "sublabel": "reserva al confirmar",
       "tag": "Discovery",
       "stage": 2,
-      "row": 2
+      "row": 2,
+      "width": 148
     },
     {
       "id": "planilla",
@@ -172,7 +174,8 @@
       "sublabel": "2 semanas, papas fritas",
       "tag": "solo piloto",
       "stage": 2,
-      "row": 3
+      "row": 3,
+      "width": 148
     },
     {
       "id": "registro",
@@ -181,7 +184,7 @@
       "sublabel": "hoja de Oficina, semanal",
       "stage": 3,
       "row": 0,
-      "width": 128
+      "width": 158
     },
     {
       "id": "tablero",
@@ -198,7 +201,7 @@
       "sublabel": "horas extras del mes",
       "stage": 3,
       "row": 4,
-      "width": 134
+      "width": 168
     },
     {
       "id": "direccion",
