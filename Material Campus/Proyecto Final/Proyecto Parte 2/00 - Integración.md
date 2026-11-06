@@ -40,6 +40,24 @@ nice -n 10 .venv/bin/weasyprint guion-exposicion.html "Entrega/Guion de exposici
 
 Si cambió un diagrama, antes: `bpmn/generar_bpmn.py bpmn/as-is.py` (o `to-be.py`) o `diagramas/generar_arquitectura.py`. El `node` necesita `npm install` una vez. A mano, después: abrir el docx en Word y actualizar el índice (F9); se armó sin verlo renderizado.
 
+## Última pasada de texto
+
+Las secciones 01 a 08 pasaron de ~25.500 a ~22.850 palabras (unas 2.700 menos), sin tocar las tablas ni lo que pide la consigna. Lo que se corrigió:
+
+- **Reparto parcial** (reservar una parte y dejar el resto pendiente): se confirma con Buenos Aires Software en la prueba técnica, dentro del paso 2 de los cinco (06 reglas de nota de pedido y reserva; 07; también 03, 04 y 06 lo nombran en el supuesto 3).
+- **Sin ambiente de prueba**: la prueba técnica pasa con los pasos que se pueden probar y el de la factura queda para el primer pedido real de la activación; no bloquea el Go (07, alineado con 02 y 08).
+- **Orden de activación**: Salados va primero porque arranca con el piloto de papas fritas; lo pendiente es en qué orden se activan Dulces y Repostería (08).
+- **Estilo**: "que verifica la prueba técnica" (02, 03) y "Depósito cuenta (quién, a confirmar)" (08).
+
+Lo que se recortó, sin repetir en cada sección:
+
+- **Tablero y datos**: la descripción completa queda solo en 08 ("Cómo se mira el tablero"); 03 y 06 tienen una frase con referencia, y 03 ya no repite la tabla de cuándo se genera cada dato (está en 06).
+- **05**: FUD y ADKAR en una sola tabla y "Cómo negociamos" en tres viñetas. **06**: las reglas de alta, corrección y depuración, en una tabla por dato. **07**: "Hipótesis en una hoja" más corta (los umbrales quedan en "Qué se mide"), mecanismo y qué se anota en una sola columna y "Qué queda para después de activar" en un párrafo que remite a 08. **08**: sin las tres "Meta en una oración" que repetían la fila Meta (queda la del indicador 1, como ejemplo del formato de la Clase 5).
+- **02**: el párrafo de sensibilidad de pesos más corto (post hoc, cruce en ~1,25, empate en 38, no prueba nada) y sin "Qué podría cambiar la recomendación", que ya dice la tabla de decisión de la 07.
+- **Repeticiones sacadas**: el punto de equilibrio (04 remite a 02), la regla de stock disponible (06 y 07 remiten a 03), "Quién gana más" (04, en dos frases) y "Cómo se sabe que se cumplen" (06; la revisión de reglas en cada Go/No-Go sigue en 06 y 08).
+
+Las cuentas de datos pendientes no cambian (25 filas en el Anexo I): solo cambió el texto del dato del orden de activación, que ahora es "en qué orden se activan Dulces y Repostería".
+
 ## La cadena
 
 ```
@@ -81,8 +99,8 @@ La cadena cierra el círculo: lo que la 01 promete es lo que la 08 mide.
 | **30 de ~125 pedidos por semana recortados o demorados** (76 % completos y a tiempo, cuenta nuestra) | Relevamiento. **Corrige** la Parte 1 (§5.5, "poco frecuentes") | 01 problema y objetivo 1 · 02 matriz de descubrimiento · 04 VPC (todas las semanas, no "en algunas temporadas") y supuesto 9 · 05 ADKAR del dueño y los hijos · 07 no sirve de base del piloto: hay que medir la semana 0 de papas fritas · 08 indicador 1 y primer resultado clave |
 | **La producción se carga 1 vez por semana** (20 %) | Relevamiento: control propio de Producción, sin vínculo con ventas | 01 objetivo 2 · 02 dependencia informal y tercera lente · 03 carga diaria con responsable y suplente · 04 supuesto 2 · 05 resistencia de Producción · 06 partes de producción · 07 umbral de 8 de 10 días · 08 indicador 3 y regla de freno |
 | **~25 horas extras por mes** | Relevamiento. En la Parte 1 era dato pendiente del costo de no actuar (§5.5) | 01 objetivo 3 y meta (supuesto) · 02 costos y retorno de B como punto de equilibrio · 03 excepción del plan semanal · 04 supuestos 7 y 8 · 06 dato de la liquidación al tablero · 07 se anota el motivo de cada hora · 08 indicador 4 y regla de freno |
-| **Mezcla y momento, no capacidad total, explican la mayoría de los recortes** (supuesto 1) | Hipótesis nuestra, no medida. **Corrige** la Parte 1 (§2.1, "capacidad de planta") | 01 por qué 90 % y no 100 % · 02 qué cambiaría la recomendación · 03 plan contra pedidos y stock mínimo · 04 supuesto 1 · 05 Heifetz: cambio adaptativo · 07 la semana 0 anota la causa; filas No-Go · 08 tablero en rojo y Go/No-Go de cierre, que revisa la meta |
-| **Discovery tiene módulo de stock, pedidos y reserva sin usar** (supuesto 3) | Lo que sabe nuestro compañero; nadie lo usó en Dulxelitos. Parte 1: Discovery desactualizado y sin integración | 02 alternativa B y riesgo propio · 03 TO-BE en Discovery · 04 supuesto 3 y costos pendientes · 05 Buenos Aires Software · 06 un solo lugar por dato, CSV · 07 prueba técnica de cinco pasos · 08 fase 4, con costo y plazo como dependencias |
+| **Mezcla y momento, no capacidad total, explican la mayoría de los recortes** (supuesto 1) | Hipótesis nuestra, no medida. **Corrige** la Parte 1 (§2.1, "capacidad de planta") | 01 por qué 90 % y no 100 % · 02 por qué A va primero · 03 plan contra pedidos y stock mínimo · 04 supuesto 1 · 05 Heifetz: cambio adaptativo · 07 la semana 0 anota la causa; filas No-Go · 08 tablero en rojo y Go/No-Go de cierre, que revisa la meta |
+| **Discovery tiene módulo de stock, pedidos y reserva sin usar** (supuesto 3) | Lo que sabe nuestro compañero; nadie lo usó en Dulxelitos. Parte 1: Discovery desactualizado y sin integración | 02 alternativa B y riesgo propio · 03 TO-BE en Discovery · 04 supuesto 3 y costos pendientes · 05 Buenos Aires Software · 06 un solo lugar por dato, CSV · 07 prueba técnica de cinco pasos (el reparto parcial, en el paso 2) · 08 fase 4, con costo y plazo como dependencias |
 | **Se averigua dos veces la disponibilidad y el pedido se transcribe tres veces** | Relevamiento: lentes 1 y 2 de la 02 | 03 una consulta y una carga · 05 trueque con Oficina · 06 nota de pedido y lista de armado · 08 carga de trabajo |
 | **Dueño o hijos deciden qué producir por criterio propio, sin mirar pedidos** | Relevamiento. Parte 1: conocimiento sin formalizar (§1.5) | 02 RECI, nadie consultado · 03 plan semanal · 04 supuesto 5 · 05 hijos como posible resistencia (hipótesis nuestra) · 06 stock mínimo que fija Dirección · 07 señal del supuesto 5 · 08 Dirección mira el tablero |
 | **El responsable de sistemas lidera sin gobernanza asignada** | Parte 1: Gobierno 1.50 (§5) | 01 se la asigna · 03 ejecuta ajustes y tablero · 05 sobrecarga y tiempo pendiente · 06 varias reglas caen en él · 08 suplente más delicado |
@@ -116,9 +134,9 @@ El resto son preguntas o acuerdos chicos; el margen de un pedido recortado no ha
 
 ## Decisiones que el grupo tiene que confirmar
 
-1. **Hijos como posible resistencia** (05): hipótesis nuestra, "no relevada". Si nuestro compañero que trabaja en Dulxelitos lo ve distinto, se ajusta la ficha, el FUD y el ADKAR.
+1. **Hijos como posible resistencia** (05): hipótesis nuestra, "no relevada". Si nuestro compañero que trabaja en Dulxelitos lo ve distinto, se ajusta la ficha y la tabla de FUD y ADKAR.
 2. **Hoja compartida de Oficina para el registro de recortes** (06, y fuente del indicador 1 en 08): propuesta nuestra, no hablada con Oficina.
-3. **Meta de horas extras de ~12 o 13** (01, 08): la mitad de las ~25, supuesto que se apoya en el supuesto 7. A confirmar con el dueño. Lo mismo la **meta provisional de exactitud** (9 de cada 10 productos dentro de la tolerancia, 01, 07 y 08) y el **orden de activación de las líneas** (Salados, Dulces y Repostería, 08).
+3. **Meta de horas extras de ~12 o 13** (01, 08): la mitad de las ~25, supuesto que se apoya en el supuesto 7. A confirmar con el dueño. Lo mismo la **meta provisional de exactitud** (9 de cada 10 productos dentro de la tolerancia, 01, 07 y 08) y el **orden en que se activan Dulces y Repostería** (Salados va primero, porque arranca con el piloto de papas fritas, 08).
 4. **Umbrales del piloto** (07): 8 de 10 días con carga, recortes a la mitad o menos, conteo con diferencia de hasta una décima parte, 4 de cada 5 fechas cumplidas. Propuesta nuestra; el dueño los acuerda antes de arrancar.
 5. **A4 en vez de Letter** (`armar-entrega.py`): la Parte 1 salió en Letter, pero las hojas apaisadas del BPMN se ven mal mezcladas. Volver a Letter es una línea (`size: A4` en el CSS, `A4_W` y `A4_H`).
 
