@@ -206,12 +206,12 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     x: M + 0.4, y: 5.05, w: CW - 0.8, h: 0.3, isTextBox: true, margin: 0,
     fontFace: H, fontSize: 13, bold: true, charSpacing: 2, color: ORANGE,
   });
-  s.addText("El stock de producto terminado no se registra, y los recortes vienen de la mezcla y el momento de producción, no de la capacidad.", {
+  s.addText("El stock de producto terminado no se registra, y los recortes vendrían de la mezcla y el momento de producción, no de la capacidad (supuesto).", {
     x: M + 0.4, y: 5.4, w: CW - 0.8, h: 0.85, isTextBox: true, margin: 0,
     fontFace: B, fontSize: 21, color: CREAM, valign: "top",
   });
   pie(s);
-  s.addNotes("Joaquín. El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Después, las tres correcciones a la parte 1: el stock de producto terminado no se registra (dijimos que estaba en Discovery); los recortes pasan todas las semanas (dijimos que eran poco frecuentes); y vienen sobre todo de la mezcla y el momento de producción, no de la capacidad, que es un supuesto nuestro a medir en el piloto.");
+  s.addNotes("Joaquín. El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Después, las tres correcciones a la parte 1: el stock de producto terminado no se registra (dijimos que estaba en Discovery); los recortes pasan todas las semanas (dijimos que eran poco frecuentes); y vendrían sobre todo de la mezcla y el momento de producción, no de la capacidad, que es un supuesto nuestro a medir en el piloto.");
 }
 
 /* 3 - AS-IS: el diagrama completo, con las tres lentes marcadas */
@@ -572,7 +572,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     }
   });
   // Go / No-Go
-  s.addText("GO / NO-GO · LO DECIDE EL DUEÑO, CON LOS UMBRALES ACORDADOS ANTES", {
+  s.addText("GO / NO-GO · LO DECIDE EL DUEÑO, CON LOS UMBRALES A ACORDAR ANTES DEL PILOTO", {
     x: M, y: 4.62, w: CW, h: 0.3, isTextBox: true, margin: 0,
     fontFace: H, fontSize: 12, bold: true, charSpacing: 1.5, color: GREY, valign: "middle",
   });
@@ -624,7 +624,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const iy = 4.25, ih = 2.4;
   const inds = [
     ["Pedidos completos y a tiempo", "76 → 90 %", "de los pedidos de la semana", "RESULTADO CLAVE", ORANGE],
-    ["Exactitud de stock", "a fijar", "la base sale del conteo inicial", "KPI PERMANENTE", GREY],
+    ["Exactitud de stock", "9 de 10", "productos en tolerancia (propuesta, a confirmar)", "KPI PERMANENTE", GREY],
     ["Días con producción cargada", "20 → 100 %", "de los días hábiles", "RESULTADO CLAVE", ORANGE],
     ["Horas extras por mes", "25 → 12-13", "horas por mes, totales", "RESULTADO CLAVE", ORANGE],
   ];
@@ -649,7 +649,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
   });
   pie(s);
-  s.addNotes("Manuel. Es un roadmap y no un Gantt: detalla lo próximo y deja abierto lo lejano, porque la activación depende de lo que muestre el piloto. Hay un solo Go/No-Go grande, al terminar el piloto, y después cada línea se activa con las mismas medidas. El OKR tiene tres resultados clave, que son los objetivos específicos. La exactitud de stock no es resultado clave: su línea de base todavía no existe, sale del conteo inicial, y es una condición que tiene que estar siempre bien.");
+  s.addNotes("Manuel. Es un roadmap y no un Gantt: detalla lo próximo y deja abierto lo lejano, porque la activación depende de lo que muestre el piloto. Hay un solo Go/No-Go grande, al terminar el piloto, y después cada línea se activa con las mismas medidas. El OKR tiene tres resultados clave, que son los objetivos específicos. La exactitud de stock no es resultado clave: su línea de base todavía no existe, sale del conteo inicial, y es una condición que tiene que estar siempre bien: un KPI permanente. La meta de 9 de cada 10 productos en tolerancia es una propuesta nuestra, a confirmar con el conteo inicial.");
 }
 
 /* 10 - Cierre */
@@ -665,9 +665,9 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   });
   const cw3 = (CW - 2 * 0.35) / 3;
   const puntos = [
-    ["1", "Corregimos la Parte 1", "El stock no se registra y, según nuestro supuesto, los recortes vienen de la mezcla y el momento de producción."],
+    ["1", "Corregimos la Parte 1", "El stock no se registra y, según nuestro supuesto, los recortes vendrían de la mezcla y el momento de producción."],
     ["2", "B, probada antes con A", "El stock de Discovery como solución. Una planilla de 2 semanas lo prueba antes de gastar."],
-    ["3", "Se mide y decide el dueño", "Cuatro indicadores y un OKR. El dueño decide con umbrales acordados antes."],
+    ["3", "Se mide y decide el dueño", "Cuatro indicadores y un OKR. El dueño decide con umbrales a acordar antes del piloto."],
   ];
   puntos.forEach((p, i) => {
     const x = M + i * (cw3 + 0.35);

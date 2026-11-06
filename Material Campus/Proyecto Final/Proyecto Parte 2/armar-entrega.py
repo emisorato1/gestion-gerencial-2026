@@ -192,19 +192,17 @@ L.append("Este trabajo es la segunda parte del proyecto integrador de Gestión G
          "medir si funciona.")
 L.append("")
 L.append("Seguimos sobre el mismo caso, pero al relevar de nuevo el proceso de atender un "
-         "pedido con nuestro compañero que trabaja en la empresa encontramos que tres cosas "
-         "de la Parte 1 estaban mal o incompletas: el stock de producto terminado no se "
-         "registra en ningún lado, los pedidos recortados no son raros sino semanales, y "
-         "esos recortes vienen de la mezcla y el momento de producción más que de la "
+         "pedido encontramos que tres cosas de la Parte 1 estaban mal o incompletas: el "
+         "stock de producto terminado no se registra, los pedidos recortados son semanales "
+         "y esos recortes vendrían de la mezcla y el momento de producción más que de la "
          "capacidad total de la planta. La corrección está al comienzo de la sección 1, y "
-         "todo lo que sigue se apoya en la versión corregida.")
+         "lo que sigue se apoya en la versión corregida.")
 L.append("")
-L.append("El documento va del problema a la forma de medirlo. La sección 1 plantea el "
-         "problema, los objetivos y el alcance. La 2 describe el proceso actual y compara "
-         "las alternativas hasta recomendar una, y la 3 muestra el proceso futuro. La 4 "
-         "revisa el modelo de negocio y la propuesta de valor, la 5 mapea a las personas "
-         "involucradas y la 6 define la arquitectura y los datos. La 7 explica cómo se "
-         "validan los supuestos con un piloto, y la 8 cierra con el roadmap, el OKR y los "
+L.append("El documento va del problema a la forma de medirlo: la sección 1 plantea el "
+         "problema, los objetivos y el alcance; la 2 y la 3 describen el proceso actual y "
+         "el futuro, con las alternativas y la recomendación; la 4, la 5 y la 6 revisan el "
+         "modelo de negocio, a las personas y la arquitectura de datos; y la 7 y la 8 "
+         "explican cómo se valida con un piloto y cómo se mide con el roadmap, el OKR y los "
          "indicadores. Lo que no sabemos queda marcado como «dato pendiente» y se junta "
          "en el Anexo I.")
 L.append("")
@@ -236,7 +234,7 @@ L.append("- Savoia, A. (2019). *The Right It*. HarperOne.")
 L.append("")
 L.append("**Material de cátedra (UTN FRSR)**")
 L.append("")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase 3: transformación digital, madurez y gestión bimodal.")
+L.append("- Cátedra de Gestión Gerencial (2026). Clase 3: Transformación Digital, Madurez Tecnológica y Cartera de Oportunidades.")
 L.append("- Cátedra de Gestión Gerencial (2026). Clase 4: gestión del cambio y liderazgo adaptativo.")
 L.append("- Cátedra de Gestión Gerencial (2026). Clase 5: medir la estrategia (objetivos, OKR, KPI y tablero).")
 L.append("- Cátedra de Gestión Gerencial (2026). Clase 6: modelado de procesos con BPMN.")
@@ -543,6 +541,15 @@ md_html = ajustar_anchos(preparar_imagenes(md_html.replace(PB, SALTO_HTML), "htm
 md_html = "---\nlang: es\n---\n" + md_html
 
 os.makedirs(DEST, exist_ok=True)
+# Los .bpmn se entregan aparte (abren en Bizagi o Camunda); el informe lo dice en 2.4 y 3.1.
+for origen, destino in (("as-is", "Proceso AS-IS - Dulxelitos"),
+                        ("to-be", "Proceso TO-BE - Dulxelitos")):
+    ruta_bpmn = os.path.join(BASE, "bpmn", origen + ".bpmn")
+    if os.path.isfile(ruta_bpmn):
+        shutil.copyfile(ruta_bpmn, os.path.join(DEST, destino + ".bpmn"))
+        print("%s.bpmn" % destino)
+    else:
+        aviso("falta bpmn/%s.bpmn: no se copia a la entrega" % origen)
 ruta_md = os.path.join(DEST, NOMBRE + ".md")
 with io.open(ruta_md, "w", encoding="utf-8") as fh:
     fh.write(md)
