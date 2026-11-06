@@ -195,7 +195,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     x: M, y: 6.3, w: CW, h: 0.4, isTextBox: true, margin: 0,
     fontFace: B, fontSize: 14, color: MUTED,
   });
-  s.addNotes("Presentamos la parte 2: la propuesta para Dulxelitos. Esta parte arranca con una corrección a lo que dijimos en la parte 1.");
+  s.addNotes("Presentamos la parte 2: la propuesta para Dulxelitos. Arrancamos por el problema que encontramos al relevar el proceso de pedidos.");
 }
 
 /* 2 - El problema */
@@ -227,20 +227,20 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
       fontFace: B, fontSize: 15, color: GREY, valign: "top",
     });
   });
-  // Corrección a la Parte 1, en una línea.
+  // Lo que mostró el relevamiento del proceso, en una línea.
   s.addShape(pres.ShapeType.roundRect, {
     x: M, y: 4.85, w: CW, h: 1.55, fill: { color: DARK }, rectRadius: 0.1,
   });
-  s.addText("CORRECCIÓN A LA PARTE 1", {
+  s.addText("LO QUE MOSTRÓ EL RELEVAMIENTO", {
     x: M + 0.4, y: 5.05, w: CW - 0.8, h: 0.3, isTextBox: true, margin: 0,
     fontFace: H, fontSize: 13, bold: true, charSpacing: 2, color: ORANGE,
   });
-  s.addText("El stock de producto terminado no se registra, y los recortes vendrían de la mezcla y el momento de producción, no de la capacidad (supuesto).", {
+  s.addText("El stock de producto terminado no se registra en ningún lado, y los recortes vendrían de producir sin mirar los pedidos más que de la capacidad (supuesto).", {
     x: M + 0.4, y: 5.4, w: CW - 0.8, h: 0.85, isTextBox: true, margin: 0,
     fontFace: B, fontSize: 21, color: CREAM, valign: "top",
   });
   pie(s);
-  s.addNotes("El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Después, las tres correcciones a la parte 1: el stock de producto terminado no se registra (dijimos que estaba en Discovery); los recortes pasan todas las semanas (dijimos que eran poco frecuentes); y vendrían sobre todo de la mezcla y el momento de producción, no de la capacidad, que es un supuesto nuestro a medir en el piloto.");
+  s.addNotes("El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Abajo, lo que mostró el relevamiento del proceso: el stock de producto terminado no se registra, los recortes pasan todas las semanas y vendrían sobre todo de la mezcla y el momento de producción más que de la capacidad, que es un supuesto nuestro a medir en el piloto.");
 }
 
 /* 3 - AS-IS: el diagrama completo, con las tres lentes marcadas */
@@ -703,7 +703,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   });
   const cw3 = (CW - 2 * 0.35) / 3;
   const puntos = [
-    ["1", "Corregimos la Parte 1", "El stock no se registra y, según nuestro supuesto, los recortes vendrían de la mezcla y el momento de producción."],
+    ["1", "La causa está en el registro", "El stock no se registra y, según nuestro supuesto, los recortes vendrían de la mezcla y el momento de producción."],
     ["2", "B, probada antes con A", "El stock de Discovery como solución. Una planilla de 2 semanas lo prueba antes de gastar."],
     ["3", "Se mide y decide el dueño", "Cuatro indicadores y un OKR. El dueño decide con umbrales a acordar antes del piloto."],
   ];
