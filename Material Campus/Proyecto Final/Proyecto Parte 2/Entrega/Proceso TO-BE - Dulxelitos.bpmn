@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="generar_bpmn.py" exporterVersion="1.0">
+  <bpmn:collaboration id="Collaboration_Atender_pedido_de_distribuidor__TO-BE_">
+    <bpmn:participant id="Participant_distribuidor" name="Distribuidor" />
+    <bpmn:participant id="Participant_dulxelitos" name="Dulxelitos" processRef="Process_dulxelitos" />
+    <bpmn:participant id="Participant_transporte" name="Transporte tercerizado" />
+    <bpmn:messageFlow id="MessageFlow_distribuidor_ini_pedido" name="Pedido por WhatsApp o teléfono" sourceRef="Participant_distribuidor" targetRef="Event_ini_pedido" />
+    <bpmn:messageFlow id="MessageFlow_confirmar_distribuidor" name="Confirmación del pedido" sourceRef="Activity_confirmar" targetRef="Participant_distribuidor" />
+    <bpmn:messageFlow id="MessageFlow_avisar_distribuidor" name="Aviso de faltante con fecha estimada" sourceRef="Activity_avisar" targetRef="Participant_distribuidor" />
+    <bpmn:messageFlow id="MessageFlow_tercerizado_transporte" name="Pedido a entregar" sourceRef="Activity_tercerizado" targetRef="Participant_transporte" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_dulxelitos" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_dulxelitos">
+      <bpmn:lane id="Lane_oficina" name="Oficina">
+        <bpmn:flowNodeRef>Event_ini_pedido</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_cargar_nota</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_union_consulta</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_consultar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_xor_stock</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_reservar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_confirmar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_facturar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_avisar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_espera</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_deposito" name="Depósito">
+        <bpmn:flowNodeRef>Event_ini_conteo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_contar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_fin_conteo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_preparar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_xor_despacho</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_flota</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_tercerizado</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_fin_pedido</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_produccion" name="Producción">
+        <bpmn:flowNodeRef>Activity_producir</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_fin_semana</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_ini_turno</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_cargar_produccion</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_fin_produccion</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_direccion" name="Dirección">
+        <bpmn:flowNodeRef>Event_ini_semana</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_planificar</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Event_ini_pedido" name="Pedido recibido">
+      <bpmn:outgoing>Flow_ini_pedido_cargar_nota</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_ini_pedido" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_cargar_nota" name="Cargar nota de pedido en Discovery">
+      <bpmn:incoming>Flow_ini_pedido_cargar_nota</bpmn:incoming>
+      <bpmn:outgoing>Flow_cargar_nota_union_consulta</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_union_consulta" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_cargar_nota_union_consulta</bpmn:incoming>
+      <bpmn:incoming>Flow_espera_union_consulta</bpmn:incoming>
+      <bpmn:outgoing>Flow_union_consulta_consultar</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_consultar" name="Consultar stock disponible">
+      <bpmn:incoming>Flow_union_consulta_consultar</bpmn:incoming>
+      <bpmn:outgoing>Flow_consultar_xor_stock</bpmn:outgoing>
+      <bpmn:property id="Property_consultar_1" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_datos_stock_of_consultar">
+        <bpmn:sourceRef>DataObjectReference_datos_stock_of</bpmn:sourceRef>
+        <bpmn:targetRef>Property_consultar_1</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_xor_stock" name="¿Hay stock disponible?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_consultar_xor_stock</bpmn:incoming>
+      <bpmn:outgoing>Flow_xor_stock_reservar</bpmn:outgoing>
+      <bpmn:outgoing>Flow_xor_stock_avisar</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_reservar" name="Reservar stock">
+      <bpmn:incoming>Flow_xor_stock_reservar</bpmn:incoming>
+      <bpmn:outgoing>Flow_reservar_confirmar</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_reservar_datos_stock_of">
+        <bpmn:targetRef>DataObjectReference_datos_stock_of</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:userTask>
+    <bpmn:task id="Activity_confirmar" name="Confirmar pedido al distribuidor">
+      <bpmn:incoming>Flow_reservar_confirmar</bpmn:incoming>
+      <bpmn:outgoing>Flow_confirmar_preparar</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:userTask id="Activity_facturar" name="Facturar en Discovery">
+      <bpmn:incoming>Flow_preparar_facturar</bpmn:incoming>
+      <bpmn:outgoing>Flow_facturar_xor_despacho</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_facturar_datos_stock_fact">
+        <bpmn:targetRef>DataObjectReference_datos_stock_fact</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:userTask>
+    <bpmn:task id="Activity_avisar" name="Avisar faltante con fecha estimada">
+      <bpmn:incoming>Flow_xor_stock_avisar</bpmn:incoming>
+      <bpmn:outgoing>Flow_avisar_espera</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:intermediateCatchEvent id="Event_espera" name="Fecha estimada cumplida">
+      <bpmn:incoming>Flow_avisar_espera</bpmn:incoming>
+      <bpmn:outgoing>Flow_espera_union_consulta</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_espera" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:dataObject id="DataObject_datos_stock_of" />
+    <bpmn:dataObjectReference id="DataObjectReference_datos_stock_of" name="Stock en Discovery" dataObjectRef="DataObject_datos_stock_of" />
+    <bpmn:dataObject id="DataObject_datos_stock_fact" />
+    <bpmn:dataObjectReference id="DataObjectReference_datos_stock_fact" name="Stock en Discovery" dataObjectRef="DataObject_datos_stock_fact" />
+    <bpmn:startEvent id="Event_ini_conteo" name="Conteo semanal programado">
+      <bpmn:outgoing>Flow_ini_conteo_contar</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_ini_conteo" />
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_contar" name="Contar stock">
+      <bpmn:incoming>Flow_ini_conteo_contar</bpmn:incoming>
+      <bpmn:outgoing>Flow_contar_fin_conteo</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_fin_conteo" name="Stock contado">
+      <bpmn:incoming>Flow_contar_fin_conteo</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_preparar" name="Preparar pedido">
+      <bpmn:incoming>Flow_confirmar_preparar</bpmn:incoming>
+      <bpmn:outgoing>Flow_preparar_facturar</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_xor_despacho" name="¿Con qué se despacha?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_facturar_xor_despacho</bpmn:incoming>
+      <bpmn:outgoing>Flow_xor_despacho_flota</bpmn:outgoing>
+      <bpmn:outgoing>Flow_xor_despacho_tercerizado</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_flota" name="Despachar con flota propia">
+      <bpmn:incoming>Flow_xor_despacho_flota</bpmn:incoming>
+      <bpmn:outgoing>Flow_flota_fin_pedido</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_tercerizado" name="Entregar a transporte tercerizado">
+      <bpmn:incoming>Flow_xor_despacho_tercerizado</bpmn:incoming>
+      <bpmn:outgoing>Flow_tercerizado_fin_pedido</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_fin_pedido" name="Pedido despachado">
+      <bpmn:incoming>Flow_flota_fin_pedido</bpmn:incoming>
+      <bpmn:incoming>Flow_tercerizado_fin_pedido</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_producir" name="Producir lo planificado">
+      <bpmn:incoming>Flow_planificar_producir</bpmn:incoming>
+      <bpmn:outgoing>Flow_producir_fin_semana</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_fin_semana" name="Semana producida">
+      <bpmn:incoming>Flow_producir_fin_semana</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:startEvent id="Event_ini_turno" name="Turno cerrado">
+      <bpmn:outgoing>Flow_ini_turno_cargar_produccion</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_ini_turno" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_cargar_produccion" name="Cargar producción del día">
+      <bpmn:incoming>Flow_ini_turno_cargar_produccion</bpmn:incoming>
+      <bpmn:outgoing>Flow_cargar_produccion_fin_produccion</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_cargar_produccion_datos_stock">
+        <bpmn:targetRef>DataObjectReference_datos_stock</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_fin_produccion" name="Producción cargada">
+      <bpmn:incoming>Flow_cargar_produccion_fin_produccion</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:dataObject id="DataObject_datos_stock" />
+    <bpmn:dataObjectReference id="DataObjectReference_datos_stock" name="Stock en Discovery" dataObjectRef="DataObject_datos_stock" />
+    <bpmn:startEvent id="Event_ini_semana" name="Semana iniciada">
+      <bpmn:outgoing>Flow_ini_semana_planificar</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_ini_semana" />
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_planificar" name="Planificar producción de la semana">
+      <bpmn:incoming>Flow_ini_semana_planificar</bpmn:incoming>
+      <bpmn:outgoing>Flow_planificar_producir</bpmn:outgoing>
+      <bpmn:property id="Property_planificar_1" name="__targetRef_placeholder" />
+      <bpmn:property id="Property_planificar_2" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_tablero_planificar">
+        <bpmn:sourceRef>DataObjectReference_tablero</bpmn:sourceRef>
+        <bpmn:targetRef>Property_planificar_1</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_datos_pendientes_planificar">
+        <bpmn:sourceRef>DataObjectReference_datos_pendientes</bpmn:sourceRef>
+        <bpmn:targetRef>Property_planificar_2</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:dataObject id="DataObject_tablero" />
+    <bpmn:dataObjectReference id="DataObjectReference_tablero" name="Tablero de 4 indicadores" dataObjectRef="DataObject_tablero" />
+    <bpmn:dataObject id="DataObject_datos_pendientes" />
+    <bpmn:dataObjectReference id="DataObjectReference_datos_pendientes" name="Pedidos pendientes y stock mínimo" dataObjectRef="DataObject_datos_pendientes" />
+    <bpmn:sequenceFlow id="Flow_ini_pedido_cargar_nota" sourceRef="Event_ini_pedido" targetRef="Activity_cargar_nota" />
+    <bpmn:sequenceFlow id="Flow_cargar_nota_union_consulta" sourceRef="Activity_cargar_nota" targetRef="Gateway_union_consulta" />
+    <bpmn:sequenceFlow id="Flow_union_consulta_consultar" sourceRef="Gateway_union_consulta" targetRef="Activity_consultar" />
+    <bpmn:sequenceFlow id="Flow_consultar_xor_stock" sourceRef="Activity_consultar" targetRef="Gateway_xor_stock" />
+    <bpmn:sequenceFlow id="Flow_xor_stock_reservar" name="Sí" sourceRef="Gateway_xor_stock" targetRef="Activity_reservar" />
+    <bpmn:sequenceFlow id="Flow_reservar_confirmar" sourceRef="Activity_reservar" targetRef="Activity_confirmar" />
+    <bpmn:sequenceFlow id="Flow_confirmar_preparar" sourceRef="Activity_confirmar" targetRef="Activity_preparar" />
+    <bpmn:sequenceFlow id="Flow_preparar_facturar" sourceRef="Activity_preparar" targetRef="Activity_facturar" />
+    <bpmn:sequenceFlow id="Flow_facturar_xor_despacho" sourceRef="Activity_facturar" targetRef="Gateway_xor_despacho" />
+    <bpmn:sequenceFlow id="Flow_xor_despacho_flota" name="Flota propia" sourceRef="Gateway_xor_despacho" targetRef="Activity_flota" />
+    <bpmn:sequenceFlow id="Flow_xor_despacho_tercerizado" name="Transporte tercerizado" sourceRef="Gateway_xor_despacho" targetRef="Activity_tercerizado" />
+    <bpmn:sequenceFlow id="Flow_flota_fin_pedido" sourceRef="Activity_flota" targetRef="Event_fin_pedido" />
+    <bpmn:sequenceFlow id="Flow_tercerizado_fin_pedido" sourceRef="Activity_tercerizado" targetRef="Event_fin_pedido" />
+    <bpmn:sequenceFlow id="Flow_xor_stock_avisar" name="No" sourceRef="Gateway_xor_stock" targetRef="Activity_avisar" />
+    <bpmn:sequenceFlow id="Flow_avisar_espera" sourceRef="Activity_avisar" targetRef="Event_espera" />
+    <bpmn:sequenceFlow id="Flow_espera_union_consulta" sourceRef="Event_espera" targetRef="Gateway_union_consulta" />
+    <bpmn:sequenceFlow id="Flow_ini_semana_planificar" sourceRef="Event_ini_semana" targetRef="Activity_planificar" />
+    <bpmn:sequenceFlow id="Flow_planificar_producir" sourceRef="Activity_planificar" targetRef="Activity_producir" />
+    <bpmn:sequenceFlow id="Flow_producir_fin_semana" sourceRef="Activity_producir" targetRef="Event_fin_semana" />
+    <bpmn:sequenceFlow id="Flow_ini_turno_cargar_produccion" sourceRef="Event_ini_turno" targetRef="Activity_cargar_produccion" />
+    <bpmn:sequenceFlow id="Flow_cargar_produccion_fin_produccion" sourceRef="Activity_cargar_produccion" targetRef="Event_fin_produccion" />
+    <bpmn:sequenceFlow id="Flow_ini_conteo_contar" sourceRef="Event_ini_conteo" targetRef="Activity_contar" />
+    <bpmn:sequenceFlow id="Flow_contar_fin_conteo" sourceRef="Activity_contar" targetRef="Event_fin_conteo" />
+    <bpmn:textAnnotation id="Annotation_a_regla">
+      <bpmn:text>Stock disponible = stock físico menos lo reservado por pedidos confirmados sin facturar. Si alcanza solo para una parte, se reserva esa parte y se despacha solo si el distribuidor lo acepta; si no, espera completo. El resto queda pendiente, sin reserva.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_pendiente">
+      <bpmn:text>Sin fecha confirmada, el aviso va sin fecha hasta la próxima reunión. Si el distribuidor cancela, cuenta como recortado. Lo pendiente no tiene reserva.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_factura">
+      <bpmn:text>La factura consume la reserva (a probar en Discovery).</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_ajuste">
+      <bpmn:text>Cuenta Depósito (a confirmar quién). Si hay diferencias, manda lo contado: el responsable de sistemas carga el ajuste en Discovery, con el motivo.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_carga">
+      <bpmn:text>Se carga todos los días, al cierre del turno, y no una vez por semana. Un responsable de carga por turno, con suplente.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_reunion">
+      <bpmn:text>Reunión diaria ventas–producción (~10 min): se mira el disponible, los pedidos pendientes y los avisos, y Producción confirma la fecha.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_plan">
+      <bpmn:text>Decide el dueño o uno de los hijos, mirando los pedidos pendientes (los avisados con faltante) y el stock mínimo por producto.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_extras">
+      <bpmn:text>Las horas extras son una excepción que se decide en este plan, no el arreglo habitual del faltante.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_a_regla_consultar" associationDirection="None" sourceRef="Activity_consultar" targetRef="Annotation_a_regla" />
+    <bpmn:association id="Association_a_pendiente_avisar" associationDirection="None" sourceRef="Activity_avisar" targetRef="Annotation_a_pendiente" />
+    <bpmn:association id="Association_a_factura_facturar" associationDirection="None" sourceRef="Activity_facturar" targetRef="Annotation_a_factura" />
+    <bpmn:association id="Association_a_ajuste_contar" associationDirection="None" sourceRef="Activity_contar" targetRef="Annotation_a_ajuste" />
+    <bpmn:association id="Association_a_carga_ini_turno" associationDirection="None" sourceRef="Event_ini_turno" targetRef="Annotation_a_carga" />
+    <bpmn:association id="Association_a_reunion_datos_stock" associationDirection="None" sourceRef="DataObjectReference_datos_stock" targetRef="Annotation_a_reunion" />
+    <bpmn:association id="Association_a_plan_planificar" associationDirection="None" sourceRef="Activity_planificar" targetRef="Annotation_a_plan" />
+    <bpmn:association id="Association_a_extras_planificar" associationDirection="None" sourceRef="Activity_planificar" targetRef="Annotation_a_extras" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Atender_pedido_de_distribuidor__TO-BE_">
+      <bpmndi:BPMNShape id="Participant_distribuidor_di" bpmnElement="Participant_distribuidor" isHorizontal="true">
+        <dc:Bounds x="20" y="54" width="1826" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_dulxelitos_di" bpmnElement="Participant_dulxelitos" isHorizontal="true">
+        <dc:Bounds x="20" y="150" width="1826" height="990" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_oficina_di" bpmnElement="Lane_oficina" isHorizontal="true">
+        <dc:Bounds x="50" y="150" width="1796" height="330" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_deposito_di" bpmnElement="Lane_deposito" isHorizontal="true">
+        <dc:Bounds x="50" y="480" width="1796" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_produccion_di" bpmnElement="Lane_produccion" isHorizontal="true">
+        <dc:Bounds x="50" y="700" width="1796" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_direccion_di" bpmnElement="Lane_direccion" isHorizontal="true">
+        <dc:Bounds x="50" y="920" width="1796" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_transporte_di" bpmnElement="Participant_transporte" isHorizontal="true">
+        <dc:Bounds x="20" y="1186" width="1826" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_ini_pedido_di" bpmnElement="Event_ini_pedido">
+        <dc:Bounds x="108" y="297" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="82" y="336" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_cargar_nota_di" bpmnElement="Activity_cargar_nota">
+        <dc:Bounds x="188" y="277" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_union_consulta_di" bpmnElement="Gateway_union_consulta" isMarkerVisible="true">
+        <dc:Bounds x="359" y="292" width="46" height="46" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_consultar_di" bpmnElement="Activity_consultar">
+        <dc:Bounds x="448" y="277" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_xor_stock_di" bpmnElement="Gateway_xor_stock" isMarkerVisible="true">
+        <dc:Bounds x="649" y="292" width="46" height="46" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="606" y="341" width="131" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_reservar_di" bpmnElement="Activity_reservar">
+        <dc:Bounds x="768" y="277" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_confirmar_di" bpmnElement="Activity_confirmar">
+        <dc:Bounds x="928" y="277" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_facturar_di" bpmnElement="Activity_facturar">
+        <dc:Bounds x="1248" y="277" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_avisar_di" bpmnElement="Activity_avisar">
+        <dc:Bounds x="608" y="167" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_espera_di" bpmnElement="Event_espera">
+        <dc:Bounds x="494" y="187" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="467" y="226" width="91" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_regla_di" bpmnElement="Annotation_a_regla">
+        <dc:Bounds x="160" y="383" width="340" height="84" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_pendiente_di" bpmnElement="Annotation_a_pendiente">
+        <dc:Bounds x="756" y="163" width="215" height="84" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_datos_stock_of_di" bpmnElement="DataObjectReference_datos_stock_of">
+        <dc:Bounds x="657" y="405" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="644" y="448" width="55" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_datos_stock_fact_di" bpmnElement="DataObjectReference_datos_stock_fact">
+        <dc:Bounds x="1384" y="405" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1372" y="448" width="55" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_factura_di" bpmnElement="Annotation_a_factura">
+        <dc:Bounds x="1222" y="177" width="180" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_ini_conteo_di" bpmnElement="Event_ini_conteo">
+        <dc:Bounds x="234" y="517" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="218" y="556" width="68" height="42" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_contar_di" bpmnElement="Activity_contar">
+        <dc:Bounds x="448" y="497" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_fin_conteo_di" bpmnElement="Event_fin_conteo">
+        <dc:Bounds x="654" y="517" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="632" y="556" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_ajuste_di" bpmnElement="Annotation_a_ajuste">
+        <dc:Bounds x="467" y="610" width="250" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_preparar_di" bpmnElement="Activity_preparar">
+        <dc:Bounds x="1088" y="497" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_xor_despacho_di" bpmnElement="Gateway_xor_despacho" isMarkerVisible="true">
+        <dc:Bounds x="1464" y="512" width="46" height="46" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1387" y="521" width="72" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_flota_di" bpmnElement="Activity_flota">
+        <dc:Bounds x="1598" y="497" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_tercerizado_di" bpmnElement="Activity_tercerizado">
+        <dc:Bounds x="1598" y="607" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_fin_pedido_di" bpmnElement="Event_fin_pedido">
+        <dc:Bounds x="1770" y="517" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1754" y="556" width="68" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_producir_di" bpmnElement="Activity_producir">
+        <dc:Bounds x="188" y="827" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_fin_semana_di" bpmnElement="Event_fin_semana">
+        <dc:Bounds x="364" y="847" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="354" y="886" width="55" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_ini_turno_di" bpmnElement="Event_ini_turno">
+        <dc:Bounds x="494" y="737" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="472" y="776" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_cargar_produccion_di" bpmnElement="Activity_cargar_produccion">
+        <dc:Bounds x="608" y="717" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_fin_produccion_di" bpmnElement="Event_fin_produccion">
+        <dc:Bounds x="814" y="737" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="801" y="776" width="63" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_datos_stock_di" bpmnElement="DataObjectReference_datos_stock">
+        <dc:Bounds x="657" y="845" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="644" y="888" width="55" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_carga_di" bpmnElement="Annotation_a_carga">
+        <dc:Bounds x="204" y="720" width="200" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_reunion_di" bpmnElement="Annotation_a_reunion">
+        <dc:Bounds x="926" y="830" width="260" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_ini_semana_di" bpmnElement="Event_ini_semana">
+        <dc:Bounds x="108" y="957" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="103" y="996" width="46" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_planificar_di" bpmnElement="Activity_planificar">
+        <dc:Bounds x="188" y="937" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_tablero_di" bpmnElement="DataObjectReference_tablero">
+        <dc:Bounds x="237" y="1065" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="216" y="1108" width="72" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_datos_pendientes_di" bpmnElement="DataObjectReference_datos_pendientes">
+        <dc:Bounds x="367" y="1065" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="402" y="1064" width="79" height="42" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_plan_di" bpmnElement="Annotation_a_plan">
+        <dc:Bounds x="537" y="947" width="270" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_extras_di" bpmnElement="Annotation_a_extras">
+        <dc:Bounds x="537" y="1057" width="270" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_ini_pedido_cargar_nota_di" bpmnElement="Flow_ini_pedido_cargar_nota">
+        <di:waypoint x="144" y="315" />
+        <di:waypoint x="188" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_cargar_nota_union_consulta_di" bpmnElement="Flow_cargar_nota_union_consulta">
+        <di:waypoint x="316" y="315" />
+        <di:waypoint x="359" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_union_consulta_consultar_di" bpmnElement="Flow_union_consulta_consultar">
+        <di:waypoint x="405" y="315" />
+        <di:waypoint x="448" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_consultar_xor_stock_di" bpmnElement="Flow_consultar_xor_stock">
+        <di:waypoint x="576" y="315" />
+        <di:waypoint x="649" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_stock_reservar_di" bpmnElement="Flow_xor_stock_reservar">
+        <di:waypoint x="695" y="315" />
+        <di:waypoint x="768" y="315" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="704" y="317" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_reservar_confirmar_di" bpmnElement="Flow_reservar_confirmar">
+        <di:waypoint x="896" y="315" />
+        <di:waypoint x="928" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_confirmar_preparar_di" bpmnElement="Flow_confirmar_preparar">
+        <di:waypoint x="1056" y="315" />
+        <di:waypoint x="1152" y="315" />
+        <di:waypoint x="1152" y="497" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_preparar_facturar_di" bpmnElement="Flow_preparar_facturar">
+        <di:waypoint x="1216" y="535" />
+        <di:waypoint x="1312" y="535" />
+        <di:waypoint x="1312" y="353" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_facturar_xor_despacho_di" bpmnElement="Flow_facturar_xor_despacho">
+        <di:waypoint x="1376" y="315" />
+        <di:waypoint x="1487" y="315" />
+        <di:waypoint x="1487" y="512" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_despacho_flota_di" bpmnElement="Flow_xor_despacho_flota">
+        <di:waypoint x="1510" y="535" />
+        <di:waypoint x="1598" y="535" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1519" y="517" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_despacho_tercerizado_di" bpmnElement="Flow_xor_despacho_tercerizado">
+        <di:waypoint x="1487" y="558" />
+        <di:waypoint x="1487" y="645" />
+        <di:waypoint x="1598" y="645" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1493" y="562" width="63" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_flota_fin_pedido_di" bpmnElement="Flow_flota_fin_pedido">
+        <di:waypoint x="1726" y="535" />
+        <di:waypoint x="1770" y="535" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_tercerizado_fin_pedido_di" bpmnElement="Flow_tercerizado_fin_pedido">
+        <di:waypoint x="1726" y="645" />
+        <di:waypoint x="1748" y="645" />
+        <di:waypoint x="1748" y="535" />
+        <di:waypoint x="1770" y="535" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_stock_avisar_di" bpmnElement="Flow_xor_stock_avisar">
+        <di:waypoint x="672" y="292" />
+        <di:waypoint x="672" y="243" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="678" y="274" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_avisar_espera_di" bpmnElement="Flow_avisar_espera">
+        <di:waypoint x="608" y="205" />
+        <di:waypoint x="530" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_espera_union_consulta_di" bpmnElement="Flow_espera_union_consulta">
+        <di:waypoint x="494" y="205" />
+        <di:waypoint x="382" y="205" />
+        <di:waypoint x="382" y="292" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_ini_semana_planificar_di" bpmnElement="Flow_ini_semana_planificar">
+        <di:waypoint x="144" y="975" />
+        <di:waypoint x="188" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_planificar_producir_di" bpmnElement="Flow_planificar_producir">
+        <di:waypoint x="252" y="937" />
+        <di:waypoint x="252" y="903" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_producir_fin_semana_di" bpmnElement="Flow_producir_fin_semana">
+        <di:waypoint x="316" y="865" />
+        <di:waypoint x="364" y="865" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_ini_turno_cargar_produccion_di" bpmnElement="Flow_ini_turno_cargar_produccion">
+        <di:waypoint x="530" y="755" />
+        <di:waypoint x="608" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_cargar_produccion_fin_produccion_di" bpmnElement="Flow_cargar_produccion_fin_produccion">
+        <di:waypoint x="736" y="755" />
+        <di:waypoint x="814" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_ini_conteo_contar_di" bpmnElement="Flow_ini_conteo_contar">
+        <di:waypoint x="270" y="535" />
+        <di:waypoint x="448" y="535" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_contar_fin_conteo_di" bpmnElement="Flow_contar_fin_conteo">
+        <di:waypoint x="576" y="535" />
+        <di:waypoint x="654" y="535" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MessageFlow_distribuidor_ini_pedido_di" bpmnElement="MessageFlow_distribuidor_ini_pedido">
+        <di:waypoint x="126" y="104" />
+        <di:waypoint x="126" y="297" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="132" y="108" width="185" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MessageFlow_confirmar_distribuidor_di" bpmnElement="MessageFlow_confirmar_distribuidor">
+        <di:waypoint x="992" y="277" />
+        <di:waypoint x="992" y="104" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="998" y="108" width="138" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MessageFlow_avisar_distribuidor_di" bpmnElement="MessageFlow_avisar_distribuidor">
+        <di:waypoint x="672" y="167" />
+        <di:waypoint x="672" y="104" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="678" y="108" width="212" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MessageFlow_tercerizado_transporte_di" bpmnElement="MessageFlow_tercerizado_transporte">
+        <di:waypoint x="1662" y="683" />
+        <di:waypoint x="1662" y="1186" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1668" y="1168" width="101" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_datos_stock_of_consultar_di" bpmnElement="DataInputAssociation_datos_stock_of_consultar">
+        <di:waypoint x="657" y="415" />
+        <di:waypoint x="567" y="353" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_reservar_datos_stock_of_di" bpmnElement="DataOutputAssociation_reservar_datos_stock_of">
+        <di:waypoint x="777" y="353" />
+        <di:waypoint x="687" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_facturar_datos_stock_fact_di" bpmnElement="DataOutputAssociation_facturar_datos_stock_fact">
+        <di:waypoint x="1342" y="353" />
+        <di:waypoint x="1384" y="406" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_cargar_produccion_datos_stock_di" bpmnElement="DataOutputAssociation_cargar_produccion_datos_stock">
+        <di:waypoint x="672" y="793" />
+        <di:waypoint x="672" y="845" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_tablero_planificar_di" bpmnElement="DataInputAssociation_tablero_planificar">
+        <di:waypoint x="252" y="1065" />
+        <di:waypoint x="252" y="1013" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_datos_pendientes_planificar_di" bpmnElement="DataInputAssociation_datos_pendientes_planificar">
+        <di:waypoint x="367" y="1072" />
+        <di:waypoint x="297" y="1013" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_regla_consultar_di" bpmnElement="Association_a_regla_consultar">
+        <di:waypoint x="399" y="383" />
+        <di:waypoint x="449" y="353" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_pendiente_avisar_di" bpmnElement="Association_a_pendiente_avisar">
+        <di:waypoint x="756" y="205" />
+        <di:waypoint x="736" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_factura_facturar_di" bpmnElement="Association_a_factura_facturar">
+        <di:waypoint x="1312" y="233" />
+        <di:waypoint x="1312" y="277" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_ajuste_contar_di" bpmnElement="Association_a_ajuste_contar">
+        <di:waypoint x="567" y="610" />
+        <di:waypoint x="540" y="573" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_carga_ini_turno_di" bpmnElement="Association_a_carga_ini_turno">
+        <di:waypoint x="404" y="755" />
+        <di:waypoint x="494" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_reunion_datos_stock_di" bpmnElement="Association_a_reunion_datos_stock">
+        <di:waypoint x="926" y="865" />
+        <di:waypoint x="687" y="865" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_plan_planificar_di" bpmnElement="Association_a_plan_planificar">
+        <di:waypoint x="537" y="975" />
+        <di:waypoint x="316" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_extras_planificar_di" bpmnElement="Association_a_extras_planificar">
+        <di:waypoint x="565" y="1057" />
+        <di:waypoint x="316" y="992" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

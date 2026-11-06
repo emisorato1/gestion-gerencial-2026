@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="generar_bpmn.py" exporterVersion="1.0">
+  <bpmn:collaboration id="Collaboration_Atender_pedido_de_distribuidor__AS-IS_">
+    <bpmn:participant id="Participant_distribuidor" name="Distribuidor" />
+    <bpmn:participant id="Participant_dulxelitos" name="Dulxelitos" processRef="Process_dulxelitos" />
+    <bpmn:participant id="Participant_transporte" name="Transporte tercerizado" />
+    <bpmn:messageFlow id="MessageFlow_distribuidor_ini_pedido" name="Pedido por WhatsApp o teléfono" sourceRef="Participant_distribuidor" targetRef="Event_ini_pedido" />
+    <bpmn:messageFlow id="MessageFlow_avisar_distribuidor" name="Aviso de pedido incompleto" sourceRef="Activity_avisar" targetRef="Participant_distribuidor" />
+    <bpmn:messageFlow id="MessageFlow_tercerizado_transporte" name="Pedido a entregar" sourceRef="Activity_tercerizado" targetRef="Participant_transporte" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_dulxelitos" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_dulxelitos">
+      <bpmn:lane id="Lane_oficina" name="Oficina">
+        <bpmn:flowNodeRef>Event_ini_pedido</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_anotar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_and_ini</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_preguntar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_and_fin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_lista</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_xor_faltante</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_avisar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_union</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_facturar</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_deposito" name="Depósito">
+        <bpmn:flowNodeRef>Activity_mirar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_preparar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_xor_falta</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_xor_despacho</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_flota</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_tercerizado</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_fin_pedido</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_produccion" name="Producción">
+        <bpmn:flowNodeRef>Activity_producir_decidido</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_registrar_produccion</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_fin_semana</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_esperar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_horas_extras</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_direccion" name="Dirección">
+        <bpmn:flowNodeRef>Event_ini_semana</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_decidir</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Event_ini_pedido" name="Pedido recibido">
+      <bpmn:outgoing>Flow_ini_pedido_anotar</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_ini_pedido" />
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_anotar" name="Anotar pedido en papel o planilla">
+      <bpmn:incoming>Flow_ini_pedido_anotar</bpmn:incoming>
+      <bpmn:outgoing>Flow_anotar_and_ini</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_anotar_papel">
+        <bpmn:targetRef>DataObjectReference_papel</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:dataObject id="DataObject_papel" />
+    <bpmn:dataObjectReference id="DataObjectReference_papel" name="Papel o planilla" dataObjectRef="DataObject_papel" />
+    <bpmn:parallelGateway id="Gateway_and_ini" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_anotar_and_ini</bpmn:incoming>
+      <bpmn:outgoing>Flow_and_ini_preguntar</bpmn:outgoing>
+      <bpmn:outgoing>Flow_and_ini_mirar</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Activity_preguntar" name="Preguntar disponibilidad a producción">
+      <bpmn:incoming>Flow_and_ini_preguntar</bpmn:incoming>
+      <bpmn:outgoing>Flow_preguntar_and_fin</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_and_fin" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_preguntar_and_fin</bpmn:incoming>
+      <bpmn:incoming>Flow_mirar_and_fin</bpmn:incoming>
+      <bpmn:outgoing>Flow_and_fin_lista</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Activity_lista" name="Pasar pedido a la lista">
+      <bpmn:incoming>Flow_and_fin_lista</bpmn:incoming>
+      <bpmn:outgoing>Flow_lista_preparar</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_lista_lista_datos">
+        <bpmn:targetRef>DataObjectReference_lista_datos</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:dataObject id="DataObject_lista_datos" />
+    <bpmn:dataObjectReference id="DataObjectReference_lista_datos" name="Lista de pedidos" dataObjectRef="DataObject_lista_datos" />
+    <bpmn:exclusiveGateway id="Gateway_xor_faltante" name="¿Qué se hace con el faltante?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_xor_falta_xor_faltante</bpmn:incoming>
+      <bpmn:outgoing>Flow_xor_faltante_avisar</bpmn:outgoing>
+      <bpmn:outgoing>Flow_xor_faltante_esperar</bpmn:outgoing>
+      <bpmn:outgoing>Flow_xor_faltante_horas_extras</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_avisar" name="Avisar al distribuidor del faltante">
+      <bpmn:incoming>Flow_xor_faltante_avisar</bpmn:incoming>
+      <bpmn:outgoing>Flow_avisar_union</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_union" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_xor_falta_union</bpmn:incoming>
+      <bpmn:incoming>Flow_avisar_union</bpmn:incoming>
+      <bpmn:incoming>Flow_esperar_union</bpmn:incoming>
+      <bpmn:incoming>Flow_horas_extras_union</bpmn:incoming>
+      <bpmn:outgoing>Flow_union_facturar</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_facturar" name="Facturar en Discovery">
+      <bpmn:incoming>Flow_union_facturar</bpmn:incoming>
+      <bpmn:outgoing>Flow_facturar_xor_despacho</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:task id="Activity_mirar" name="Mirar el stock a ojo">
+      <bpmn:incoming>Flow_and_ini_mirar</bpmn:incoming>
+      <bpmn:outgoing>Flow_mirar_and_fin</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_preparar" name="Preparar pedido">
+      <bpmn:incoming>Flow_lista_preparar</bpmn:incoming>
+      <bpmn:outgoing>Flow_preparar_xor_falta</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_xor_falta" name="¿Falta producto?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_preparar_xor_falta</bpmn:incoming>
+      <bpmn:outgoing>Flow_xor_falta_union</bpmn:outgoing>
+      <bpmn:outgoing>Flow_xor_falta_xor_faltante</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_xor_despacho" name="¿Con qué se despacha?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_facturar_xor_despacho</bpmn:incoming>
+      <bpmn:outgoing>Flow_xor_despacho_flota</bpmn:outgoing>
+      <bpmn:outgoing>Flow_xor_despacho_tercerizado</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_flota" name="Despachar con flota propia">
+      <bpmn:incoming>Flow_xor_despacho_flota</bpmn:incoming>
+      <bpmn:outgoing>Flow_flota_fin_pedido</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_tercerizado" name="Entregar a transporte tercerizado">
+      <bpmn:incoming>Flow_xor_despacho_tercerizado</bpmn:incoming>
+      <bpmn:outgoing>Flow_tercerizado_fin_pedido</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_fin_pedido" name="Pedido despachado">
+      <bpmn:incoming>Flow_flota_fin_pedido</bpmn:incoming>
+      <bpmn:incoming>Flow_tercerizado_fin_pedido</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:dataObject id="DataObject_datos_produccion" />
+    <bpmn:dataObjectReference id="DataObjectReference_datos_produccion" name="Registro semanal de producción" dataObjectRef="DataObject_datos_produccion" />
+    <bpmn:task id="Activity_producir_decidido" name="Producir lo decidido">
+      <bpmn:incoming>Flow_decidir_producir_decidido</bpmn:incoming>
+      <bpmn:outgoing>Flow_producir_decidido_registrar_produccion</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_registrar_produccion" name="Registrar producción de la semana">
+      <bpmn:incoming>Flow_producir_decidido_registrar_produccion</bpmn:incoming>
+      <bpmn:outgoing>Flow_registrar_produccion_fin_semana</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_registrar_produccion_datos_produccion">
+        <bpmn:targetRef>DataObjectReference_datos_produccion</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_fin_semana" name="Producción registrada">
+      <bpmn:incoming>Flow_registrar_produccion_fin_semana</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_esperar" name="Producir lo que falta">
+      <bpmn:incoming>Flow_xor_faltante_esperar</bpmn:incoming>
+      <bpmn:outgoing>Flow_esperar_union</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_horas_extras" name="Producir con horas extras">
+      <bpmn:incoming>Flow_xor_faltante_horas_extras</bpmn:incoming>
+      <bpmn:outgoing>Flow_horas_extras_union</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:startEvent id="Event_ini_semana" name="Semana iniciada">
+      <bpmn:outgoing>Flow_ini_semana_decidir</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_ini_semana" />
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_decidir" name="Decidir producción">
+      <bpmn:incoming>Flow_ini_semana_decidir</bpmn:incoming>
+      <bpmn:outgoing>Flow_decidir_producir_decidido</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_ini_pedido_anotar" sourceRef="Event_ini_pedido" targetRef="Activity_anotar" />
+    <bpmn:sequenceFlow id="Flow_anotar_and_ini" sourceRef="Activity_anotar" targetRef="Gateway_and_ini" />
+    <bpmn:sequenceFlow id="Flow_and_ini_preguntar" sourceRef="Gateway_and_ini" targetRef="Activity_preguntar" />
+    <bpmn:sequenceFlow id="Flow_and_ini_mirar" sourceRef="Gateway_and_ini" targetRef="Activity_mirar" />
+    <bpmn:sequenceFlow id="Flow_preguntar_and_fin" sourceRef="Activity_preguntar" targetRef="Gateway_and_fin" />
+    <bpmn:sequenceFlow id="Flow_mirar_and_fin" sourceRef="Activity_mirar" targetRef="Gateway_and_fin" />
+    <bpmn:sequenceFlow id="Flow_and_fin_lista" sourceRef="Gateway_and_fin" targetRef="Activity_lista" />
+    <bpmn:sequenceFlow id="Flow_lista_preparar" sourceRef="Activity_lista" targetRef="Activity_preparar" />
+    <bpmn:sequenceFlow id="Flow_preparar_xor_falta" sourceRef="Activity_preparar" targetRef="Gateway_xor_falta" />
+    <bpmn:sequenceFlow id="Flow_xor_falta_union" name="No" sourceRef="Gateway_xor_falta" targetRef="Gateway_union" />
+    <bpmn:sequenceFlow id="Flow_xor_falta_xor_faltante" name="Sí" sourceRef="Gateway_xor_falta" targetRef="Gateway_xor_faltante" />
+    <bpmn:sequenceFlow id="Flow_xor_faltante_avisar" name="Se manda incompleto" sourceRef="Gateway_xor_faltante" targetRef="Activity_avisar" />
+    <bpmn:sequenceFlow id="Flow_xor_faltante_esperar" name="Se espera producción" sourceRef="Gateway_xor_faltante" targetRef="Activity_esperar" />
+    <bpmn:sequenceFlow id="Flow_xor_faltante_horas_extras" name="Horas extras, si hace falta" sourceRef="Gateway_xor_faltante" targetRef="Activity_horas_extras" />
+    <bpmn:sequenceFlow id="Flow_avisar_union" sourceRef="Activity_avisar" targetRef="Gateway_union" />
+    <bpmn:sequenceFlow id="Flow_esperar_union" sourceRef="Activity_esperar" targetRef="Gateway_union" />
+    <bpmn:sequenceFlow id="Flow_horas_extras_union" sourceRef="Activity_horas_extras" targetRef="Gateway_union" />
+    <bpmn:sequenceFlow id="Flow_union_facturar" sourceRef="Gateway_union" targetRef="Activity_facturar" />
+    <bpmn:sequenceFlow id="Flow_facturar_xor_despacho" sourceRef="Activity_facturar" targetRef="Gateway_xor_despacho" />
+    <bpmn:sequenceFlow id="Flow_xor_despacho_flota" name="Flota propia" sourceRef="Gateway_xor_despacho" targetRef="Activity_flota" />
+    <bpmn:sequenceFlow id="Flow_xor_despacho_tercerizado" name="Transporte tercerizado" sourceRef="Gateway_xor_despacho" targetRef="Activity_tercerizado" />
+    <bpmn:sequenceFlow id="Flow_flota_fin_pedido" sourceRef="Activity_flota" targetRef="Event_fin_pedido" />
+    <bpmn:sequenceFlow id="Flow_tercerizado_fin_pedido" sourceRef="Activity_tercerizado" targetRef="Event_fin_pedido" />
+    <bpmn:sequenceFlow id="Flow_ini_semana_decidir" sourceRef="Event_ini_semana" targetRef="Activity_decidir" />
+    <bpmn:sequenceFlow id="Flow_decidir_producir_decidido" sourceRef="Activity_decidir" targetRef="Activity_producir_decidido" />
+    <bpmn:sequenceFlow id="Flow_producir_decidido_registrar_produccion" sourceRef="Activity_producir_decidido" targetRef="Activity_registrar_produccion" />
+    <bpmn:sequenceFlow id="Flow_registrar_produccion_fin_semana" sourceRef="Activity_registrar_produccion" targetRef="Event_fin_semana" />
+    <bpmn:textAnnotation id="Annotation_a_transcripciones">
+      <bpmn:text>Tarea manual: el mismo pedido se transcribe tres veces (chat, papel y lista).</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_doble">
+      <bpmn:text>Ineficiencia: doble averiguación de disponibilidad, a ojo en el depósito y preguntando a producción.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_datos">
+      <bpmn:text>Flujo de datos: la producción se registra una vez por semana (20 % de los días) y no se cruza con las ventas; no hay stock de producto terminado registrado.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_criterio">
+      <bpmn:text>Decide el dueño o uno de los hijos, por criterio propio y sin mirar los pedidos.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Annotation_a_extras">
+      <bpmn:text>Las horas extras del mes suman unas 25; parte se usa para completar pedidos.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_a_transcripciones_papel" associationDirection="None" sourceRef="DataObjectReference_papel" targetRef="Annotation_a_transcripciones" />
+    <bpmn:association id="Association_a_transcripciones_lista_datos" associationDirection="None" sourceRef="DataObjectReference_lista_datos" targetRef="Annotation_a_transcripciones" />
+    <bpmn:association id="Association_a_doble_mirar" associationDirection="None" sourceRef="Activity_mirar" targetRef="Annotation_a_doble" />
+    <bpmn:association id="Association_a_datos_datos_produccion" associationDirection="None" sourceRef="DataObjectReference_datos_produccion" targetRef="Annotation_a_datos" />
+    <bpmn:association id="Association_a_datos_preparar" associationDirection="None" sourceRef="Activity_preparar" targetRef="Annotation_a_datos" />
+    <bpmn:association id="Association_a_criterio_decidir" associationDirection="None" sourceRef="Activity_decidir" targetRef="Annotation_a_criterio" />
+    <bpmn:association id="Association_a_extras_horas_extras" associationDirection="None" sourceRef="Activity_horas_extras" targetRef="Annotation_a_extras" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Atender_pedido_de_distribuidor__AS-IS_">
+      <bpmndi:BPMNShape id="Participant_distribuidor_di" bpmnElement="Participant_distribuidor" isHorizontal="true">
+        <dc:Bounds x="20" y="54" width="1910" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_dulxelitos_di" bpmnElement="Participant_dulxelitos" isHorizontal="true">
+        <dc:Bounds x="20" y="150" width="1910" height="770" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_oficina_di" bpmnElement="Lane_oficina" isHorizontal="true">
+        <dc:Bounds x="50" y="150" width="1880" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_deposito_di" bpmnElement="Lane_deposito" isHorizontal="true">
+        <dc:Bounds x="50" y="370" width="1880" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_produccion_di" bpmnElement="Lane_produccion" isHorizontal="true">
+        <dc:Bounds x="50" y="590" width="1880" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_direccion_di" bpmnElement="Lane_direccion" isHorizontal="true">
+        <dc:Bounds x="50" y="810" width="1880" height="110" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_transporte_di" bpmnElement="Participant_transporte" isHorizontal="true">
+        <dc:Bounds x="20" y="966" width="1910" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_ini_pedido_di" bpmnElement="Event_ini_pedido">
+        <dc:Bounds x="108" y="187" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="82" y="226" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_anotar_di" bpmnElement="Activity_anotar">
+        <dc:Bounds x="188" y="167" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_papel_di" bpmnElement="DataObjectReference_papel">
+        <dc:Bounds x="237" y="295" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="209" y="338" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_and_ini_di" bpmnElement="Gateway_and_ini">
+        <dc:Bounds x="351" y="182" width="46" height="46" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_preguntar_di" bpmnElement="Activity_preguntar">
+        <dc:Bounds x="432" y="167" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_transcripciones_di" bpmnElement="Annotation_a_transcripciones">
+        <dc:Bounds x="401" y="287" width="190" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_and_fin_di" bpmnElement="Gateway_and_fin">
+        <dc:Bounds x="599" y="182" width="46" height="46" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_lista_di" bpmnElement="Activity_lista">
+        <dc:Bounds x="684" y="167" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_lista_datos_di" bpmnElement="DataObjectReference_lista_datos">
+        <dc:Bounds x="733" y="295" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="701" y="338" width="94" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_xor_faltante_di" bpmnElement="Gateway_xor_faltante" isMarkerVisible="true">
+        <dc:Bounds x="1134" y="182" width="46" height="46" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1072" y="165" width="171" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_avisar_di" bpmnElement="Activity_avisar">
+        <dc:Bounds x="1258" y="167" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_union_di" bpmnElement="Gateway_union" isMarkerVisible="true">
+        <dc:Bounds x="1421" y="182" width="46" height="46" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_facturar_di" bpmnElement="Activity_facturar">
+        <dc:Bounds x="1512" y="167" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_mirar_di" bpmnElement="Activity_mirar">
+        <dc:Bounds x="432" y="387" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_doble_di" bpmnElement="Annotation_a_doble">
+        <dc:Bounds x="509" y="500" width="200" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_preparar_di" bpmnElement="Activity_preparar">
+        <dc:Bounds x="844" y="387" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_xor_falta_di" bpmnElement="Gateway_xor_falta" isMarkerVisible="true">
+        <dc:Bounds x="1007" y="402" width="46" height="46" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="982" y="451" width="96" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_xor_despacho_di" bpmnElement="Gateway_xor_despacho" isMarkerVisible="true">
+        <dc:Bounds x="1553" y="402" width="46" height="46" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1476" y="411" width="72" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_flota_di" bpmnElement="Activity_flota">
+        <dc:Bounds x="1682" y="387" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_tercerizado_di" bpmnElement="Activity_tercerizado">
+        <dc:Bounds x="1682" y="497" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_fin_pedido_di" bpmnElement="Event_fin_pedido">
+        <dc:Bounds x="1854" y="407" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1838" y="446" width="68" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_datos_produccion_di" bpmnElement="DataObjectReference_datos_produccion">
+        <dc:Bounds x="481" y="625" width="30" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="410" y="624" width="66" height="42" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_datos_di" bpmnElement="Annotation_a_datos">
+        <dc:Bounds x="793" y="603" width="230" height="84" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_producir_decidido_di" bpmnElement="Activity_producir_decidido">
+        <dc:Bounds x="188" y="717" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_registrar_produccion_di" bpmnElement="Activity_registrar_produccion">
+        <dc:Bounds x="432" y="717" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_fin_semana_di" bpmnElement="Event_fin_semana">
+        <dc:Bounds x="604" y="737" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="591" y="776" width="63" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_esperar_di" bpmnElement="Activity_esperar">
+        <dc:Bounds x="1258" y="607" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_horas_extras_di" bpmnElement="Activity_horas_extras">
+        <dc:Bounds x="1258" y="717" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_ini_semana_di" bpmnElement="Event_ini_semana">
+        <dc:Bounds x="108" y="847" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="103" y="886" width="46" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_decidir_di" bpmnElement="Activity_decidir">
+        <dc:Bounds x="188" y="827" width="128" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_criterio_di" bpmnElement="Annotation_a_criterio">
+        <dc:Bounds x="484" y="830" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Annotation_a_extras_di" bpmnElement="Annotation_a_extras">
+        <dc:Bounds x="1222" y="837" width="200" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_ini_pedido_anotar_di" bpmnElement="Flow_ini_pedido_anotar">
+        <di:waypoint x="144" y="205" />
+        <di:waypoint x="188" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_anotar_and_ini_di" bpmnElement="Flow_anotar_and_ini">
+        <di:waypoint x="316" y="205" />
+        <di:waypoint x="351" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_and_ini_preguntar_di" bpmnElement="Flow_and_ini_preguntar">
+        <di:waypoint x="397" y="205" />
+        <di:waypoint x="432" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_and_ini_mirar_di" bpmnElement="Flow_and_ini_mirar">
+        <di:waypoint x="374" y="228" />
+        <di:waypoint x="374" y="425" />
+        <di:waypoint x="432" y="425" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_preguntar_and_fin_di" bpmnElement="Flow_preguntar_and_fin">
+        <di:waypoint x="560" y="205" />
+        <di:waypoint x="599" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_mirar_and_fin_di" bpmnElement="Flow_mirar_and_fin">
+        <di:waypoint x="560" y="425" />
+        <di:waypoint x="622" y="425" />
+        <di:waypoint x="622" y="228" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_and_fin_lista_di" bpmnElement="Flow_and_fin_lista">
+        <di:waypoint x="645" y="205" />
+        <di:waypoint x="684" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_lista_preparar_di" bpmnElement="Flow_lista_preparar">
+        <di:waypoint x="812" y="205" />
+        <di:waypoint x="908" y="205" />
+        <di:waypoint x="908" y="387" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_preparar_xor_falta_di" bpmnElement="Flow_preparar_xor_falta">
+        <di:waypoint x="972" y="425" />
+        <di:waypoint x="1007" y="425" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_falta_union_di" bpmnElement="Flow_xor_falta_union">
+        <di:waypoint x="1053" y="425" />
+        <di:waypoint x="1444" y="425" />
+        <di:waypoint x="1444" y="228" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1062" y="407" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_falta_xor_faltante_di" bpmnElement="Flow_xor_falta_xor_faltante">
+        <di:waypoint x="1030" y="402" />
+        <di:waypoint x="1030" y="205" />
+        <di:waypoint x="1134" y="205" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1036" y="384" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_faltante_avisar_di" bpmnElement="Flow_xor_faltante_avisar">
+        <di:waypoint x="1180" y="205" />
+        <di:waypoint x="1258" y="205" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1189" y="209" width="62" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_faltante_esperar_di" bpmnElement="Flow_xor_faltante_esperar">
+        <di:waypoint x="1157" y="228" />
+        <di:waypoint x="1157" y="645" />
+        <di:waypoint x="1258" y="645" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1187" y="613" width="62" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_faltante_horas_extras_di" bpmnElement="Flow_xor_faltante_horas_extras">
+        <di:waypoint x="1157" y="228" />
+        <di:waypoint x="1157" y="755" />
+        <di:waypoint x="1258" y="755" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1174" y="723" width="75" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_avisar_union_di" bpmnElement="Flow_avisar_union">
+        <di:waypoint x="1386" y="205" />
+        <di:waypoint x="1421" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_esperar_union_di" bpmnElement="Flow_esperar_union">
+        <di:waypoint x="1386" y="645" />
+        <di:waypoint x="1444" y="645" />
+        <di:waypoint x="1444" y="228" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_horas_extras_union_di" bpmnElement="Flow_horas_extras_union">
+        <di:waypoint x="1386" y="755" />
+        <di:waypoint x="1444" y="755" />
+        <di:waypoint x="1444" y="228" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_union_facturar_di" bpmnElement="Flow_union_facturar">
+        <di:waypoint x="1467" y="205" />
+        <di:waypoint x="1512" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_facturar_xor_despacho_di" bpmnElement="Flow_facturar_xor_despacho">
+        <di:waypoint x="1576" y="243" />
+        <di:waypoint x="1576" y="402" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_despacho_flota_di" bpmnElement="Flow_xor_despacho_flota">
+        <di:waypoint x="1599" y="425" />
+        <di:waypoint x="1682" y="425" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1608" y="393" width="35" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_xor_despacho_tercerizado_di" bpmnElement="Flow_xor_despacho_tercerizado">
+        <di:waypoint x="1576" y="448" />
+        <di:waypoint x="1576" y="535" />
+        <di:waypoint x="1682" y="535" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1582" y="452" width="63" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_flota_fin_pedido_di" bpmnElement="Flow_flota_fin_pedido">
+        <di:waypoint x="1810" y="425" />
+        <di:waypoint x="1854" y="425" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_tercerizado_fin_pedido_di" bpmnElement="Flow_tercerizado_fin_pedido">
+        <di:waypoint x="1810" y="535" />
+        <di:waypoint x="1832" y="535" />
+        <di:waypoint x="1832" y="425" />
+        <di:waypoint x="1854" y="425" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_ini_semana_decidir_di" bpmnElement="Flow_ini_semana_decidir">
+        <di:waypoint x="144" y="865" />
+        <di:waypoint x="188" y="865" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_decidir_producir_decidido_di" bpmnElement="Flow_decidir_producir_decidido">
+        <di:waypoint x="252" y="827" />
+        <di:waypoint x="252" y="793" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_producir_decidido_registrar_produccion_di" bpmnElement="Flow_producir_decidido_registrar_produccion">
+        <di:waypoint x="316" y="755" />
+        <di:waypoint x="432" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_registrar_produccion_fin_semana_di" bpmnElement="Flow_registrar_produccion_fin_semana">
+        <di:waypoint x="560" y="755" />
+        <di:waypoint x="604" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MessageFlow_distribuidor_ini_pedido_di" bpmnElement="MessageFlow_distribuidor_ini_pedido">
+        <di:waypoint x="126" y="104" />
+        <di:waypoint x="126" y="187" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="132" y="108" width="185" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MessageFlow_avisar_distribuidor_di" bpmnElement="MessageFlow_avisar_distribuidor">
+        <di:waypoint x="1322" y="167" />
+        <di:waypoint x="1322" y="104" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1328" y="108" width="157" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MessageFlow_tercerizado_transporte_di" bpmnElement="MessageFlow_tercerizado_transporte">
+        <di:waypoint x="1746" y="573" />
+        <di:waypoint x="1746" y="966" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1752" y="948" width="101" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_anotar_papel_di" bpmnElement="DataOutputAssociation_anotar_papel">
+        <di:waypoint x="252" y="243" />
+        <di:waypoint x="252" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_lista_lista_datos_di" bpmnElement="DataOutputAssociation_lista_lista_datos">
+        <di:waypoint x="748" y="243" />
+        <di:waypoint x="748" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_registrar_produccion_datos_produccion_di" bpmnElement="DataOutputAssociation_registrar_produccion_datos_produccion">
+        <di:waypoint x="496" y="717" />
+        <di:waypoint x="496" y="665" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_transcripciones_papel_di" bpmnElement="Association_a_transcripciones_papel">
+        <di:waypoint x="401" y="315" />
+        <di:waypoint x="267" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_transcripciones_lista_datos_di" bpmnElement="Association_a_transcripciones_lista_datos">
+        <di:waypoint x="591" y="315" />
+        <di:waypoint x="733" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_doble_mirar_di" bpmnElement="Association_a_doble_mirar">
+        <di:waypoint x="573" y="500" />
+        <di:waypoint x="535" y="463" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_datos_datos_produccion_di" bpmnElement="Association_a_datos_datos_produccion">
+        <di:waypoint x="793" y="645" />
+        <di:waypoint x="511" y="645" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_datos_preparar_di" bpmnElement="Association_a_datos_preparar">
+        <di:waypoint x="908" y="603" />
+        <di:waypoint x="908" y="463" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_criterio_decidir_di" bpmnElement="Association_a_criterio_decidir">
+        <di:waypoint x="484" y="865" />
+        <di:waypoint x="316" y="865" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_a_extras_horas_extras_di" bpmnElement="Association_a_extras_horas_extras">
+        <di:waypoint x="1322" y="837" />
+        <di:waypoint x="1322" y="793" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
