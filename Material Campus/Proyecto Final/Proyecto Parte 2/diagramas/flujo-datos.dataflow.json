@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Flujo de datos de Dulxelitos",
+    "viewBox": [
+      1080,
+      720
+    ],
+    "animation": "none",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "emphasis": {
+          "label": "Camino principal"
+        },
+        "default": {
+          "label": "Aporte de datos"
+        },
+        "dashed": {
+          "label": "Solo en el piloto"
+        },
+        "database": {
+          "label": "Dato guardado"
+        }
+      }
+    },
+    "views": [
+      {
+        "id": "camino-principal",
+        "label": "Camino principal",
+        "focus": [
+          "distribuidor",
+          "oficina",
+          "pedidos",
+          "stock",
+          "tablero",
+          "direccion"
+        ],
+        "note": "El pedido entra por Oficina, se reserva en Discovery y llega a Dirección como indicadores."
+      },
+      {
+        "id": "regla-de-stock",
+        "label": "Una sola regla de stock",
+        "focus": [
+          "pedidos",
+          "stock",
+          "facturacion"
+        ],
+        "note": "Disponible = físico − reservado. La reserva lo baja y la factura consume la reserva."
+      },
+      {
+        "id": "aportes",
+        "label": "Lo que aporta cada área",
+        "focus": [
+          "oficina",
+          "produccion",
+          "deposito",
+          "stock"
+        ],
+        "note": "Oficina carga pedidos, Producción carga al cierre de turno y Depósito deja la hoja de conteo."
+      },
+      {
+        "id": "tablero",
+        "label": "De dónde sale el tablero",
+        "focus": [
+          "stock",
+          "registro",
+          "sueldos",
+          "tablero",
+          "direccion"
+        ],
+        "note": "Tres fuentes alimentan el tablero: exportación CSV de Discovery y dos cargas a mano."
+      },
+      {
+        "id": "piloto",
+        "label": "Solo en el piloto",
+        "focus": [
+          "oficina",
+          "planilla",
+          "tablero"
+        ],
+        "note": "Planilla compartida durante 2 semanas, con los mismos tres aportes y la misma regla de stock."
+      }
+    ]
+  },
+  "stages": [
+    {
+      "label": "Pedido"
+    },
+    {
+      "label": "Áreas que cargan"
+    },
+    {
+      "label": "Dónde se guarda"
+    },
+    {
+      "label": "Tablero"
+    },
+    {
+      "label": "Decisión"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "distribuidor",
+      "type": "external",
+      "label": "Distribuidor",
+      "sublabel": "WhatsApp o teléfono",
+      "stage": 0,
+      "row": 2,
+      "yOffset": 7
+    },
+    {
+      "id": "produccion",
+      "type": "frontend",
+      "label": "Producción",
+      "sublabel": "parte al cierre de turno",
+      "stage": 1,
+      "row": 0
+    },
+    {
+      "id": "deposito",
+      "type": "frontend",
+      "label": "Depósito",
+      "sublabel": "conteo semanal y armado",
+      "stage": 1,
+      "row": 1,
+      "yOffset": 40
+    },
+    {
+      "id": "oficina",
+      "type": "frontend",
+      "label": "Oficina",
+      "sublabel": "nota de pedido y reserva",
+      "stage": 1,
+      "row": 2,
+      "yOffset": 7
+    },
+    {
+      "id": "facturacion",
+      "type": "backend",
+      "label": "Facturación",
+      "sublabel": "factura el pedido",
+      "tag": "Discovery",
+      "stage": 2,
+      "row": 0
+    },
+    {
+      "id": "stock",
+      "type": "database",
+      "label": "Stock terminado",
+      "sublabel": "físico − reservado",
+      "tag": "Discovery",
+      "stage": 2,
+      "row": 1
+    },
+    {
+      "id": "pedidos",
+      "type": "backend",
+      "label": "Pedidos y reservas",
+      "sublabel": "reserva al confirmar",
+      "tag": "Discovery",
+      "stage": 2,
+      "row": 2
+    },
+    {
+      "id": "planilla",
+      "type": "database",
+      "label": "Planilla compartida",
+      "sublabel": "2 semanas, papas fritas",
+      "tag": "solo piloto",
+      "stage": 2,
+      "row": 3
+    },
+    {
+      "id": "registro",
+      "type": "external",
+      "label": "Registro de recortes",
+      "sublabel": "hoja de Oficina, semanal",
+      "stage": 3,
+      "row": 0,
+      "width": 128
+    },
+    {
+      "id": "tablero",
+      "type": "backend",
+      "label": "Tablero",
+      "sublabel": "4 indicadores",
+      "stage": 3,
+      "row": 2
+    },
+    {
+      "id": "sueldos",
+      "type": "external",
+      "label": "Liquidación de sueldos",
+      "sublabel": "horas extras del mes",
+      "stage": 3,
+      "row": 4,
+      "width": 134
+    },
+    {
+      "id": "direccion",
+      "type": "frontend",
+      "label": "Dirección",
+      "sublabel": "planifica la semana",
+      "stage": 4,
+      "row": 2
+    }
+  ],
+  "flows": [
+    {
+      "id": "pedido",
+      "from": "distribuidor",
+      "to": "oficina",
+      "label": "pedido",
+      "variant": "emphasis",
+      "labelDy": 24
+    },
+    {
+      "id": "aviso",
+      "from": "oficina",
+      "to": "distribuidor",
+      "label": "aviso con fecha",
+      "variant": "default",
+      "labelDy": -6
+    },
+    {
+      "id": "nota-reserva",
+      "from": "oficina",
+      "to": "pedidos",
+      "label": "nota y reserva",
+      "variant": "emphasis",
+      "labelDy": 24
+    },
+    {
+      "id": "reserva",
+      "from": "pedidos",
+      "to": "stock",
+      "label": "reserva",
+      "variant": "emphasis"
+    },
+    {
+      "id": "consume",
+      "from": "facturacion",
+      "to": "stock",
+      "label": "consume la reserva",
+      "variant": "default",
+      "labelDy": 38
+    },
+    {
+      "id": "ingreso",
+      "from": "produccion",
+      "to": "stock",
+      "label": "ingreso de stock",
+      "variant": "default"
+    },
+    {
+      "id": "conteo",
+      "from": "deposito",
+      "to": "stock",
+      "label": "hoja de conteo",
+      "variant": "default"
+    },
+    {
+      "id": "armado",
+      "from": "pedidos",
+      "to": "deposito",
+      "label": "lista de armado",
+      "variant": "default"
+    },
+    {
+      "id": "csv",
+      "from": "stock",
+      "to": "tablero",
+      "label": "exportación CSV",
+      "variant": "emphasis"
+    },
+    {
+      "id": "recortes",
+      "from": "registro",
+      "to": "tablero",
+      "label": "a mano",
+      "variant": "default",
+      "labelDy": 109
+    },
+    {
+      "id": "horas-extras",
+      "from": "sueldos",
+      "to": "tablero",
+      "label": "a mano, por mes",
+      "variant": "default",
+      "labelDy": -74
+    },
+    {
+      "id": "indicadores",
+      "from": "tablero",
+      "to": "direccion",
+      "label": "indicadores",
+      "variant": "emphasis"
+    },
+    {
+      "id": "piloto-aportes",
+      "from": "oficina",
+      "to": "planilla",
+      "label": "los tres aportes",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "via": [
+        [
+          315,
+          499
+        ]
+      ]
+    },
+    {
+      "id": "piloto-tablero",
+      "from": "planilla",
+      "to": "tablero",
+      "label": "CSV o a mano",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Un solo sistema, y ya lo tienen",
+      "items": [
+        "Discovery guarda pedidos, reservas, stock de producto terminado, facturación y datos maestros (productos, distribuidores y stock mínimo)",
+        "Oficina consulta el disponible antes de confirmar; la factura baja el stock físico y consume la reserva",
+        "Supuesto 3 de la sección 4: el módulo de stock, pedidos y reserva hoy no se usa y falta confirmarlo con el proveedor"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Solo en el piloto",
+      "items": [
+        "Planilla compartida durante 2 semanas, solo con papas fritas",
+        "Recibe los mismos tres aportes (pedido y reserva, ingreso de stock y hoja de conteo) y usa la misma regla de stock disponible",
+        "Después del Go/No-Go se archiva, para no tener dos fuentes del mismo dato"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "No hay API en ningún lado",
+      "items": [
+        "Todo es carga manual controlada o exportación CSV, porque Discovery no se puede integrar",
+        "El tablero no guarda nada propio: si un número no coincide con Discovery, manda Discovery",
+        "El distribuidor queda afuera de los datos: pide por chat y recibe el aviso, pero no ve el stock"
+      ]
+    }
+  ]
+}
