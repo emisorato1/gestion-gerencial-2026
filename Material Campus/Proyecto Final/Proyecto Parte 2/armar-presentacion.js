@@ -119,13 +119,14 @@ function tarjeta(s, o) {
 }
 
 // Recorta una zona (en pixeles de la imagen original) y la dibuja con un ancho dado.
-// Devuelve el alto resultante en pulgadas.
-function recorte(s, ruta, caja, dest) {
+// Devuelve el alto resultante en pulgadas. alt es el texto alternativo de la imagen
+// (sin el, pptxgenjs pone la ruta local del archivo).
+function recorte(s, ruta, caja, dest, alt) {
   const img = tamanoPng(ruta);
   const k = dest.w / caja.w; // pulgadas por pixel
   const h = caja.h * k;
   s.addImage({
-    path: ruta,
+    path: ruta, altText: alt,
     x: dest.x, y: dest.y, w: img.w * k, h: img.h * k,
     sizing: { type: "crop", x: caja.x * k, y: caja.y * k, w: dest.w, h: h },
   });
@@ -210,35 +211,39 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     fontFace: B, fontSize: 21, color: CREAM, valign: "top",
   });
   pie(s);
-  s.addNotes("Joaquín. Leer el problema completo en voz alta (el guion lo trae). Después la corrección: en la parte 1 dijimos que el stock estaba en Discovery y que los faltantes eran por capacidad. Las dos cosas se corrigen. El 76 % es una cuenta nuestra sobre una semana de registro.");
+  s.addNotes("Joaquín. El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Después, las tres correcciones a la parte 1: el stock de producto terminado no se registra (dijimos que estaba en Discovery); los recortes pasan todas las semanas (dijimos que eran poco frecuentes); y vienen sobre todo de la mezcla y el momento de producción, no de la capacidad, que es un supuesto nuestro a medir en el piloto.");
 }
 
 /* 3 - AS-IS: el diagrama completo, con las tres lentes marcadas */
 {
   const s = nuevo(CREAM);
   s.addText("ASÍ SE ATIENDE UN PEDIDO HOY", {
-    x: M, y: 0.2, w: 7.0, h: 0.55, isTextBox: true, margin: 0,
+    x: M, y: 0.14, w: 7.0, h: 0.5, isTextBox: true, margin: 0,
     fontFace: H, fontSize: 26, bold: true, charSpacing: 1.2, color: DARK, valign: "middle",
   });
   // Leyenda de las lentes, a la derecha del titulo.
   const ley = [["1", "Ineficiencia"], ["2", "Tarea manual"], ["3", "Flujo de datos"]];
   let lx = 7.55;
   ley.forEach((l) => {
-    circulo(s, l[0], lx, 0.3, 0.34, ORANGE, WHITE, 13);
+    circulo(s, l[0], lx, 0.22, 0.34, ORANGE, WHITE, 13);
     s.addText(l[1], {
-      x: lx + 0.42, y: 0.25, w: 1.4, h: 0.44, isTextBox: true, margin: 0,
+      x: lx + 0.42, y: 0.17, w: 1.4, h: 0.44, isTextBox: true, margin: 0,
       fontFace: B, fontSize: 15, bold: true, color: DARK, valign: "middle",
     });
     lx += 1.85;
   });
-  const iw = 11.8, ix = (W - iw) / 2, iy = 0.92;
-  const img = tamanoPng(AS_IS);
-  const ih = iw * img.h / img.w;
+  // Se recorta solo el titulo del diagrama y el borde blanco: el proceso entero, al
+  // maximo ancho que deja el alto de la lamina (13.333 x 7.5).
+  const c0 = { x0: 15, y0: 50, x1: 1985, y1: 1047 }; // sobre 2000 px
+  const caja = px(kAs, c0.x0, c0.y0, c0.x1, c0.y1);
+  const iw = 13.0, ix = (13.333 - iw) / 2, iy = 0.76;
+  const ih = iw * caja.h / caja.w;
   s.addShape(pres.ShapeType.rect, { x: ix - 0.06, y: iy - 0.06, w: iw + 0.12, h: ih + 0.12, fill: { color: WHITE }, line: { color: LINE, width: 1 } });
-  s.addImage({ path: AS_IS, x: ix, y: iy, w: iw, h: ih });
+  recorte(s, AS_IS, caja, { x: ix, y: iy, w: iw },
+    "Diagrama BPMN del proceso actual Atender pedido de distribuidor: Oficina, Depósito, Producción y Dirección, con el distribuidor y el transporte tercerizado.");
   // Marcadores a la derecha de cada nota del diagrama (coordenadas sobre 2000 px).
-  const mx = (dx) => ix + (dx / 2000) * iw;
-  const my = (dy) => iy + (dy / (2000 * img.h / img.w)) * ih;
+  const mx = (dx) => ix + ((dx - c0.x0) / (c0.x1 - c0.x0)) * iw;
+  const my = (dy) => iy + ((dy - c0.y0) / (c0.y1 - c0.y0)) * ih;
   [["1", 752, 548], ["2", 634, 300], ["3", 1074, 662]].forEach((m) => {
     circulo(s, m[0], mx(m[1]) - 0.18, my(m[2]) - 0.18, 0.36, ORANGE, WHITE, 14);
   });
@@ -248,62 +253,77 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
 /* 4 - Las tres lentes */
 {
   const s = nuevo(CREAM);
-  titulo(s, "LAS TRES LENTES");
-  bajada(s, "Una sola causa vista desde tres lados");
-  const g = 0.35;
-  const cw = (CW - 2 * g) / 3;
-  const ay = 1.75, ah = 4.95;
+  // En esta lamina el contenido usa un margen de 0.5 para que los recortes del
+  // diagrama se lean (~10 pt la letra de las notas); el titulo se alinea con eso.
+  const m4 = 0.5, cw4 = 13.333 - 2 * m4;
+  s.addText("LAS TRES LENTES", {
+    x: m4, y: 0.5, w: cw4, h: 0.62, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 34, bold: true, charSpacing: 1.2, color: DARK, valign: "middle",
+  });
+  s.addText("Una sola causa vista desde tres lados", {
+    x: m4, y: 1.14, w: cw4, h: 0.38, isTextBox: true, margin: 0,
+    fontFace: B, fontSize: 15, italic: true, color: GREY, valign: "middle",
+  });
   const lentes = [
     {
       n: "1", nombre: "INEFICIENCIA",
       txt: "La disponibilidad se averigua dos veces: a ojo y preguntando a producción.",
       arregla: "Reservar el stock contra pedidos antes de confirmar",
-      caja: px(kAs, 440, 392, 735, 590),
+      caja: px(kAs, 436, 392, 732, 590), // "Mirar el stock a ojo" y su nota
+      alt: "Recorte del diagrama actual: la tarea Mirar el stock a ojo y la nota Ineficiencia, doble averiguación de disponibilidad.",
     },
     {
       n: "2", nombre: "TAREA MANUAL",
       txt: "El mismo pedido se anota tres veces: chat, papel y lista.",
       arregla: "Cargar el pedido una sola vez",
-      caja: px(kAs, 190, 165, 608, 365),
+      caja: px(kAs, 186, 165, 612, 362), // "Anotar pedido", el papel y la nota
+      alt: "Recorte del diagrama actual: la tarea Anotar pedido en papel o planilla, el documento Papel o planilla y la nota Tarea manual, el mismo pedido se transcribe tres veces.",
     },
     {
       n: "3", nombre: "FLUJO DE DATOS",
       txt: "Producción, depósito y ventas no comparten ningún dato.",
       arregla: "Un stock cargado todos los días, con una sola regla",
-      caja: px(kAs, 806, 612, 1054, 714),
+      caja: px(kAs, 804, 610, 1054, 712), // la nota de flujo de datos
+      alt: "Recorte del diagrama actual: la nota Flujo de datos, la producción se registra una vez por semana y no hay stock de producto terminado registrado.",
     },
   ];
-  lentes.forEach((l, i) => {
-    const x = M + i * (cw + g);
+  // Una sola escala para los tres recortes; cada tarjeta mide lo que su recorte.
+  const g = 0.18, pad = 0.1, ins = 0.04;
+  const anchoPx = lentes.reduce((t, l) => t + l.caja.w, 0);
+  const k = (cw4 - 2 * g - 3 * 2 * (pad + ins)) / anchoPx; // pulgadas por pixel
+  const altoBox = Math.max(...lentes.map((l) => l.caja.h)) * k + 2 * ins;
+  const ay = 1.62, ah = 5.13;
+  let x = m4;
+  lentes.forEach((l) => {
+    const cw = l.caja.w * k + 2 * (pad + ins);
     s.addShape(pres.ShapeType.roundRect, { x: x, y: ay, w: cw, h: ah, fill: { color: T_NEUTRAL }, rectRadius: 0.08 });
-    circulo(s, l.n, x + 0.28, ay + 0.24, 0.5, ORANGE, WHITE, 20);
+    circulo(s, l.n, x + 0.18, ay + 0.2, 0.46, ORANGE, WHITE, 19);
     s.addText(l.nombre, {
-      x: x + 0.95, y: ay + 0.24, w: cw - 1.2, h: 0.5, isTextBox: true, margin: 0,
-      fontFace: H, fontSize: 18, bold: true, charSpacing: 0.8, color: DARK, valign: "middle",
+      x: x + 0.76, y: ay + 0.2, w: cw - 0.9, h: 0.46, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 17, bold: true, charSpacing: 0.6, color: DARK, valign: "middle",
     });
-    // recuadro blanco con el recorte del diagrama
-    const sx = x + 0.28, sw = cw - 0.56, sy = ay + 0.98, sh = 1.85;
-    s.addShape(pres.ShapeType.roundRect, { x: sx, y: sy, w: sw, h: sh, fill: { color: WHITE }, rectRadius: 0.05 });
-    const ratio = l.caja.w / l.caja.h;
-    let dw = sw - 0.2;
-    if (dw / ratio > sh - 0.2) dw = (sh - 0.2) * ratio;
-    const dh = dw / ratio;
-    recorte(s, AS_IS, l.caja, { x: sx + (sw - dw) / 2, y: sy + (sh - dh) / 2, w: dw });
+    // recuadro blanco con el recorte del diagrama, centrado en vertical
+    const sx = x + pad, sy = ay + 0.82;
+    s.addShape(pres.ShapeType.roundRect, { x: sx, y: sy, w: cw - 2 * pad, h: altoBox, fill: { color: WHITE }, rectRadius: 0.05 });
+    const dh = l.caja.h * k;
+    recorte(s, AS_IS, l.caja, { x: sx + ins, y: sy + (altoBox - dh) / 2, w: l.caja.w * k }, l.alt);
+    const tx = x + 0.2, tw = cw - 0.4, ty = sy + altoBox + 0.14;
     s.addText(l.txt, {
-      x: x + 0.28, y: ay + 3.0, w: cw - 0.56, h: 0.9, isTextBox: true, margin: 0,
-      fontFace: B, fontSize: 17, bold: true, color: DARK, valign: "top",
+      x: tx, y: ty, w: tw, h: 0.82, isTextBox: true, margin: 0,
+      fontFace: B, fontSize: 16, bold: true, color: DARK, valign: "top",
     });
     s.addText("SE ARREGLA CON", {
-      x: x + 0.28, y: ay + 3.95, w: cw - 0.56, h: 0.25, isTextBox: true, margin: 0,
+      x: tx, y: ty + 0.88, w: tw, h: 0.25, isTextBox: true, margin: 0,
       fontFace: H, fontSize: 11, bold: true, charSpacing: 1.5, color: ORANGE,
     });
     s.addText(l.arregla, {
-      x: x + 0.28, y: ay + 4.22, w: cw - 0.56, h: 0.6, isTextBox: true, margin: 0,
+      x: tx, y: ty + 1.14, w: tw, h: 0.55, isTextBox: true, margin: 0,
       fontFace: B, fontSize: 15, color: GREY, valign: "top",
     });
+    x += cw + g;
   });
   pie(s);
-  s.addNotes("Juan José. Las tres lentes dan una sola causa, no tres proyectos. Lo que se ordena no son iniciativas sino los pasos de una: primero un quick win, la planilla del piloto, y después la inversión, el stock en Discovery. Y la pregunta del proceso balde: acelerar el aviso por WhatsApp sería poner un balde; la gotera es que el stock no se registra.");
+  s.addNotes("Juan José. Las tres lentes dan una sola causa, no tres proyectos. Lo que se ordena no son iniciativas sino los pasos de una: primero un quick win, la planilla del piloto, y después la inversión, el stock en Discovery. Y la pregunta del proceso balde: acelerar el aviso por WhatsApp sería poner un balde; la gotera es doble: el stock no se registra y se produce sin mirar los pedidos.");
 }
 
 /* 5 - Alternativas y recomendación */
@@ -318,7 +338,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     { tag: "NO RESUELVE", nombre: "Do Nothing", pts: "31", fill: T_RED, tinta: RED, num: RED,
       txt: "Seguir igual. No ataca la causa: los recortes siguen cada semana." },
     { tag: "PILOTO", nombre: "A · Planilla compartida", pts: "36", fill: T_GREEN, tinta: GREEN, num: GREEN,
-      txt: "Casi cero de costo. Se arma en días, pero no se conecta con Discovery." },
+      txt: "Casi cero de costo. Se arma sin proveedor ni instalación, pero no se conecta con Discovery." },
     { tag: "RECOMENDADA", nombre: "B · Stock de Discovery", pts: "35", fill: DARK, tinta: ORANGE, num: ORANGE, cuerpo: CREAM, titulo: CREAM,
       txt: "El módulo ya está en la licencia y no se usa. Un solo registro donde ya se factura." },
     { tag: "DESCARTADA", nombre: "C · SaaS de gestión", pts: "20", fill: T_NEUTRAL, tinta: GREY, num: MUTED,
@@ -376,7 +396,8 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const dx = M, dw = 9.7, dy = 1.15;
   const dh = dw * caja.h / caja.w;
   s.addShape(pres.ShapeType.rect, { x: dx - 0.06, y: dy - 0.06, w: dw + 0.12, h: dh + 0.12, fill: { color: WHITE }, line: { color: LINE, width: 1 } });
-  recorte(s, TO_BE, caja, { x: dx, y: dy, w: dw });
+  recorte(s, TO_BE, caja, { x: dx, y: dy, w: dw },
+    "Recorte del diagrama propuesto, calle de Oficina: de Pedido recibido a cargar la nota de pedido, consultar el stock disponible, reservar y confirmar, o avisar con fecha estimada.");
   // Tres cambios a la derecha.
   const cx = dx + dw + 0.35, cwid = W - M - cx;
   const cambios = [
@@ -470,21 +491,21 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
     s.addText(texto, {
       x: x, y: y, w: w, h: 0.38, isTextBox: true, margin: 0,
-      fontFace: B, fontSize: 13, bold: true, color: tinta, align: "center", valign: "middle",
+      fontFace: B, fontSize: 14, bold: true, color: tinta, align: "center", valign: "middle",
     });
   }
   const c0 = gx, c1 = gx + cw + gap, r0 = gy, r1 = gy + ch + gap;
   // Poder alto, interés bajo
-  ficha("Dueño (sponsor)", c0 + 0.2, r0 + 0.85, 1.75, "lid");
-  ficha("Buenos Aires Software", c0 + 0.2, r0 + 1.35, 2.3);
+  ficha("Dueño (sponsor)", c0 + 0.2, r0 + 0.85, 1.85, "lid");
+  ficha("Buenos Aires Software", c0 + 0.2, r0 + 1.35, 2.45);
   // Poder alto, interés alto (Oficina y Producción, en naranja: resistencia esperada)
-  ficha("Dueño (decisor)", c1 + 0.2, r0 + 0.78, 1.6);
-  ficha("Hijos", c1 + 1.95, r0 + 0.78, 0.9);
-  ficha("Oficina", c1 + 0.2, r0 + 1.2, 1.1, "res");
-  ficha("Producción", c1 + 1.45, r0 + 1.2, 1.4, "res");
-  ficha("Resp. de sistemas", c1 + 0.2, r0 + 1.62, 1.75, "lid");
+  ficha("Dueño (decisor)", c1 + 0.2, r0 + 0.78, 1.75);
+  ficha("Hijos", c1 + 2.1, r0 + 0.78, 0.9);
+  ficha("Oficina", c1 + 0.2, r0 + 1.2, 1.2, "res");
+  ficha("Producción", c1 + 1.55, r0 + 1.2, 1.45, "res");
+  ficha("Resp. de sistemas", c1 + 0.2, r0 + 1.62, 1.95, "lid");
   // Poder bajo
-  ficha("Distribuidores", c0 + 0.2, r1 + 0.85, 1.6);
+  ficha("Distribuidores", c0 + 0.2, r1 + 0.85, 1.7);
   ficha("Depósito", c1 + 0.2, r1 + 0.85, 1.3);
 
   // Panel derecho
@@ -573,7 +594,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
       fontFace: B, fontSize: 15, color: DARK, valign: "top",
     });
   });
-  s.addNotes("Emiliano. El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales los acordamos con el dueño antes de arrancar, para no leer el resultado a favor. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
+  s.addNotes("Emiliano. El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales se acuerdan con el dueño antes de arrancar, para no leer el resultado a favor; todavía no están acordados. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
 }
 
 /* 9 - Roadmap e indicadores */
@@ -644,7 +665,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   });
   const cw3 = (CW - 2 * 0.35) / 3;
   const puntos = [
-    ["1", "Corregimos la Parte 1", "El stock no se registra y los recortes vienen de la mezcla y el momento de producción."],
+    ["1", "Corregimos la Parte 1", "El stock no se registra y, según nuestro supuesto, los recortes vienen de la mezcla y el momento de producción."],
     ["2", "B, probada antes con A", "El stock de Discovery como solución. Una planilla de 2 semanas lo prueba antes de gastar."],
     ["3", "Se mide y decide el dueño", "Cuatro indicadores y un OKR. El dueño decide con umbrales acordados antes."],
   ];
@@ -668,7 +689,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     fontFace: B, fontSize: 15, italic: true, color: PALE, valign: "middle",
   });
   pie(s, MUTED);
-  s.addNotes("Manuel. Cerrar con la frase. Después, las preguntas. El punto de equilibrio: B se paga si evita por mes al menos el costo mensual de B dividido el costo de una hora extra; con la meta de la mitad de las horas, el umbral es de unas 12 o 13 horas.");
+  s.addNotes("Manuel. Cerrar con la frase. Después, las preguntas. Que los recortes vengan de la mezcla y el momento es un supuesto nuestro: decirlo así. El punto de equilibrio: si el costo mensual de B dividido el costo de la hora extra da menos de unas 12 o 13 horas, se paga con la meta.");
 }
 
 pres.writeFile({ fileName: process.argv[2] || "Dulxelitos-Parte2.pptx" }).then((f) => console.log("listo:", f));

@@ -75,6 +75,8 @@ h3.azul { color: #1E5C85; border-color: #1E5C85; }
 h3.naranja { color: var(--orange); border-color: var(--orange); }
 h3.rojo { color: var(--rust); border-color: var(--rust); }
 h3.gris { color: var(--grey); border-color: var(--grey); }
+p.sihay { color: var(--grey); }
+p.sihay::before { content: "si hay tiempo · "; font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 500; font-size: 8.4pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .pase { color: var(--grey); font-style: italic; font-size: 9.6pt; margin: 3mm 0 0; padding-left: 3mm; border-left: 1.5pt solid var(--orange); }
 
 /* recuadros */
@@ -133,7 +135,7 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <tr><td class="n">10</td><td>La propuesta (cierre)</td><td>Manuel</td><td class="t">35 s</td></tr>
   <tr class="total"><td></td><td>Total</td><td></td><td class="t">10 min</td></tr>
 </table>
-<p class="nota-turnos">El reparto es una propuesta: cámbienlo si quieren, pero que cada uno tenga un tramo seguido. Si se pasan de tiempo, recorten la lámina 4 o la 9.</p>
+<p class="nota-turnos">Los tiempos salen de contar las palabras de cada lámina a unas 165 por minuto, un ritmo de conversación. Las frases marcadas “si hay tiempo” no están en la cuenta: se dicen solo si vienen adelantados. El reparto es una propuesta: cámbienlo si quieren, pero que cada uno tenga un tramo seguido.</p>
 
 <!-- ============ LÁMINA 01 ============ -->
 <section class="lamina primera">
@@ -155,15 +157,14 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <h2>El problema</h2>
   <p class="enpantalla">En pantalla: cuatro números grandes (30, 76 %, ~25 h, 20 %) y abajo, en una línea, la corrección a la parte 1.</p>
   <p>El problema es de gestión, no de tecnología: <mark>Dulxelitos acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió.</mark></p>
-  <p>Dicho completo: recorta o demora unos <b>30 de ~125 pedidos por semana</b>, porque los acepta sin conocer el stock de producto terminado, que no se registra, y decide la producción sin mirar las ventas.</p>
-  <p>Entran unos 25 pedidos por día, 125 por semana. En la semana que registramos, 30 salieron recortados o demorados: un 24 %, o al revés, un <b>76 % de pedidos completos y a tiempo</b>. Ese 76 es una cuenta nuestra sobre una semana, no un promedio anual.</p>
-  <p>La meta: llegar al <b>90 %</b> en 6 meses.</p>
-  <p>Y dos números más. Unas <b>25 horas extras por mes</b>. Y la producción se carga <b>una vez por semana</b>, o sea el <b>20 % de los días</b>. La meta es todos los días.</p>
+  <p>Entran unos <b>125 pedidos por semana</b>. En la semana que registramos, <b>30</b> salieron recortados o demorados. Dicho al revés: un <b>76 % de pedidos completos y a tiempo</b>. Es una cuenta nuestra sobre una sola semana, no un promedio.</p>
+  <p>La meta es llegar al <b>90 %</b> en 6 meses. Las horas extras y la carga de producción las retomamos en los indicadores.</p>
   <h3 class="rojo">La corrección a la parte 1</h3>
-  <p>En la parte 1 dijimos que el stock estaba en Discovery y que los pedidos incompletos eran poco frecuentes. <mark>Las dos cosas se corrigen.</mark></p>
-  <p>El stock de producto terminado <b>no se registra</b>, ni en Discovery ni en ningún lado. Para saber si hay, se mira a ojo y se le pregunta a producción. Y los recortes pasan <b>todas las semanas</b>.</p>
-  <p>Hay una tercera. Atribuimos los faltantes a la capacidad de la planta. La planta sigue saturada, pero los recortes vienen sobre todo de <b>mezcla y momento</b>: se produce lo que no hace falta y falta lo que se pide. Eso es un supuesto nuestro y lo medimos en el piloto.</p>
-  <p>No cambia el diagnóstico, lo refuerza: explica por qué el costo de no actuar no se podía cuantificar. No había nada registrado para contar.</p>
+  <p>En la parte 1 dijimos tres cosas que <mark>hoy corregimos</mark>.</p>
+  <p><b>Uno.</b> Dijimos que el stock estaba en Discovery. El stock de producto terminado <b>no se registra</b>, ni en Discovery ni en ningún lado: se mira a ojo y se le pregunta a producción.</p>
+  <p><b>Dos.</b> Dijimos que los pedidos incompletos eran poco frecuentes. Pasan <b>todas las semanas</b>.</p>
+  <p><b>Tres.</b> Atribuimos los faltantes a la capacidad de la planta. La planta sigue saturada, pero los recortes vienen sobre todo de <b>mezcla y momento</b>: se produce lo que no hace falta y falta lo que se pide. Es un supuesto nuestro y lo medimos en el piloto.</p>
+  <p class="sihay">No cambia el diagnóstico, lo refuerza: el costo de no actuar no se podía contar porque no había nada registrado.</p>
   <p class="pase">Pase: “Juan José te cuenta cómo se atiende hoy un pedido.”</p>
   <div class="caja">
     <div class="rot">Revisar antes de exponer</div>
@@ -184,11 +185,10 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <h2>Así se atiende un pedido hoy</h2>
   <p class="enpantalla">En pantalla: el diagrama completo del proceso AS-IS, con tres marcas naranja numeradas.</p>
   <p>Este es el proceso <b>“Atender pedido de distribuidor”</b>, como funciona hoy.</p>
-  <p>Empieza con un mensaje del distribuidor por WhatsApp o teléfono. Termina con el pedido <b>facturado en Discovery y despachado</b>.</p>
-  <p>Participan oficina, depósito, producción y dirección, que son el dueño y los hijos.</p>
-  <p>Oficina anota el pedido en papel o planilla. Para saber si hay mercadería, <mark>se mira a ojo en el depósito y se le pregunta a producción</mark>. Recién después se arma el pedido.</p>
+  <p>Empieza con un mensaje del distribuidor por WhatsApp o teléfono y termina con el pedido <b>facturado en Discovery y despachado</b>.</p>
+  <p>Oficina anota el pedido. Para saber si hay mercadería, <mark>se mira a ojo en el depósito y se le pregunta a producción</mark>.</p>
   <p>Si falta producto, hay tres salidas: mandar incompleto avisando, esperar producción o hacer horas extras. Lo dibujamos entero porque <b>pasa todas las semanas</b>.</p>
-  <p>Y abajo, aparte: el dueño o los hijos deciden qué producir por criterio propio, sin mirar los pedidos. Producción lo registra una vez por semana.</p>
+  <p>Y abajo, aparte: el dueño o los hijos deciden qué producir por criterio propio, sin mirar los pedidos.</p>
   <p class="pausa">Señalá las tres marcas naranja con el puntero, una por una, mientras decís la frase que sigue.</p>
   <p>Los tres números naranja son las tres lentes. Las vemos en la que sigue.</p>
   <div class="caja">
@@ -212,12 +212,12 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <h3 class="naranja">1 · Ineficiencia</h3>
   <p>La disponibilidad se averigua <b>dos veces</b>: a ojo en el depósito y preguntando a producción. Ninguna alcanza sola. Se arregla <b>reservando el stock contra pedidos antes de confirmar</b>.</p>
   <h3 class="naranja">2 · Tarea manual</h3>
-  <p>El mismo pedido se anota <b>tres veces</b>: queda en el chat, se copia al papel o planilla y se vuelve a copiar a una lista. Cada copia es un punto donde se puede equivocar un producto o una cantidad. Se arregla <b>cargando el pedido una sola vez</b>.</p>
+  <p>El mismo pedido se anota <b>tres veces</b>: queda en el chat, se copia al papel o planilla y se vuelve a copiar a una lista. Cada copia es un punto donde equivocarse. Se arregla <b>cargando el pedido una sola vez</b>.</p>
   <h3 class="naranja">3 · Flujo de datos</h3>
-  <p>Producción, depósito y ventas <b>no comparten ningún dato</b>. No hay stock registrado, y lo producido se carga una vez por semana en un control propio. Es el silo más grande. Se arregla con <b>un stock cargado todos los días y una sola regla</b> de stock disponible.</p>
+  <p>Producción, depósito y ventas <b>no comparten ningún dato</b>. No hay stock registrado, y lo producido se carga una vez por semana en un control propio. Se arregla con <b>un stock cargado todos los días y una sola regla</b>.</p>
   <p class="pausa">Pausa de un segundo antes de la frase que sigue: es la que ordena la lámina.</p>
   <p>Las tres lentes no dan tres proyectos. <mark>Dan una sola causa vista desde tres lados.</mark></p>
-  <p>Y una pregunta que nos dejó la clase: ¿esto es un balde o es la gotera? La gotera es doble: no se registra el stock y se produce sin mirar los pedidos. Los baldes serían avisar más rápido por WhatsApp o armar un tablero de horas extras. Nosotros arreglamos la gotera.</p>
+  <p>¿Es un balde o es la gotera? La gotera es doble: no se registra el stock y se produce sin mirar los pedidos. Avisar más rápido por WhatsApp sería poner un balde. Nosotros arreglamos la gotera.</p>
   <p class="pase">Pase: “Juan, ¿qué alternativas había?”</p>
   <div class="caja">
     <div class="rot">Por qué conviene decir “una sola causa”</div>
@@ -236,12 +236,12 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <div class="cab"><span class="num">Lámina 05</span><span class="raya"></span><span class="t">1 min 10 · <span class="quien">Juan</span></span><img src="guion-assets/miniaturas/lamina-05.png" alt=""></div>
   <h2>Alternativas y recomendación</h2>
   <p class="enpantalla">En pantalla: cuatro tarjetas con su puntaje sobre 50 (31, 36, 35 y 20) y una franja con el empate.</p>
-  <p>Evaluamos <b>cuatro alternativas</b> con una matriz de diez criterios, puntajes de 1 a 5, donde 5 siempre es lo mejor para la empresa. Los puntajes son <b>juicio nuestro</b>: ninguno sale de una medición.</p>
-  <p><b>Do Nothing.</b> No hay inversión, pero el costo es seguir igual. Suma 31 porque la suma premia lo fácil. Se descarta porque no resuelve nada.</p>
-  <p><b>A, planilla compartida.</b> Casi cero de costo y se arma en días. No se conecta con Discovery: al facturar, la reserva se libera a mano. Suma 36.</p>
-  <p><b>B, el stock de Discovery.</b> Activar el módulo que, según nuestro compañero, ya está en la licencia y la empresa no usa. Un solo registro, en la herramienta donde ya se factura. Suma 35.</p>
-  <p><b>C, un sistema de gestión en la nube.</b> Cuota nueva, migración y doble carga con Discovery. Suma 20 y no gana en ningún criterio. La evaluamos y la descartamos.</p>
-  <p>Y ahora lo honesto: <mark>A y B quedan casi empatadas, 36 contra 35</mark>. Un punto entre puntajes de juicio no es una diferencia. Decide el argumento, no el puntaje.</p>
+  <p>Evaluamos <b>cuatro alternativas</b> con una matriz de diez criterios, de 1 a 5, donde 5 siempre es lo mejor para la empresa. Los puntajes son <b>juicio nuestro</b>, no una medición.</p>
+  <p><b>Do Nothing</b> suma 31 porque la suma premia lo fácil, pero no resuelve nada.</p>
+  <p><b>A, planilla compartida.</b> Casi cero de costo y se arma sin proveedor ni instalación. Pero no se conecta con Discovery: al facturar se baja el físico y se descuenta la reserva a mano. Suma 36.</p>
+  <p><b>B, el stock de Discovery.</b> Activar el módulo que, según nuestro compañero, ya está en la licencia y no se usa. Un solo registro, donde ya se factura. Suma 35.</p>
+  <p><b>C, un sistema de gestión en la nube.</b> Cuota nueva, migración y doble carga. Suma 20 y la descartamos.</p>
+  <p>Lo honesto: <mark>A y B quedan casi empatadas, 36 contra 35</mark>. Un punto entre juicios no es una diferencia: decide el argumento.</p>
   <p>Recomendamos <b>B como solución y A como piloto</b> de 2 semanas con papas fritas. Si el equipo no sostiene la carga diaria en una planilla simple, tampoco la va a sostener en Discovery, y habríamos pagado una herramienta por un problema de disciplina.</p>
   <div class="caja">
     <div class="rot">Por qué conviene mostrar el empate vos mismo</div>
@@ -265,14 +265,14 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <h2>Primero se mira qué hay</h2>
   <p class="enpantalla">En pantalla: el recorte del diagrama TO-BE (la calle de Oficina), tres cambios a la derecha y abajo la regla del stock disponible.</p>
   <p>Así queda el proceso con B andando. Cambia el orden: <mark>primero se mira qué hay, después se confirma.</mark></p>
-  <p>Oficina carga la nota de pedido <b>una sola vez</b> en Discovery y consulta el stock disponible antes de confirmar. Si hay, reserva y confirma al distribuidor. Si no hay, avisa en el momento con una <b>fecha estimada</b>, que confirma producción en la reunión diaria.</p>
-  <p>Son tres cambios: una consulta en vez de dos, una carga del pedido en vez de tres, y la producción se carga <b>todos los días</b> y no una vez por semana.</p>
-  <p>Detrás, lo que no entra en el recorte: Dirección planifica la semana mirando los <b>pedidos pendientes y un stock mínimo</b> por producto. Depósito cuenta el stock una vez por semana. Y hay una reunión diaria de unos 10 minutos entre ventas y producción.</p>
+  <p>Oficina carga la nota de pedido <b>una sola vez</b> en Discovery y consulta el stock disponible antes de confirmar. Si hay, reserva y confirma. Si no hay, avisa en el momento con una <b>fecha estimada</b>, que confirma producción en la reunión diaria.</p>
+  <p>Son tres cambios: una consulta en vez de dos, una carga del pedido en vez de tres, y la producción se carga <b>todos los días</b>.</p>
   <h3 class="naranja">La regla</h3>
   <p>Es una sola, y es la misma en la planilla del piloto y en Discovery:</p>
   <p><mark><b>stock disponible = stock físico − reservado por pedidos confirmados sin facturar.</b></mark></p>
   <p>Producción carga y sube el físico. Oficina reserva y baja el disponible. La factura consume la reserva y no mueve el disponible, porque ya se había descontado al reservar.</p>
-  <p>Lo que no cambia, a propósito: el pedido sigue entrando por WhatsApp o teléfono, el armado y el despacho siguen igual, y <b>qué producir lo sigue decidiendo el dueño o uno de los hijos</b>, ahora con pedidos y stock a la vista.</p>
+  <p>Lo que no cambia, a propósito: <b>qué producir lo sigue decidiendo el dueño o uno de los hijos</b>, ahora con pedidos y stock a la vista.</p>
+  <p class="sihay">El pedido sigue entrando por WhatsApp o teléfono, y el armado y el despacho siguen igual.</p>
   <p class="pase">Pase: “Emiliano, ¿y quién tiene que hacer que esto ande?”</p>
   <div class="caja">
     <div class="rot">La frase que hay que decir sí o sí</div>
@@ -296,14 +296,14 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <div class="cab"><span class="num">Lámina 07</span><span class="raya"></span><span class="t">1 minuto · <span class="quien">Emiliano</span></span><img src="guion-assets/miniaturas/lamina-07.png" alt=""></div>
   <h2>Stakeholders</h2>
   <p class="enpantalla">En pantalla: la matriz de Mendelow (poder contra interés) con los actores como fichas, y dos tarjetas con las resistencias.</p>
-  <p>Usamos la matriz de <b>Mendelow</b>, poder contra interés, como la vimos en la clase del 23-10.</p>
-  <p>La conclusión, adelantada: <mark>quien aprueba el proyecto no es quien lo hace andar.</mark></p>
-  <p>El <b>dueño es el sponsor</b>: aprueba el presupuesto y el Go/No-Go. Poder alto e interés bajo: se lo mantiene satisfecho. El <b>líder es el responsable de sistemas</b>, y la propuesta le asigna formalmente la gobernanza que la parte 1 decía que no tenía.</p>
-  <p>Pero el cambio lo hacen andar <b>Producción y Oficina</b>. Tienen poder de hecho: no mandan sobre el proyecto, pero cualquiera lo frena con solo no usarlo. Van a gestionar de cerca.</p>
+  <p>Usamos la matriz de <b>Mendelow</b>, poder contra interés.</p>
+  <p>La conclusión: <mark>quien aprueba el proyecto no es quien lo hace andar.</mark></p>
+  <p>El <b>dueño es el sponsor</b>: aprueba el presupuesto y el Go/No-Go. Poder alto e interés bajo: se lo mantiene satisfecho. El <b>líder es el responsable de sistemas</b>: la propuesta le da formalmente la gobernanza que en la parte 1 no tenía.</p>
+  <p>Pero el cambio lo hacen andar <b>Producción y Oficina</b>. No mandan sobre el proyecto, pero cualquiera lo frena con solo no usarlo. Se los gestiona de cerca.</p>
   <p>Anticipamos dos resistencias. <b>Producción:</b> cargar todos los días es trabajo nuevo, con la planta saturada. <b>Oficina:</b> consultar y reservar suma un paso antes de confirmar.</p>
-  <p>Depósito tiene poder bajo e interés alto: se le da voz. Los distribuidores son 57, pero sobre el proyecto pesan poco: se los mantiene informados. Y Buenos Aires Software, el proveedor de Discovery, pesa en la activación.</p>
-  <p>La matriz no es una foto: cambia por fase. Está en el informe.</p>
-  <p>Y todo esto es <mark>lectura nuestra</mark>: poder, interés y resistencias los vamos a contrastar con cada grupo antes del piloto.</p>
+  <p>Depósito tiene poder bajo e interés alto: se le da voz. A los 57 distribuidores se los mantiene informados. Buenos Aires Software, el proveedor de Discovery, pesa en la activación.</p>
+  <p>Y todo esto es <mark>lectura nuestra</mark>: lo vamos a contrastar con cada grupo antes del piloto.</p>
+  <p class="sihay">La matriz no es una foto: cambia por fase, y está en el informe.</p>
   <div class="caja">
     <div class="rot">Revisar antes de exponer</div>
     <p>El dueño aparece <b>dos veces</b>: como sponsor (poder alto, interés bajo) y como decisor de la producción junto con los hijos (poder alto, interés alto). Es a propósito: son dos roles de la misma persona. Si preguntan por qué Mendelow y no influencia-impacto: el enunciado pide poder e interés, y la lámina de la clase 4 usa otra lectura.</p>
@@ -323,20 +323,23 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <h2>El piloto</h2>
   <p class="enpantalla">En pantalla: cuatro medidas con su umbral y abajo las tres salidas del Go/No-Go.</p>
   <p>Antes de gastar en Discovery, <mark>probamos</mark>. Un piloto de <b>2 semanas</b>, solo con <b>papas fritas</b>, que es el producto que más falta, en una planilla compartida con la misma regla de stock.</p>
-  <p>Antes hay una semana 0 para medir la línea de base, y el conteo inicial se hace el fin de semana anterior.</p>
+  <p>Antes hay una semana 0 para medir la línea de base.</p>
   <p>Mide <b>cuatro cosas</b>:</p>
   <p><b>Carga.</b> La producción de papas fritas cargada en 8 de los 10 días hábiles. Hoy es el 20 %.</p>
-  <p><b>Recortes.</b> La mitad o menos de pedidos de papas fritas recortados o demorados que en la semana 0.</p>
+  <p><b>Recortes.</b> La mitad o menos de pedidos recortados o demorados que en la semana 0.</p>
   <p><b>Conteo.</b> Una diferencia de hasta una décima parte de lo contado.</p>
   <p><b>Fechas.</b> Cuatro de cada cinco avisos con fecha, cumplidos.</p>
-  <p>Si un día la planilla no está al día, oficina confirma como hoy, a ojo y preguntando a producción, y se anota el día. El piloto no toca Discovery ni el armado de pedidos.</p>
   <h3 class="verde">El Go / No-Go</h3>
-  <p>Lo decide el dueño, con los umbrales <b>acordados antes de arrancar</b>, para no leer el resultado a favor.</p>
-  <p><b>Go:</b> se cumplen los cuatro umbrales y pasa la prueba técnica de Discovery. Se activa por línea de producto, si además el punto de equilibrio cierra con los datos de costo.</p>
+  <p>Lo decide el dueño, con umbrales que <b>se acuerdan antes de arrancar</b>, para no leer el resultado a favor.</p>
+  <p><b>Go:</b> se cumplen los cuatro umbrales y pasa la prueba técnica de Discovery. Se activa por línea de producto.</p>
   <p><b>Go con ajustes:</b> falla el conteo o la fecha. Se corrige y se repite una sola vez.</p>
   <p><b>No-Go:</b> la carga no llega a 8 de 10. No se gasta en Discovery, porque una herramienta mejor no arregla un problema de disciplina.</p>
-  <p>En paralelo, el responsable de sistemas prueba un producto de punta a punta en Discovery con el proveedor. Dos semanas con un producto dan <mark>una señal, no una demostración</mark>.</p>
+  <p>Dos semanas con un producto dan <mark>una señal, no una demostración</mark>.</p>
   <p class="pase">Pase: “Manuel, ¿y cuándo, y cómo medimos?”</p>
+  <div class="caja">
+    <div class="rot">Si te preguntan</div>
+    <p><b>¿Y si un día la planilla no está al día?</b> Oficina confirma como hoy, a ojo y preguntando a producción, y se anota el día. El piloto no toca Discovery ni el armado de pedidos. <b>¿Qué es la prueba técnica?</b> En paralelo, el responsable de sistemas prueba un producto de punta a punta en Discovery y le consulta por escrito al proveedor. <b>¿Go sin mirar costos?</b> No: además tiene que cerrar el punto de equilibrio con los datos de costo.</p>
+  </div>
   <div class="caja">
     <div class="rot">Revisar antes de exponer</div>
     <p>Los umbrales son <b>propuesta nuestra</b>, sin dato de la empresa que los respalde, y el dueño tiene que acordarlos. La línea de base de recortes de papas fritas todavía no existe: sale de la semana 0. <b>No uses los 30 de ~125 como base del piloto</b>: son de todos los productos.</p>
@@ -357,14 +360,16 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <p class="enpantalla">En pantalla: tres columnas (ahora, próximo, más adelante) y cuatro indicadores con su base y su meta.</p>
   <p>El plan es un <b>roadmap de 6 meses</b>, no un Gantt: detalla lo próximo y deja abierto lo lejano, porque la activación depende de lo que muestre el piloto.</p>
   <p><b>Ahora, semanas 1 a 6:</b> preparación y conteo inicial, el piloto de 2 semanas y el Go/No-Go del dueño.</p>
-  <p><b>Próximo, semanas 7 a 26:</b> activar Discovery una línea de producto por vez, con las mismas medidas del piloto, y una estabilización al final. Es la fase más incierta: depende de cuánto tarde la activación y de cuántas líneas hay, y todavía no lo sabemos.</p>
-  <p><b>Más adelante:</b> que el distribuidor vea el stock y la tienda online. Está anotado, no planificado: antes tiene que existir un stock confiable que mostrar.</p>
+  <p><b>Próximo, semanas 7 a 26:</b> activar Discovery una línea de producto por vez, con las mismas medidas del piloto, y estabilizar. Es la fase más incierta: todavía no sabemos cuánto tarda la activación.</p>
+  <p><b>Más adelante:</b> que el distribuidor vea el stock, y la tienda online. Está anotado, no planificado: antes tiene que existir un stock confiable que mostrar.</p>
   <h3 class="azul">El OKR y los indicadores</h3>
-  <p>El objetivo: <mark>que cada pedido se confirme sabiendo qué hay.</mark> Con tres resultados clave:</p>
-  <p><b>Pedidos completos y a tiempo</b>, del 76 % al 90 %. <b>Días con producción cargada</b>, del 20 % al 100 %. <b>Horas extras</b>, de unas 25 por mes a unas 12 o 13.</p>
-  <p>La <b>exactitud de stock</b> no es resultado clave: su línea de base todavía no existe, sale del conteo inicial. Es una condición que tiene que estar siempre bien, y sigue en el tablero cuando el OKR termina.</p>
-  <p>Cada indicador tiene su ficha de ocho elementos y su <b>contrapeso</b>: el segundo número que empeora si alguien fuerza el primero. Está en la sección 8.</p>
+  <p>El OKR: <mark>que cada pedido se confirme sabiendo qué hay</mark>, con tres resultados clave: pedidos completos y a tiempo del <b>76 al 90 %</b>, días con producción cargada del <b>20 al 100 %</b>, y horas extras de unas <b>25 a unas 12 o 13</b> por mes.</p>
+  <p>Cada indicador tiene su ficha y su <b>contrapeso</b>: el segundo número que empeora si alguien fuerza el primero.</p>
   <p>Una aclaración: la meta de horas extras, la mitad, es un <b>supuesto</b>. Se apoya en que al menos la mitad de esas horas se hace para completar pedidos que faltaron por mezcla y momento.</p>
+  <div class="caja">
+    <div class="rot">Si te preguntan por la exactitud de stock</div>
+    <p>No es resultado clave: su línea de base todavía no existe, sale del conteo inicial. Es un <b>KPI permanente</b>, una condición que tiene que estar siempre bien, y sigue en el tablero cuando el OKR termina. Por eso en la lámina dice “a fijar”.</p>
+  </div>
   <div class="caja">
     <div class="rot">Por qué conviene explicar el orden</div>
     <p>Los indicadores se encadenan: la carga diaria avisa antes que la exactitud, y la exactitud antes que los pedidos. Si preguntan por qué no medir solo los pedidos: porque <b>informan cuando ya pasó</b>; la carga avisa mientras todavía se puede corregir.</p>
@@ -387,16 +392,16 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <div class="cab"><span class="num">Lámina 10</span><span class="raya"></span><span class="t">35 segundos · <span class="quien">Manuel</span></span><img src="guion-assets/miniaturas/lamina-10.png" alt=""></div>
   <h2>La propuesta</h2>
   <p class="enpantalla">En pantalla: la frase en naranja, tres puntos numerados y una nota con lo que todavía no sabemos.</p>
-  <p>Cerramos. <mark>Primero se mira qué hay. Después se confirma.</mark></p>
-  <p><b>Uno.</b> Corregimos la parte 1: el stock no se registra y los recortes vienen de la mezcla y el momento de producción.</p>
+  <p><mark>Primero se mira qué hay. Después se confirma.</mark></p>
+  <p><b>Uno.</b> Corregimos la parte 1: el stock no se registra y, según nuestro supuesto, los recortes vienen de la mezcla y el momento de producción.</p>
   <p><b>Dos.</b> Recomendamos B, el stock de Discovery, probada antes con una planilla de 2 semanas.</p>
-  <p><b>Tres.</b> Se mide con cuatro indicadores y un OKR, y decide el dueño con umbrales acordados antes.</p>
-  <p>Y lo que todavía no sabemos: el <b>costo de la hora extra</b> y el de <b>activar el módulo</b>. Sin esos dos datos no hay VAN. Lo que tenemos es un punto de equilibrio: B se paga si evita por mes al menos el costo mensual de B dividido el costo de una hora extra.</p>
+  <p><b>Tres.</b> Se mide con cuatro indicadores y decide el dueño.</p>
+  <p>Lo que todavía no sabemos: el <b>costo de la hora extra</b> y el de <b>activar el módulo</b>. Sin eso no hay VAN: hay un punto de equilibrio.</p>
   <p class="pausa">Pausa de un segundo antes del último párrafo. Es la frase que se tienen que llevar.</p>
   <p>Primero se mira qué hay. Después se confirma. Gracias.</p>
   <div class="caja">
     <div class="rot">No apures el final</div>
-    <p>Decir lo que no sabemos antes de que lo pregunten es coherente con todo el trabajo: lo que falta queda como <b>dato pendiente</b>, no como un número inventado. Después de la frase, gracias, y paso a las preguntas.</p>
+    <p>Decir lo que no sabemos antes de que lo pregunten es coherente con todo el trabajo: lo que falta queda como <b>dato pendiente</b>, no como un número inventado. Después de la frase, gracias, y paso a las preguntas. Si preguntan por el punto de equilibrio: <b>si el costo mensual de B dividido el costo de la hora extra da menos de unas 12 o 13 horas, se paga con la meta</b>.</p>
   </div>
   <div class="datos-t">Los datos que no podés errar</div>
   <div class="chips">
@@ -409,17 +414,17 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
 <!-- ============ PREGUNTAS ============ -->
 <section class="hoja">
   <h2>Si te preguntan</h2>
-  <p class="lead">Las diez que más chances tienen de caer, con la respuesta corta.</p>
+  <p class="lead">Las once que más chances tienen de caer, con la respuesta corta.</p>
 
   <div class="q">
     <h4>¿Por qué Discovery si la planilla sumó más?</h4>
-    <p>Porque 36 contra 35 no es una diferencia: es un punto entre puntajes de juicio, y la matriz no decide. Las notas bajas de A son <b>estructurales</b>: la planilla vive aparte de Discovery, se carga dos veces y la reserva se libera a mano. Las de B son <b>incógnitas</b> que se despejan probando.</p>
+    <p>Porque 36 contra 35 no es una diferencia: es un punto entre puntajes de juicio, y la matriz no decide. Además, la matriz puntuó A y B como <b>solución para los 6 meses y todo el catálogo</b>, no como piloto. Las notas bajas de A son <b>estructurales</b>: la planilla vive aparte de Discovery, el pedido se carga dos veces y al facturar se baja el físico y se descuenta la reserva a mano. Las de B son <b>incógnitas</b> que se despejan probando.</p>
     <p>Por eso A va primero, como piloto, y B es el destino. Si Discovery no funciona como esperamos, seguimos con A antes que pasar a C.</p>
   </div>
 
   <div class="q">
     <h4>¿Cómo saben que es mezcla y no capacidad?</h4>
-    <p><b>No lo sabemos.</b> Es un supuesto razonado, no un dato, y es el más importante de todos (el supuesto 1). Lo medimos en el piloto: en la semana 0 se anota la causa de cada recorte, y se ve si bajan al planificar contra pedidos.</p>
+    <p><b>No lo sabemos.</b> Es un supuesto razonado, no un dato, y es el más importante de todos (el supuesto 1). Lo razonamos así: la producción la deciden el dueño o los hijos por criterio propio, <b>sin mirar los pedidos</b>; y los recortes pasan todas las semanas aunque las horas extras ya tapan la saturación de la planta. Lo medimos en el piloto: en la semana 0 se anota la causa de cada recorte, y se ve si bajan al planificar contra pedidos.</p>
     <p>Si resulta que la mayoría es de capacidad, se revisa la meta del 90 %: lo que queda es un problema de planta, y está fuera de alcance.</p>
   </div>
 
@@ -437,8 +442,8 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
 
   <div class="q">
     <h4>¿Cuánto cuesta y cuánto se ahorra?</h4>
-    <p>Todavía no lo sabemos y <b>no inventamos números</b>. Faltan el costo de la hora extra y el de activar el módulo. Armamos un punto de equilibrio: B se paga si evita por mes al menos el costo mensual de B dividido el costo de una hora extra.</p>
-    <p>Con la meta de la mitad de las ~25 horas, el umbral es de unas 12 o 13 horas por mes. No contamos el margen de los pedidos que dejan de recortarse, así que la cuenta es conservadora.</p>
+    <p>Todavía no lo sabemos y <b>no inventamos números</b>. Faltan el costo de la hora extra y el de activar el módulo. Armamos un punto de equilibrio: <b>si el costo mensual de B dividido el costo de la hora extra da menos de unas 12 o 13 horas, se paga con la meta</b>, que es bajar a la mitad las ~25 horas extras por mes.</p>
+    <p>No contamos el margen de los pedidos que dejan de recortarse, así que la cuenta es conservadora.</p>
   </div>
 
   <div class="q">
@@ -478,7 +483,7 @@ h3.gris { color: var(--grey); border-color: var(--grey); }
   <ol class="reglas">
     <li><div><b>No leas la lámina.</b> La lámina ya dice los números; vos contás lo que significan. El diagrama de la lámina 3 es chico a propósito: se señala, no se lee.</div></li>
     <li><div><b>Hay tres cosas que decir sí o sí:</b> los 30 de ~125 pedidos y el paso del 76 % al 90 %, la corrección a la parte 1, y la regla del stock disponible.</div></li>
-    <li><div><b>Lo que no está escrito depende de vos.</b> La corrección completa, el empate de 36 contra 35 y lo que todavía no sabemos (los costos) no están en las láminas. Si no las decís, se pierden.</div></li>
+    <li><div><b>Lo que la lámina resume depende de vos.</b> La corrección, el empate de 36 contra 35 y lo que todavía no sabemos (los costos) están resumidos en las láminas; lo completo se dice de viva voz. Si no lo decís, se pierde.</div></li>
     <li><div><b>Si te preguntan algo que no sabés, decilo.</b> En este trabajo hay datos pendientes a propósito: “ese dato todavía no lo tenemos” es una respuesta correcta y no una excusa.</div></li>
     <li><div><b>Cerrá con la frase, no con “bueno, eso sería todo”.</b> El final es “primero se mira qué hay, después se confirma”. Después, gracias.</div></li>
   </ol>
