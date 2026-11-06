@@ -1,4 +1,4 @@
-// Presentacion de la Parte 2 de Dulxelitos, 10 laminas, ~10 minutos, 5 expositores.
+// Presentacion de la Parte 2 de Dulxelitos, 10 laminas, ~10 minutos.
 // Mismo estilo que la Parte 1 (../Proyecto/armar-presentacion.js): paleta, tipografias y
 // helpers. El contenido sale de las secciones 01 a 08 de esta carpeta; ninguna cifra es
 // nueva. Los diagramas BPMN se recortan en el propio pptx (srcRect), sin archivos nuevos.
@@ -195,7 +195,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     x: M, y: 6.3, w: CW, h: 0.4, isTextBox: true, margin: 0,
     fontFace: B, fontSize: 14, color: MUTED,
   });
-  s.addNotes("Joaquín. Presentamos la parte 2: la propuesta para Dulxelitos. Esta parte arranca con una corrección a lo que dijimos en la parte 1.");
+  s.addNotes("Presentamos la parte 2: la propuesta para Dulxelitos. Esta parte arranca con una corrección a lo que dijimos en la parte 1.");
 }
 
 /* 2 - El problema */
@@ -240,7 +240,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     fontFace: B, fontSize: 21, color: CREAM, valign: "top",
   });
   pie(s);
-  s.addNotes("Joaquín. El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Después, las tres correcciones a la parte 1: el stock de producto terminado no se registra (dijimos que estaba en Discovery); los recortes pasan todas las semanas (dijimos que eran poco frecuentes); y vendrían sobre todo de la mezcla y el momento de producción, no de la capacidad, que es un supuesto nuestro a medir en el piloto.");
+  s.addNotes("El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Después, las tres correcciones a la parte 1: el stock de producto terminado no se registra (dijimos que estaba en Discovery); los recortes pasan todas las semanas (dijimos que eran poco frecuentes); y vendrían sobre todo de la mezcla y el momento de producción, no de la capacidad, que es un supuesto nuestro a medir en el piloto.");
 }
 
 /* 3 - AS-IS: el diagrama completo, con las tres lentes marcadas */
@@ -273,7 +273,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   [["1", 752, 548], ["2", 634, 300], ["3", 1074, 662]].forEach((m) => {
     circulo(s, m[0], mx(m[1]) - 0.18, my(m[2]) - 0.18, 0.36, ORANGE, WHITE, 14);
   });
-  s.addNotes("Juan José. El diagrama completo. El pedido nace en el mensaje del distribuidor; el faltante se dibujó entero porque pasa todas las semanas. Los tres números naranja son las tres lentes de la lámina que sigue. Abajo, la producción corre aparte: el dueño o los hijos deciden qué producir sin mirar los pedidos.");
+  s.addNotes("El diagrama completo. El pedido nace en el mensaje del distribuidor; el faltante se dibujó entero porque pasa todas las semanas. Los tres números naranja son las tres lentes de la lámina que sigue. Abajo, la producción corre aparte: el dueño o los hijos deciden qué producir sin mirar los pedidos.");
 }
 
 /* 4 - Las tres lentes */
@@ -343,7 +343,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     x += cw + g;
   });
   pie(s, undefined, m4);
-  s.addNotes("Juan José. Las tres lentes dan una sola causa, no tres proyectos. Lo que se ordena no son iniciativas sino los pasos de una: primero un quick win, la planilla del piloto, y después la inversión, el stock en Discovery. Y la pregunta del proceso balde: acelerar el aviso por WhatsApp sería poner un balde; la gotera es doble: el stock no se registra y se produce sin mirar los pedidos.");
+  s.addNotes("Las tres lentes dan una sola causa, no tres proyectos. Lo que se ordena no son iniciativas sino los pasos de una: primero un quick win, la planilla del piloto, y después la inversión, el stock en Discovery. Y la pregunta del proceso balde: acelerar el aviso por WhatsApp sería poner un balde; la gotera es doble: el stock no se registra y se produce sin mirar los pedidos.");
 }
 
 /* 5 - Alternativas y recomendación */
@@ -402,7 +402,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     }
   );
   pie(s);
-  s.addNotes("Juan. Do Nothing suma 31 porque la suma premia lo fácil; se descarta porque no resuelve nada. C se descarta: la suma más baja y no es la mejor en ningún criterio. A y B quedan casi empatadas y un punto entre juicios no es una diferencia. Las notas bajas de A son estructurales; las medias de B son incógnitas que el piloto y la prueba técnica despejan. Si el equipo no sostiene la carga en una planilla, tampoco en Discovery.");
+  s.addNotes("Do Nothing suma 31 porque la suma premia lo fácil; se descarta porque no resuelve nada. C se descarta: la suma más baja y no es la mejor en ningún criterio. A y B quedan casi empatadas y un punto entre juicios no es una diferencia. Las notas bajas de A son estructurales; las medias de B son incógnitas que el piloto y la prueba técnica despejan. Si el equipo no sostiene la carga en una planilla, tampoco en Discovery.");
 }
 
 /* 6 - TO-BE y la regla del stock disponible */
@@ -455,7 +455,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     }
   );
   pie(s);
-  s.addNotes("Juan. El tramo clave del TO-BE: Oficina carga la nota de pedido una sola vez, consulta el stock disponible y recién ahí reserva y confirma; si no hay, avisa en el momento con una fecha estimada. Lo que no entra en el recorte: Producción carga todos los días al cierre del turno, Dirección planifica la semana con pedidos pendientes y stock mínimo, y Depósito cuenta una vez por semana. El diagrama entero está en la sección 3 del informe.");
+  s.addNotes("El tramo clave del TO-BE: Oficina carga la nota de pedido una sola vez, consulta el stock disponible y recién ahí reserva y confirma; si no hay, avisa en el momento con una fecha estimada. Lo que no entra en el recorte: Producción carga todos los días al cierre del turno, Dirección planifica la semana con pedidos pendientes y stock mínimo, y Depósito cuenta una vez por semana. El diagrama entero está en la sección 3 del informe.");
 }
 
 /* 7 - Stakeholders: Mendelow */
@@ -554,7 +554,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
   });
   pie(s);
-  s.addNotes("Emiliano. La matriz de Mendelow, con la lectura de la clase del 23-10. El dueño aprueba el presupuesto y el Go/No-Go, pero el cambio lo hacen andar Producción y Oficina, y esas son las dos resistencias que anticipamos: trabajo nuevo con la planta saturada y un paso más antes de confirmar. Poder, interés y resistencias son lectura nuestra y las vamos a contrastar con cada grupo antes del piloto.");
+  s.addNotes("La matriz de Mendelow, con la lectura de la clase del 23-10. El dueño aprueba el presupuesto y el Go/No-Go, pero el cambio lo hacen andar Producción y Oficina, y esas son las dos resistencias que anticipamos: trabajo nuevo con la planta saturada y un paso más antes de confirmar. Poder, interés y resistencias son lectura nuestra y las vamos a contrastar con cada grupo antes del piloto.");
 }
 
 /* 8 - El piloto */
@@ -618,7 +618,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
   });
   pie(s);
-  s.addNotes("Emiliano. El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales se acuerdan con el dueño antes de arrancar, para no leer el resultado a favor; todavía no están acordados. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
+  s.addNotes("El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales se acuerdan con el dueño antes de arrancar, para no leer el resultado a favor; todavía no están acordados. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
 }
 
 /* 9 - Roadmap e indicadores */
@@ -690,7 +690,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
   });
   pie(s);
-  s.addNotes("Manuel. Es un roadmap y no un Gantt: detalla lo próximo y deja abierto lo lejano, porque la activación depende de lo que muestre el piloto. Hay un solo Go/No-Go grande, al terminar el piloto, y después cada línea se activa con las mismas medidas. El OKR tiene tres resultados clave, que son los objetivos específicos. La exactitud de stock no es resultado clave: su línea de base todavía no existe, sale del conteo inicial, y es una condición que tiene que estar siempre bien: un KPI permanente. La meta de 9 de cada 10 productos en tolerancia es una propuesta nuestra, a confirmar con el conteo inicial.");
+  s.addNotes("Es un roadmap y no un Gantt: detalla lo próximo y deja abierto lo lejano, porque la activación depende de lo que muestre el piloto. Hay un solo Go/No-Go grande, al terminar el piloto, y después cada línea se activa con las mismas medidas. El OKR tiene tres resultados clave, que son los objetivos específicos. La exactitud de stock no es resultado clave: su línea de base todavía no existe, sale del conteo inicial, y es una condición que tiene que estar siempre bien: un KPI permanente. La meta de 9 de cada 10 productos en tolerancia es una propuesta nuestra, a confirmar con el conteo inicial.");
 }
 
 /* 10 - Cierre */
@@ -727,7 +727,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     fontFace: B, fontSize: 15, italic: true, color: PALE, valign: "middle",
   });
   pie(s, MUTED);
-  s.addNotes("Manuel. Cerrar con la frase. Después, las preguntas. Que los recortes vengan de la mezcla y el momento es un supuesto nuestro: decirlo así. El punto de equilibrio: si el costo mensual de B dividido el costo de la hora extra da menos de unas 12 o 13 horas, se paga con la meta.");
+  s.addNotes("Cerrar con la frase. Después, las preguntas. Que los recortes vengan de la mezcla y el momento es un supuesto nuestro: decirlo así. El punto de equilibrio: si el costo mensual de B dividido el costo de la hora extra da menos de unas 12 o 13 horas, se paga con la meta.");
 }
 
 pres.writeFile({ fileName: process.argv[2] || "Dulxelitos-Parte2.pptx" }).then((f) => console.log("listo:", f));
