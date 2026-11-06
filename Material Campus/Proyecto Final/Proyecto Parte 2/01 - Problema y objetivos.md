@@ -1,20 +1,18 @@
 # Problema gerencial, objetivos y alcance
 
-Esta sección cierra dos pendientes de la Parte 1: el problema gerencial priorizado, que dijimos que íbamos a presentar por separado, y una corrección, porque al relevar el proceso para esta parte encontramos que varias cosas que afirmamos en el diagnóstico no eran del todo ciertas. Empezamos por la corrección, porque lo que sigue se apoya en la versión corregida.
+Esta sección cierra dos pendientes de la Parte 1: el problema gerencial priorizado, que dijimos que íbamos a presentar por separado, y una corrección, porque al relevar el proceso para esta parte encontramos que varias cosas del diagnóstico no eran del todo ciertas. Empezamos por la corrección, porque lo que sigue se apoya en la versión corregida.
 
 ## Lo que corrige el relevamiento
 
-Para la Parte 2 relevamos de nuevo el proceso de atender un pedido de distribuidor con nuestro compañero que trabaja en Dulxelitos. Ese relevamiento corrige tres cosas de la Parte 1. Nos pasó lo mismo que con el catálogo web que contamos en la Parte 1, pero esta vez el que se corrige es el diagnóstico nuestro.
+Para la Parte 2 relevamos de nuevo el proceso de atender un pedido de distribuidor con nuestro compañero que trabaja en Dulxelitos, y eso corrige tres cosas de la Parte 1. Nos pasó lo mismo que con el catálogo web de la Parte 1, pero esta vez lo que se corrige es el diagnóstico nuestro.
 
-**El stock de producto terminado no se registra.** En la sección 5.2 de la Parte 1 pusimos "Facturación y stock sí" como proceso digitalizado, y "Facturación, stock y cuentas corrientes en el sistema" como nivel de automatización; la sección 5.4 lo repite: "Facturación y stock están digitalizados". La facturación sí está en Discovery y eso se mantiene. El stock de producto terminado no: no se lleva ni en Discovery ni en ningún otro registro. Para saber si hay mercadería se mira a ojo en el depósito y se le pregunta a producción, que lleva su propio control, lo carga una vez por semana y no tiene relación con las ventas. El módulo de stock de Discovery está dentro de la licencia y no se usa.
+**El stock de producto terminado no se registra.** En la sección 5.2 de la Parte 1 pusimos "Facturación y stock sí" como proceso digitalizado y "Facturación, stock y cuentas corrientes en el sistema" como nivel de automatización; la 5.4 lo repite. La facturación sí está en Discovery y eso se mantiene. El stock de producto terminado no: no se lleva ni en Discovery ni en ningún otro registro. Para saber si hay mercadería se mira a ojo en el depósito y se le pregunta a producción, que lleva su propio control, lo carga una vez por semana y no se relaciona con las ventas. El módulo de stock de Discovery está dentro de la licencia y no se usa.
 
-**Los pedidos recortados no son raros, pasan todas las semanas.** En la sección 5.5 escribimos que los pedidos incompletos "son poco frecuentes y se resuelven fácil". En una semana de registro, 30 de los ~125 pedidos (25 por día durante 5 días) salieron recortados o demorados: un ~24 %, o dicho al revés, un ~76 % de pedidos completos y a tiempo. El 76 % es una cuenta nuestra sobre una sola semana, no un promedio anual. Esa semana contó pedidos recortados o demorados; si incluyó rechazados de entrada, no se registró: [dato pendiente: si la semana base incluyó rechazados de entrada].
+**Los pedidos recortados no son raros, pasan todas las semanas.** En la sección 5.5 escribimos que los pedidos incompletos "son poco frecuentes y se resuelven fácil". En una semana de registro, 30 de los ~125 pedidos (25 por día durante 5 días) salieron recortados o demorados: un ~24 %, o un ~76 % de pedidos completos y a tiempo, cuenta nuestra sobre una sola semana y no un promedio anual. Esa semana contó pedidos recortados o demorados; si incluyó rechazados de entrada, no se registró: [dato pendiente: si la semana base incluyó rechazados de entrada].
 
 **Los recortes vendrían de la mezcla y el momento más que de la capacidad total de la planta.** En la sección 2.1 atribuimos los faltantes de papas fritas a "la capacidad de planta". La planta sigue saturada y eso no se corrige: las horas extras que la tapan siguen ahí, al menos en parte. Pero los recortes semanales vendrían sobre todo de la mezcla y el momento (supuesto 1): se produce lo que no hace falta y falta lo que se pide, porque la producción la deciden el dueño o los hijos por criterio propio, sin mirar los pedidos. Es un supuesto crítico y lo vamos a medir en el piloto, no lo damos por probado.
 
-Las tres correcciones no cambian el diagnóstico de fondo, lo refuerzan. En la Parte 1 Gobierno quedó en 1.50, con la idea de que la empresa decide y controla sin instrumentos integrados, y de que el costo de no actuar "no está bajo, está sin observar". Ahora sabemos por qué no se podía cuantificar: ni el stock ni los recortes se registraban, así que no había nada que contar.
-
-Lo que sí toca son dos puntajes: los ítems de la sección 5.2 sobre automatización (Tecnología y Datos) y digitalización de los procesos clave (Procesos y Operaciones) tienen un 3 apoyado en parte en la afirmación equivocada del stock, y la sección 5.4 la repite. Con la corrección, esos dos ítems y sus dos dimensiones saldrían más bajos, pero el nivel global seguiría siendo Inicial (todo promedio de 1.0 a 1.9; el nuestro era 1.79). No volvemos a puntuar la encuesta: dejamos la Parte 1 como se entregó y marcamos cuáles son los dos ítems sobreestimados.
+Las tres correcciones no cambian el diagnóstico de fondo, lo refuerzan (el costo de no actuar "no está bajo, está sin observar": ni el stock ni los recortes se registraban). Lo que sí toca son dos puntajes de la Parte 1: automatización (sección 5.2, Tecnología y Datos) y digitalización de los procesos clave (Procesos y Operaciones) tienen un 3 apoyado en parte en la afirmación equivocada del stock, y la 5.4 la repite. Con la corrección esos dos ítems saldrían más bajos, pero el nivel global seguiría siendo Inicial (1.0 a 1.9; el nuestro era 1.79). No volvemos a puntuar la encuesta: dejamos la Parte 1 como se entregó y marcamos los dos ítems sobreestimados.
 
 ## Problema gerencial
 
@@ -22,14 +20,9 @@ Es la sección 6 de la Parte 1, que quedó pendiente. Sigue la plantilla de la C
 
 > Dulxelitos recorta o demora 30 de ~125 pedidos semanales porque los acepta sin conocer el stock de producto terminado, que no se registra, y decide la producción sin mirar las ventas. Genera faltantes y parte de las ~25 horas extras mensuales sobre una planta saturada. Éxito: pedidos completos y a tiempo del 76 % al 90 % en 6 meses.
 
-Cómo se lee, bloque por bloque:
+Dos aclaraciones sobre el bloque. La causa raíz es técnica y de organización a la vez: no hay un registro del stock de producto terminado (lo técnico), y los pedidos se aceptan y la producción se decide sin mirarse entre sí, con el criterio del dueño o de los hijos (lo social). "A tiempo" quiere decir dentro del plazo estándar de cada zona (en la Patagonia, hasta una semana), y un pedido que se rechaza o se reprograma de entrada para que el número cierre no cuenta como completo.
 
-- **Dolor:** pedidos recortados o demorados, con faltantes y horas extras que en parte se hacen para completar pedidos.
-- **Causa raíz, técnica y de organización a la vez:** no hay un registro del stock de producto terminado (lo técnico), y los pedidos se aceptan y la producción se decide sin mirarse entre sí, con el criterio del dueño o de los hijos (lo social).
-- **Magnitud:** unos 30 de ~125 pedidos por semana, y ~25 horas extras por mes.
-- **Métrica de éxito:** pedidos completos y a tiempo, del 76 % al 90 % en 6 meses. "A tiempo" quiere decir dentro del plazo estándar de cada zona (en la Patagonia, hasta una semana). Un pedido que se rechaza o se reprograma de entrada para que el número cierre no cuenta como completo.
-
-**Por qué 90 % y no 100 %.** La meta es nuestra, no un dato de la empresa. Si la mezcla y el momento de producción son la causa principal, planificar contra pedidos ataca esa causa y justifica prometer una baja real. Pero es una pyme con la planta saturada, y siempre va a haber roturas e imprevistos. Un 90 % deja un 10 % de margen (100 menos 90) y es una meta que el equipo puede sostener. Si el piloto muestra que la mezcla explica menos de lo que suponemos, la meta se revisa.
+**Por qué 90 % y no 100 %.** La meta es nuestra, no un dato de la empresa. Si la mezcla y el momento de producción son la causa principal, planificar contra pedidos ataca esa causa y justifica prometer una baja real; pero es una pyme con la planta saturada y siempre va a haber roturas e imprevistos. Un 90 % deja un 10 % de margen (100 menos 90) y es una meta que el equipo puede sostener. Si el piloto muestra que la mezcla explica menos de lo que suponemos, la meta se revisa.
 
 ## Objetivo general
 
@@ -52,7 +45,6 @@ Son tres. Cada uno tiene una métrica que la empresa puede obtener, una línea d
 - **Línea de base:** 76 % (30 recortados o demorados de ~125, en una semana de registro; cuenta nuestra).
 - **Meta:** 90 %.
 - **Plazo:** 6 meses.
-- **De dónde sale:** del registro semanal de pedidos recortados o demorados, el mismo que dio la semana base.
 
 **2. Que la producción se cargue todos los días.**
 
@@ -60,36 +52,30 @@ Son tres. Cada uno tiene una métrica que la empresa puede obtener, una línea d
 - **Línea de base:** 20 % (hoy se carga 1 vez por semana, o sea 1 de 5 días hábiles).
 - **Meta:** 100 % de los días hábiles.
 - **Plazo:** dentro de los 6 meses. La primera prueba es un piloto de 2 semanas con papas fritas (de la línea Salados), el producto que más falta.
-- **De dónde sale:** del control de producción. Es un indicador de avance: avisa antes de que falle el stock, porque sin carga diaria no hay stock en el que confiar.
 
 **3. Que bajen las horas extras.**
 
 - **Métrica:** horas extras totales por mes, de la liquidación de sueldos.
 - **Línea de base:** ~25 horas por mes.
-- **Meta:** la mitad, unas 12 o 13 horas por mes (25 dividido 2). Es un supuesto de meta nuestro, a confirmar con el dueño, y se apoya en otro: que al menos la mitad de las ~25 horas se hace para completar pedidos que faltaron por mezcla y momento de producción, que es la parte que el proyecto ataca. La parte que cubre la saturación estructural de la planta no baja. La liquidación no distingue una de otra, así que la meta puede quedar corta o larga hasta que el piloto muestre cuánto pesa cada causa.
+- **Meta:** la mitad, unas 12 o 13 horas por mes (25 dividido 2). Es un supuesto de meta nuestro, a confirmar con el dueño, y se apoya en otro: que al menos la mitad de las ~25 horas se hace para completar pedidos que faltaron por mezcla y momento de producción; la parte que cubre la saturación estructural no baja. La liquidación no distingue una de otra, así que la meta puede quedar corta o larga hasta que el piloto lo muestre.
 - **Plazo:** 6 meses.
 - **De dónde sale:** de la liquidación de sueldos, que la empresa ya tiene. Falta el costo de la hora extra para llevarlo a pesos: [dato pendiente: costo por hora extra].
 
-Hay un cuarto indicador, la **exactitud de stock**, que no es un objetivo sino la condición de los otros tres: si lo cargado no coincide con el conteo físico semanal, ninguno se sostiene. Su línea de base sale del primer conteo físico: [dato pendiente: exactitud de stock en el conteo inicial]. La meta provisional es que al menos 9 de cada 10 productos queden sin diferencia mayor a la tolerancia de la sección 7, en 6 meses (propuesta nuestra, a confirmar con ese conteo). La ficha completa de los cuatro indicadores está en la sección 8 de esta parte.
+Hay un cuarto indicador, la **exactitud de stock**, que no es un objetivo sino la condición de los otros tres: si lo cargado no coincide con el conteo físico semanal, ninguno se sostiene. Su línea de base sale del primer conteo físico: [dato pendiente: exactitud de stock en el conteo inicial]. La meta provisional es que al menos 9 de cada 10 productos queden sin diferencia mayor a la tolerancia de la sección 7, en 6 meses (propuesta nuestra, a confirmar con ese conteo). Las fichas de los cuatro indicadores están en la sección 8.
 
 ## Alcance
 
 **Proceso.** "Atender pedido de distribuidor": empieza cuando llega el pedido por WhatsApp o teléfono y termina con el pedido facturado en Discovery y despachado. Incluye además la planificación semanal de producción contra pedidos, y los indicadores con su rutina de seguimiento.
 
-**Áreas y actores.** Oficina, depósito, producción y dirección (el dueño y los hijos). El dueño es el sponsor, que aprueba el presupuesto y los Go/No-Go; el líder es el responsable de sistemas, a quien la propuesta le asigna formalmente la gobernanza que en la Parte 1 le faltaba. Los distribuidores y el transporte tercerizado no cambian su trabajo: los distribuidores siguen pidiendo por WhatsApp o teléfono y, si falta algo, se les avisa en el momento, con una fecha estimada si Producción ya la confirmó y, si no, sin fecha hasta la próxima reunión diaria. Los pedidos de Aiello, los del viajante y los de retiro en fábrica se tratan igual: entran por Oficina y se cargan con reserva como cualquier nota de pedido. Cómo llegan hoy a Oficina no lo relevamos: [dato pendiente: cómo entran hoy los pedidos de Aiello y del viajante].
+**Áreas y actores.** Oficina, depósito, producción y dirección (el dueño y los hijos). El dueño es el sponsor, que aprueba el presupuesto y los Go/No-Go; el líder es el responsable de sistemas, a quien la propuesta le asigna formalmente la gobernanza que en la Parte 1 le faltaba. Los distribuidores y el transporte tercerizado no cambian su trabajo: siguen pidiendo por WhatsApp o teléfono y, si falta algo, se les avisa en el momento, con fecha estimada si Producción ya la confirmó. Los pedidos de Aiello, del viajante y de retiro en fábrica entran por Oficina y se cargan con reserva como cualquier nota de pedido; cómo llegan hoy no lo relevamos: [dato pendiente: cómo entran hoy los pedidos de Aiello y del viajante].
 
-**Cambios de trabajo incluidos.**
-
-- Producción carga lo producido todos los días, al cierre de cada turno ([dato pendiente: cuántos turnos tiene la planta]).
-- Oficina consulta el stock y lo reserva antes de confirmar un pedido.
-- Dirección planifica la producción de la semana mirando los pedidos pendientes y un stock mínimo por producto.
-- Una reunión corta diaria entre ventas y producción (~10 minutos) y un conteo cíclico semanal.
+**Cambios de trabajo incluidos.** Producción carga lo producido todos los días, al cierre de cada turno ([dato pendiente: cuántos turnos tiene la planta]); Oficina consulta el stock y lo reserva antes de confirmar un pedido; Dirección planifica la producción de la semana mirando los pedidos pendientes y un stock mínimo por producto; y hay una reunión corta diaria entre ventas y producción (~10 minutos) y un conteo cíclico semanal.
 
 **Capacidades, datos y herramientas requeridas.**
 
-- **Capacidades:** disciplina de carga diaria, un responsable de carga por turno con suplente, y un criterio único de stock disponible.
-- **Datos:** stock físico de producto terminado por producto, reservas por pedido confirmado sin facturar, pedidos pendientes, stock mínimo y horas extras. El criterio es siempre el mismo: **stock disponible = stock físico menos lo reservado por pedidos confirmados sin facturar.**
-- **Herramientas:** Discovery, que ya tiene la empresa, para facturación y para el módulo de stock, pedidos y reserva que hoy no se usa; y una planilla compartida para el piloto de 2 semanas. Cuál va como solución y cuál como prueba se fundamenta en la sección 2 de esta parte.
+- **Capacidades:** disciplina de carga diaria, un responsable de carga por turno con suplente y un criterio único de stock disponible.
+- **Datos:** stock físico de producto terminado, reservas por pedido confirmado sin facturar, pedidos pendientes, stock mínimo y horas extras, con un solo criterio: **stock disponible = stock físico menos lo reservado por pedidos confirmados sin facturar.**
+- **Herramientas:** Discovery, que ya tiene la empresa, para facturar y para el módulo de stock, pedidos y reserva que hoy no se usa; y una planilla compartida para el piloto de 2 semanas. Cuál va como solución y cuál como prueba se fundamenta en la sección 2.
 
 ## Fuera de alcance
 
@@ -102,4 +88,4 @@ Dejamos afuera lo que no es necesario para el problema, y decimos por qué.
 - **CRM.** Es un problema real de la Parte 1 (Clientes y Canales), pero no es este.
 - **Costeo y listas de precios.** Tampoco se tocan en esta propuesta.
 
-**Se queda manual a propósito.** No todo conviene digitalizarlo ahora. El armado del pedido en el depósito se queda como está: según el relevamiento es rápido y no se mide, así que no es la restricción. El conteo físico sigue siendo a mano. Y la decisión de qué producir sigue siendo del dueño y de los hijos: lo que cambia es que la toman mirando pedidos y stock, no que se automatice. Digitalizar sin rediseñar no mejora el tiempo de ciclo.
+**Se queda manual a propósito.** No todo conviene digitalizarlo ahora. El armado del pedido en el depósito se queda como está: según el relevamiento es rápido y no se mide, así que no es la restricción. El conteo físico sigue siendo a mano. Y la decisión de qué producir sigue siendo del dueño y de los hijos, que ahora la toman mirando pedidos y stock. Digitalizar sin rediseñar no mejora el tiempo de ciclo.

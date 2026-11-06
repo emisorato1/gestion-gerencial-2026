@@ -1,6 +1,6 @@
 # Validación de supuestos
 
-Esta sección dice qué hay que aprender antes de invertir, cómo aprenderlo barato y qué resultado hace avanzar o frenar, a partir de los nueve supuestos de la sección 4. **Antes de gastar en el stock de Discovery hacemos dos pruebas baratas:** un piloto de 2 semanas con papas fritas en una planilla compartida y una prueba técnica de Discovery sobre un solo producto. Lo primero que hay que probar es el supuesto 1, que los recortes vendrían de la mezcla y el momento: una hipótesis razonada, no un dato. Los umbrales de decisión son propuesta nuestra y el dueño los acuerda antes de arrancar; lo que el piloto no puede probar queda para el Go/No-Go posterior a la activación (sección 8).
+Esta sección dice qué hay que aprender antes de invertir, cómo aprenderlo barato y qué resultado hace avanzar o frenar, a partir de los nueve supuestos de la sección 4. **Antes de gastar en el stock de Discovery hacemos dos pruebas baratas:** un piloto de 2 semanas con papas fritas en una planilla compartida y una prueba técnica de Discovery sobre un solo producto. Lo primero que hay que probar es el supuesto 1, que los recortes vendrían de la mezcla y el momento: una hipótesis razonada, no un dato. Los umbrales de decisión son propuesta nuestra y el dueño los acuerda antes de arrancar.
 
 ## Supuestos críticos
 
@@ -20,45 +20,43 @@ Son los nueve de la sección 4, con su número. **Probabilidad** es la de que el
 | 8 | El ahorro en horas extras y reprogramaciones justifica el costo de implementar y sostener el cambio | Viabilidad · Negocio | Media | Alto | El punto de equilibrio pide evitar más horas extras que las ~25 de hoy |
 | 9 | La semana de registro (30 recortados o demorados de ~125) es representativa | Viabilidad · Problema | Media | Medio | El total semanal de la semana 0 o del piloto se aleja del registrado |
 
-El 2 es alta porque hoy producción carga 1 de cada 5 días (20 %) y esperamos resistencia. El 6 es baja porque el distribuidor ya recibe avisos y pedidos incompletos sin quejarse.
+El 2 es alta porque hoy producción carga 1 de cada 5 días (20 %) y esperamos resistencia; el 6 es baja porque el distribuidor ya recibe avisos y pedidos incompletos sin quejarse.
 
 ### Cómo se valida cada uno
 
-| # | Mecanismo de validación ágil | Qué se anota | Se contesta en |
-|---|---|---|---|
-| 1 | Anotar la causa de cada recorte de papas fritas en la semana 0 y ver si bajan al planificar contra pedidos | Mezcla y momento, capacidad u otra | Semana 0 y piloto |
-| 2 | Contar los días con carga y las diferencias de conteo | Los días en que la planilla falló y se confirmó como hoy | Piloto |
-| 3 | Probar un producto de punta a punta y consultar por escrito a Buenos Aires Software | Cada paso y las respuestas del proveedor | Prueba técnica |
-| 4 | Producción confirma la fecha en la reunión diaria | Cada aviso con su fecha y si se cumplió | Piloto |
-| 5 | Pedirle al dueño y a los hijos que fijen el stock mínimo | Si la reunión cambió lo que se produjo de papas fritas | Piloto, señal inicial |
-| 6 | Observar cómo reacciona el distribuidor a cada aviso | Acepta, espera, cancela o reclama | Piloto |
-| 7 | Registrar el motivo de cada hora extra | Completar un pedido que faltó, saturación u otro | Piloto como señal; después, la liquidación de sueldos |
-| 8 | Completar el punto de equilibrio de la sección 4 | El tiempo de carga, reserva y reunión (costo en horas) | Datos de costo y consulta al proveedor |
-| 9 | Repetir el registro semanal de todos los productos, con el mismo criterio | El total de la semana | Semana 0 y piloto |
+| # | Mecanismo de validación ágil y qué se anota | Se contesta en |
+|---|---|---|
+| 1 | Anotar la causa de cada recorte de papas fritas en la semana 0 (mezcla y momento, capacidad u otra) y ver si bajan al planificar contra pedidos | Semana 0 y piloto |
+| 2 | Contar los días con carga y las diferencias de conteo, y anotar los días en que la planilla falló y se confirmó como hoy | Piloto |
+| 3 | Probar un producto de punta a punta, anotando cada paso, y consultar por escrito a Buenos Aires Software | Prueba técnica |
+| 4 | Producción confirma la fecha en la reunión diaria; se anota cada aviso con su fecha y si se cumplió | Piloto |
+| 5 | Pedirle al dueño y a los hijos que fijen el stock mínimo y anotar si la reunión cambió lo que se produjo de papas fritas | Piloto, señal inicial |
+| 6 | Observar cómo reacciona el distribuidor a cada aviso (acepta, espera, cancela o reclama) | Piloto |
+| 7 | Registrar el motivo de cada hora extra (completar un pedido que faltó, saturación u otro) | Piloto como señal; después, la liquidación de sueldos |
+| 8 | Completar el punto de equilibrio de la sección 4 con el tiempo de carga, reserva y reunión (costo en horas) | Datos de costo y consulta al proveedor |
+| 9 | Repetir el registro semanal de todos los productos, con el mismo criterio, y anotar el total de la semana | Semana 0 y piloto |
 
 El piloto contesta, al menos en parte, siete de los nueve. El 3 tiene su prueba técnica y el 8 depende de dos datos que faltan: [dato pendiente: costo mensual de la alternativa B] y [dato pendiente: costo por hora extra]. Van primero los de impacto alto y probabilidad media o alta (1, 2, 4, 5 y 8).
 
 ## Piloto
 
-Según la Clase 7, un MVP no es una versión beta ni una versión light del producto final sino el experimento mínimo necesario para validar una hipótesis, y el nuestro es **funcional** (funciona, en pequeño). Tiene espíritu de pretotipo (construir lo correcto antes de construirlo bien, Savoia), y la prueba técnica de Discovery cumple el papel del prototipo; van en paralelo.
+Según la Clase 7, un MVP no es una versión beta ni una versión light del producto final sino el experimento mínimo necesario para validar una hipótesis; el nuestro es **funcional** (funciona, en pequeño). Tiene espíritu de pretotipo (construir lo correcto antes de construirlo bien, Savoia), y la prueba técnica de Discovery cumple el papel del prototipo: van en paralelo.
 
 ### Hipótesis en una hoja
 
-Plantilla de la Clase 7, que formula la hipótesis del piloto con los umbrales de "Qué se mide".
+Plantilla de la Clase 7. Los umbrales están en "Qué se mide" y la rutina, en "Cómo se corre".
 
 | Elemento | Contenido |
 |---|---|
-| **Problema** | Dulxelitos recorta o demora unos 30 de ~125 pedidos por semana, de cualquier producto, porque confirma sin saber qué hay y produce sin mirar los pedidos. Las papas fritas son lo que más falta |
-| **Hipótesis de solución** | Creemos que una planilla compartida con el stock de papas fritas, la carga diaria de lo producido, la reserva por pedido confirmado y una reunión diaria de ~10 minutos resolverá los recortes y demoras de papas fritas para oficina, producción y quienes deciden qué producir, y sabremos que funciona cuando se cumplan los cuatro umbrales de "Qué se mide": carga en 8 de los 10 días hábiles, recortes a la mitad o menos que en la semana 0, conteos dentro de la tolerancia y fechas cumplidas |
-| **Tipo de MVP** | Funcional |
-| **Experimento mínimo** | Dos semanas con papas fritas solamente y la rutina de "Cómo se corre". Los demás productos siguen como hoy |
+| **Problema** | Unos 30 de ~125 pedidos por semana salen recortados o demorados porque se confirma sin saber qué hay y se produce sin mirar los pedidos (sección 1) |
+| **Hipótesis de solución** | Creemos que una planilla compartida con el stock de papas fritas, la carga diaria, la reserva por pedido confirmado y una reunión diaria de ~10 minutos resolverá los recortes y demoras de papas fritas, y sabremos que funciona cuando se cumplan los cuatro umbrales de "Qué se mide" |
+| **Tipo de MVP y experimento mínimo** | Funcional: dos semanas con papas fritas solamente; los demás productos siguen como hoy |
 | **Etapa de validación** | **Producto**: ¿podemos entregar una solución que se use? Toca también **Problema** (¿la causa es la que creemos?) y, en parte, **Solución** (¿el distribuidor ve valor en un aviso con fecha?). No toca **Negocio**: espera a los datos de costo y a la activación |
 
 ### Cómo se corre
 
 - **Cuándo y qué.** Una semana 0 para medir la línea de base y después 2 semanas (10 días hábiles), solo con papas fritas, el producto que más falta según el relevamiento. Un solo producto protege la operación y alcanza para aprender. Puede empezar cuando se quiera, con el conteo inicial hecho el fin de semana anterior.
-- **La regla.** Stock disponible es el stock físico menos lo reservado por pedidos confirmados sin facturar, la misma que se usaría en Discovery.
-- **La rutina.** Producción carga lo producido al cierre de turno, con un responsable y un suplente. Oficina consulta y reserva antes de confirmar un pedido con papas fritas; si no alcanza, avisa con una fecha que producción confirmó. Al facturar se baja el físico y se descuenta la reserva, a mano porque la planilla no habla con Discovery. Hay un conteo físico al arrancar y uno por semana, y una reunión diaria de ~10 minutos entre ventas y producción para mirar el disponible, los pedidos y los avisos, y decidir qué producir.
+- **La rutina.** Con la regla de stock disponible de la sección 3, la misma que se usaría en Discovery: Producción carga lo producido al cierre de turno, con un responsable y un suplente; Oficina consulta y reserva antes de confirmar un pedido con papas fritas y, si no alcanza, avisa con una fecha que producción confirmó. Al facturar se baja el físico y se descuenta la reserva, a mano porque la planilla no habla con Discovery. Hay un conteo físico al arrancar y uno por semana, y una reunión diaria de ~10 minutos entre ventas y producción para mirar el disponible, los pedidos y los avisos, y decidir qué producir.
 - **Vuelta atrás.** Si un día la planilla no está al día, oficina confirma como hoy, a ojo y preguntando a producción, y se anota el día. El piloto se corta cuando se quiera: no toca Discovery ni el armado de pedidos.
 - **Quién.** El dueño, como sponsor, acuerda los umbrales y respalda el arranque. El responsable de sistemas, como líder, arma la planilla y junta las medidas. Producción carga; oficina reserva y avisa. Conteo físico: [dato pendiente: responsable del conteo inicial y del semanal].
 
@@ -82,14 +80,14 @@ Es la prueba del supuesto 3: nuestro compañero que trabaja en la empresa sabe q
 | Paso | Qué se verifica | Resultado esperado |
 |---|---|---|
 | 1. Ingreso de stock | Cargar el stock inicial | Queda registrado el stock físico |
-| 2. Pedido y reserva | Cargar una nota de pedido y reservar | La reserva aparece contra el pedido |
+| 2. Pedido y reserva | Cargar una nota de pedido y reservar; con otro pedido mayor al stock, reservar solo la parte que hay y dejar el resto pendiente | La reserva aparece contra el pedido, y el proveedor confirma cómo se anota el resto pendiente |
 | 3. Disponible | Consultar cuánto hay | Es el stock físico menos lo reservado, como en la planilla |
 | 4. Factura | Facturar el pedido | La factura baja el stock físico y consume la reserva |
 | 5. Corrección | Anular o modificar el pedido | La reserva se libera |
 
-Por escrito se le pregunta a Buenos Aires Software qué versión es y qué soporte incluye ([dato pendiente: versión de Discovery y soporte incluido]), cuánto cuesta activar y capacitar ([dato pendiente: costo de activar el módulo de stock, si el proveedor cobra soporte o capacitación]), en cuánto tiempo ([dato pendiente: plazo de activación del módulo]) y si hay ambiente de prueba, que importa por el paso 4: una factura de prueba en el sistema real puede quedar como una factura verdadera. Sin ambiente de prueba, ese paso se verifica con el primer pedido real de la activación.
+Por escrito se le pregunta a Buenos Aires Software qué versión es y qué soporte incluye ([dato pendiente: versión de Discovery y soporte incluido]), cuánto cuesta activar y capacitar ([dato pendiente: costo de activar el módulo de stock, si el proveedor cobra soporte o capacitación]), en cuánto tiempo ([dato pendiente: plazo de activación del módulo]) y si hay ambiente de prueba, que importa por el paso 4: una factura de prueba en el sistema real puede quedar como una factura verdadera.
 
-**La prueba pasa** si los cinco pasos funcionan. Si algo falla, se pregunta al proveedor si se configura y cuánto cuesta; si no se puede, se sigue con la alternativa A.
+**La prueba pasa** si funcionan los pasos que se pueden probar. Sin ambiente de prueba, el paso 4 (la factura) queda para el primer pedido real de la activación y no bloquea el Go. Si algo falla, se pregunta al proveedor si se configura y cuánto cuesta; si no se puede, se sigue con la alternativa A.
 
 ## Criterio de decisión
 
@@ -97,7 +95,7 @@ Las reglas se acuerdan con el dueño **antes de arrancar**: él decide el Go/No-
 
 | Qué pasó | Qué significa | Decisión |
 |---|---|---|
-| Se cumplen los cuatro umbrales (incluido que los rechazados no suban) y la prueba técnica pasa | Rutina sostenida, mezcla como causa y módulo que funciona | **Go.** Activar Discovery por línea de producto, con la misma rutina, si además el punto de equilibrio de la sección 4 cierra con los datos de costo |
+| Se cumplen los cuatro umbrales (incluido que los rechazados no suban) y la prueba técnica pasa (con el paso de la factura pendiente si no hay ambiente de prueba) | Rutina sostenida, mezcla como causa y módulo que funciona | **Go.** Activar Discovery por línea de producto, con la misma rutina, si además el punto de equilibrio de la sección 4 cierra con los datos de costo |
 | Se cumplen la carga y los recortes, pero fallan el conteo o la fecha | La rutina anda; el dato o la promesa necesitan ajuste | **Go con ajustes.** Corregir capacitación, responsable o regla de fecha y repetir una sola vez |
 | La carga no llega a 8 de los 10 días | La rutina no se sostiene | **No-Go.** B no se gasta: una herramienta mejor no arregla un problema de disciplina. Se revisan capacitación, carga de trabajo, incentivos y reglas, no el compromiso de la gente (sección 5) |
 | La carga anda, los recortes no bajan a la mitad y las causas anotadas son sobre todo de capacidad | El supuesto 1 cae | **No-Go** de B para este problema; se revisa la meta de la sección 1, porque lo que queda es un problema de planta, fuera de alcance. Si hubo pocos recortes para concluir, se repite una sola vez |
@@ -108,11 +106,6 @@ Las reglas se acuerdan con el dueño **antes de arrancar**: él decide el Go/No-
 
 ### Qué valida el piloto y qué queda para después de activar
 
-Dos semanas con un producto dan una señal, no una demostración. El piloto valida la factibilidad y la deseabilidad de la rutina (supuesto 2, con una primera lectura de los 4, 5 y 6) y si la causa de los recortes de papas fritas es la mezcla y el momento (supuesto 1). No valida lo siguiente, que se mira en el Go/No-Go de la sección 8 con las mismas medidas sobre más productos y más tiempo:
-
-- **El efecto en todo el catálogo.** Cada línea que se suma se activa con las medidas del piloto antes de pasar a la siguiente; el registro semanal sigue acumulando semanas para saber si los 30 de ~125 eran típicos (supuesto 9) y si los pedidos completos y a tiempo llegan del 76 % a la meta de la sección 1 en 6 meses (supuesto 1).
-- **La baja de las horas extras a la mitad**, con la liquidación de sueldos de varios meses (supuesto 7). En 2 semanas hay pocas horas.
-- **La carga sostenida y la exactitud de stock**: el riesgo mayor aparece cuando ya es rutina y nadie nota que se dejó de cargar (sección 5).
-- **El retorno**, con los costos reales: se completa el punto de equilibrio y el dueño decide si es aceptable (supuesto 8).
+Dos semanas con un producto dan una señal, no una demostración. El piloto valida la factibilidad y la deseabilidad de la rutina (supuesto 2, con una primera lectura de los 4, 5 y 6) y si la causa de los recortes de papas fritas es la mezcla y el momento (supuesto 1). Con las mismas medidas sobre más productos y más tiempo, el Go/No-Go de la sección 8 mira lo que el piloto no puede: el efecto en todo el catálogo (supuestos 1 y 9), la baja de las horas extras (supuesto 7), la carga y la exactitud sostenidas cuando ya son rutina y el retorno con los costos reales (supuesto 8).
 
 **Fuentes:** secciones 2, 4 y 5 de esta parte; relevamiento del proceso; Clase 7 (etapas de Rogers, MVP, pretotipo de Savoia, hipótesis en una hoja). Probabilidades, impactos y umbrales son supuestos declarados, no datos.
