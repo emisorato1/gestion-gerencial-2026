@@ -561,17 +561,21 @@ with io.open(tmp_html, "w", encoding="utf-8") as fh:
     fh.write(md_html)
 print("%s.md  (%d lineas, ~%d palabras)" % (NOMBRE, md.count("\n") + 1, len(md.split())))
 
+# Paleta de la presentacion (armar-presentacion.js): el informe usa los mismos acentos.
+# Oscuro 1B2B34 para titulos y texto destacado, naranja C8791E como acento (filete de
+# capitulo, banda de la caratula, citas), tinta neutra EFEADC en el encabezado de las
+# tablas, gris 55636B y 8FA3AB para lo secundario, azul 1E5C85 para los enlaces.
 CSS = """
 @page {
   size: A4; margin: 2.6cm 2.2cm 2.2cm;
   @top-center {
     content: "Integrantes: @@INT@@\\A @@TIT@@\\A @@SUB@@";
     white-space: pre; font-family: Arial, Helvetica, sans-serif; font-size: 8pt;
-    line-height: 1.3; text-align: center; color: #000;
+    line-height: 1.3; text-align: center; color: #55636B;
   }
   @bottom-center {
     content: counter(page); font-family: Arial, Helvetica, sans-serif;
-    font-size: 8pt; color: #000;
+    font-size: 8pt; color: #55636B;
   }
 }
 /* la caratula no lleva encabezado ni numero */
@@ -585,34 +589,42 @@ body { font-family: Arial, Helvetica, sans-serif; font-size: 11pt;
 p { margin: 0 0 .7em; text-align: justify; overflow-wrap: break-word; }
 
 /* titulos de capitulo centrados y en hoja nueva; los de punto y subpunto, a la izquierda */
-h1 { font-size: 14pt; font-weight: bold; text-align: center; margin: 0 0 .9em;
-     page-break-before: always; page-break-after: avoid; }
-h2 { font-size: 11pt; font-weight: bold; margin: 1.1em 0 .4em; page-break-after: avoid; }
-h3 { font-size: 11pt; font-weight: bold; margin: 1em 0 .35em; page-break-after: avoid; }
+h1 { font-size: 14pt; font-weight: bold; text-align: center; margin: 0 0 1.1em;
+     page-break-before: always; page-break-after: avoid; color: #1B2B34; }
+h1::after { content: ""; display: block; width: 1.6cm; margin: .35em auto 0;
+     border-bottom: 2pt solid #C8791E; }
+h2 { font-size: 11pt; font-weight: bold; margin: 1.1em 0 .4em; page-break-after: avoid;
+     color: #1B2B34; }
+h3 { font-size: 11pt; font-weight: bold; margin: 1em 0 .35em; page-break-after: avoid;
+     color: #1B2B34; }
 h4 { font-size: 11pt; font-weight: bold; font-style: italic; margin: .9em 0 .3em;
-     page-break-after: avoid; }
+     page-break-after: avoid; color: #55636B; }
+a { color: #1E5C85; text-decoration: none; }
 
 table { border-collapse: collapse; margin: .9em auto; font-size: 8.5pt;
   line-height: 1.3; width: 100%; table-layout: fixed; }
 table.ancha { font-size: 7.5pt; line-height: 1.25; }
 tr { page-break-inside: avoid; }
 thead { display: table-header-group; }
-th, td { border: 1px solid #000; padding: 3px 5px; text-align: left; vertical-align: top;
+th, td { border: .75pt solid #8FA3AB; padding: 3px 5px; text-align: left; vertical-align: top;
   overflow-wrap: anywhere; word-break: normal; hyphens: manual; }
 table.ancha th, table.ancha td { padding: 2px 3px; }
-th { font-weight: bold; background: #f4f6f8; }
+th { font-weight: bold; background: #EFEADC; color: #1B2B34;
+  border-bottom: 1.2pt solid #1B2B34; }
 td p, th p { margin: 0 0 .3em; text-align: left; }
 ul, ol { margin: 0 0 .7em 1.4em; padding: 0; }
 li { margin-bottom: .2em; text-align: justify; }
 hr { display: none; }
 .pb { page-break-after: always; }
 code { font-family: Consolas, Menlo, monospace; font-size: 9.5pt; }
-blockquote { margin: .7em 0 .7em 1.2em; padding-left: .8em; border-left: 2px solid #999; }
+blockquote { margin: .7em 0 .7em 1.2em; padding-left: .8em; border-left: 2pt solid #C8791E;
+  color: #1B2B34; }
 
 /* ------------------------------ imagenes ------------------------------- */
 figure { margin: .8em 0; text-align: center; }
 figure img { max-width: 100%; max-height: 13cm; width: auto; height: auto; }
-figcaption { font-size: 9pt; font-style: italic; margin-top: .3em; text-align: center; }
+figcaption { font-size: 9pt; font-style: italic; margin-top: .3em; text-align: center;
+  color: #55636B; }
 .bpmn { page: apaisada; }
 .bpmn h2, .bpmn h3 { margin-top: 0; }
 .bpmn figure { margin: .4em 0 0; }
@@ -622,24 +634,26 @@ figcaption { font-size: 9pt; font-style: italic; margin-top: .3em; text-align: c
 .portada { padding: 0 2.2cm; height: 100%; position: relative; }
 .portada::before {
   content: ""; display: block; height: 3.2cm; margin: 0 0 0 -2.2cm; width: calc(100% + 4.4cm);
-  background: linear-gradient(105deg, #f4f6f8 62%, #e8edf1 62%);
-  border-bottom: 1px solid #cfd6dc;
+  background: #1B2B34; border-bottom: 5pt solid #C8791E;
 }
 .portada p { text-align: right; margin: 0; }
-.p-titulo { font-size: 24pt; color: #17495c; line-height: 1.25; margin-top: 11cm !important; }
-.p-sub { font-size: 16pt; color: #5a6b74; margin-top: .25em !important; }
-.p-materia { font-size: 13pt; color: #5a6b74; margin-top: .6em !important; }
+.p-titulo { font-size: 24pt; color: #1B2B34; font-weight: bold; line-height: 1.25; margin-top: 11cm !important; }
+.p-sub { font-size: 16pt; color: #55636B; margin-top: .25em !important; }
+.p-materia { font-size: 13pt; color: #C8791E; font-weight: bold; margin-top: .6em !important; }
 .p-carrera { font-size: 11pt; font-weight: bold; margin-top: 1.6em !important; }
 .p-equipo { font-size: 10.5pt; margin-top: 4cm !important; }
 .p-docente { font-size: 10.5pt; margin-top: .5em !important; }
 
 /* -------------------------------- indice -------------------------------- */
-#TOC h2 { font-size: 14pt; font-weight: bold; text-align: center; margin: 0 0 1em; }
+#TOC h2 { font-size: 14pt; font-weight: bold; text-align: center; margin: 0 0 1em;
+  color: #1B2B34; }
 #TOC ul { list-style: none; padding-left: 0; margin: 0; }
 #TOC ul ul { padding-left: 1.2em; }
 #TOC li { margin: .3em 0; text-align: left; }
-#TOC a { text-decoration: none; color: #17495c; }
-#TOC a::after { content: " " leader(".") " " target-counter(attr(href url), page); color: #000; }
+#TOC a { text-decoration: none; color: #1B2B34; }
+#TOC > ul > li > a { font-weight: bold; }
+#TOC a::after { content: " " leader(".") " " target-counter(attr(href url), page);
+  color: #55636B; font-weight: normal; }
 """
 
 # -------------------------------------------------------------- herramientas
@@ -667,7 +681,7 @@ def corre(cmd, que, entregable=True):
     return False
 
 
-LINEA = '<w:%s w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
+LINEA = '<w:%s w:val="single" w:sz="4" w:space="0" w:color="8FA3AB"/>'
 BORDES_TABLA = ("<w:tblBorders>" + "".join(
     LINEA % lado for lado in ("top", "left", "bottom", "right", "insideH", "insideV"))
     + "</w:tblBorders>")
@@ -678,15 +692,15 @@ ESTILOS_EXTRA = """
 <w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/>
  <w:next w:val="BodyText"/><w:uiPriority w:val="10"/><w:qFormat/>
  <w:pPr><w:spacing w:before="4400" w:after="80" w:line="240" w:lineRule="auto"/><w:jc w:val="right"/></w:pPr>
- <w:rPr><w:color w:val="17495C"/><w:sz w:val="48"/><w:szCs w:val="48"/></w:rPr></w:style>
+ <w:rPr><w:b/><w:bCs/><w:color w:val="1B2B34"/><w:sz w:val="48"/><w:szCs w:val="48"/></w:rPr></w:style>
 <w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/>
  <w:next w:val="BodyText"/><w:uiPriority w:val="11"/><w:qFormat/>
  <w:pPr><w:spacing w:before="0" w:after="120" w:line="240" w:lineRule="auto"/><w:jc w:val="right"/></w:pPr>
- <w:rPr><w:color w:val="5A6B74"/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr></w:style>
+ <w:rPr><w:color w:val="55636B"/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr></w:style>
 <w:style w:type="paragraph" w:customStyle="1" w:styleId="PortadaMateria"><w:name w:val="Portada Materia"/>
  <w:basedOn w:val="Normal"/><w:qFormat/>
  <w:pPr><w:spacing w:before="120" w:after="0"/><w:jc w:val="right"/></w:pPr>
- <w:rPr><w:color w:val="5A6B74"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr></w:style>
+ <w:rPr><w:b/><w:bCs/><w:color w:val="C8791E"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr></w:style>
 <w:style w:type="paragraph" w:customStyle="1" w:styleId="PortadaCarrera"><w:name w:val="Portada Carrera"/>
  <w:basedOn w:val="Normal"/><w:qFormat/>
  <w:pPr><w:spacing w:before="360" w:after="0"/><w:jc w:val="right"/></w:pPr>
@@ -740,10 +754,12 @@ def plantilla_word(destino):
                 # cuerpo en 11 pt, como el pdf
                 x = x.replace('<w:sz w:val="24" />', '<w:sz w:val="22" />', 1)
                 x = x.replace('<w:szCs w:val="24" />', '<w:szCs w:val="22" />', 1)
-                # titulos en azul oscuro, como en un informe academico
-                x = x.replace('<w:color w:val="365F91"', '<w:color w:val="1F3864"')
-                x = x.replace('<w:color w:val="4F81BD"', '<w:color w:val="1F3864"')
-                x = x.replace('<w:color w:val="0F4761"', '<w:color w:val="1F3864"')
+                # colores de la presentacion: enlaces en azul 1E5C85, titulos en el
+                # oscuro 1B2B34. Se saca el themeColor, que en Word le gana al val.
+                x = re.sub(r'(<w:style [^>]*w:styleId="Hyperlink">.*?)<w:color [^>]*/>',
+                           r'\1<w:color w:val="1E5C85"/>', x, count=1, flags=re.S)
+                x = re.sub(r'<w:color w:val="(?:365F91|4F81BD|0F4761)"[^>]*/>',
+                           '<w:color w:val="1B2B34"/>', x)
                 # idioma espanol, para que el corrector de Word no marque todo
                 x = re.sub(r'<w:lang w:val="[^"]*"', '<w:lang w:val="es-AR"', x)
                 # cada capitulo (Titulo 1) arranca en hoja nueva
@@ -764,6 +780,13 @@ def plantilla_word(destino):
                            estilo_tabla, x, count=1, flags=re.S)
                 x = x.replace('<w:tblStylePr w:type="firstRow">',
                               '<w:tblStylePr w:type="firstRow"><w:rPr><w:b/><w:bCs/></w:rPr>', 1)
+                # encabezado de tabla: tinta neutra y filete oscuro debajo (orden del
+                # esquema dentro de tcPr: tcBorders, shd, ..., vAlign)
+                x = re.sub(r'(<w:tblStylePr w:type="firstRow">.*?<w:tcBorders>)\s*<w:bottom w:val="single"\s*/>'
+                           r'(\s*</w:tcBorders>)',
+                           r'\1<w:bottom w:val="single" w:sz="8" w:space="0" w:color="1B2B34"/>\2'
+                           r'<w:shd w:val="clear" w:color="auto" w:fill="EFEADC"/>',
+                           x, count=1, flags=re.S)
                 x = x.replace("</w:styles>", ESTILOS_EXTRA + "</w:styles>")
                 datos = x.encode("utf-8")
             elif item.filename == "word/document.xml":

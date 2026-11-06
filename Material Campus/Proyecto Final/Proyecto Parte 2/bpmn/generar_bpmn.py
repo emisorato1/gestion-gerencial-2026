@@ -94,11 +94,23 @@ EVENTOS = ("inicio", "inicio_mensaje", "fin", "evento_tiempo", "evento_mensaje")
 PUEDEN_ENVIAR = ("tarea", "tarea_usuario", "evento_mensaje", "fin")
 PUEDEN_RECIBIR = ("tarea", "tarea_usuario", "inicio_mensaje", "evento_mensaje")
 
-NEGRO = "#1b1b1b"
-GRIS_BANDA = "#e9ecef"
-GRIS_LANE = "#f6f7f8"
-ANOT_FONDO = "#fff8e1"
-ANOT_BORDE = "#b45309"
+# Paleta de la presentacion (armar-presentacion.js). Solo afecta al SVG y al PNG:
+# el .bpmn queda sin colores. Uso: oscuro = texto, bordes y flujo; verde = inicio;
+# naranja = anotaciones (lo que se senala); azul = datos; gris = mensajes y
+# asociaciones; las bandas de pool en oscuro y las de lane en tinta neutra.
+NEGRO = "#1B2B34"          # DARK: texto, bordes, flujos de secuencia
+CREMA = "#F7F4EC"          # CREAM: texto sobre la banda del pool
+GRIS = "#55636B"           # GREY: flujos de mensaje y asociaciones
+LINEA_LANE = "#8FA3AB"     # MUTED: separacion entre lanes
+GRIS_BANDA = "#EFEADC"     # T_NEUTRAL: pools colapsados y bandas de lane
+COMPUERTA_FONDO = "#EFEADC"
+VERDE = "#2F6B5E"          # GREEN: eventos de inicio
+VERDE_FONDO = "#DCEAE3"    # T_GREEN
+AZUL = "#1E5C85"           # BLUE: objetos de datos y asociaciones de datos
+AZUL_FONDO = "#DDE8EF"     # T_BLUE
+ANOT_FONDO = "#F6EBD8"     # T_ORANGE
+ANOT_BORDE = "#C8791E"     # ORANGE
+FUENTE_SVG = "Arial, Helvetica, sans-serif"
 
 
 # --- texto: medir y envolver ----------------------------------------------------
@@ -721,7 +733,7 @@ def _texto_svg(x, y_top, lineas, fuente, ancla="middle", inter=None, peso=None, 
     return "".join(out)
 
 
-def _flecha(p, q, hueca=False, abierta=False):
+def _flecha(p, q, hueca=False, abierta=False, color=NEGRO):
     """Punta de flecha en q, viniendo de p."""
     ang = math.atan2(q[1] - p[1], q[0] - p[0])
     largo, medio = 10.0, 4.5
@@ -730,14 +742,14 @@ def _flecha(p, q, hueca=False, abierta=False):
     pts = "%s,%s %s,%s %s,%s" % (_f(q[0]), _f(q[1]), _f(bx + ix), _f(by + iy), _f(bx - ix), _f(by - iy))
     if abierta:
         return ('<polyline points="%s,%s %s,%s %s,%s" fill="none" stroke="%s" stroke-width="1.4"/>'
-                % (_f(bx + ix), _f(by + iy), _f(q[0]), _f(q[1]), _f(bx - ix), _f(by - iy), NEGRO))
-    return '<polygon points="%s" fill="%s" stroke="%s" stroke-width="1.4"/>' % (
-        pts, "#fff" if hueca else NEGRO, NEGRO)
+                % (_f(bx + ix), _f(by + iy), _f(q[0]), _f(q[1]), _f(bx - ix), _f(by - iy), color))
+    return '<polygon points="%s" fill="%s" stroke="%s" stroke-width="1.4" stroke-linejoin="round"/>' % (
+        pts, "#fff" if hueca else color, color)
 
 
-def _linea(pts, extra=""):
-    return '<polyline points="%s" fill="none" stroke="%s" stroke-width="1.6"%s/>' % (
-        " ".join("%s,%s" % (_f(x), _f(y)) for x, y in pts), NEGRO, extra)
+def _linea(pts, extra="", color=NEGRO):
+    return '<polyline points="%s" fill="none" stroke="%s" stroke-width="1.6" stroke-linejoin="round"%s/>' % (
+        " ".join("%s,%s" % (_f(x), _f(y)) for x, y in pts), color, extra)
 
 
 def _sobre(cx, cy, ancho=14, alto=10, relleno="none", color=NEGRO):
@@ -748,17 +760,17 @@ def _sobre(cx, cy, ancho=14, alto=10, relleno="none", color=NEGRO):
                _f(x + ancho), _f(y), color))
 
 
-def _reloj(cx, cy, r=9):
-    out = ['<circle cx="%s" cy="%s" r="%s" fill="none" stroke="%s" stroke-width="1.3"/>'
-           % (_f(cx), _f(cy), r, NEGRO)]
+def _reloj(cx, cy, r=9, color=NEGRO):
+    out = ['<circle cx="%s" cy="%s" r="%s" fill="#fff" stroke="%s" stroke-width="1.3"/>'
+           % (_f(cx), _f(cy), r, color)]
     for k in range(12):
         a = math.radians(k * 30)
         l = 2.2 if k % 3 == 0 else 1.2
         out.append('<line x1="%s" y1="%s" x2="%s" y2="%s" stroke="%s" stroke-width="0.9"/>' % (
             _f(cx + (r - l) * math.sin(a)), _f(cy - (r - l) * math.cos(a)),
-            _f(cx + r * math.sin(a)), _f(cy - r * math.cos(a)), NEGRO))
+            _f(cx + r * math.sin(a)), _f(cy - r * math.cos(a)), color))
     out.append('<polyline points="%s,%s %s,%s %s,%s" fill="none" stroke="%s" stroke-width="1.3"/>' % (
-        _f(cx + 3.5), _f(cy - 3.5), _f(cx), _f(cy), _f(cx), _f(cy - 6.5), NEGRO))
+        _f(cx + 3.5), _f(cy - 3.5), _f(cx), _f(cy), _f(cx), _f(cy - 6.5), color))
     return "".join(out)
 
 
@@ -768,19 +780,20 @@ def dibujar_nodo(n):
     s = []
     if t in TAREAS:
         s.append('<rect x="%s" y="%s" width="%s" height="%s" rx="10" fill="#fff" stroke="%s" '
-                 'stroke-width="1.8"/>' % (_f(x0), _f(y0), w, h, NEGRO))
+                 'stroke-width="1.7"/>' % (_f(x0), _f(y0), w, h, NEGRO))
         lineas = envolver(n.get("texto"), w - 14, FUENTE)
         top = cy - len(lineas) * INTERLINEA / 2.0 + (4 if t == "tarea_usuario" else 0)
         s.append(_texto_svg(cx, top, lineas, FUENTE))
         if t == "tarea_usuario":      # figura de persona, arriba a la izquierda
             hx, hy = x0 + 12, y0 + 9
-            s.append('<circle cx="%s" cy="%s" r="3.2" fill="#fff" stroke="%s" stroke-width="1.1"/>'
-                     '<path d="M %s %s v -2 q 0 -4.5 5.5 -4.5 q 5.5 0 5.5 4.5 v 2 z" fill="#fff" '
+            s.append('<circle cx="%s" cy="%s" r="3.2" fill="%s" stroke="%s" stroke-width="1.1"/>'
+                     '<path d="M %s %s v -2 q 0 -4.5 5.5 -4.5 q 5.5 0 5.5 4.5 v 2 z" fill="%s" '
                      'stroke="%s" stroke-width="1.1"/>'
-                     % (_f(hx), _f(hy), NEGRO, _f(hx - 5.5), _f(hy + 10.5), NEGRO))
+                     % (_f(hx), _f(hy), GRIS_BANDA, GRIS, _f(hx - 5.5), _f(hy + 10.5), GRIS_BANDA, GRIS))
     elif t in COMPUERTAS:
-        s.append('<polygon points="%s,%s %s,%s %s,%s %s,%s" fill="#fff" stroke="%s" stroke-width="1.8"/>'
-                 % (_f(cx), _f(y0), _f(x1), _f(cy), _f(cx), _f(y1), _f(x0), _f(cy), NEGRO))
+        s.append('<polygon points="%s,%s %s,%s %s,%s %s,%s" fill="%s" stroke="%s" stroke-width="1.7" '
+                 'stroke-linejoin="round"/>'
+                 % (_f(cx), _f(y0), _f(x1), _f(cy), _f(cx), _f(y1), _f(x0), _f(cy), COMPUERTA_FONDO, NEGRO))
         if t == "xor":
             d = 8
             s.append('<line x1="%s" y1="%s" x2="%s" y2="%s" stroke="%s" stroke-width="3.2"/>'
@@ -795,30 +808,33 @@ def dibujar_nodo(n):
                         _f(cx), _f(cy - d), _f(cx), _f(cy + d), NEGRO))
     elif t in EVENTOS:
         r = w / 2.0
-        ancho_borde = 4.2 if t == "fin" else 1.8
-        s.append('<circle cx="%s" cy="%s" r="%s" fill="#fff" stroke="%s" stroke-width="%s"/>'
-                 % (_f(cx), _f(cy), _f(r), NEGRO, ancho_borde))
         intermedio = t == "evento_mensaje" or (t == "evento_tiempo" and not n.get("es_inicio"))
+        inicio = t in ("inicio", "inicio_mensaje") or (t == "evento_tiempo" and not intermedio)
+        ancho_borde = 4.2 if t == "fin" else (2.2 if inicio else 1.8)
+        color = VERDE if inicio else NEGRO
+        fondo = VERDE_FONDO if inicio else "#fff"
+        s.append('<circle cx="%s" cy="%s" r="%s" fill="%s" stroke="%s" stroke-width="%s"/>'
+                 % (_f(cx), _f(cy), _f(r), fondo, color, ancho_borde))
         if intermedio:
             s.append('<circle cx="%s" cy="%s" r="%s" fill="none" stroke="%s" stroke-width="1.4"/>'
                      % (_f(cx), _f(cy), _f(r - 3.5), NEGRO))
         if t in ("inicio_mensaje", "evento_mensaje"):
-            s.append(_sobre(cx, cy))
+            s.append(_sobre(cx, cy, relleno="#fff", color=color))
         elif t == "evento_tiempo":
-            s.append(_reloj(cx, cy, 9 if not intermedio else 8))
+            s.append(_reloj(cx, cy, 9 if not intermedio else 8, color))
     elif t == "datos":
         d = 9
-        s.append('<path d="M %s %s L %s %s L %s %s L %s %s L %s %s Z" fill="#fff" stroke="%s" '
-                 'stroke-width="1.5"/><path d="M %s %s L %s %s L %s %s" fill="none" stroke="%s" '
-                 'stroke-width="1.2"/>'
+        s.append('<path d="M %s %s L %s %s L %s %s L %s %s L %s %s Z" fill="%s" stroke="%s" '
+                 'stroke-width="1.6" stroke-linejoin="round"/><path d="M %s %s L %s %s L %s %s" '
+                 'fill="#fff" stroke="%s" stroke-width="1.2" stroke-linejoin="round"/>'
                  % (_f(x0), _f(y0), _f(x1 - d), _f(y0), _f(x1), _f(y0 + d), _f(x1), _f(y1),
-                    _f(x0), _f(y1), NEGRO, _f(x1 - d), _f(y0), _f(x1 - d), _f(y0 + d),
-                    _f(x1), _f(y0 + d), NEGRO))
+                    _f(x0), _f(y1), AZUL_FONDO, AZUL, _f(x1 - d), _f(y0), _f(x1 - d), _f(y0 + d),
+                    _f(x1), _f(y0 + d), AZUL))
     else:   # anotacion
         lineas = envolver(n.get("texto"), w - 18, FUENTE_CH)
         s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="none"/>'
                  % (_f(x0), _f(y0), w, h, ANOT_FONDO))
-        s.append('<polyline points="%s,%s %s,%s %s,%s %s,%s" fill="none" stroke="%s" stroke-width="1.8"/>'
+        s.append('<polyline points="%s,%s %s,%s %s,%s %s,%s" fill="none" stroke="%s" stroke-width="2.2"/>'
                  % (_f(x0 + 9), _f(y0), _f(x0), _f(y0), _f(x0), _f(y1), _f(x0 + 9), _f(y1), ANOT_BORDE))
         s.append(_texto_svg(x0 + 9, y0 + 7, lineas, FUENTE_CH, "start", INTERLINEA_CH))
     return "".join(s)
@@ -829,7 +845,7 @@ def generar_svg(P, A, L):
     W, H = L["ancho"], L["alto"]
     s = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<svg xmlns="http://www.w3.org/2000/svg" width="%s" height="%s" viewBox="0 0 %s %s" '
-         'font-family="Helvetica Neue, Helvetica, Arial, sans-serif">' % (_f(W), _f(H), _f(W), _f(H)),
+         'font-family="%s">' % (_f(W), _f(H), _f(W), _f(H), FUENTE_SVG),
          "<title>%s</title>" % escape(P.get("nombre", "")),
          '<rect x="0" y="0" width="%s" height="%s" fill="#fff"/>' % (_f(W), _f(H)),
          _texto_svg(MARGEN, MARGEN - 2, [P.get("nombre", "")], 16, "start", 20, "bold")]
@@ -839,26 +855,29 @@ def generar_svg(P, A, L):
         x, y, w, h = L["pools"][pid]
         p = pools[pid]
         if p.get("colapsado"):
-            s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s" stroke-width="1.8"/>'
+            s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s" stroke-width="1.6"/>'
                      % (_f(x), _f(y), _f(w), _f(h), GRIS_BANDA, NEGRO))
             s.append(_texto_svg(x + w / 2.0, y + h / 2.0 - 8, [p["nombre"]], 14, "middle", 18, "bold"))
             continue
-        s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="#fff" stroke="%s" stroke-width="1.8"/>'
-                 % (_f(x), _f(y), _f(w), _f(h), NEGRO))
-        s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s" stroke-width="1.8"/>'
-                 % (_f(x), _f(y), BANDA, _f(h), GRIS_BANDA, NEGRO))
+        s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="#fff" stroke="none"/>'
+                 % (_f(x), _f(y), _f(w), _f(h)))
+        s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="none"/>'
+                 % (_f(x), _f(y), BANDA, _f(h), NEGRO))
         s.append('<g transform="rotate(-90 %s %s)">%s</g>' % (
             _f(x + BANDA / 2.0), _f(y + h / 2.0),
-            _texto_svg(x + BANDA / 2.0, y + h / 2.0 - 9, [p["nombre"]], 14, "middle", 18, "bold")))
+            _texto_svg(x + BANDA / 2.0, y + h / 2.0 - 9, [p["nombre"]], 14, "middle", 18, "bold",
+                       CREMA)))
         for lane in p["lanes"]:
             lx, ly, lw, lh = L["lanes"][lane["id"]]
-            s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="none" stroke="%s" stroke-width="1.4"/>'
-                     % (_f(lx), _f(ly), _f(lw), _f(lh), NEGRO))
-            s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s" stroke-width="1.4"/>'
-                     % (_f(lx), _f(ly), BANDA, _f(lh), GRIS_LANE, NEGRO))
+            s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="none" stroke="%s" stroke-width="1.2"/>'
+                     % (_f(lx), _f(ly), _f(lw), _f(lh), LINEA_LANE))
+            s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s" stroke-width="1.2"/>'
+                     % (_f(lx), _f(ly), BANDA, _f(lh), GRIS_BANDA, LINEA_LANE))
             s.append('<g transform="rotate(-90 %s %s)">%s</g>' % (
                 _f(lx + BANDA / 2.0), _f(ly + lh / 2.0),
                 _texto_svg(lx + BANDA / 2.0, ly + lh / 2.0 - 8, [lane["nombre"]], 13, "middle", 16, "bold")))
+        s.append('<rect x="%s" y="%s" width="%s" height="%s" fill="none" stroke="%s" stroke-width="1.6"/>'
+                 % (_f(x), _f(y), _f(w), _f(h), NEGRO))
 
     # asociaciones, flujos de secuencia y de mensaje
     for item in L["asoc"]:
@@ -866,18 +885,19 @@ def generar_svg(P, A, L):
         f = item["f"]
         datos_salida = (nodos[f["de"]]["tipo"] in TAREAS and nodos[f["a"]]["tipo"] == "datos")
         datos_entrada = (nodos[f["de"]]["tipo"] == "datos" and nodos[f["a"]]["tipo"] in TAREAS)
-        s.append(_linea([a, b], ' stroke-dasharray="2.5,3.5" stroke-linecap="round"'))
+        color = AZUL if (datos_salida or datos_entrada) else GRIS
+        s.append(_linea([a, b], ' stroke-dasharray="2.5,3.5" stroke-linecap="round"', color))
         if datos_salida or datos_entrada:
-            s.append(_flecha(a, b, abierta=True))
+            s.append(_flecha(a, b, abierta=True, color=AZUL))
     for item in L["flujos"]:
         s.append(_linea(item["pts"]))
         s.append(_flecha(item["pts"][-2], item["pts"][-1]))
     for item in L["msgs"]:
         pts = item["pts"]
-        s.append(_linea(pts, ' stroke-dasharray="7,4"'))
+        s.append(_linea(pts, ' stroke-dasharray="7,4"', GRIS))
         s.append('<circle cx="%s" cy="%s" r="3.6" fill="#fff" stroke="%s" stroke-width="1.4"/>'
-                 % (_f(pts[0][0]), _f(pts[0][1]), NEGRO))
-        s.append(_flecha(pts[-2], pts[-1], hueca=True))
+                 % (_f(pts[0][0]), _f(pts[0][1]), GRIS))
+        s.append(_flecha(pts[-2], pts[-1], hueca=True, color=GRIS))
 
     # nodos
     for nid, n in nodos.items():

@@ -1,163 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1950" height="1036" viewBox="0 0 1950 1036" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1950" height="1036" viewBox="0 0 1950 1036" font-family="Arial, Helvetica, sans-serif">
 <title>Atender pedido de distribuidor (AS-IS)</title>
 <rect x="0" y="0" width="1950" height="1036" fill="#fff"/>
-<text x="20" y="33.6" font-size="16" text-anchor="start" fill="#1b1b1b" font-weight="bold"><tspan x="20" dy="0">Atender pedido de distribuidor (AS-IS)</tspan></text>
-<rect x="20" y="54" width="1910" height="50" fill="#e9ecef" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="975" y="85" font-size="14" text-anchor="middle" fill="#1b1b1b" font-weight="bold"><tspan x="975" dy="0">Distribuidor</tspan></text>
-<rect x="20" y="150" width="1910" height="770" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/>
-<rect x="20" y="150" width="30" height="770" fill="#e9ecef" stroke="#1b1b1b" stroke-width="1.8"/>
-<g transform="rotate(-90 35 535)"><text x="35" y="540" font-size="14" text-anchor="middle" fill="#1b1b1b" font-weight="bold"><tspan x="35" dy="0">Dulxelitos</tspan></text></g>
-<rect x="50" y="150" width="1880" height="220" fill="none" stroke="#1b1b1b" stroke-width="1.4"/>
-<rect x="50" y="150" width="30" height="220" fill="#f6f7f8" stroke="#1b1b1b" stroke-width="1.4"/>
-<g transform="rotate(-90 65 260)"><text x="65" y="264.5" font-size="13" text-anchor="middle" fill="#1b1b1b" font-weight="bold"><tspan x="65" dy="0">Oficina</tspan></text></g>
-<rect x="50" y="370" width="1880" height="220" fill="none" stroke="#1b1b1b" stroke-width="1.4"/>
-<rect x="50" y="370" width="30" height="220" fill="#f6f7f8" stroke="#1b1b1b" stroke-width="1.4"/>
-<g transform="rotate(-90 65 480)"><text x="65" y="484.5" font-size="13" text-anchor="middle" fill="#1b1b1b" font-weight="bold"><tspan x="65" dy="0">Depósito</tspan></text></g>
-<rect x="50" y="590" width="1880" height="220" fill="none" stroke="#1b1b1b" stroke-width="1.4"/>
-<rect x="50" y="590" width="30" height="220" fill="#f6f7f8" stroke="#1b1b1b" stroke-width="1.4"/>
-<g transform="rotate(-90 65 700)"><text x="65" y="704.5" font-size="13" text-anchor="middle" fill="#1b1b1b" font-weight="bold"><tspan x="65" dy="0">Producción</tspan></text></g>
-<rect x="50" y="810" width="1880" height="110" fill="none" stroke="#1b1b1b" stroke-width="1.4"/>
-<rect x="50" y="810" width="30" height="110" fill="#f6f7f8" stroke="#1b1b1b" stroke-width="1.4"/>
-<g transform="rotate(-90 65 865)"><text x="65" y="869.5" font-size="13" text-anchor="middle" fill="#1b1b1b" font-weight="bold"><tspan x="65" dy="0">Dirección</tspan></text></g>
-<rect x="20" y="966" width="1910" height="50" fill="#e9ecef" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="975" y="997" font-size="14" text-anchor="middle" fill="#1b1b1b" font-weight="bold"><tspan x="975" dy="0">Transporte tercerizado</tspan></text>
-<polyline points="252,243 252,295" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="247.5,285 252,295 256.5,285" fill="none" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="748,243 748,295" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="743.5,285 748,295 752.5,285" fill="none" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="496,717 496,665" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="500.5,675 496,665 491.5,675" fill="none" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="401,315 267,315" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="591,315 733,315" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="573.3,500 535.2,463" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="793,645 511,645" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="908,603 908,463" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="484,865 316,865" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="1322,837 1322,793" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
-<polyline points="144,205 188,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="188,205 178,209.5 178,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="316,205 351,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="351,205 341,209.5 341,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="397,205 432,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="432,205 422,209.5 422,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="374,228 374,425 432,425" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="432,425 422,429.5 422,420.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="560,205 599,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="599,205 589,209.5 589,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="560,425 622,425 622,228" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="622,228 626.5,238 617.5,238" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="645,205 684,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="684,205 674,209.5 674,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="812,205 908,205 908,387" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="908,387 903.5,377 912.5,377" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="972,425 1007,425" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1007,425 997,429.5 997,420.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1053,425 1444,425 1444,228" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1444,228 1448.5,238 1439.5,238" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1030,402 1030,205 1134,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1134,205 1124,209.5 1124,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1180,205 1258,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1258,205 1248,209.5 1248,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1157,228 1157,645 1258,645" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1258,645 1248,649.5 1248,640.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1157,228 1157,755 1258,755" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1258,755 1248,759.5 1248,750.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1386,205 1421,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1421,205 1411,209.5 1411,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1386,645 1444,645 1444,228" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1444,228 1448.5,238 1439.5,238" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1386,755 1444,755 1444,228" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1444,228 1448.5,238 1439.5,238" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1467,205 1512,205" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1512,205 1502,209.5 1502,200.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1576,243 1576,402" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1576,402 1571.5,392 1580.5,392" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1599,425 1682,425" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1682,425 1672,429.5 1672,420.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1576,448 1576,535 1682,535" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1682,535 1672,539.5 1672,530.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1810,425 1854,425" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1854,425 1844,429.5 1844,420.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1810,535 1832,535 1832,425 1854,425" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="1854,425 1844,429.5 1844,420.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="144,865 188,865" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="188,865 178,869.5 178,860.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="252,827 252,793" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="252,793 256.5,803 247.5,803" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="316,755 432,755" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="432,755 422,759.5 422,750.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="560,755 604,755" fill="none" stroke="#1b1b1b" stroke-width="1.6"/>
-<polygon points="604,755 594,759.5 594,750.5" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="126,104 126,187" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="7,4"/>
-<circle cx="126" cy="104" r="3.6" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
-<polygon points="126,187 121.5,177 130.5,177" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1322,167 1322,104" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="7,4"/>
-<circle cx="1322" cy="167" r="3.6" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
-<polygon points="1322,104 1326.5,114 1317.5,114" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
-<polyline points="1746,573 1746,966" fill="none" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="7,4"/>
-<circle cx="1746" cy="573" r="3.6" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
-<polygon points="1746,966 1741.5,956 1750.5,956" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
-<circle cx="126" cy="205" r="18" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><rect x="119" y="200" width="14" height="10" fill="none" stroke="#1b1b1b" stroke-width="1.3"/><polyline points="119,200 126,206 133,200" fill="none" stroke="#1b1b1b" stroke-width="1.3"/>
-<rect x="188" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="252" y="201.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="252" dy="0">Anotar pedido en</tspan><tspan x="252" dy="15">papel o planilla</tspan></text>
-<path d="M 237 295 L 258 295 L 267 304 L 267 335 L 237 335 Z" fill="#fff" stroke="#1b1b1b" stroke-width="1.5"/><path d="M 258 295 L 258 304 L 267 304" fill="none" stroke="#1b1b1b" stroke-width="1.2"/>
-<polygon points="374,182 397,205 374,228 351,205" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><line x1="363" y1="205" x2="385" y2="205" stroke="#1b1b1b" stroke-width="3.4"/><line x1="374" y1="194" x2="374" y2="216" stroke="#1b1b1b" stroke-width="3.4"/>
-<rect x="432" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="496" y="194.2" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="496" dy="0">Preguntar</tspan><tspan x="496" dy="15">disponibilidad a</tspan><tspan x="496" dy="15">producción</tspan></text>
-<rect x="401" y="287" width="190" height="56" fill="#fff8e1" stroke="none"/><polyline points="410,287 401,287 401,343 410,343" fill="none" stroke="#b45309" stroke-width="1.8"/><text x="410" y="304.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="410" dy="0">Tarea manual: el mismo</tspan><tspan x="410" dy="14">pedido se transcribe tres</tspan><tspan x="410" dy="14">veces (chat, papel y lista).</tspan></text>
-<polygon points="622,182 645,205 622,228 599,205" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><line x1="611" y1="205" x2="633" y2="205" stroke="#1b1b1b" stroke-width="3.4"/><line x1="622" y1="194" x2="622" y2="216" stroke="#1b1b1b" stroke-width="3.4"/>
-<rect x="684" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="748" y="201.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="748" dy="0">Pasar pedido a la</tspan><tspan x="748" dy="15">lista</tspan></text>
-<path d="M 733 295 L 754 295 L 763 304 L 763 335 L 733 335 Z" fill="#fff" stroke="#1b1b1b" stroke-width="1.5"/><path d="M 754 295 L 754 304 L 763 304" fill="none" stroke="#1b1b1b" stroke-width="1.2"/>
-<polygon points="1157,182 1180,205 1157,228 1134,205" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><line x1="1149" y1="197" x2="1165" y2="213" stroke="#1b1b1b" stroke-width="3.2"/><line x1="1149" y1="213" x2="1165" y2="197" stroke="#1b1b1b" stroke-width="3.2"/>
-<rect x="1258" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="1322" y="194.2" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="1322" dy="0">Avisar al</tspan><tspan x="1322" dy="15">distribuidor del</tspan><tspan x="1322" dy="15">faltante</tspan></text>
-<polygon points="1444,182 1467,205 1444,228 1421,205" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><line x1="1436" y1="197" x2="1452" y2="213" stroke="#1b1b1b" stroke-width="3.2"/><line x1="1436" y1="213" x2="1452" y2="197" stroke="#1b1b1b" stroke-width="3.2"/>
-<rect x="1512" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="1576" y="205.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="1576" dy="0">Facturar en</tspan><tspan x="1576" dy="15">Discovery</tspan></text><circle cx="1524" cy="176" r="3.2" fill="#fff" stroke="#1b1b1b" stroke-width="1.1"/><path d="M 1518.5 186.5 v -2 q 0 -4.5 5.5 -4.5 q 5.5 0 5.5 4.5 v 2 z" fill="#fff" stroke="#1b1b1b" stroke-width="1.1"/>
-<rect x="432" y="387" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="496" y="421.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="496" dy="0">Mirar el stock a</tspan><tspan x="496" dy="15">ojo</tspan></text>
-<rect x="509.4" y="500" width="200" height="70" fill="#fff8e1" stroke="none"/><polyline points="518.4,500 509.4,500 509.4,570 518.4,570" fill="none" stroke="#b45309" stroke-width="1.8"/><text x="518.4" y="517.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="518.4" dy="0">Ineficiencia: doble averiguación</tspan><tspan x="518.4" dy="14">de disponibilidad, a ojo en el</tspan><tspan x="518.4" dy="14">depósito y preguntando a</tspan><tspan x="518.4" dy="14">producción.</tspan></text>
-<rect x="844" y="387" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="908" y="429.2" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="908" dy="0">Preparar pedido</tspan></text>
-<polygon points="1030,402 1053,425 1030,448 1007,425" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><line x1="1022" y1="417" x2="1038" y2="433" stroke="#1b1b1b" stroke-width="3.2"/><line x1="1022" y1="433" x2="1038" y2="417" stroke="#1b1b1b" stroke-width="3.2"/>
-<polygon points="1576,402 1599,425 1576,448 1553,425" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><line x1="1568" y1="417" x2="1584" y2="433" stroke="#1b1b1b" stroke-width="3.2"/><line x1="1568" y1="433" x2="1584" y2="417" stroke="#1b1b1b" stroke-width="3.2"/>
-<rect x="1682" y="387" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="1746" y="421.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="1746" dy="0">Despachar con</tspan><tspan x="1746" dy="15">flota propia</tspan></text>
-<rect x="1682" y="497" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="1746" y="524.2" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="1746" dy="0">Entregar a</tspan><tspan x="1746" dy="15">transporte</tspan><tspan x="1746" dy="15">tercerizado</tspan></text>
-<circle cx="1872" cy="425" r="18" fill="#fff" stroke="#1b1b1b" stroke-width="4.2"/>
-<path d="M 481 625 L 502 625 L 511 634 L 511 665 L 481 665 Z" fill="#fff" stroke="#1b1b1b" stroke-width="1.5"/><path d="M 502 625 L 502 634 L 511 634" fill="none" stroke="#1b1b1b" stroke-width="1.2"/>
-<rect x="793" y="603" width="230" height="84" fill="#fff8e1" stroke="none"/><polyline points="802,603 793,603 793,687 802,687" fill="none" stroke="#b45309" stroke-width="1.8"/><text x="802" y="620.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="802" dy="0">Flujo de datos: la producción se</tspan><tspan x="802" dy="14">registra una vez por semana (20 %</tspan><tspan x="802" dy="14">de los días) y no se cruza con las</tspan><tspan x="802" dy="14">ventas; no hay stock de producto</tspan><tspan x="802" dy="14">terminado registrado.</tspan></text>
-<rect x="188" y="717" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="252" y="751.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="252" dy="0">Producir lo</tspan><tspan x="252" dy="15">decidido</tspan></text>
-<rect x="432" y="717" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="496" y="744.2" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="496" dy="0">Registrar</tspan><tspan x="496" dy="15">producción de la</tspan><tspan x="496" dy="15">semana</tspan></text>
-<circle cx="622" cy="755" r="18" fill="#fff" stroke="#1b1b1b" stroke-width="4.2"/>
-<rect x="1258" y="607" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="1322" y="641.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="1322" dy="0">Producir lo que</tspan><tspan x="1322" dy="15">falta</tspan></text>
-<rect x="1258" y="717" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="1322" y="751.7" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="1322" dy="0">Producir con</tspan><tspan x="1322" dy="15">horas extras</tspan></text>
-<circle cx="126" cy="865" r="18" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><circle cx="126" cy="865" r="9" fill="none" stroke="#1b1b1b" stroke-width="1.3"/><line x1="126" y1="858.2" x2="126" y2="856" stroke="#1b1b1b" stroke-width="0.9"/><line x1="129.9" y1="858.2" x2="130.5" y2="857.2" stroke="#1b1b1b" stroke-width="0.9"/><line x1="132.8" y1="861.1" x2="133.8" y2="860.5" stroke="#1b1b1b" stroke-width="0.9"/><line x1="132.8" y1="865" x2="135" y2="865" stroke="#1b1b1b" stroke-width="0.9"/><line x1="132.8" y1="868.9" x2="133.8" y2="869.5" stroke="#1b1b1b" stroke-width="0.9"/><line x1="129.9" y1="871.8" x2="130.5" y2="872.8" stroke="#1b1b1b" stroke-width="0.9"/><line x1="126" y1="871.8" x2="126" y2="874" stroke="#1b1b1b" stroke-width="0.9"/><line x1="122.1" y1="871.8" x2="121.5" y2="872.8" stroke="#1b1b1b" stroke-width="0.9"/><line x1="119.2" y1="868.9" x2="118.2" y2="869.5" stroke="#1b1b1b" stroke-width="0.9"/><line x1="119.2" y1="865" x2="117" y2="865" stroke="#1b1b1b" stroke-width="0.9"/><line x1="119.2" y1="861.1" x2="118.2" y2="860.5" stroke="#1b1b1b" stroke-width="0.9"/><line x1="122.1" y1="858.2" x2="121.5" y2="857.2" stroke="#1b1b1b" stroke-width="0.9"/><polyline points="129.5,861.5 126,865 126,858.5" fill="none" stroke="#1b1b1b" stroke-width="1.3"/>
-<rect x="188" y="827" width="128" height="76" rx="10" fill="#fff" stroke="#1b1b1b" stroke-width="1.8"/><text x="252" y="869.2" font-size="13" text-anchor="middle" fill="#1b1b1b"><tspan x="252" dy="0">Decidir producción</tspan></text>
-<rect x="484" y="830" width="150" height="70" fill="#fff8e1" stroke="none"/><polyline points="493,830 484,830 484,900 493,900" fill="none" stroke="#b45309" stroke-width="1.8"/><text x="493" y="847.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="493" dy="0">Decide el dueño o uno</tspan><tspan x="493" dy="14">de los hijos, por</tspan><tspan x="493" dy="14">criterio propio y sin</tspan><tspan x="493" dy="14">mirar los pedidos.</tspan></text>
-<rect x="1222" y="837" width="200" height="56" fill="#fff8e1" stroke="none"/><polyline points="1231,837 1222,837 1222,893 1231,893" fill="none" stroke="#b45309" stroke-width="1.8"/><text x="1231" y="854.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1231" dy="0">Las horas extras del mes</tspan><tspan x="1231" dy="14">suman unas 25; parte se usa</tspan><tspan x="1231" dy="14">para completar pedidos.</tspan></text>
-<text x="126" y="236.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="126" dy="0">Pedido recibido</tspan></text>
-<text x="252" y="348.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="252" dy="0">Papel o planilla</tspan></text>
-<text x="748" y="348.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="748" dy="0">Lista de pedidos</tspan></text>
-<text x="1157" y="175.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="1157" dy="0">¿Qué se hace con el faltante?</tspan></text>
-<text x="1030" y="461.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="1030" dy="0">¿Falta producto?</tspan></text>
-<text x="1548" y="421.9" font-size="12" text-anchor="end" fill="#1b1b1b"><tspan x="1548" dy="0">¿Con qué se</tspan><tspan x="1548" dy="14">despacha?</tspan></text>
-<text x="1872" y="456.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="1872" dy="0">Pedido</tspan><tspan x="1872" dy="14">despachado</tspan></text>
-<text x="476" y="634.9" font-size="12" text-anchor="end" fill="#1b1b1b"><tspan x="476" dy="0">Registro</tspan><tspan x="476" dy="14">semanal de</tspan><tspan x="476" dy="14">producción</tspan></text>
-<text x="622" y="786.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="622" dy="0">Producción</tspan><tspan x="622" dy="14">registrada</tspan></text>
-<text x="126" y="896.9" font-size="12" text-anchor="middle" fill="#1b1b1b"><tspan x="126" dy="0">Semana</tspan><tspan x="126" dy="14">iniciada</tspan></text>
+<text x="20" y="33.6" font-size="16" text-anchor="start" fill="#1B2B34" font-weight="bold"><tspan x="20" dy="0">Atender pedido de distribuidor (AS-IS)</tspan></text>
+<rect x="20" y="54" width="1910" height="50" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.6"/>
+<text x="975" y="85" font-size="14" text-anchor="middle" fill="#1B2B34" font-weight="bold"><tspan x="975" dy="0">Distribuidor</tspan></text>
+<rect x="20" y="150" width="1910" height="770" fill="#fff" stroke="none"/>
+<rect x="20" y="150" width="30" height="770" fill="#1B2B34" stroke="none"/>
+<g transform="rotate(-90 35 535)"><text x="35" y="540" font-size="14" text-anchor="middle" fill="#F7F4EC" font-weight="bold"><tspan x="35" dy="0">Dulxelitos</tspan></text></g>
+<rect x="50" y="150" width="1880" height="220" fill="none" stroke="#8FA3AB" stroke-width="1.2"/>
+<rect x="50" y="150" width="30" height="220" fill="#EFEADC" stroke="#8FA3AB" stroke-width="1.2"/>
+<g transform="rotate(-90 65 260)"><text x="65" y="264.5" font-size="13" text-anchor="middle" fill="#1B2B34" font-weight="bold"><tspan x="65" dy="0">Oficina</tspan></text></g>
+<rect x="50" y="370" width="1880" height="220" fill="none" stroke="#8FA3AB" stroke-width="1.2"/>
+<rect x="50" y="370" width="30" height="220" fill="#EFEADC" stroke="#8FA3AB" stroke-width="1.2"/>
+<g transform="rotate(-90 65 480)"><text x="65" y="484.5" font-size="13" text-anchor="middle" fill="#1B2B34" font-weight="bold"><tspan x="65" dy="0">Depósito</tspan></text></g>
+<rect x="50" y="590" width="1880" height="220" fill="none" stroke="#8FA3AB" stroke-width="1.2"/>
+<rect x="50" y="590" width="30" height="220" fill="#EFEADC" stroke="#8FA3AB" stroke-width="1.2"/>
+<g transform="rotate(-90 65 700)"><text x="65" y="704.5" font-size="13" text-anchor="middle" fill="#1B2B34" font-weight="bold"><tspan x="65" dy="0">Producción</tspan></text></g>
+<rect x="50" y="810" width="1880" height="110" fill="none" stroke="#8FA3AB" stroke-width="1.2"/>
+<rect x="50" y="810" width="30" height="110" fill="#EFEADC" stroke="#8FA3AB" stroke-width="1.2"/>
+<g transform="rotate(-90 65 865)"><text x="65" y="869.5" font-size="13" text-anchor="middle" fill="#1B2B34" font-weight="bold"><tspan x="65" dy="0">Dirección</tspan></text></g>
+<rect x="20" y="150" width="1910" height="770" fill="none" stroke="#1B2B34" stroke-width="1.6"/>
+<rect x="20" y="966" width="1910" height="50" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.6"/>
+<text x="975" y="997" font-size="14" text-anchor="middle" fill="#1B2B34" font-weight="bold"><tspan x="975" dy="0">Transporte tercerizado</tspan></text>
+<polyline points="252,243 252,295" fill="none" stroke="#1E5C85" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="247.5,285 252,295 256.5,285" fill="none" stroke="#1E5C85" stroke-width="1.4"/>
+<polyline points="748,243 748,295" fill="none" stroke="#1E5C85" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="743.5,285 748,295 752.5,285" fill="none" stroke="#1E5C85" stroke-width="1.4"/>
+<polyline points="496,717 496,665" fill="none" stroke="#1E5C85" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="500.5,675 496,665 491.5,675" fill="none" stroke="#1E5C85" stroke-width="1.4"/>
+<polyline points="401,315 267,315" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="591,315 733,315" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="573.3,500 535.2,463" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="793,645 511,645" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="908,603 908,463" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="484,865 316,865" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="1322,837 1322,793" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="2.5,3.5" stroke-linecap="round"/>
+<polyline points="144,205 188,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="188,205 178,209.5 178,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="316,205 351,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="351,205 341,209.5 341,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="397,205 432,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="432,205 422,209.5 422,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="374,228 374,425 432,425" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="432,425 422,429.5 422,420.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="560,205 599,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="599,205 589,209.5 589,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="560,425 622,425 622,228" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="622,228 626.5,238 617.5,238" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="645,205 684,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="684,205 674,209.5 674,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="812,205 908,205 908,387" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="908,387 903.5,377 912.5,377" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="972,425 1007,425" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1007,425 997,429.5 997,420.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1053,425 1444,425 1444,228" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1444,228 1448.5,238 1439.5,238" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1030,402 1030,205 1134,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1134,205 1124,209.5 1124,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1180,205 1258,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1258,205 1248,209.5 1248,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1157,228 1157,645 1258,645" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1258,645 1248,649.5 1248,640.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1157,228 1157,755 1258,755" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1258,755 1248,759.5 1248,750.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1386,205 1421,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1421,205 1411,209.5 1411,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1386,645 1444,645 1444,228" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1444,228 1448.5,238 1439.5,238" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1386,755 1444,755 1444,228" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1444,228 1448.5,238 1439.5,238" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1467,205 1512,205" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1512,205 1502,209.5 1502,200.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1576,243 1576,402" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1576,402 1571.5,392 1580.5,392" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1599,425 1682,425" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1682,425 1672,429.5 1672,420.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1576,448 1576,535 1682,535" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1682,535 1672,539.5 1672,530.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1810,425 1854,425" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1854,425 1844,429.5 1844,420.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1810,535 1832,535 1832,425 1854,425" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="1854,425 1844,429.5 1844,420.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="144,865 188,865" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="188,865 178,869.5 178,860.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="252,827 252,793" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="252,793 256.5,803 247.5,803" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="316,755 432,755" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="432,755 422,759.5 422,750.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="560,755 604,755" fill="none" stroke="#1B2B34" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="604,755 594,759.5 594,750.5" fill="#1B2B34" stroke="#1B2B34" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="126,104 126,187" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="7,4"/>
+<circle cx="126" cy="104" r="3.6" fill="#fff" stroke="#55636B" stroke-width="1.4"/>
+<polygon points="126,187 121.5,177 130.5,177" fill="#fff" stroke="#55636B" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1322,167 1322,104" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="7,4"/>
+<circle cx="1322" cy="167" r="3.6" fill="#fff" stroke="#55636B" stroke-width="1.4"/>
+<polygon points="1322,104 1326.5,114 1317.5,114" fill="#fff" stroke="#55636B" stroke-width="1.4" stroke-linejoin="round"/>
+<polyline points="1746,573 1746,966" fill="none" stroke="#55636B" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="7,4"/>
+<circle cx="1746" cy="573" r="3.6" fill="#fff" stroke="#55636B" stroke-width="1.4"/>
+<polygon points="1746,966 1741.5,956 1750.5,956" fill="#fff" stroke="#55636B" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="126" cy="205" r="18" fill="#DCEAE3" stroke="#2F6B5E" stroke-width="2.2"/><rect x="119" y="200" width="14" height="10" fill="#fff" stroke="#2F6B5E" stroke-width="1.3"/><polyline points="119,200 126,206 133,200" fill="none" stroke="#2F6B5E" stroke-width="1.3"/>
+<rect x="188" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="252" y="201.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="252" dy="0">Anotar pedido en</tspan><tspan x="252" dy="15">papel o planilla</tspan></text>
+<path d="M 237 295 L 258 295 L 267 304 L 267 335 L 237 335 Z" fill="#DDE8EF" stroke="#1E5C85" stroke-width="1.6" stroke-linejoin="round"/><path d="M 258 295 L 258 304 L 267 304" fill="#fff" stroke="#1E5C85" stroke-width="1.2" stroke-linejoin="round"/>
+<polygon points="374,182 397,205 374,228 351,205" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.7" stroke-linejoin="round"/><line x1="363" y1="205" x2="385" y2="205" stroke="#1B2B34" stroke-width="3.4"/><line x1="374" y1="194" x2="374" y2="216" stroke="#1B2B34" stroke-width="3.4"/>
+<rect x="432" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="496" y="194.2" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="496" dy="0">Preguntar</tspan><tspan x="496" dy="15">disponibilidad a</tspan><tspan x="496" dy="15">producción</tspan></text>
+<rect x="401" y="287" width="190" height="56" fill="#F6EBD8" stroke="none"/><polyline points="410,287 401,287 401,343 410,343" fill="none" stroke="#C8791E" stroke-width="2.2"/><text x="410" y="304.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="410" dy="0">Tarea manual: el mismo</tspan><tspan x="410" dy="14">pedido se transcribe tres</tspan><tspan x="410" dy="14">veces (chat, papel y lista).</tspan></text>
+<polygon points="622,182 645,205 622,228 599,205" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.7" stroke-linejoin="round"/><line x1="611" y1="205" x2="633" y2="205" stroke="#1B2B34" stroke-width="3.4"/><line x1="622" y1="194" x2="622" y2="216" stroke="#1B2B34" stroke-width="3.4"/>
+<rect x="684" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="748" y="201.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="748" dy="0">Pasar pedido a la</tspan><tspan x="748" dy="15">lista</tspan></text>
+<path d="M 733 295 L 754 295 L 763 304 L 763 335 L 733 335 Z" fill="#DDE8EF" stroke="#1E5C85" stroke-width="1.6" stroke-linejoin="round"/><path d="M 754 295 L 754 304 L 763 304" fill="#fff" stroke="#1E5C85" stroke-width="1.2" stroke-linejoin="round"/>
+<polygon points="1157,182 1180,205 1157,228 1134,205" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.7" stroke-linejoin="round"/><line x1="1149" y1="197" x2="1165" y2="213" stroke="#1B2B34" stroke-width="3.2"/><line x1="1149" y1="213" x2="1165" y2="197" stroke="#1B2B34" stroke-width="3.2"/>
+<rect x="1258" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="1322" y="194.2" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="1322" dy="0">Avisar al</tspan><tspan x="1322" dy="15">distribuidor del</tspan><tspan x="1322" dy="15">faltante</tspan></text>
+<polygon points="1444,182 1467,205 1444,228 1421,205" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.7" stroke-linejoin="round"/><line x1="1436" y1="197" x2="1452" y2="213" stroke="#1B2B34" stroke-width="3.2"/><line x1="1436" y1="213" x2="1452" y2="197" stroke="#1B2B34" stroke-width="3.2"/>
+<rect x="1512" y="167" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="1576" y="205.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="1576" dy="0">Facturar en</tspan><tspan x="1576" dy="15">Discovery</tspan></text><circle cx="1524" cy="176" r="3.2" fill="#EFEADC" stroke="#55636B" stroke-width="1.1"/><path d="M 1518.5 186.5 v -2 q 0 -4.5 5.5 -4.5 q 5.5 0 5.5 4.5 v 2 z" fill="#EFEADC" stroke="#55636B" stroke-width="1.1"/>
+<rect x="432" y="387" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="496" y="421.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="496" dy="0">Mirar el stock a</tspan><tspan x="496" dy="15">ojo</tspan></text>
+<rect x="509.4" y="500" width="200" height="70" fill="#F6EBD8" stroke="none"/><polyline points="518.4,500 509.4,500 509.4,570 518.4,570" fill="none" stroke="#C8791E" stroke-width="2.2"/><text x="518.4" y="517.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="518.4" dy="0">Ineficiencia: doble averiguación</tspan><tspan x="518.4" dy="14">de disponibilidad, a ojo en el</tspan><tspan x="518.4" dy="14">depósito y preguntando a</tspan><tspan x="518.4" dy="14">producción.</tspan></text>
+<rect x="844" y="387" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="908" y="429.2" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="908" dy="0">Preparar pedido</tspan></text>
+<polygon points="1030,402 1053,425 1030,448 1007,425" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.7" stroke-linejoin="round"/><line x1="1022" y1="417" x2="1038" y2="433" stroke="#1B2B34" stroke-width="3.2"/><line x1="1022" y1="433" x2="1038" y2="417" stroke="#1B2B34" stroke-width="3.2"/>
+<polygon points="1576,402 1599,425 1576,448 1553,425" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.7" stroke-linejoin="round"/><line x1="1568" y1="417" x2="1584" y2="433" stroke="#1B2B34" stroke-width="3.2"/><line x1="1568" y1="433" x2="1584" y2="417" stroke="#1B2B34" stroke-width="3.2"/>
+<rect x="1682" y="387" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="1746" y="421.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="1746" dy="0">Despachar con</tspan><tspan x="1746" dy="15">flota propia</tspan></text>
+<rect x="1682" y="497" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="1746" y="524.2" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="1746" dy="0">Entregar a</tspan><tspan x="1746" dy="15">transporte</tspan><tspan x="1746" dy="15">tercerizado</tspan></text>
+<circle cx="1872" cy="425" r="18" fill="#fff" stroke="#1B2B34" stroke-width="4.2"/>
+<path d="M 481 625 L 502 625 L 511 634 L 511 665 L 481 665 Z" fill="#DDE8EF" stroke="#1E5C85" stroke-width="1.6" stroke-linejoin="round"/><path d="M 502 625 L 502 634 L 511 634" fill="#fff" stroke="#1E5C85" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="793" y="603" width="230" height="84" fill="#F6EBD8" stroke="none"/><polyline points="802,603 793,603 793,687 802,687" fill="none" stroke="#C8791E" stroke-width="2.2"/><text x="802" y="620.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="802" dy="0">Flujo de datos: la producción se</tspan><tspan x="802" dy="14">registra una vez por semana (20 %</tspan><tspan x="802" dy="14">de los días) y no se cruza con las</tspan><tspan x="802" dy="14">ventas; no hay stock de producto</tspan><tspan x="802" dy="14">terminado registrado.</tspan></text>
+<rect x="188" y="717" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="252" y="751.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="252" dy="0">Producir lo</tspan><tspan x="252" dy="15">decidido</tspan></text>
+<rect x="432" y="717" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="496" y="744.2" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="496" dy="0">Registrar</tspan><tspan x="496" dy="15">producción de la</tspan><tspan x="496" dy="15">semana</tspan></text>
+<circle cx="622" cy="755" r="18" fill="#fff" stroke="#1B2B34" stroke-width="4.2"/>
+<rect x="1258" y="607" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="1322" y="641.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="1322" dy="0">Producir lo que</tspan><tspan x="1322" dy="15">falta</tspan></text>
+<rect x="1258" y="717" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="1322" y="751.7" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="1322" dy="0">Producir con</tspan><tspan x="1322" dy="15">horas extras</tspan></text>
+<circle cx="126" cy="865" r="18" fill="#DCEAE3" stroke="#2F6B5E" stroke-width="2.2"/><circle cx="126" cy="865" r="9" fill="#fff" stroke="#2F6B5E" stroke-width="1.3"/><line x1="126" y1="858.2" x2="126" y2="856" stroke="#2F6B5E" stroke-width="0.9"/><line x1="129.9" y1="858.2" x2="130.5" y2="857.2" stroke="#2F6B5E" stroke-width="0.9"/><line x1="132.8" y1="861.1" x2="133.8" y2="860.5" stroke="#2F6B5E" stroke-width="0.9"/><line x1="132.8" y1="865" x2="135" y2="865" stroke="#2F6B5E" stroke-width="0.9"/><line x1="132.8" y1="868.9" x2="133.8" y2="869.5" stroke="#2F6B5E" stroke-width="0.9"/><line x1="129.9" y1="871.8" x2="130.5" y2="872.8" stroke="#2F6B5E" stroke-width="0.9"/><line x1="126" y1="871.8" x2="126" y2="874" stroke="#2F6B5E" stroke-width="0.9"/><line x1="122.1" y1="871.8" x2="121.5" y2="872.8" stroke="#2F6B5E" stroke-width="0.9"/><line x1="119.2" y1="868.9" x2="118.2" y2="869.5" stroke="#2F6B5E" stroke-width="0.9"/><line x1="119.2" y1="865" x2="117" y2="865" stroke="#2F6B5E" stroke-width="0.9"/><line x1="119.2" y1="861.1" x2="118.2" y2="860.5" stroke="#2F6B5E" stroke-width="0.9"/><line x1="122.1" y1="858.2" x2="121.5" y2="857.2" stroke="#2F6B5E" stroke-width="0.9"/><polyline points="129.5,861.5 126,865 126,858.5" fill="none" stroke="#2F6B5E" stroke-width="1.3"/>
+<rect x="188" y="827" width="128" height="76" rx="10" fill="#fff" stroke="#1B2B34" stroke-width="1.7"/><text x="252" y="869.2" font-size="13" text-anchor="middle" fill="#1B2B34"><tspan x="252" dy="0">Decidir producción</tspan></text>
+<rect x="484" y="830" width="150" height="70" fill="#F6EBD8" stroke="none"/><polyline points="493,830 484,830 484,900 493,900" fill="none" stroke="#C8791E" stroke-width="2.2"/><text x="493" y="847.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="493" dy="0">Decide el dueño o uno</tspan><tspan x="493" dy="14">de los hijos, por</tspan><tspan x="493" dy="14">criterio propio y sin</tspan><tspan x="493" dy="14">mirar los pedidos.</tspan></text>
+<rect x="1222" y="837" width="200" height="56" fill="#F6EBD8" stroke="none"/><polyline points="1231,837 1222,837 1222,893 1231,893" fill="none" stroke="#C8791E" stroke-width="2.2"/><text x="1231" y="854.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1231" dy="0">Las horas extras del mes</tspan><tspan x="1231" dy="14">suman unas 25; parte se usa</tspan><tspan x="1231" dy="14">para completar pedidos.</tspan></text>
+<text x="126" y="236.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="126" dy="0">Pedido recibido</tspan></text>
+<text x="252" y="348.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="252" dy="0">Papel o planilla</tspan></text>
+<text x="748" y="348.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="748" dy="0">Lista de pedidos</tspan></text>
+<text x="1157" y="175.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="1157" dy="0">¿Qué se hace con el faltante?</tspan></text>
+<text x="1030" y="461.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="1030" dy="0">¿Falta producto?</tspan></text>
+<text x="1548" y="421.9" font-size="12" text-anchor="end" fill="#1B2B34"><tspan x="1548" dy="0">¿Con qué se</tspan><tspan x="1548" dy="14">despacha?</tspan></text>
+<text x="1872" y="456.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="1872" dy="0">Pedido</tspan><tspan x="1872" dy="14">despachado</tspan></text>
+<text x="476" y="634.9" font-size="12" text-anchor="end" fill="#1B2B34"><tspan x="476" dy="0">Registro</tspan><tspan x="476" dy="14">semanal de</tspan><tspan x="476" dy="14">producción</tspan></text>
+<text x="622" y="786.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="622" dy="0">Producción</tspan><tspan x="622" dy="14">registrada</tspan></text>
+<text x="126" y="896.9" font-size="12" text-anchor="middle" fill="#1B2B34"><tspan x="126" dy="0">Semana</tspan><tspan x="126" dy="14">iniciada</tspan></text>
 <rect x="1060" y="407" width="20.1" height="14" fill="#fff" fill-opacity="0.85"/>
-<text x="1062" y="417.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1062" dy="0">No</tspan></text>
+<text x="1062" y="417.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1062" dy="0">No</tspan></text>
 <rect x="1034" y="384" width="19" height="14" fill="#fff" fill-opacity="0.85"/>
-<text x="1036" y="394.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1036" dy="0">Sí</tspan></text>
+<text x="1036" y="394.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1036" dy="0">Sí</tspan></text>
 <rect x="1187" y="209" width="65.7" height="28" fill="#fff" fill-opacity="0.85"/>
-<text x="1189" y="219.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1189" dy="0">Se manda</tspan><tspan x="1189" dy="14">incompleto</tspan></text>
+<text x="1189" y="219.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1189" dy="0">Se manda</tspan><tspan x="1189" dy="14">incompleto</tspan></text>
 <rect x="1185.3" y="613" width="65.7" height="28" fill="#fff" fill-opacity="0.85"/>
-<text x="1187.3" y="623.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1187.3" dy="0">Se espera</tspan><tspan x="1187.3" dy="14">producción</tspan></text>
+<text x="1187.3" y="623.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1187.3" dy="0">Se espera</tspan><tspan x="1187.3" dy="14">producción</tspan></text>
 <rect x="1171.7" y="723" width="79.3" height="28" fill="#fff" fill-opacity="0.85"/>
-<text x="1173.7" y="733.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1173.7" dy="0">Horas extras,</tspan><tspan x="1173.7" dy="14">si hace falta</tspan></text>
+<text x="1173.7" y="733.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1173.7" dy="0">Horas extras,</tspan><tspan x="1173.7" dy="14">si hace falta</tspan></text>
 <rect x="1606" y="393" width="39.2" height="28" fill="#fff" fill-opacity="0.85"/>
-<text x="1608" y="403.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1608" dy="0">Flota</tspan><tspan x="1608" dy="14">propia</tspan></text>
+<text x="1608" y="403.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1608" dy="0">Flota</tspan><tspan x="1608" dy="14">propia</tspan></text>
 <rect x="1580" y="452" width="66.9" height="28" fill="#fff" fill-opacity="0.85"/>
-<text x="1582" y="462.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1582" dy="0">Transporte</tspan><tspan x="1582" dy="14">tercerizado</tspan></text>
+<text x="1582" y="462.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1582" dy="0">Transporte</tspan><tspan x="1582" dy="14">tercerizado</tspan></text>
 <rect x="130" y="108" width="189.1" height="14" fill="#fff" fill-opacity="0.85"/>
-<text x="132" y="118.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="132" dy="0">Pedido por WhatsApp o teléfono</tspan></text>
+<text x="132" y="118.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="132" dy="0">Pedido por WhatsApp o teléfono</tspan></text>
 <rect x="1326" y="108" width="161.1" height="14" fill="#fff" fill-opacity="0.85"/>
-<text x="1328" y="118.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1328" dy="0">Aviso de pedido incompleto</tspan></text>
+<text x="1328" y="118.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1328" dy="0">Aviso de pedido incompleto</tspan></text>
 <rect x="1750" y="948" width="105.3" height="14" fill="#fff" fill-opacity="0.85"/>
-<text x="1752" y="958.9" font-size="12" text-anchor="start" fill="#1b1b1b"><tspan x="1752" dy="0">Pedido a entregar</tspan></text>
+<text x="1752" y="958.9" font-size="12" text-anchor="start" fill="#1B2B34"><tspan x="1752" dy="0">Pedido a entregar</tspan></text>
 </svg>

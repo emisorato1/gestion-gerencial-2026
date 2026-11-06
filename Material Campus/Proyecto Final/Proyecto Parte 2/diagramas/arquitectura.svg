@@ -1,112 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1235" viewBox="0 0 1200 1235" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1235" viewBox="0 0 1200 1235" font-family="Arial, Helvetica, sans-serif">
 <title>Arquitectura conceptual y flujo de datos (alternativa B, con piloto en planilla)</title>
-<defs><marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1b"/></marker><marker id="punta-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker></defs>
+<defs><marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1B2B34"/></marker><marker id="punta-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#C8791E"/></marker><marker id="punta-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E5C85"/></marker></defs>
 <rect x="0" y="0" width="1200" height="1235" fill="#fff"/>
-<text x="40" y="40" font-size="24" text-anchor="start" fill="#1b1b1b" font-weight="bold">Arquitectura conceptual y flujo de datos</text>
-<text x="40" y="68" font-size="16" text-anchor="start" fill="#1b1b1b">Alternativa B (stock de Discovery), probada antes con una planilla compartida</text>
-<rect x="600" y="95" width="250" height="100" rx="8" fill="#f1f3f5" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="725" y="120.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Distribuidor</text>
-<text x="725" y="144.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Pide por WhatsApp o teléfono.</text>
-<text x="725" y="163.5" font-size="15" text-anchor="middle" fill="#1b1b1b">No ve el stock (queda para más</text>
-<text x="725" y="182.5" font-size="15" text-anchor="middle" fill="#1b1b1b">adelante).</text>
-<polyline points="660,195 660,265" fill="none" stroke="#1b1b1b" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="670" y="238" font-size="14" text-anchor="start" fill="#1b1b1b">pedido</text>
-<polyline points="790,265 790,195" fill="none" stroke="#1b1b1b" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="800" y="238" font-size="14" text-anchor="start" fill="#1b1b1b">aviso con fecha, si falta</text>
-<rect x="40" y="265" width="250" height="125" rx="8" fill="#e6eefb" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="165" y="293.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Depósito</text>
-<text x="165" y="317.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Arma con la lista de cada pedido</text>
-<text x="165" y="336.5" font-size="15" text-anchor="middle" fill="#1b1b1b">confirmado. Cuenta una vez por</text>
-<text x="165" y="355.5" font-size="15" text-anchor="middle" fill="#1b1b1b">semana (quién, a confirmar) y</text>
-<text x="165" y="374.5" font-size="15" text-anchor="middle" fill="#1b1b1b">deja la hoja de conteo.</text>
-<rect x="320" y="265" width="250" height="125" rx="8" fill="#e6eefb" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="445" y="312.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Producción</text>
-<text x="445" y="336.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Carga lo producido, todos los</text>
-<text x="445" y="355.5" font-size="15" text-anchor="middle" fill="#1b1b1b">días, al cierre de turno.</text>
-<rect x="600" y="265" width="250" height="125" rx="8" fill="#e6eefb" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="725" y="303" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Oficina</text>
-<text x="725" y="327" font-size="15" text-anchor="middle" fill="#1b1b1b">Carga la nota de pedido y</text>
-<text x="725" y="346" font-size="15" text-anchor="middle" fill="#1b1b1b">reserva el stock antes de</text>
-<text x="725" y="365" font-size="15" text-anchor="middle" fill="#1b1b1b">confirmar. Factura.</text>
-<polyline points="70,520 70,390" fill="none" stroke="#2b6e3f" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="78" y="427" font-size="14" text-anchor="start" fill="#2b6e3f">lista de armado</text>
-<text x="78" y="444" font-size="14" text-anchor="start" fill="#2b6e3f">por pedido confirmado</text>
-<polyline points="240,390 240,462" fill="none" stroke="#1b1b1b" stroke-width="2.2"/>
-<text x="249" y="427" font-size="14" text-anchor="start" fill="#1b1b1b">hoja de conteo</text>
-<polyline points="445,390 445,462" fill="none" stroke="#1b1b1b" stroke-width="2.2"/>
-<text x="454" y="427" font-size="14" text-anchor="start" fill="#1b1b1b">ingreso de stock</text>
-<polyline points="725,390 725,462" fill="none" stroke="#1b1b1b" stroke-width="2.2"/>
-<text x="734" y="427" font-size="14" text-anchor="start" fill="#1b1b1b">nota de pedido y reserva</text>
-<text x="249" y="444" font-size="14" text-anchor="start" fill="#1b1b1b">(ajuste: sistemas)</text>
-<polyline points="240,462 725,462" fill="none" stroke="#1b1b1b" stroke-width="2.2"/>
-<polyline points="725,462 1030,462 1030,520" fill="none" stroke="#8a5a00" stroke-width="2.2" stroke-dasharray="9 6" marker-end="url(#punta-p)"/>
-<text x="905" y="453" font-size="14" text-anchor="start" fill="#8a5a00">los tres aportes, solo en el piloto</text>
-<polyline points="445,462 445,520" fill="none" stroke="#1b1b1b" stroke-width="2.2" marker-end="url(#punta)"/>
-<rect x="40" y="520" width="810" height="315" rx="10" fill="#f1f8f2" stroke="#2b6e3f" stroke-width="2.6"/>
-<text x="445" y="684" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold"></text>
-<text x="60" y="552" font-size="19" text-anchor="start" fill="#1b1b1b" font-weight="bold">Discovery (Buenos Aires Software)</text>
-<text x="60" y="576" font-size="15" text-anchor="start" fill="#1b1b1b">Se activa el módulo de stock, pedidos y reserva, que hoy no se usa.</text>
-<text x="60" y="597" font-size="15" text-anchor="start" fill="#1b1b1b">Sin probar en Dulxelitos: es el supuesto 3 de la sección 4.</text>
-<rect x="60" y="615" width="200" height="105" rx="8" fill="#fff" stroke="#2b6e3f" stroke-width="1.8"/>
-<text x="160" y="643" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Pedidos y reservas</text>
-<text x="160" y="667" font-size="15" text-anchor="middle" fill="#1b1b1b">Nota de pedido. La</text>
-<text x="160" y="686" font-size="15" text-anchor="middle" fill="#1b1b1b">reserva se crea al</text>
-<text x="160" y="705" font-size="15" text-anchor="middle" fill="#1b1b1b">confirmar.</text>
-<rect x="335" y="615" width="230" height="105" rx="8" fill="#fff" stroke="#2b6e3f" stroke-width="1.8"/>
-<text x="450" y="651.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Stock de producto</text>
-<text x="450" y="672.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">terminado</text>
-<text x="450" y="696.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Físico, reservado y disponible.</text>
-<rect x="640" y="615" width="190" height="105" rx="8" fill="#fff" stroke="#2b6e3f" stroke-width="1.8"/>
-<text x="735" y="652.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Facturación</text>
-<text x="735" y="676.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Factura el pedido</text>
-<text x="735" y="695.5" font-size="15" text-anchor="middle" fill="#1b1b1b">confirmado.</text>
-<polyline points="260,677 335,677" fill="none" stroke="#2b6e3f" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="297.5" y="665" font-size="14" text-anchor="middle" fill="#2b6e3f">reserva</text>
-<polyline points="640,677 565,677" fill="none" stroke="#2b6e3f" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="602.5" y="645" font-size="14" text-anchor="middle" fill="#2b6e3f">consume</text>
-<text x="602.5" y="662" font-size="14" text-anchor="middle" fill="#2b6e3f">la reserva</text>
-<rect x="60" y="745" width="770" height="62" rx="8" fill="#fff" stroke="#2b6e3f" stroke-width="1.8"/>
-<text x="445" y="782.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold"></text>
-<text x="445" y="782" font-size="15" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Datos maestros: productos, distribuidores y stock mínimo por producto</text>
-<rect x="900" y="520" width="260" height="235" rx="8" fill="#fff7e0" stroke="#8a5a00" stroke-width="1.8" stroke-dasharray="9 6"/>
-<text x="1030" y="584.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Planilla compartida</text>
-<text x="1030" y="608.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Solo en el piloto: 2 semanas, solo</text>
-<text x="1030" y="627.5" font-size="15" text-anchor="middle" fill="#1b1b1b">papas fritas. Recibe los mismos</text>
-<text x="1030" y="646.5" font-size="15" text-anchor="middle" fill="#1b1b1b">tres aportes y usa el mismo</text>
-<text x="1030" y="665.5" font-size="15" text-anchor="middle" fill="#1b1b1b">criterio: disponible = físico −</text>
-<text x="1030" y="684.5" font-size="15" text-anchor="middle" fill="#1b1b1b">reservado. Reemplaza a Discovery</text>
-<text x="1030" y="703.5" font-size="15" text-anchor="middle" fill="#1b1b1b">en la prueba y después se archiva.</text>
-<rect x="40" y="915" width="250" height="110" rx="8" fill="#f3ecfa" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="165" y="944.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Registro semanal de</text>
-<text x="165" y="965.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">recortes</text>
-<text x="165" y="989.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Pedidos recortados o demorados,</text>
-<text x="165" y="1008.5" font-size="15" text-anchor="middle" fill="#1b1b1b">en una hoja de Oficina.</text>
-<rect x="900" y="915" width="260" height="110" rx="8" fill="#f3ecfa" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="1030" y="955" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Liquidación de sueldos</text>
-<text x="1030" y="979" font-size="15" text-anchor="middle" fill="#1b1b1b">Horas extras del mes, totales.</text>
-<text x="1030" y="998" font-size="15" text-anchor="middle" fill="#1b1b1b">Carga manual.</text>
-<rect x="370" y="915" width="410" height="110" rx="8" fill="#eef1f5" stroke="#1b1b1b" stroke-width="2.4"/>
-<text x="575" y="955" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Tablero de 4 indicadores</text>
-<text x="575" y="979" font-size="15" text-anchor="middle" fill="#1b1b1b">Pedidos completos y a tiempo, exactitud de stock, días</text>
-<text x="575" y="998" font-size="15" text-anchor="middle" fill="#1b1b1b">con producción cargada y horas extras por mes.</text>
-<polyline points="290,970 370,970" fill="none" stroke="#1b1b1b" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="330" y="958" font-size="14" text-anchor="middle" fill="#1b1b1b">a mano</text>
-<polyline points="900,970 780,970" fill="none" stroke="#1b1b1b" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="840" y="958" font-size="14" text-anchor="middle" fill="#1b1b1b">a mano, por mes</text>
-<polyline points="520,835 520,915" fill="none" stroke="#2b6e3f" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="530" y="880" font-size="14" text-anchor="start" fill="#2b6e3f">exportación CSV</text>
-<polyline points="1030,755 1030,872 700,872 700,915" fill="none" stroke="#8a5a00" stroke-width="2.2" stroke-dasharray="9 6" marker-end="url(#punta-p)"/>
-<text x="1020" y="862" font-size="14" text-anchor="end" fill="#8a5a00">CSV o a mano, solo piloto</text>
-<rect x="320" y="1070" width="510" height="100" rx="8" fill="#e6eefb" stroke="#1b1b1b" stroke-width="1.8"/>
-<text x="575" y="1105" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Dirección y responsable de sistemas</text>
-<text x="575" y="1129" font-size="15" text-anchor="middle" fill="#1b1b1b">Miran el tablero. Dirección planifica la producción de la semana con los</text>
-<text x="575" y="1148" font-size="15" text-anchor="middle" fill="#1b1b1b">pedidos pendientes y el stock mínimo.</text>
-<polyline points="575,1025 575,1070" fill="none" stroke="#1b1b1b" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="585" y="1052" font-size="14" text-anchor="start" fill="#1b1b1b">indicadores</text>
-<line x1="40" y1="1204" x2="100" y2="1204" stroke="#1b1b1b" stroke-width="2.2" marker-end="url(#punta)"/>
-<text x="112" y="1209" font-size="14" text-anchor="start" fill="#1b1b1b">Flujo definitivo</text>
-<line x1="270" y1="1204" x2="330" y2="1204" stroke="#8a5a00" stroke-width="2.2" stroke-dasharray="9 6" marker-end="url(#punta-p)"/>
-<text x="342" y="1209" font-size="14" text-anchor="start" fill="#1b1b1b">Solo en el piloto</text>
-<text x="520" y="1209" font-size="14" text-anchor="start" fill="#1b1b1b">Todo es carga manual controlada o exportación CSV: no hay API.</text>
+<text x="40" y="40" font-size="24" text-anchor="start" fill="#1B2B34" font-weight="bold">Arquitectura conceptual y flujo de datos</text>
+<text x="40" y="68" font-size="16" text-anchor="start" fill="#55636B">Alternativa B (stock de Discovery), probada antes con una planilla compartida</text>
+<rect x="600" y="95" width="250" height="100" rx="8" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.8"/>
+<text x="725" y="120.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Distribuidor</text>
+<text x="725" y="144.5" font-size="15" text-anchor="middle" fill="#1B2B34">Pide por WhatsApp o teléfono.</text>
+<text x="725" y="163.5" font-size="15" text-anchor="middle" fill="#1B2B34">No ve el stock (queda para más</text>
+<text x="725" y="182.5" font-size="15" text-anchor="middle" fill="#1B2B34">adelante).</text>
+<polyline points="660,195 660,265" fill="none" stroke="#1B2B34" stroke-width="2.2" marker-end="url(#punta)"/>
+<text x="670" y="238" font-size="14" text-anchor="start" fill="#1B2B34">pedido</text>
+<polyline points="790,265 790,195" fill="none" stroke="#1B2B34" stroke-width="2.2" marker-end="url(#punta)"/>
+<text x="800" y="238" font-size="14" text-anchor="start" fill="#1B2B34">aviso con fecha, si falta</text>
+<rect x="40" y="265" width="250" height="125" rx="8" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.8"/>
+<text x="165" y="293.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Depósito</text>
+<text x="165" y="317.5" font-size="15" text-anchor="middle" fill="#1B2B34">Arma con la lista de cada pedido</text>
+<text x="165" y="336.5" font-size="15" text-anchor="middle" fill="#1B2B34">confirmado. Cuenta una vez por</text>
+<text x="165" y="355.5" font-size="15" text-anchor="middle" fill="#1B2B34">semana (quién, a confirmar) y</text>
+<text x="165" y="374.5" font-size="15" text-anchor="middle" fill="#1B2B34">deja la hoja de conteo.</text>
+<rect x="320" y="265" width="250" height="125" rx="8" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.8"/>
+<text x="445" y="312.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Producción</text>
+<text x="445" y="336.5" font-size="15" text-anchor="middle" fill="#1B2B34">Carga lo producido, todos los</text>
+<text x="445" y="355.5" font-size="15" text-anchor="middle" fill="#1B2B34">días, al cierre de turno.</text>
+<rect x="600" y="265" width="250" height="125" rx="8" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.8"/>
+<text x="725" y="303" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Oficina</text>
+<text x="725" y="327" font-size="15" text-anchor="middle" fill="#1B2B34">Carga la nota de pedido y</text>
+<text x="725" y="346" font-size="15" text-anchor="middle" fill="#1B2B34">reserva el stock antes de</text>
+<text x="725" y="365" font-size="15" text-anchor="middle" fill="#1B2B34">confirmar. Factura.</text>
+<polyline points="70,520 70,390" fill="none" stroke="#1E5C85" stroke-width="2.2" marker-end="url(#punta-a)"/>
+<text x="78" y="427" font-size="14" text-anchor="start" fill="#1E5C85">lista de armado</text>
+<text x="78" y="444" font-size="14" text-anchor="start" fill="#1E5C85">por pedido confirmado</text>
+<polyline points="240,390 240,462" fill="none" stroke="#1B2B34" stroke-width="2.2"/>
+<text x="249" y="427" font-size="14" text-anchor="start" fill="#1B2B34">hoja de conteo</text>
+<polyline points="445,390 445,462" fill="none" stroke="#1B2B34" stroke-width="2.2"/>
+<text x="454" y="427" font-size="14" text-anchor="start" fill="#1B2B34">ingreso de stock</text>
+<polyline points="725,390 725,462" fill="none" stroke="#1B2B34" stroke-width="2.2"/>
+<text x="734" y="427" font-size="14" text-anchor="start" fill="#1B2B34">nota de pedido y reserva</text>
+<text x="249" y="444" font-size="14" text-anchor="start" fill="#1B2B34">(ajuste: sistemas)</text>
+<polyline points="240,462 725,462" fill="none" stroke="#1B2B34" stroke-width="2.2"/>
+<polyline points="725,462 1030,462 1030,520" fill="none" stroke="#C8791E" stroke-width="2.2" stroke-dasharray="9 6" marker-end="url(#punta-p)"/>
+<text x="905" y="453" font-size="14" text-anchor="start" fill="#9E5C15">los tres aportes, solo en el piloto</text>
+<polyline points="445,462 445,520" fill="none" stroke="#1B2B34" stroke-width="2.2" marker-end="url(#punta)"/>
+<rect x="40" y="520" width="810" height="315" rx="10" fill="#DDE8EF" stroke="#1E5C85" stroke-width="2.6"/>
+<text x="445" y="684" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold"></text>
+<text x="60" y="552" font-size="19" text-anchor="start" fill="#1E5C85" font-weight="bold">Discovery (Buenos Aires Software)</text>
+<text x="60" y="576" font-size="15" text-anchor="start" fill="#1B2B34">Se activa el módulo de stock, pedidos y reserva, que hoy no se usa.</text>
+<text x="60" y="597" font-size="15" text-anchor="start" fill="#1B2B34">Sin probar en Dulxelitos: es el supuesto 3 de la sección 4.</text>
+<rect x="60" y="615" width="200" height="105" rx="8" fill="#fff" stroke="#1E5C85" stroke-width="1.8"/>
+<text x="160" y="643" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Pedidos y reservas</text>
+<text x="160" y="667" font-size="15" text-anchor="middle" fill="#1B2B34">Nota de pedido. La</text>
+<text x="160" y="686" font-size="15" text-anchor="middle" fill="#1B2B34">reserva se crea al</text>
+<text x="160" y="705" font-size="15" text-anchor="middle" fill="#1B2B34">confirmar.</text>
+<rect x="335" y="615" width="230" height="105" rx="8" fill="#fff" stroke="#1E5C85" stroke-width="1.8"/>
+<text x="450" y="651.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Stock de producto</text>
+<text x="450" y="672.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">terminado</text>
+<text x="450" y="696.5" font-size="15" text-anchor="middle" fill="#1B2B34">Físico, reservado y disponible.</text>
+<rect x="640" y="615" width="190" height="105" rx="8" fill="#fff" stroke="#1E5C85" stroke-width="1.8"/>
+<text x="735" y="652.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Facturación</text>
+<text x="735" y="676.5" font-size="15" text-anchor="middle" fill="#1B2B34">Factura el pedido</text>
+<text x="735" y="695.5" font-size="15" text-anchor="middle" fill="#1B2B34">confirmado.</text>
+<polyline points="260,677 335,677" fill="none" stroke="#1E5C85" stroke-width="2.2" marker-end="url(#punta-a)"/>
+<text x="297.5" y="665" font-size="14" text-anchor="middle" fill="#1E5C85">reserva</text>
+<polyline points="640,677 565,677" fill="none" stroke="#1E5C85" stroke-width="2.2" marker-end="url(#punta-a)"/>
+<text x="602.5" y="645" font-size="14" text-anchor="middle" fill="#1E5C85">consume</text>
+<text x="602.5" y="662" font-size="14" text-anchor="middle" fill="#1E5C85">la reserva</text>
+<rect x="60" y="745" width="770" height="62" rx="8" fill="#fff" stroke="#1E5C85" stroke-width="1.8"/>
+<text x="445" y="782.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold"></text>
+<text x="445" y="782" font-size="15" text-anchor="middle" fill="#1B2B34" font-weight="bold">Datos maestros: productos, distribuidores y stock mínimo por producto</text>
+<rect x="900" y="520" width="260" height="235" rx="8" fill="#F6EBD8" stroke="#C8791E" stroke-width="2.2" stroke-dasharray="9 6"/>
+<text x="1030" y="584.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Planilla compartida</text>
+<text x="1030" y="608.5" font-size="15" text-anchor="middle" fill="#1B2B34">Solo en el piloto: 2 semanas, solo</text>
+<text x="1030" y="627.5" font-size="15" text-anchor="middle" fill="#1B2B34">papas fritas. Recibe los mismos</text>
+<text x="1030" y="646.5" font-size="15" text-anchor="middle" fill="#1B2B34">tres aportes y usa el mismo</text>
+<text x="1030" y="665.5" font-size="15" text-anchor="middle" fill="#1B2B34">criterio: disponible = físico −</text>
+<text x="1030" y="684.5" font-size="15" text-anchor="middle" fill="#1B2B34">reservado. Reemplaza a Discovery</text>
+<text x="1030" y="703.5" font-size="15" text-anchor="middle" fill="#1B2B34">en la prueba y después se archiva.</text>
+<rect x="40" y="915" width="250" height="110" rx="8" fill="#fff" stroke="#55636B" stroke-width="1.6"/>
+<text x="165" y="944.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Registro semanal de</text>
+<text x="165" y="965.5" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">recortes</text>
+<text x="165" y="989.5" font-size="15" text-anchor="middle" fill="#1B2B34">Pedidos recortados o demorados,</text>
+<text x="165" y="1008.5" font-size="15" text-anchor="middle" fill="#1B2B34">en una hoja de Oficina.</text>
+<rect x="900" y="915" width="260" height="110" rx="8" fill="#fff" stroke="#55636B" stroke-width="1.6"/>
+<text x="1030" y="955" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Liquidación de sueldos</text>
+<text x="1030" y="979" font-size="15" text-anchor="middle" fill="#1B2B34">Horas extras del mes, totales.</text>
+<text x="1030" y="998" font-size="15" text-anchor="middle" fill="#1B2B34">Carga manual.</text>
+<rect x="370" y="915" width="410" height="110" rx="8" fill="#DCEAE3" stroke="#2F6B5E" stroke-width="2.6"/>
+<text x="575" y="955" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Tablero de 4 indicadores</text>
+<text x="575" y="979" font-size="15" text-anchor="middle" fill="#1B2B34">Pedidos completos y a tiempo, exactitud de stock, días</text>
+<text x="575" y="998" font-size="15" text-anchor="middle" fill="#1B2B34">con producción cargada y horas extras por mes.</text>
+<polyline points="290,970 370,970" fill="none" stroke="#1B2B34" stroke-width="2.2" marker-end="url(#punta)"/>
+<text x="330" y="958" font-size="14" text-anchor="middle" fill="#1B2B34">a mano</text>
+<polyline points="900,970 780,970" fill="none" stroke="#1B2B34" stroke-width="2.2" marker-end="url(#punta)"/>
+<text x="840" y="958" font-size="14" text-anchor="middle" fill="#1B2B34">a mano, por mes</text>
+<polyline points="520,835 520,915" fill="none" stroke="#1E5C85" stroke-width="2.2" marker-end="url(#punta-a)"/>
+<text x="530" y="880" font-size="14" text-anchor="start" fill="#1E5C85">exportación CSV</text>
+<polyline points="1030,755 1030,872 700,872 700,915" fill="none" stroke="#C8791E" stroke-width="2.2" stroke-dasharray="9 6" marker-end="url(#punta-p)"/>
+<text x="1020" y="862" font-size="14" text-anchor="end" fill="#9E5C15">CSV o a mano, solo piloto</text>
+<rect x="320" y="1070" width="510" height="100" rx="8" fill="#EFEADC" stroke="#1B2B34" stroke-width="1.8"/>
+<text x="575" y="1105" font-size="17" text-anchor="middle" fill="#1B2B34" font-weight="bold">Dirección y responsable de sistemas</text>
+<text x="575" y="1129" font-size="15" text-anchor="middle" fill="#1B2B34">Miran el tablero. Dirección planifica la producción de la semana con los</text>
+<text x="575" y="1148" font-size="15" text-anchor="middle" fill="#1B2B34">pedidos pendientes y el stock mínimo.</text>
+<polyline points="575,1025 575,1070" fill="none" stroke="#1B2B34" stroke-width="2.2" marker-end="url(#punta)"/>
+<text x="585" y="1052" font-size="14" text-anchor="start" fill="#1B2B34">indicadores</text>
+<line x1="40" y1="1204" x2="100" y2="1204" stroke="#1B2B34" stroke-width="2.2" marker-end="url(#punta)"/>
+<text x="112" y="1209" font-size="14" text-anchor="start" fill="#1B2B34">Flujo definitivo</text>
+<line x1="270" y1="1204" x2="330" y2="1204" stroke="#C8791E" stroke-width="2.2" stroke-dasharray="9 6" marker-end="url(#punta-p)"/>
+<text x="342" y="1209" font-size="14" text-anchor="start" fill="#1B2B34">Solo en el piloto</text>
+<text x="520" y="1209" font-size="14" text-anchor="start" fill="#55636B">Todo es carga manual controlada o exportación CSV: no hay API.</text>
 </svg>

@@ -20,9 +20,23 @@ sys.dont_write_bytecode = True
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 W, H = 1200, 1235
-FUENTE = "Helvetica Neue, Helvetica, Arial, sans-serif"
-TINTA = "#1b1b1b"
+FUENTE = "Arial, Helvetica, sans-serif"
 MIN_LETRA = 14
+
+# Paleta de la presentacion (armar-presentacion.js), con el mismo uso en todos los
+# graficos: oscuro = texto y flujo definitivo; tinta neutra = personas y areas;
+# azul = sistemas y datos (Discovery); naranja = solo en el piloto (la planilla);
+# verde = lo que mide la mejora (el tablero); gris = hojas manuales.
+TINTA = "#1B2B34"        # DARK
+GRIS = "#55636B"         # GREY
+NEUTRO = "#EFEADC"       # T_NEUTRAL
+AZUL = "#1E5C85"         # BLUE
+AZUL_T = "#DDE8EF"       # T_BLUE
+NARANJA = "#C8791E"      # ORANGE (trazos)
+NARANJA_TXT = "#9E5C15"  # ORANGE oscurecido, para texto chico sobre blanco (5,3:1)
+NARANJA_T = "#F6EBD8"    # T_ORANGE
+VERDE = "#2F6B5E"        # GREEN
+VERDE_T = "#DCEAE3"      # T_GREEN
 
 try:
     from PIL import ImageFont
@@ -94,7 +108,8 @@ def caja(x, y, w, h, titulo, cuerpo="", relleno="#fff", borde=TINTA, trazo=1.8,
 def flecha(puntos, punteada=False, punta=True, color=TINTA, trazo=2.2):
     pts = " ".join("%g,%g" % p for p in puntos)
     extra = ' stroke-dasharray="9 6"' if punteada else ""
-    marca = ' marker-end="url(#%s)"' % ("punta-p" if punteada else "punta") if punta else ""
+    id_punta = "punta-p" if punteada else ("punta-a" if color == AZUL else "punta")
+    marca = ' marker-end="url(#%s)"' % id_punta if punta else ""
     out.append('<polyline points="%s" fill="none" stroke="%s" stroke-width="%g"%s%s/>'
                % (pts, color, trazo, extra, marca))
 
@@ -109,13 +124,15 @@ out.append('<defs>'
            '<marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" '
            'markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker>'
            '<marker id="punta-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" '
-           'markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>'
-           '</defs>' % TINTA)
+           'markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker>'
+           '<marker id="punta-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" '
+           'markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker>'
+           '</defs>' % (TINTA, NARANJA, AZUL))
 out.append('<rect x="0" y="0" width="%d" height="%d" fill="#fff"/>' % (W, H))
 
 texto(40, 40, "Arquitectura conceptual y flujo de datos", 24, "start", True)
 texto(40, 68, "Alternativa B (stock de Discovery), probada antes con una planilla compartida",
-      16, "start")
+      16, "start", color=GRIS)
 
 # columnas de las personas, encima del registro: Deposito, Produccion, Oficina
 XD, XP, XO, WA = 40, 320, 600, 250
@@ -123,26 +140,25 @@ SD, SP, SO = 240, XP + WA / 2, XO + WA / 2   # donde baja la carga de cada una
 
 # fila 1: el distribuidor, encima de Oficina
 caja(XO, 95, WA, 100, "Distribuidor", "Pide por WhatsApp o teléfono. No ve el stock (queda para más adelante).",
-     relleno="#f1f3f5")
+     relleno=NEUTRO)
 flecha([(XO + 60, 195), (XO + 60, 265)])
 texto(XO + 70, 238, "pedido", 14, "start")
 flecha([(XO + 190, 265), (XO + 190, 195)])
 texto(XO + 200, 238, "aviso con fecha, si falta", 14, "start")
 
 # fila 2: quienes aportan datos
-AZUL = "#e6eefb"
 caja(XD, 265, WA, 125, "Depósito",
      "Arma con la lista de cada pedido confirmado. Cuenta una vez por semana (quién, "
-     "a confirmar) y deja la hoja de conteo.", relleno=AZUL)
+     "a confirmar) y deja la hoja de conteo.", relleno=NEUTRO)
 caja(XP, 265, WA, 125, "Producción",
-     "Carga lo producido, todos los días, al cierre de turno.", relleno=AZUL)
+     "Carga lo producido, todos los días, al cierre de turno.", relleno=NEUTRO)
 caja(XO, 265, WA, 125, "Oficina",
-     "Carga la nota de pedido y reserva el stock antes de confirmar. Factura.", relleno=AZUL)
+     "Carga la nota de pedido y reserva el stock antes de confirmar. Factura.", relleno=NEUTRO)
 
 # Discovery le devuelve a Deposito la lista de armado (flecha hacia arriba, sin cruzar el bus)
-flecha([(70, 520), (70, 390)], color="#2b6e3f")
-texto(78, 427, "lista de armado", 14, "start", color="#2b6e3f")
-texto(78, 444, "por pedido confirmado", 14, "start", color="#2b6e3f")
+flecha([(70, 520), (70, 390)], color=AZUL)
+texto(78, 427, "lista de armado", 14, "start", color=AZUL)
+texto(78, 444, "por pedido confirmado", 14, "start", color=AZUL)
 
 # bus: las tres cargas entran juntas a Discovery (solido) o a la planilla (punteado, piloto)
 Y_BUS = 462
@@ -152,31 +168,30 @@ for cx, et in ((SD, "hoja de conteo"), (SP, "ingreso de stock"), (SO, "nota de p
 texto(SD + 9, 444, "(ajuste: sistemas)", 14, "start")
 flecha([(SD, Y_BUS), (SO, Y_BUS)], punta=False)
 X_PLAN = 1030
-flecha([(SO, Y_BUS), (X_PLAN, Y_BUS), (X_PLAN, 520)], punteada=True, color="#8a5a00")
-texto(905, Y_BUS - 9, "los tres aportes, solo en el piloto", 14, "start", color="#8a5a00")
+flecha([(SO, Y_BUS), (X_PLAN, Y_BUS), (X_PLAN, 520)], punteada=True, color=NARANJA)
+texto(905, Y_BUS - 9, "los tres aportes, solo en el piloto", 14, "start", color=NARANJA_TXT)
 flecha([(SP, Y_BUS), (SP, 520)])
 
 # fila 3: Discovery y la planilla
 XDI, YDI, WDI, HDI = 40, 520, 810, 315
-caja(XDI, YDI, WDI, HDI, "", relleno="#f1f8f2", borde="#2b6e3f", trazo=2.6, radio=10)
-texto(XDI + 20, YDI + 32, "Discovery (Buenos Aires Software)", 19, "start", True)
+caja(XDI, YDI, WDI, HDI, "", relleno=AZUL_T, borde=AZUL, trazo=2.6, radio=10)
+texto(XDI + 20, YDI + 32, "Discovery (Buenos Aires Software)", 19, "start", True, color=AZUL)
 texto(XDI + 20, YDI + 56, "Se activa el módulo de stock, pedidos y reserva, que hoy no se usa.",
       15, "start")
 texto(XDI + 20, YDI + 77, "Sin probar en Dulxelitos: es el supuesto 3 de la sección 4.", 15, "start")
 
-VERDE = "#2b6e3f"
 YC, HC = 615, 105
 caja(60, YC, 200, HC, "Pedidos y reservas", "Nota de pedido. La reserva se crea al confirmar.",
-     borde=VERDE)
+     borde=AZUL)
 caja(335, YC, 230, HC, "Stock de producto terminado", "Físico, reservado y disponible.",
-     borde=VERDE)
-caja(640, YC, 190, HC, "Facturación", "Factura el pedido confirmado.", borde=VERDE)
-flecha([(260, YC + 62), (335, YC + 62)], color=VERDE)
-texto(297.5, YC + 50, "reserva", 14, color=VERDE)
-flecha([(640, YC + 62), (565, YC + 62)], color=VERDE)
-texto(602.5, YC + 30, "consume", 14, color=VERDE)
-texto(602.5, YC + 47, "la reserva", 14, color=VERDE)
-caja(60, 745, 770, 62, "", relleno="#fff", borde=VERDE, radio=8)
+     borde=AZUL)
+caja(640, YC, 190, HC, "Facturación", "Factura el pedido confirmado.", borde=AZUL)
+flecha([(260, YC + 62), (335, YC + 62)], color=AZUL)
+texto(297.5, YC + 50, "reserva", 14, color=AZUL)
+flecha([(640, YC + 62), (565, YC + 62)], color=AZUL)
+texto(602.5, YC + 30, "consume", 14, color=AZUL)
+texto(602.5, YC + 47, "la reserva", 14, color=AZUL)
+caja(60, 745, 770, 62, "", relleno="#fff", borde=AZUL, radio=8)
 texto(445, 782, "Datos maestros: productos, distribuidores y stock mínimo por producto",
       15, "middle", True)
 
@@ -184,31 +199,31 @@ caja(900, 520, 260, 235, "Planilla compartida",
      "Solo en el piloto: 2 semanas, solo papas fritas. Recibe los mismos tres aportes y usa el "
      "mismo criterio: disponible = físico − reservado. Reemplaza a Discovery en la prueba y "
      "después se archiva.",
-     relleno="#fff7e0", borde="#8a5a00", punteada=True)
+     relleno=NARANJA_T, borde=NARANJA, trazo=2.2, punteada=True)
 
 # fila 4: lo que alimenta al tablero
 YT, HT = 915, 110
 XT, WT = 370, 410
 caja(40, YT, 250, HT, "Registro semanal de recortes",
-     "Pedidos recortados o demorados, en una hoja de Oficina.", relleno="#f3ecfa")
+     "Pedidos recortados o demorados, en una hoja de Oficina.", borde=GRIS, trazo=1.6)
 caja(900, YT, 260, HT, "Liquidación de sueldos", "Horas extras del mes, totales. Carga manual.",
-     relleno="#f3ecfa")
+     borde=GRIS, trazo=1.6)
 caja(XT, YT, WT, HT, "Tablero de 4 indicadores",
      "Pedidos completos y a tiempo, exactitud de stock, días con producción cargada y horas "
-     "extras por mes.", relleno="#eef1f5", trazo=2.4)
+     "extras por mes.", relleno=VERDE_T, borde=VERDE, trazo=2.6)
 flecha([(40 + 250, YT + 55), (XT, YT + 55)])
 texto((40 + 250 + XT) / 2, YT + 43, "a mano", 14)
 flecha([(900, YT + 55), (XT + WT, YT + 55)])
 texto((900 + XT + WT) / 2, YT + 43, "a mano, por mes", 14)
-flecha([(520, 835), (520, YT)], color=VERDE)
-texto(530, 880, "exportación CSV", 14, "start", color=VERDE)
-flecha([(X_PLAN, 755), (X_PLAN, 872), (700, 872), (700, YT)], punteada=True, color="#8a5a00")
-texto(1020, 862, "CSV o a mano, solo piloto", 14, "end", color="#8a5a00")
+flecha([(520, 835), (520, YT)], color=AZUL)
+texto(530, 880, "exportación CSV", 14, "start", color=AZUL)
+flecha([(X_PLAN, 755), (X_PLAN, 872), (700, 872), (700, YT)], punteada=True, color=NARANJA)
+texto(1020, 862, "CSV o a mano, solo piloto", 14, "end", color=NARANJA_TXT)
 
 # fila 5: quien mira
 caja(320, 1070, 510, 100, "Dirección y responsable de sistemas",
      "Miran el tablero. Dirección planifica la producción de la semana con los pedidos "
-     "pendientes y el stock mínimo.", relleno=AZUL)
+     "pendientes y el stock mínimo.", relleno=NEUTRO)
 flecha([(575, YT + HT), (575, 1070)])
 texto(585, 1052, "indicadores", 14, "start")
 
@@ -216,10 +231,11 @@ texto(585, 1052, "indicadores", 14, "start")
 out.append('<line x1="40" y1="1204" x2="100" y2="1204" stroke="%s" stroke-width="2.2" '
            'marker-end="url(#punta)"/>' % TINTA)
 texto(112, 1209, "Flujo definitivo", 14, "start")
-out.append('<line x1="270" y1="1204" x2="330" y2="1204" stroke="#8a5a00" stroke-width="2.2" '
-           'stroke-dasharray="9 6" marker-end="url(#punta-p)"/>')
+out.append('<line x1="270" y1="1204" x2="330" y2="1204" stroke="%s" stroke-width="2.2" '
+           'stroke-dasharray="9 6" marker-end="url(#punta-p)"/>' % NARANJA)
 texto(342, 1209, "Solo en el piloto", 14, "start")
-texto(520, 1209, "Todo es carga manual controlada o exportación CSV: no hay API.", 14, "start")
+texto(520, 1209, "Todo es carga manual controlada o exportación CSV: no hay API.", 14, "start",
+      color=GRIS)
 
 out.append("</svg>")
 svg = "\n".join(out) + "\n"

@@ -21,15 +21,21 @@
 @font-face { font-family: "Public Sans"; font-weight: 400; font-style: italic; src: url("guion-assets/fuentes/public-sans-latin-400-italic.woff"); }
 @font-face { font-family: "Public Sans"; font-weight: 600; font-style: italic; src: url("guion-assets/fuentes/public-sans-latin-600-italic.woff"); }
 
+/* Paleta de la presentacion (armar-presentacion.js). El naranja de la paleta va en
+   filetes y numeros grandes; para texto chico se usa el naranja oscurecido, como en
+   las laminas, para que se lea impreso. */
 :root {
   --ink: #1B2B34;
-  --orange: #B8731A;
+  --orange: #C8791E;
+  --orange-txt: #9E5C15;
   --rust: #A33B22;
+  --green: #2F6B5E;
+  --blue: #1E5C85;
   --grey: #55636B;
   --muted: #8FA3AB;
   --paper: #FDFCF8;
-  --rule: #E5DFCB;
-  --peach: #FBE6CC;
+  --rule: #E2DCCC;
+  --peach: #F6EBD8;
 }
 @page { size: A4; margin: 15mm 17mm 14mm 17mm; background: var(--paper); }
 * { box-sizing: border-box; }
@@ -38,7 +44,7 @@ body { margin: 0; }
 h1, h2, h3, .cond { font-family: "Oswald", "Arial Narrow", Arial, sans-serif; }
 
 /* encabezado */
-.eyebrow { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 9pt; letter-spacing: .22em; color: var(--orange); text-transform: uppercase; margin: 0 0 2mm; }
+.eyebrow { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 9pt; letter-spacing: .22em; color: var(--orange-txt); text-transform: uppercase; margin: 0 0 2mm; }
 h1 { font-weight: 600; font-size: 32pt; line-height: 1.05; margin: 0 0 2mm; }
 .sub { color: var(--grey); font-size: 11pt; max-width: 130mm; margin: 0 0 4mm; line-height: 1.4; }
 .stats { display: flex; gap: 8mm; align-items: baseline; padding-bottom: 3mm; border-bottom: 1.5pt solid var(--ink); }
@@ -49,7 +55,7 @@ h1 { font-weight: 600; font-size: 32pt; line-height: 1.05; margin: 0 0 2mm; }
 table.turnos { width: 100%; border-collapse: collapse; margin: 3mm 0 1.5mm; font-size: 9.2pt; }
 table.turnos th { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 500; font-size: 8pt; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 2mm 1.5mm 0; border-bottom: .75pt solid var(--rule); }
 table.turnos td { padding: .65mm 2mm .65mm 0; border-bottom: .5pt solid var(--rule); vertical-align: top; }
-table.turnos td.n { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; color: var(--orange); width: 9mm; }
+table.turnos td.n { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; color: var(--orange-txt); width: 9mm; }
 table.turnos td.t { color: var(--grey); white-space: nowrap; }
 table.turnos tr.total td { border-bottom: none; font-weight: 600; padding-top: 1.6mm; }
 .nota-turnos { color: var(--grey); font-size: 9pt; font-style: italic; margin: 1mm 0 0; }
@@ -58,7 +64,7 @@ table.turnos tr.total td { border-bottom: none; font-weight: 600; padding-top: 1
 section.lamina { break-before: page; }
 section.lamina.primera { break-before: auto; margin-top: 3mm; }
 .cab { display: flex; align-items: center; gap: 4mm; margin: 0 0 3mm; }
-.cab .num { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 11pt; letter-spacing: .2em; color: var(--orange); text-transform: uppercase; white-space: nowrap; }
+.cab .num { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 11pt; letter-spacing: .2em; color: var(--orange-txt); text-transform: uppercase; white-space: nowrap; }
 .cab .raya { width: 8mm; height: 0; border-top: 1.5pt solid var(--rule); }
 .cab .t { color: var(--grey); font-size: 9.6pt; white-space: nowrap; }
 .cab .quien { color: var(--ink); font-weight: 600; }
@@ -70,9 +76,9 @@ p.pausa { font-style: italic; color: var(--muted); font-size: 9.2pt; margin: 3mm
 mark { background: var(--peach); color: var(--ink); padding: .2mm 1.4mm; border-radius: .8mm; box-decoration-break: clone; }
 b { font-weight: 700; }
 h3 { font-weight: 600; font-size: 10.5pt; letter-spacing: .16em; text-transform: uppercase; margin: 3.6mm 0 2mm; padding-bottom: .8mm; border-bottom: 1.4pt solid; display: inline-block; }
-h3.verde { color: #2F6B5E; border-color: #2F6B5E; }
-h3.azul { color: #1E5C85; border-color: #1E5C85; }
-h3.naranja { color: var(--orange); border-color: var(--orange); }
+h3.verde { color: var(--green); border-color: var(--green); }
+h3.azul { color: var(--blue); border-color: var(--blue); }
+h3.naranja { color: var(--orange-txt); border-color: var(--orange); }
 h3.rojo { color: var(--rust); border-color: var(--rust); }
 h3.gris { color: var(--grey); border-color: var(--grey); }
 p.sihay { color: var(--grey); }
@@ -80,8 +86,8 @@ p.sihay::before { content: "si hay tiempo · "; font-family: "Oswald", "Arial Na
 .pase { color: var(--grey); font-style: italic; font-size: 9.6pt; margin: 3mm 0 0; padding-left: 3mm; border-left: 1.5pt solid var(--orange); }
 
 /* recuadros */
-.caja { border: .75pt solid var(--rule); background: #FFFEFA; border-radius: 2mm; padding: 2.8mm 4.5mm 2.5mm; margin: 3.2mm 0 0; break-inside: avoid; }
-.caja .rot { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 8.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--rust); margin: 0 0 1.4mm; }
+.caja { border: .75pt solid var(--rule); border-left: 2.2pt solid var(--orange); background: #FFFEFA; border-radius: 2mm; padding: 2.8mm 4.5mm 2.5mm; margin: 3.2mm 0 0; break-inside: avoid; }
+.caja .rot { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 8.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--orange-txt); margin: 0 0 1.4mm; }
 .caja p { font-size: 9.3pt; color: var(--grey); margin: 0; line-height: 1.5; }
 .caja p b { color: var(--ink); }
 
@@ -89,7 +95,7 @@ p.sihay::before { content: "si hay tiempo · "; font-family: "Oswald", "Arial Na
 .datos-t { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 500; font-size: 8.4pt; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 3.6mm 0 1.8mm; }
 .chips { display: flex; flex-wrap: wrap; gap: 2.2mm; }
 .chip { border: .75pt solid var(--rule); background: #fff; border-radius: 1.4mm; padding: 1.3mm 3mm; font-size: 9.2pt; white-space: nowrap; }
-.chip b { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; color: var(--orange); margin-right: 1.5mm; font-size: 10pt; }
+.chip b { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; color: var(--orange-txt); margin-right: 1.5mm; font-size: 10pt; }
 
 /* preguntas */
 .hoja { break-before: page; }
@@ -362,7 +368,7 @@ p.sihay::before { content: "si hay tiempo · "; font-family: "Oswald", "Arial Na
   <p><b>Ahora, semanas 1 a 6:</b> preparación y conteo inicial, el piloto de 2 semanas y el Go/No-Go del dueño.</p>
   <p><b>Próximo, semanas 7 a 26:</b> activar Discovery una línea de producto por vez, con las mismas medidas del piloto, y estabilizar. Es la fase más incierta: todavía no sabemos cuánto tarda la activación.</p>
   <p><b>Más adelante:</b> que el distribuidor vea el stock, y la tienda online. Está anotado, no planificado: antes tiene que existir un stock confiable que mostrar.</p>
-  <h3 class="azul">El OKR y los indicadores</h3>
+  <h3 class="verde">El OKR y los indicadores</h3>
   <p>El OKR: <mark>que cada pedido se confirme sabiendo qué hay</mark>, con tres resultados clave: pedidos completos y a tiempo del <b>76 al 90 %</b>, días con producción cargada del <b>20 al 100 %</b>, y horas extras de unas <b>25 a unas 12 o 13</b> por mes, más la exactitud de stock, un KPI permanente.</p>
   <p>Cada indicador tiene su ficha y su <b>contrapeso</b>: el segundo número que empeora si alguien fuerza el primero.</p>
   <p>Una aclaración: la meta de horas extras, la mitad, es un <b>supuesto</b>. Se apoya en que al menos la mitad de esas horas completa pedidos que faltaron por mezcla y momento.</p>

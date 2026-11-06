@@ -25,6 +25,17 @@ const T_GREEN = "DCEAE3";
 const T_RED = "F3DFD9";
 const T_BLUE = "DDE8EF";
 const T_ORANGE = "F6EBD8";
+// Naranja oscurecido solo para texto chico sobre fondos claros (4,4:1 o mas); el
+// naranja de la paleta queda para formas, numeros grandes y texto sobre oscuro.
+const ORANGE_TXT = "9E5C15";
+
+// Uso de los colores, igual en las laminas, los diagramas, el informe y el guion:
+//   oscuro  = texto, trazos, tarjeta destacada
+//   naranja = atencion: dolores, lentes, anotaciones y lo que es solo del piloto
+//   verde   = la mejora: cambios del TO-BE, metas, resultados clave, Go
+//   azul    = sistemas y datos: Discovery (alternativa B)
+//   rojo    = problemas, No-Go
+//   gris    = lo secundario, lo que queda para mas adelante o se descarta
 
 const H = "Arial";
 const B = "Calibri";
@@ -48,30 +59,43 @@ pres.author = "Lepez Joaquin, Geyer Juan Jose, Lopez Juan, Olivares Manuel, Sora
 pres.title = "Dulxelitos - Propuesta de mejora";
 
 function nuevo(bg) {
+  numLamina += 1;
   const s = pres.addSlide();
   s.background = { color: bg || CREAM };
   return s;
 }
 
-function titulo(s, texto, color, pt) {
+// Titulo de lamina. Estandar: 34 pt a 0.5 in, con bajada debajo. Compacto (laminas
+// con un diagrama grande): 26 pt a 0.16 in. x y w permiten alinear con el contenido.
+function titulo(s, texto, o) {
+  o = o || {};
+  const compacto = !!o.compacto;
   s.addText(texto, {
-    x: M, y: 0.5, w: CW, h: 0.62, isTextBox: true, margin: 0,
-    fontFace: H, fontSize: pt || 34, bold: true, charSpacing: 1.2,
-    color: color || DARK, valign: "middle",
+    x: o.x === undefined ? M : o.x, y: compacto ? 0.16 : 0.5, w: o.w || CW, h: compacto ? 0.5 : 0.62,
+    isTextBox: true, margin: 0,
+    fontFace: H, fontSize: compacto ? 26 : 34, bold: true, charSpacing: 1.2,
+    color: o.color || DARK, valign: "middle",
   });
 }
 
-function bajada(s, texto, color) {
+function bajada(s, texto, color, x, w) {
   s.addText(texto, {
-    x: M, y: 1.14, w: CW, h: 0.38, isTextBox: true, margin: 0,
+    x: x === undefined ? M : x, y: 1.14, w: w || CW, h: 0.38, isTextBox: true, margin: 0,
     fontFace: B, fontSize: 15, italic: true,
     color: color || GREY, valign: "middle",
   });
 }
 
-function pie(s, color) {
+let numLamina = 0;
+function pie(s, color, m) {
+  const x0 = m === undefined ? M : m;
+  s.addShape(pres.ShapeType.rect, { x: x0, y: 6.97, w: 0.22, h: 0.05, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
+  s.addText(String(numLamina).padStart(2, "0") + " / 10", {
+    x: x0 + 0.32, y: 6.85, w: 1.2, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: H, fontSize: 10, bold: true, charSpacing: 1, color: color || GREY, valign: "middle",
+  });
   s.addText("Dulxelitos · Gestión Gerencial · UTN FRSR", {
-    x: M, y: 6.85, w: CW, h: 0.3, isTextBox: true, margin: 0,
+    x: x0, y: 6.85, w: W - 2 * x0, h: 0.3, isTextBox: true, margin: 0,
     fontFace: B, fontSize: 10, color: color || MUTED, align: "right", valign: "middle",
   });
 }
@@ -88,7 +112,11 @@ function circulo(s, n, x, y, d, relleno, tinta, pt) {
 function tarjeta(s, o) {
   s.addShape(pres.ShapeType.roundRect, {
     x: o.x, y: o.y, w: o.w, h: o.h, fill: { color: o.fill }, rectRadius: 0.08,
+    line: o.fill === WHITE ? { color: LINE, width: 1 } : undefined,
   });
+  if (o.acento) {
+    s.addShape(pres.ShapeType.rect, { x: o.x, y: o.y + 0.16, w: 0.06, h: o.h - 0.32, fill: { color: o.acento }, line: { color: o.acento, width: 0 } });
+  }
   let cy = o.y + 0.26;
   if (o.titulo) {
     s.addText(o.titulo, {
@@ -150,6 +178,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     x: M, y: 2.0, w: CW, h: 1.5, isTextBox: true, margin: 0,
     fontFace: H, fontSize: 88, bold: true, charSpacing: 2, color: CREAM, valign: "middle",
   });
+  s.addShape(pres.ShapeType.rect, { x: M + 0.04, y: 3.42, w: 1.1, h: 0.07, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
   s.addText("Trabajo Práctico Final · Parte 2 · Propuesta de mejora", {
     x: M, y: 3.6, w: CW, h: 0.45, isTextBox: true, margin: 0,
     fontFace: B, fontSize: 20, color: PALE,
@@ -178,9 +207,9 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const aw = (CW - 3 * g) / 4;
   const datos = [
     ["30", "de ~125 por semana", "pedidos recortados o demorados", RED],
-    ["76 %", "→ 90 % en 6 meses", "pedidos completos y a tiempo", DARK],
+    ["76 %", "→ 90 % en 6 meses", "pedidos completos y a tiempo", DARK, GREEN],
     ["~25 h", "por mes", "horas extras sobre una planta saturada", ORANGE],
-    ["20 %", "→ 100 % de los días", "con la producción cargada", DARK],
+    ["20 %", "→ 100 % de los días", "con la producción cargada", DARK, GREEN],
   ];
   datos.forEach((d, i) => {
     const x = M + i * (aw + g);
@@ -191,7 +220,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
     s.addText(d[1], {
       x: x, y: 3.2, w: aw, h: 0.4, isTextBox: true, margin: 0,
-      fontFace: H, fontSize: 17, bold: true, color: DARK, valign: "middle",
+      fontFace: H, fontSize: 17, bold: true, color: d[4] || DARK, valign: "middle",
     });
     s.addText(d[2], {
       x: x, y: 3.65, w: aw, h: 0.65, isTextBox: true, margin: 0,
@@ -217,17 +246,14 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
 /* 3 - AS-IS: el diagrama completo, con las tres lentes marcadas */
 {
   const s = nuevo(CREAM);
-  s.addText("ASÍ SE ATIENDE UN PEDIDO HOY", {
-    x: M, y: 0.14, w: 7.0, h: 0.5, isTextBox: true, margin: 0,
-    fontFace: H, fontSize: 26, bold: true, charSpacing: 1.2, color: DARK, valign: "middle",
-  });
+  titulo(s, "ASÍ SE ATIENDE UN PEDIDO HOY", { compacto: true, w: 7.0 });
   // Leyenda de las lentes, a la derecha del titulo.
   const ley = [["1", "Ineficiencia"], ["2", "Tarea manual"], ["3", "Flujo de datos"]];
   let lx = 7.55;
   ley.forEach((l) => {
-    circulo(s, l[0], lx, 0.22, 0.34, ORANGE, WHITE, 13);
+    circulo(s, l[0], lx, 0.24, 0.34, ORANGE, WHITE, 13);
     s.addText(l[1], {
-      x: lx + 0.42, y: 0.17, w: 1.4, h: 0.44, isTextBox: true, margin: 0,
+      x: lx + 0.42, y: 0.19, w: 1.4, h: 0.44, isTextBox: true, margin: 0,
       fontFace: B, fontSize: 15, bold: true, color: DARK, valign: "middle",
     });
     lx += 1.85;
@@ -256,14 +282,8 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   // En esta lamina el contenido usa un margen de 0.5 para que los recortes del
   // diagrama se lean (~10 pt la letra de las notas); el titulo se alinea con eso.
   const m4 = 0.5, cw4 = 13.333 - 2 * m4;
-  s.addText("LAS TRES LENTES", {
-    x: m4, y: 0.5, w: cw4, h: 0.62, isTextBox: true, margin: 0,
-    fontFace: H, fontSize: 34, bold: true, charSpacing: 1.2, color: DARK, valign: "middle",
-  });
-  s.addText("Una sola causa vista desde tres lados", {
-    x: m4, y: 1.14, w: cw4, h: 0.38, isTextBox: true, margin: 0,
-    fontFace: B, fontSize: 15, italic: true, color: GREY, valign: "middle",
-  });
+  titulo(s, "LAS TRES LENTES", { x: m4, w: cw4 });
+  bajada(s, "Una sola causa vista desde tres lados", GREY, m4, cw4);
   const lentes = [
     {
       n: "1", nombre: "INEFICIENCIA",
@@ -314,15 +334,15 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
     s.addText("SE ARREGLA CON", {
       x: tx, y: ty + 0.88, w: tw, h: 0.25, isTextBox: true, margin: 0,
-      fontFace: H, fontSize: 11, bold: true, charSpacing: 1.5, color: ORANGE,
+      fontFace: H, fontSize: 11, bold: true, charSpacing: 1.5, color: GREEN,
     });
     s.addText(l.arregla, {
       x: tx, y: ty + 1.14, w: tw, h: 0.55, isTextBox: true, margin: 0,
-      fontFace: B, fontSize: 15, color: GREY, valign: "top",
+      fontFace: B, fontSize: 15, color: DARK, valign: "top",
     });
     x += cw + g;
   });
-  pie(s);
+  pie(s, undefined, m4);
   s.addNotes("Juan José. Las tres lentes dan una sola causa, no tres proyectos. Lo que se ordena no son iniciativas sino los pasos de una: primero un quick win, la planilla del piloto, y después la inversión, el stock en Discovery. Y la pregunta del proceso balde: acelerar el aviso por WhatsApp sería poner un balde; la gotera es doble: el stock no se registra y se produce sin mirar los pedidos.");
 }
 
@@ -337,11 +357,11 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const alts = [
     { tag: "NO RESUELVE", nombre: "Do Nothing", pts: "31", fill: T_RED, tinta: RED, num: RED,
       txt: "Seguir igual. No ataca la causa: los recortes siguen cada semana." },
-    { tag: "PILOTO", nombre: "A · Planilla compartida", pts: "36", fill: T_GREEN, tinta: GREEN, num: GREEN,
+    { tag: "PILOTO", nombre: "A · Planilla compartida", pts: "36", fill: T_ORANGE, tinta: ORANGE_TXT, num: ORANGE,
       txt: "Casi cero de costo. Se arma sin proveedor ni instalación, pero no se conecta con Discovery." },
-    { tag: "RECOMENDADA", nombre: "B · Stock de Discovery", pts: "35", fill: DARK, tinta: ORANGE, num: ORANGE, cuerpo: CREAM, titulo: CREAM,
+    { tag: "RECOMENDADA", nombre: "B · Stock de Discovery", pts: "35", fill: BLUE, tinta: WHITE, num: WHITE, cuerpo: WHITE, titulo: WHITE,
       txt: "El módulo ya está en la licencia y no se usa. Un solo registro donde ya se factura." },
-    { tag: "DESCARTADA", nombre: "C · SaaS de gestión", pts: "20", fill: T_NEUTRAL, tinta: GREY, num: MUTED,
+    { tag: "DESCARTADA", nombre: "C · SaaS de gestión", pts: "20", fill: T_NEUTRAL, tinta: GREY, num: GREY,
       txt: "Cuota nueva, migración y doble carga. No resuelve la disciplina de carga." },
   ];
   alts.forEach((a, i) => {
@@ -355,21 +375,22 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
       x: x + 0.28, y: ay + 0.62, w: aw - 0.56, h: 0.72, isTextBox: true, margin: 0,
       fontFace: H, fontSize: 16, bold: true, color: a.titulo || DARK, valign: "top",
     });
-    s.addText(a.pts, {
-      x: x + 0.28, y: ay + 1.4, w: 1.3, h: 0.85, isTextBox: true, margin: 0,
-      fontFace: H, fontSize: 56, bold: true, color: a.num, valign: "middle",
+    // puntaje y "de 50" en un mismo cuadro, para que queden pegados
+    s.addText([
+      { text: a.pts, options: { fontFace: H, fontSize: 56, bold: true, color: a.num } },
+      { text: "  de 50", options: { fontFace: B, fontSize: 14, color: a.cuerpo ? T_BLUE : GREY } },
+    ], {
+      x: x + 0.28, y: ay + 1.4, w: aw - 0.56, h: 0.85, isTextBox: true, margin: 0, valign: "bottom",
     });
-    s.addText("de 50", {
-      x: x + 1.6, y: ay + 1.4, w: 0.8, h: 0.8, isTextBox: true, margin: 0,
-      fontFace: B, fontSize: 14, color: a.cuerpo ? PALE : GREY, valign: "bottom",
-    });
+    s.addShape(pres.ShapeType.rect, { x: x + 0.28, y: ay + 2.3, w: 0.5, h: 0.04, fill: { color: a.tinta }, line: { color: a.tinta, width: 0 } });
     s.addText(a.txt, {
       x: x + 0.28, y: ay + 2.4, w: aw - 0.56, h: 1.25, isTextBox: true, margin: 0,
       fontFace: B, fontSize: 15, color: a.cuerpo || DARK, valign: "top",
     });
   });
   // Casi empate y recomendación.
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: 5.75, w: CW, h: 0.95, fill: { color: T_ORANGE }, rectRadius: 0.08 });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: 5.75, w: CW, h: 0.95, fill: { color: WHITE }, rectRadius: 0.08, line: { color: LINE, width: 1 } });
+  s.addShape(pres.ShapeType.rect, { x: M, y: 5.87, w: 0.07, h: 0.71, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
   s.addText(
     [
       { text: "36 contra 35 es un empate: ", options: { bold: true } },
@@ -387,13 +408,10 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
 /* 6 - TO-BE y la regla del stock disponible */
 {
   const s = nuevo(CREAM);
-  s.addText("PRIMERO SE MIRA QUÉ HAY, DESPUÉS SE CONFIRMA", {
-    x: M, y: 0.3, w: CW, h: 0.6, isTextBox: true, margin: 0,
-    fontFace: H, fontSize: 28, bold: true, charSpacing: 1.0, color: DARK, valign: "middle",
-  });
+  titulo(s, "PRIMERO SE MIRA QUÉ HAY, DESPUÉS SE CONFIRMA", { compacto: true });
   // Recorte de la calle de Oficina del TO-BE, el tramo clave.
   const caja = px(kTo, 85, 105, 1262, 520);
-  const dx = M, dw = 9.7, dy = 1.15;
+  const dx = M, dw = 9.7, dy = 1.05;
   const dh = dw * caja.h / caja.w;
   s.addShape(pres.ShapeType.rect, { x: dx - 0.06, y: dy - 0.06, w: dw + 0.12, h: dh + 0.12, fill: { color: WHITE }, line: { color: LINE, width: 1 } });
   recorte(s, TO_BE, caja, { x: dx, y: dy, w: dw },
@@ -408,13 +426,14 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const chh = (dh + 0.12 - 2 * 0.15) / 3;
   cambios.forEach((c, i) => {
     const y = dy - 0.06 + i * (chh + 0.15);
-    s.addShape(pres.ShapeType.roundRect, { x: cx, y: y, w: cwid, h: chh, fill: { color: T_NEUTRAL }, rectRadius: 0.06 });
+    s.addShape(pres.ShapeType.roundRect, { x: cx, y: y, w: cwid, h: chh, fill: { color: T_GREEN }, rectRadius: 0.06 });
+    s.addShape(pres.ShapeType.rect, { x: cx, y: y + 0.12, w: 0.06, h: chh - 0.24, fill: { color: GREEN }, line: { color: GREEN, width: 0 } });
     s.addText(c[0], {
-      x: cx + 0.15, y: y + 0.1, w: cwid - 0.3, h: chh * 0.42, isTextBox: true, margin: 0,
-      fontFace: H, fontSize: i === 2 ? 20 : 30, bold: true, color: ORANGE, valign: "middle",
+      x: cx + 0.2, y: y + 0.1, w: cwid - 0.28, h: chh * 0.42, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: i === 2 ? 22 : 30, bold: true, color: GREEN, valign: "middle",
     });
     s.addText(c[1], {
-      x: cx + 0.15, y: y + chh * 0.5, w: cwid - 0.3, h: chh * 0.45, isTextBox: true, margin: 0,
+      x: cx + 0.2, y: y + chh * 0.5, w: cwid - 0.28, h: chh * 0.45, isTextBox: true, margin: 0,
       fontFace: B, fontSize: 13, color: DARK, valign: "top",
     });
   });
@@ -449,17 +468,20 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const cw = 3.35, ch = 2.1;
   const cuadrantes = [
     // [col, fila, fondo, nombre, accion]
-    [0, 0, T_BLUE, "MANTENER SATISFECHO", "poder alto, interés bajo"],
+    [0, 0, WHITE, "MANTENER SATISFECHO", "poder alto, interés bajo"],
     [1, 0, T_ORANGE, "GESTIONAR DE CERCA", "poder alto, interés alto"],
-    [0, 1, T_NEUTRAL, "MANTENER INFORMADO", "poder bajo, interés bajo"],
-    [1, 1, T_GREEN, "MONITOREAR Y DAR VOZ", "poder bajo, interés alto"],
+    [0, 1, WHITE, "MANTENER INFORMADO", "poder bajo, interés bajo"],
+    [1, 1, WHITE, "MONITOREAR Y DAR VOZ", "poder bajo, interés alto"],
   ];
   cuadrantes.forEach((c) => {
     const x = gx + c[0] * (cw + gap), y = gy + c[1] * (ch + gap);
-    s.addShape(pres.ShapeType.roundRect, { x: x, y: y, w: cw, h: ch, fill: { color: c[2] }, rectRadius: 0.06 });
+    s.addShape(pres.ShapeType.roundRect, {
+      x: x, y: y, w: cw, h: ch, fill: { color: c[2] }, rectRadius: 0.06,
+      line: { color: c[2] === WHITE ? LINE : "EBCF9F", width: 1 },
+    });
     s.addText(c[3], {
       x: x + 0.2, y: y + 0.13, w: cw - 0.4, h: 0.3, isTextBox: true, margin: 0,
-      fontFace: H, fontSize: 12, bold: true, charSpacing: 1.0, color: DARK, valign: "middle",
+      fontFace: H, fontSize: 12, bold: true, charSpacing: 1.0, color: c[2] === WHITE ? DARK : ORANGE_TXT, valign: "middle",
     });
     s.addText(c[4], {
       x: x + 0.2, y: y + 0.42, w: cw - 0.4, h: 0.25, isTextBox: true, margin: 0,
@@ -515,11 +537,11 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     fontFace: H, fontSize: 22, bold: true, color: DARK, valign: "top",
   });
   tarjeta(s, {
-    x: px0, y: 3.05, w: pw, h: 1.3, fill: WHITE, tinta: ORANGE, titulo: "PRODUCCIÓN", tituloPt: 13,
+    x: px0, y: 3.05, w: pw, h: 1.3, fill: WHITE, tinta: ORANGE_TXT, titulo: "PRODUCCIÓN", tituloPt: 13, acento: ORANGE,
     texto: "Cargar todos los días es trabajo nuevo, con la planta saturada.", pt: 14,
   });
   tarjeta(s, {
-    x: px0, y: 4.5, w: pw, h: 1.3, fill: WHITE, tinta: ORANGE, titulo: "OFICINA", tituloPt: 13,
+    x: px0, y: 4.5, w: pw, h: 1.3, fill: WHITE, tinta: ORANGE_TXT, titulo: "OFICINA", tituloPt: 13, acento: ORANGE,
     texto: "Consultar y reservar antes de confirmar suma un paso.", pt: 14,
   });
   // Leyenda de las fichas
@@ -554,8 +576,9 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     s.addShape(pres.ShapeType.roundRect, { x: x, y: ay, w: aw, h: ah, fill: { color: WHITE }, rectRadius: 0.08, line: { color: LINE, width: 1 } });
     s.addText(m[0], {
       x: x + 0.25, y: ay + 0.2, w: aw - 0.5, h: 0.3, isTextBox: true, margin: 0,
-      fontFace: H, fontSize: 12, bold: true, charSpacing: 1.8, color: ORANGE, valign: "middle",
+      fontFace: H, fontSize: 12, bold: true, charSpacing: 1.8, color: ORANGE_TXT, valign: "middle",
     });
+    s.addShape(pres.ShapeType.rect, { x: x, y: ay + 0.16, w: 0.06, h: 0.38, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addText(m[1], {
       x: x + 0.25, y: ay + 0.55, w: aw - 0.5, h: 0.8, isTextBox: true, margin: 0,
       fontFace: H, fontSize: 36, bold: true, color: DARK, valign: "middle",
@@ -579,7 +602,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const tw = (CW - 2 * g) / 3;
   const salidas = [
     ["GO", GREEN, T_GREEN, "Los cuatro umbrales y la prueba técnica de Discovery: activar por línea de producto."],
-    ["GO CON AJUSTES", "8A5714", T_ORANGE, "Falla el conteo o la fecha: corregir y repetir una sola vez."],
+    ["GO CON AJUSTES", ORANGE_TXT, T_ORANGE, "Falla el conteo o la fecha: corregir y repetir una sola vez."],
     ["NO-GO", RED, T_RED, "La carga no llega a 8 de 10: no se gasta en Discovery."],
   ];
   salidas.forEach((o, i) => {
@@ -594,6 +617,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
       fontFace: B, fontSize: 15, color: DARK, valign: "top",
     });
   });
+  pie(s);
   s.addNotes("Emiliano. El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales se acuerdan con el dueño antes de arrancar, para no leer el resultado a favor; todavía no están acordados. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
 }
 
@@ -604,17 +628,33 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   bajada(s, "Objetivo: que cada pedido se confirme sabiendo qué hay · 6 meses");
   const g = 0.3;
   const cw3 = (CW - 2 * g) / 3;
-  const rey = 1.7, reh = 1.95;
+  // Fases como flechas encadenadas (naranja: piloto; azul: Discovery; gris: despues)
+  // y debajo lo que entra en cada una.
+  const rey = 1.7, flh = 0.5, reh = 1.95;
   const cols = [
-    ["AHORA · SEMANAS 1 A 6", GREEN, T_GREEN, ["Preparación y conteo inicial", "Piloto de 2 semanas", "Go/No-Go del dueño"]],
+    ["AHORA · SEMANAS 1 A 6", ORANGE, T_ORANGE, ["Preparación y conteo inicial", "Piloto de 2 semanas", "Go/No-Go del dueño"]],
     ["PRÓXIMO · SEMANAS 7 A 26", BLUE, T_BLUE, ["Activar Discovery, una línea por vez", "Estabilización y cierre"]],
     ["MÁS ADELANTE", GREY, T_NEUTRAL, ["Stock visible para el distribuidor", "La tienda online"]],
   ];
   cols.forEach((c, i) => {
-    tarjeta(s, {
-      x: M + i * (cw3 + g), y: rey, w: cw3, h: reh, fill: c[2], tinta: c[1], titulo: c[0], tituloPt: 13,
-      items: c[3], pt: 15,
+    const x = M + i * (cw3 + g);
+    s.addShape(i === 0 ? pres.ShapeType.homePlate : pres.ShapeType.chevron, {
+      // la primera arranca en el margen y la ultima termina en el margen derecho
+      x: i === 0 ? x : x - 0.2, y: rey, w: i === 0 ? cw3 + 0.1 : (i === 2 ? cw3 + 0.2 : cw3 + 0.3), h: flh,
+      fill: { color: c[1] }, line: { color: c[1], width: 0 },
     });
+    s.addText(c[0], {
+      x: x + (i === 0 ? 0.25 : 0.2), y: rey, w: cw3 - 0.5, h: flh, isTextBox: true, margin: 0,
+      fontFace: H, fontSize: 14, bold: true, charSpacing: 0.8, color: WHITE, valign: "middle",
+    });
+    s.addShape(pres.ShapeType.roundRect, { x: x, y: rey + flh + 0.1, w: cw3, h: reh - flh - 0.1, fill: { color: c[2] }, rectRadius: 0.08 });
+    s.addText(
+      c[3].map((t, k) => ({ text: t, options: { bullet: true, breakLine: k < c[3].length - 1 } })),
+      {
+        x: x + 0.25, y: rey + flh + 0.22, w: cw3 - 0.45, h: reh - flh - 0.34, isTextBox: true, margin: 0,
+        fontFace: B, fontSize: 15, color: DARK, paraSpaceAfter: 5, valign: "top",
+      }
+    );
   });
   s.addText("INDICADORES", {
     x: M, y: 3.9, w: CW, h: 0.3, isTextBox: true, margin: 0,
@@ -623,14 +663,15 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
   const aw = (CW - 3 * g) / 4;
   const iy = 4.25, ih = 2.4;
   const inds = [
-    ["Pedidos completos y a tiempo", "76 → 90 %", "de los pedidos de la semana", "RESULTADO CLAVE", ORANGE],
+    ["Pedidos completos y a tiempo", "76 → 90 %", "de los pedidos de la semana", "RESULTADO CLAVE", GREEN],
     ["Exactitud de stock", "9 de 10", "productos en tolerancia (propuesta, a confirmar)", "KPI PERMANENTE", GREY],
-    ["Días con producción cargada", "20 → 100 %", "de los días hábiles", "RESULTADO CLAVE", ORANGE],
-    ["Horas extras por mes", "25 → 12-13", "horas por mes, totales", "RESULTADO CLAVE", ORANGE],
+    ["Días con producción cargada", "20 → 100 %", "de los días hábiles", "RESULTADO CLAVE", GREEN],
+    ["Horas extras por mes", "25 → 12-13", "horas por mes, totales", "RESULTADO CLAVE", GREEN],
   ];
   inds.forEach((d, i) => {
     const x = M + i * (aw + g);
     s.addShape(pres.ShapeType.roundRect, { x: x, y: iy, w: aw, h: ih, fill: { color: WHITE }, rectRadius: 0.08, line: { color: LINE, width: 1 } });
+    s.addShape(pres.ShapeType.rect, { x: x, y: iy + 0.16, w: 0.06, h: 0.3, fill: { color: d[4] }, line: { color: d[4], width: 0 } });
     s.addText(d[3], {
       x: x + 0.22, y: iy + 0.18, w: aw - 0.44, h: 0.25, isTextBox: true, margin: 0,
       fontFace: H, fontSize: 10, bold: true, charSpacing: 1.5, color: d[4], valign: "middle",
@@ -641,7 +682,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
     s.addText(d[1], {
       x: x + 0.22, y: iy + 1.1, w: aw - 0.3, h: 0.7, isTextBox: true, margin: 0, fit: "shrink",
-      fontFace: H, fontSize: 28, bold: true, color: d[4] === GREY ? DARK : DARK, valign: "middle",
+      fontFace: H, fontSize: 28, bold: true, color: d[4] === GREY ? DARK : GREEN, valign: "middle",
     });
     s.addText(d[2], {
       x: x + 0.22, y: iy + 1.82, w: aw - 0.44, h: 0.45, isTextBox: true, margin: 0,
@@ -655,10 +696,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
 /* 10 - Cierre */
 {
   const s = nuevo(DARK);
-  s.addText("LA PROPUESTA", {
-    x: M, y: 0.5, w: CW, h: 0.6, isTextBox: true, margin: 0,
-    fontFace: H, fontSize: 30, bold: true, charSpacing: 1.2, color: CREAM, valign: "middle",
-  });
+  titulo(s, "LA PROPUESTA", { color: CREAM });
   s.addText("Primero se mira qué hay.\nDespués se confirma.", {
     x: M, y: 1.18, w: CW, h: 1.3, isTextBox: true, margin: 0,
     fontFace: H, fontSize: 32, bold: true, color: ORANGE, valign: "middle", lineSpacing: 38,
