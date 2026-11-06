@@ -204,16 +204,16 @@
     <bpmn:sequenceFlow id="Flow_ini_conteo_contar" sourceRef="Event_ini_conteo" targetRef="Activity_contar" />
     <bpmn:sequenceFlow id="Flow_contar_fin_conteo" sourceRef="Activity_contar" targetRef="Event_fin_conteo" />
     <bpmn:textAnnotation id="Annotation_a_regla">
-      <bpmn:text>Stock disponible = stock físico menos lo reservado por pedidos confirmados sin facturar. Si alcanza solo para una parte, se reserva eso y el resto queda pendiente.</bpmn:text>
+      <bpmn:text>Stock disponible = stock físico menos lo reservado por pedidos confirmados sin facturar. Si alcanza solo para una parte, se reserva esa parte y se despacha solo si el distribuidor lo acepta; si no, espera completo. El resto queda pendiente, sin reserva.</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="Annotation_a_pendiente">
-      <bpmn:text>Si el distribuidor cancela después del aviso, el pedido cuenta como recortado. Lo pendiente no tiene reserva: se revisa en la reunión diaria.</bpmn:text>
+      <bpmn:text>Sin fecha confirmada, el aviso va sin fecha hasta la próxima reunión. Si el distribuidor cancela, cuenta como recortado. Lo pendiente no tiene reserva.</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="Annotation_a_factura">
       <bpmn:text>La factura consume la reserva (a probar en Discovery).</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="Annotation_a_ajuste">
-      <bpmn:text>Si hay diferencias, manda lo contado: el responsable de sistemas carga el ajuste en Discovery, con el motivo.</bpmn:text>
+      <bpmn:text>Cuenta Depósito (a confirmar quién). Si hay diferencias, manda lo contado: el responsable de sistemas carga el ajuste en Discovery, con el motivo.</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="Annotation_a_carga">
       <bpmn:text>Se carga todos los días, al cierre del turno, y no una vez por semana. Un responsable de carga por turno, con suplente.</bpmn:text>
@@ -299,7 +299,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Annotation_a_regla_di" bpmnElement="Annotation_a_regla">
-        <dc:Bounds x="222" y="376" width="215" height="98" />
+        <dc:Bounds x="160" y="383" width="340" height="84" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Annotation_a_pendiente_di" bpmnElement="Annotation_a_pendiente">
         <dc:Bounds x="756" y="163" width="215" height="84" />
@@ -335,7 +335,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Annotation_a_ajuste_di" bpmnElement="Annotation_a_ajuste">
-        <dc:Bounds x="467" y="617" width="250" height="56" />
+        <dc:Bounds x="467" y="610" width="250" height="70" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_preparar_di" bpmnElement="Activity_preparar">
         <dc:Bounds x="1088" y="497" width="128" height="76" />
@@ -585,7 +585,7 @@
         <di:waypoint x="297" y="1013" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_a_regla_consultar_di" bpmnElement="Association_a_regla_consultar">
-        <di:waypoint x="411" y="376" />
+        <di:waypoint x="399" y="383" />
         <di:waypoint x="449" y="353" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_a_pendiente_avisar_di" bpmnElement="Association_a_pendiente_avisar">
@@ -597,7 +597,7 @@
         <di:waypoint x="1312" y="277" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_a_ajuste_contar_di" bpmnElement="Association_a_ajuste_contar">
-        <di:waypoint x="572" y="617" />
+        <di:waypoint x="567" y="610" />
         <di:waypoint x="540" y="573" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_a_carga_ini_turno_di" bpmnElement="Association_a_carga_ini_turno">

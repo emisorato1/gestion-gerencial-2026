@@ -38,13 +38,16 @@ PROCESO = {
                  "col": 4, "fila": 0},
                 {"id": "espera", "tipo": "evento_tiempo", "texto": "Fecha estimada cumplida",
                  "col": 3, "fila": 0},
-                {"id": "a_regla", "tipo": "anotacion", "col": 1.6, "fila": 2, "ancho": 215,
+                {"id": "a_regla", "tipo": "anotacion", "col": 1.6, "fila": 2, "ancho": 340,
                  "texto": "Stock disponible = stock físico menos lo reservado por pedidos "
                           "confirmados sin facturar. Si alcanza solo para una parte, se "
-                          "reserva eso y el resto queda pendiente."},
+                          "reserva esa parte y se despacha solo si el distribuidor lo "
+                          "acepta; si no, espera completo. El resto queda pendiente, sin "
+                          "reserva."},
                 {"id": "a_pendiente", "tipo": "anotacion", "col": 5.2, "fila": 0, "ancho": 215,
-                 "texto": "Si el distribuidor cancela después del aviso, el pedido cuenta como "
-                          "recortado. Lo pendiente no tiene reserva: se revisa en la reunión diaria."},
+                 "texto": "Sin fecha confirmada, el aviso va sin fecha hasta la próxima "
+                          "reunión. Si el distribuidor cancela, cuenta como recortado. "
+                          "Lo pendiente no tiene reserva."},
                 {"id": "datos_stock_of", "tipo": "datos", "texto": "Stock en Discovery",
                  "col": 4, "fila": 2},
                 {"id": "datos_stock_fact", "tipo": "datos", "texto": "Stock en Discovery",
@@ -58,8 +61,9 @@ PROCESO = {
                 {"id": "contar", "tipo": "tarea", "texto": "Contar stock", "col": 3},
                 {"id": "fin_conteo", "tipo": "fin", "texto": "Stock contado", "col": 4},
                 {"id": "a_ajuste", "tipo": "anotacion", "col": 3.5, "fila": 1, "ancho": 250,
-                 "texto": "Si hay diferencias, manda lo contado: el responsable de sistemas "
-                          "carga el ajuste en Discovery, con el motivo."},
+                 "texto": "Cuenta Depósito (a confirmar quién). Si hay diferencias, manda lo "
+                          "contado: el responsable de sistemas carga el ajuste en Discovery, "
+                          "con el motivo."},
                 {"id": "preparar", "tipo": "tarea", "texto": "Preparar pedido", "col": 7},
                 {"id": "xor_despacho", "tipo": "xor", "texto": "¿Con qué se despacha?", "col": 9},
                 {"id": "flota", "tipo": "tarea", "texto": "Despachar con flota propia", "col": 10},

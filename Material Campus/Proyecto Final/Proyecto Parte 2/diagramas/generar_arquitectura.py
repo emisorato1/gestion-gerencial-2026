@@ -132,8 +132,8 @@ texto(XO + 200, 238, "aviso con fecha, si falta", 14, "start")
 # fila 2: quienes aportan datos
 AZUL = "#e6eefb"
 caja(XD, 265, WA, 125, "Depósito",
-     "Arma con la lista de cada pedido confirmado. Cuenta el stock una vez por semana y "
-     "deja la hoja de conteo.", relleno=AZUL)
+     "Arma con la lista de cada pedido confirmado. Cuenta una vez por semana (quién, "
+     "a confirmar) y deja la hoja de conteo.", relleno=AZUL)
 caja(XP, 265, WA, 125, "Producción",
      "Carga lo producido, todos los días, al cierre de turno.", relleno=AZUL)
 caja(XO, 265, WA, 125, "Oficina",

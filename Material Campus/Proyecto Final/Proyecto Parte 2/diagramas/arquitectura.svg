@@ -17,9 +17,9 @@
 <rect x="40" y="265" width="250" height="125" rx="8" fill="#e6eefb" stroke="#1b1b1b" stroke-width="1.8"/>
 <text x="165" y="293.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Depósito</text>
 <text x="165" y="317.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Arma con la lista de cada pedido</text>
-<text x="165" y="336.5" font-size="15" text-anchor="middle" fill="#1b1b1b">confirmado. Cuenta el stock una</text>
-<text x="165" y="355.5" font-size="15" text-anchor="middle" fill="#1b1b1b">vez por semana y deja la hoja de</text>
-<text x="165" y="374.5" font-size="15" text-anchor="middle" fill="#1b1b1b">conteo.</text>
+<text x="165" y="336.5" font-size="15" text-anchor="middle" fill="#1b1b1b">confirmado. Cuenta una vez por</text>
+<text x="165" y="355.5" font-size="15" text-anchor="middle" fill="#1b1b1b">semana (quién, a confirmar) y</text>
+<text x="165" y="374.5" font-size="15" text-anchor="middle" fill="#1b1b1b">deja la hoja de conteo.</text>
 <rect x="320" y="265" width="250" height="125" rx="8" fill="#e6eefb" stroke="#1b1b1b" stroke-width="1.8"/>
 <text x="445" y="312.5" font-size="17" text-anchor="middle" fill="#1b1b1b" font-weight="bold">Producción</text>
 <text x="445" y="336.5" font-size="15" text-anchor="middle" fill="#1b1b1b">Carga lo producido, todos los</text>
