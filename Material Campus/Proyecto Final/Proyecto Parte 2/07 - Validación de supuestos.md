@@ -1,8 +1,6 @@
 # Validación de supuestos
 
-Esta sección dice qué hay que aprender antes de invertir, cómo aprenderlo barato y qué resultado hace avanzar o frenar. Parte de los nueve supuestos de la sección 4 y de la corrección de la sección 1: el stock de producto terminado no se registra, y los recortes vienen de la mezcla y el momento de producción, no de la capacidad total. Esto último es una hipótesis razonada, no un dato, y es lo primero que hay que probar.
-
-Adelantamos la conclusión: **antes de gastar en el stock de Discovery hacemos dos pruebas baratas.** Un piloto de 2 semanas con papas fritas en una planilla compartida, que muestra si la rutina se sostiene y si planificar contra pedidos baja los recortes, y una prueba técnica de Discovery sobre un solo producto. Los umbrales de decisión son una propuesta nuestra, no un dato de la empresa, y el dueño tiene que acordarlos antes de arrancar. Lo que el piloto no puede probar queda para el Go/No-Go posterior a la activación (sección 8).
+Esta sección dice qué hay que aprender antes de invertir, cómo aprenderlo barato y qué resultado hace avanzar o frenar, a partir de los nueve supuestos de la sección 4. **Antes de gastar en el stock de Discovery hacemos dos pruebas baratas:** un piloto de 2 semanas con papas fritas en una planilla compartida y una prueba técnica de Discovery sobre un solo producto. Lo primero que hay que probar es el supuesto 1, que los recortes vendrían de la mezcla y el momento: una hipótesis razonada, no un dato. Los umbrales de decisión son propuesta nuestra y el dueño los acuerda antes de arrancar; lo que el piloto no puede probar queda para el Go/No-Go posterior a la activación (sección 8).
 
 ## Supuestos críticos
 
@@ -42,7 +40,7 @@ El piloto contesta, al menos en parte, siete de los nueve. El 3 tiene su prueba 
 
 ## Piloto
 
-Según la Clase 7, un MVP no es una versión beta ni una versión light del producto final: es el experimento mínimo necesario para validar una hipótesis, y el nuestro es **funcional** (funciona, en pequeño). Tiene espíritu de pretotipo, que busca construir lo correcto antes de construirlo bien (Savoia), y la prueba técnica de Discovery cumple el papel del prototipo; van en paralelo, no una después de la otra.
+Según la Clase 7, un MVP no es una versión beta ni una versión light del producto final sino el experimento mínimo necesario para validar una hipótesis, y el nuestro es **funcional** (funciona, en pequeño). Tiene espíritu de pretotipo (construir lo correcto antes de construirlo bien, Savoia), y la prueba técnica de Discovery cumple el papel del prototipo; van en paralelo.
 
 ### Hipótesis en una hoja
 
@@ -72,7 +70,7 @@ Cuenta como **recortado o demorado** un pedido con papas fritas que sale con men
 |---|---|---|---|---|
 | **Días con producción de papas fritas cargada** | Días con carga al cierre de turno sobre los 10 días hábiles | 20 % de los días: hoy se carga 1 vez por semana [dato pendiente: si el control de producción separa por producto] | 8 de los 10 días o más | La meta de la sección 1 es todos los días; en un primer intento dejamos 2 días de margen |
 | **Pedidos de papas fritas recortados o demorados** | Promedio por semana de las 2 del piloto, del registro semanal | Se mide en la semana 0: [dato pendiente: pedidos de papas fritas recortados o demorados en la semana 0]. Los 30 de ~125 son de todos los productos y no sirven de base para uno | La mitad o menos que en la semana 0, y que los rechazados, reprogramados de entrada o cancelados tras el aviso, que cuentan en el total, no suban | La meta de la sección 1 lleva los pedidos completos y a tiempo del 76 % al 90 %: queda 1 recortado de cada 10 (100 menos 90), menos de la mitad de los ~24 % de hoy. Pedimos la mitad como señal del rumbo, por ser un producto y 2 semanas |
-| **Diferencias de conteo** | Conteo físico de papas fritas contra la planilla, al arrancar y al final de cada semana | [dato pendiente: diferencia en el conteo inicial] | En los conteos semanales, una diferencia de hasta una décima parte de lo contado | La meta de exactitud se fija con el primer conteo (sección 1): esta tolerancia es provisional |
+| **Diferencias de conteo** | Conteo físico de papas fritas contra la planilla, al arrancar y al final de cada semana | [dato pendiente: diferencia en el conteo inicial] | En los conteos semanales, una diferencia de hasta una décima parte de lo contado | La meta de exactitud (al menos 9 de cada 10 productos dentro de la tolerancia, sección 8) y esta tolerancia son provisionales: se ajustan con el primer conteo |
 | **Fecha estimada cumplida** | Cada aviso con fecha: si el pedido se completó ese día | No existe hoy: el aviso no trae fecha | 4 de cada 5 avisos o más; si hubo pocos, se revisan uno por uno | Es una promesa nueva: si falla más de 1 vez de cada 5, el aviso pierde su valor. No pedimos todas por la planta saturada |
 
 Lo demás que se anota está en la tabla de mecanismos. Como control, se compara con los demás productos en las mismas semanas: si los recortes bajan en todos por igual, la mejora no es del piloto. Si la semana 0 casi no tiene recortes de papas fritas, la comparación no distingue mejora de azar: se mide otra semana.
@@ -112,11 +110,9 @@ Las reglas se acuerdan con el dueño **antes de arrancar**: él decide el Go/No-
 
 Dos semanas con un producto dan una señal, no una demostración. El piloto valida la factibilidad y la deseabilidad de la rutina (supuesto 2, con una primera lectura de los 4, 5 y 6) y si la causa de los recortes de papas fritas es la mezcla y el momento (supuesto 1). No valida lo siguiente, que se mira en el Go/No-Go de la sección 8 con las mismas medidas sobre más productos y más tiempo:
 
-- **El efecto en todo el catálogo.** Cada línea que se suma se activa con las medidas del piloto antes de pasar a la siguiente. La meta es llevar los pedidos completos y a tiempo del 76 % a la de la sección 1 en 6 meses (supuesto 1); el registro semanal sigue acumulando semanas para saber si los 30 de ~125 eran típicos (supuesto 9).
+- **El efecto en todo el catálogo.** Cada línea que se suma se activa con las medidas del piloto antes de pasar a la siguiente; el registro semanal sigue acumulando semanas para saber si los 30 de ~125 eran típicos (supuesto 9) y si los pedidos completos y a tiempo llegan del 76 % a la meta de la sección 1 en 6 meses (supuesto 1).
 - **La baja de las horas extras a la mitad**, con la liquidación de sueldos de varios meses (supuesto 7). En 2 semanas hay pocas horas.
 - **La carga sostenida y la exactitud de stock**: el riesgo mayor aparece cuando ya es rutina y nadie nota que se dejó de cargar (sección 5).
 - **El retorno**, con los costos reales: se completa el punto de equilibrio y el dueño decide si es aceptable (supuesto 8).
 
-La ficha de los indicadores y el calendario de las decisiones están en la sección 8.
-
-**Fuentes:** secciones 2, 4 y 5 de esta parte; relevamiento con nuestro compañero que trabaja en Dulxelitos; Clase 7 (etapas de Rogers, MVP, pretotipo de Savoia, hipótesis en una hoja). Las cifras son las de la sección 1 (el 76 % es cuenta nuestra). Probabilidades, impactos y umbrales son supuestos declarados, no datos. Lo que no se sabe queda como "dato pendiente".
+**Fuentes:** secciones 2, 4 y 5 de esta parte; relevamiento del proceso; Clase 7 (etapas de Rogers, MVP, pretotipo de Savoia, hipótesis en una hoja). Probabilidades, impactos y umbrales son supuestos declarados, no datos.

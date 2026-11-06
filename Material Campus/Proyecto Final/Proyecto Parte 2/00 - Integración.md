@@ -11,8 +11,8 @@ Todo está en `Material Campus/Proyecto Final/Proyecto Parte 2/` (`P2/`).
 
 | Archivo | Sección del enunciado (Parte 2) | Estado |
 |---|---|---|
-| `01 - Problema y objetivos.md` | 1. Objetivo y alcance, más el **problema gerencial** que la Parte 1 dejó pendiente (su sección 6) y la **corrección a la Parte 1** | Completa, 2 datos pendientes |
-| `02 - Proceso actual y alternativas.md` | 2. AS-IS y alternativas (SIPOC, RECI, tres lentes, matriz multicriterio, recomendación) | Completa, 8 |
+| `01 - Problema y objetivos.md` | 1. Objetivo y alcance, más el **problema gerencial** que la Parte 1 dejó pendiente (su sección 6) y la **corrección a la Parte 1** | Completa, 5 datos pendientes |
+| `02 - Proceso actual y alternativas.md` | 2. AS-IS y alternativas (SIPOC, RECI, tres lentes, matriz multicriterio, recomendación) | Completa, 10 |
 | `03 - Proceso futuro.md` | 3. TO-BE | Completa, 4 |
 | `04 - Modelo de negocio y propuesta de valor.md` | 4. BMC Shift, VPC TO-BE y supuestos | Completa, 4 |
 | `05 - Stakeholders.md` | 5. Stakeholders (Mendelow) | Completa, 3 |
@@ -23,8 +23,8 @@ Todo está en `Material Campus/Proyecto Final/Proyecto Parte 2/` (`P2/`).
 | `diagramas/` | Diagrama de 6: `generar_arquitectura.py` escribe `arquitectura.svg` y `.png` | Completo |
 | `verificar.py` | Reglas sobre las secciones (qué revisa cada una: su docstring). Saltea los `00 - *` | Da OK |
 | `00 - Diseño.md`, `00 - Plan.md` | Decisiones y plan previos. Internos | — |
-| **`Entrega/`** | **lo que se entrega: md, docx, pdf y pptx** (el guion de exposición se suma cuando esté) | **generada**, no editar a mano |
-| `armar-entrega.py`, `armar-presentacion.js` (con `package.json`) | arman la entrega y el pptx | ver abajo |
+| **`Entrega/`** | **lo que se entrega: md, docx, pdf y pptx del informe, el guion de exposición en PDF, los dos `.bpmn` y el flujo de datos interactivo (html)** | **generada**, no editar a mano; el guion ya está |
+| `armar-entrega.py`, `armar-presentacion.js` (con `package.json`), `guion-exposicion.html` | arman la entrega (y copian los `.bpmn`), el pptx y, con weasyprint, el guion en PDF | ver abajo |
 
 
 ## Cómo se rearma
@@ -35,6 +35,7 @@ Desde `P2/`; lo pesado, con `nice -n 10` y de a uno. Cada vez que alguien toca u
 .venv/bin/python verificar.py                      # debe decir OK
 nice -n 10 .venv/bin/python armar-entrega.py       # md, docx y pdf en Entrega/
 nice -n 10 node armar-presentacion.js "Entrega/Presentación TP Final Parte 2 - Dulxelitos.pptx"
+nice -n 10 .venv/bin/weasyprint guion-exposicion.html "Entrega/Guion de exposición Parte 2 - Dulxelitos.pdf"
 ```
 
 Si cambió un diagrama, antes: `bpmn/generar_bpmn.py bpmn/as-is.py` (o `to-be.py`) o `diagramas/generar_arquitectura.py`. El `node` necesita `npm install` una vez. A mano, después: abrir el docx en Word y actualizar el índice (F9); se armó sin verlo renderizado.
@@ -95,7 +96,7 @@ Son tres. Las dos de fondo: el **stock no se registra**, y **los recortes no vie
 
 | Qué decía la Parte 1 | Qué dice la Parte 2 | Dónde |
 |---|---|---|
-| "Facturación y stock" digitalizados (§5.2, §5.4) | La factura sí está en Discovery; el stock no se lleva en ningún registro | 01 primer párrafo; retomado en la apertura de 02, 03, 04, 06, 07 y 08 |
+| "Facturación y stock" digitalizados (§5.2, §5.4) | La factura sí está en Discovery; el stock no se lleva en ningún registro | 01 primer párrafo (solo ahí: las demás secciones la citan sin repetirla) |
 | Incompletos "poco frecuentes y se resuelven fácil" (§5.5) | 30 de ~125 en una semana (~24 %): ~76 % completos y a tiempo, cuenta nuestra | 01 segundo párrafo; 04 "Una corrección al VPC"; 05 ADKAR |
 | Faltantes por "capacidad de planta" (§2.1) | Planta saturada sí, pero los recortes vienen sobre todo de mezcla y momento; hipótesis a probar | 01 tercer párrafo; supuesto 1 de 04; 07 |
 
@@ -103,12 +104,13 @@ La 01 aclara además que **no se vuelve a puntuar la encuesta**: dos ítems (aut
 
 ## Datos pendientes
 
-Ninguno bloquea la entrega. Se juntan, sin repetir, en el **Anexo I** del informe (sale de `armar-entrega.py`; la lista cruda con archivo y línea, de `verificar.py`, por la salida de error). Los que conviene conseguir antes:
+Ninguno bloquea la entrega. Se juntan, sin repetir (25 filas hoy), en el **Anexo I** del informe (sale de `armar-entrega.py`; la lista cruda con archivo y línea, de `verificar.py`, por la salida de error). Los que conviene conseguir antes:
 
 - **Costo por hora extra** (1, 2, 4, 7 y 8): preguntarle a Oficina (administración), que maneja la liquidación. Con el costo mensual de B completa el punto de equilibrio.
 - **Costo de activar el módulo, costo mensual de B, plazo, versión y soporte de Discovery** (2, 4, 5, 7 y 8): consulta por escrito a Buenos Aires Software.
 - **Quién cuenta**, el conteo inicial y el semanal (3, 5, 6, 7 y 8): acordarlo con Depósito y el dueño. Sin conteo no hay stock inicial ni piloto.
 - **Línea de base de papas fritas en la semana 0** (7): sin ella no se evalúa "la mitad o menos".
+- **Si la semana base incluyó rechazados de entrada** (1 y 8), **cuántos turnos tiene la planta** (1) y **cómo entran hoy los pedidos de Aiello y del viajante** (1): tres preguntas a nuestro compañero que trabaja en Dulxelitos.
 
 El resto son preguntas o acuerdos chicos; el margen de un pedido recortado no hace falta para decidir.
 
@@ -116,7 +118,7 @@ El resto son preguntas o acuerdos chicos; el margen de un pedido recortado no ha
 
 1. **Hijos como posible resistencia** (05): hipótesis nuestra, "no relevada". Si nuestro compañero que trabaja en Dulxelitos lo ve distinto, se ajusta la ficha, el FUD y el ADKAR.
 2. **Hoja compartida de Oficina para el registro de recortes** (06, y fuente del indicador 1 en 08): propuesta nuestra, no hablada con Oficina.
-3. **Meta de horas extras de ~12 o 13** (01, 08): la mitad de las ~25, supuesto que se apoya en el supuesto 7. A confirmar con el dueño.
+3. **Meta de horas extras de ~12 o 13** (01, 08): la mitad de las ~25, supuesto que se apoya en el supuesto 7. A confirmar con el dueño. Lo mismo la **meta provisional de exactitud** (9 de cada 10 productos dentro de la tolerancia, 01, 07 y 08) y el **orden de activación de las líneas** (Salados, Dulces y Repostería, 08).
 4. **Umbrales del piloto** (07): 8 de 10 días con carga, recortes a la mitad o menos, conteo con diferencia de hasta una décima parte, 4 de cada 5 fechas cumplidas. Propuesta nuestra; el dueño los acuerda antes de arrancar.
 5. **A4 en vez de Letter** (`armar-entrega.py`): la Parte 1 salió en Letter, pero las hojas apaisadas del BPMN se ven mal mezcladas. Volver a Letter es una línea (`size: A4` en el CSS, `A4_W` y `A4_H`).
 

@@ -2,7 +2,7 @@
 
 Esta sección mira a quienes hacen que la propuesta funcione o no. Usamos la matriz poder/interés de Mendelow, que es la que pide la consigna y la que se explicó en la clase del 23-10 (la lámina de la Clase 4 usa influencia e impacto, otra lectura).
 
-Adelantamos la conclusión: **quien aprueba el proyecto no es quien lo hace andar.** El dueño aprueba el presupuesto y el Go/No-Go, pero que el cambio funcione depende de lo que hagan todos los días Producción, Oficina y quienes deciden qué producir. Las resistencias de Producción y de Oficina las anticipamos con nuestro compañero que trabaja en la empresa. Lo demás (poder, interés, impacto y lo que decimos de los hijos) es lectura nuestra, no un dato medido: la vamos a contrastar con cada grupo antes del piloto.
+**Quien aprueba el proyecto no es quien lo hace andar.** El dueño aprueba el presupuesto y el Go/No-Go, pero que el cambio funcione depende de lo que hagan todos los días Producción, Oficina y quienes deciden qué producir. Las resistencias de Producción y de Oficina las anticipamos con nuestro compañero que trabaja en la empresa. Lo demás (poder, interés, impacto y lo que decimos de los hijos) es lectura nuestra, no un dato medido: la vamos a contrastar con cada grupo antes del piloto.
 
 ## Mapa de actores
 
@@ -12,7 +12,7 @@ Son ocho actores. El dueño tiene dos roles distintos: sponsor y, junto con los 
 |---|---|---|
 | **Dueño** | **Sponsor** y, con los hijos, **decisor de la producción** | Como sponsor, aprueba el presupuesto y el Go/No-Go, y acepta invertir más si se demuestra el retorno. Como decisor, planifica la producción mirando pedidos y stock mínimo |
 | **Hijos** (dos) | Decisores de la producción | Planifican la producción de la semana mirando los pedidos pendientes y un stock mínimo por producto |
-| **Responsable de sistemas** | **Líder del proyecto** | Coordina con el proveedor, capacita y sigue los indicadores |
+| **Responsable de sistemas** | **Líder del proyecto** | Coordina con el proveedor, capacita, sigue los indicadores, carga los ajustes de stock, mantiene los maestros y exporta el tablero |
 | **Oficina** (4 personas: administración, facturación, cobranza) | Usuarios clave | Cargan la nota de pedido y reservan el stock antes de confirmar. Si falta algo, avisan con una fecha estimada |
 | **Producción** (7 personas) | Usuarios clave: aportan el dato | Cargan lo producido todos los días, al cierre de turno, con un responsable por turno |
 | **Depósito** (pedidos, embalaje, envíos) | Usuarios afectados | Arma desde el pedido confirmado, como hasta ahora. Conteo físico: [dato pendiente: responsable del conteo inicial y del semanal] |
@@ -23,7 +23,7 @@ Queda afuera el transporte tercerizado, que no cambia su trabajo (sección 1). S
 
 ## Matriz poder/interés
 
-Poder es cuánto puede ayudar o frenar el proyecto; interés, cuánto le importa y cuánto le toca. La matriz muestra la posición típica durante la ejecución, con las excepciones entre paréntesis; el recorrido por fase está en la última parte. Las etiquetas siguen a la clase del 23-10: en el Mendelow original las dos celdas de bajo poder se nombran al revés (alto interés, mantener informado; bajo interés, monitorear).
+Poder es cuánto puede ayudar o frenar el proyecto; interés, cuánto le importa y cuánto le toca. La matriz muestra la posición típica durante la ejecución, con las excepciones entre paréntesis. Las etiquetas siguen a la clase del 23-10: en el Mendelow original las dos celdas de bajo poder se nombran al revés (alto interés, mantener informado; bajo interés, monitorear).
 
 | | **Interés bajo** | **Interés alto** |
 |---|---|---|
@@ -32,7 +32,7 @@ Poder es cuánto puede ayudar o frenar el proyecto; interés, cuánto le importa
 
 En las tablas siguientes los cuadrantes se abrevian: Cerca, Satisfecho, Voz e Informado.
 
-El poder de Oficina y de Producción es de hecho, no formal: ninguno tiene autoridad sobre el proyecto, pero cualquiera lo frena con solo no usarlo. En clase se ubicó a los usuarios de lo que se implementa en alto poder y alto interés. Por saliencia (poder, legitimidad, urgencia), Producción reúne poder de hecho, la legitimidad de una planta saturada y la urgencia de las primeras semanas de carga: es una parte definitiva y se la atiende primero.
+El poder de Oficina y de Producción es de hecho, no formal: ninguno tiene autoridad sobre el proyecto, pero cualquiera lo frena con solo no usarlo (en clase, los usuarios de lo que se implementa van en alto poder y alto interés). Por saliencia (poder, legitimidad, urgencia), Producción es una parte definitiva: tiene poder de hecho, la legitimidad de una planta saturada y la urgencia de las primeras semanas de carga, y se la atiende primero.
 
 ## Estrategias de involucramiento
 
@@ -56,10 +56,10 @@ Un desafío técnico se resuelve con procedimientos que ya existen; uno adaptati
 | Cambio | Componente técnico | Componente adaptativo | Predomina |
 |---|---|---|---|
 | **Cargar lo producido todos los días** (Producción) | Qué se carga, cuándo y quién; capacitación en Discovery | Trabajo nuevo en una planta sin holgura: hay que decidir qué se deja de hacer | **Técnico**, con un borde adaptativo |
-| **Reservar stock antes de confirmar** (Oficina) | Un paso en Discovery con una sola regla de stock disponible | Aprender a decir "hay en tal fecha" en vez de confirmar siempre | **Mixto** |
+| **Reservar stock antes de confirmar** (Oficina) | Un paso en Discovery con una sola regla de stock disponible | Aprender a decir "hay en tal fecha estimada" en vez de confirmar siempre | **Mixto** |
 | **Planificar la producción contra pedidos y stock mínimo** (dueño e hijos) | Definir el mínimo por producto y mirar los pedidos pendientes | Cambiar el criterio propio por uno informado y compartir la decisión | **Adaptativo** |
 
-Lo técnico se resuelve con procedimiento y capacitación. Lo adaptativo pide conversar, acotar el cambio, ofrecer soporte y reservar tiempo (Clase 4). El de fondo es la última fila, el supuesto 5 de la sección 4: que el dueño y los hijos decidan mirando pedidos y stock mínimo y no solo por criterio propio. Por eso el piloto es de una sola línea. Si la carga diaria se cae, primero se revisan capacitación, carga laboral, incentivos y reglas, no el compromiso de la gente.
+Lo técnico se resuelve con procedimiento y capacitación; lo adaptativo pide conversar, acotar el cambio, ofrecer soporte y reservar tiempo (Clase 4). El de fondo es la última fila, el supuesto 5 de la sección 4: que el dueño y los hijos decidan mirando pedidos y stock mínimo. Por eso el piloto es de un solo producto. Si la carga diaria se cae, primero se revisan capacitación, carga laboral, incentivos y reglas, no el compromiso de la gente.
 
 ### Qué puede estar sintiendo cada grupo (FUD)
 
@@ -95,7 +95,7 @@ La clase del 23-10 da cuatro consejos, y los aplicamos así.
 
 ## Cómo cambia por fase
 
-En clase se dijo que la matriz no es una foto fija: el jefe de finanzas, sin presupuesto aprobado, se gestiona de cerca, y una vez aprobado pasa a otro cuadrante. Las fases son las del roadmap de la sección 8; si cambia, esta tabla se ajusta.
+En clase se dijo que la matriz no es una foto fija: el jefe de finanzas, sin presupuesto aprobado, se gestiona de cerca, y una vez aprobado pasa a otro cuadrante. Las fases son las del roadmap de la sección 8.
 
 | Actor | Preparación y conteo inicial | Piloto (2 semanas, papas fritas) | Go/No-Go | Activar Discovery por línea | Estabilización |
 |---|---|---|---|---|---|
@@ -108,7 +108,7 @@ En clase se dijo que la matriz no es una foto fija: el jefe de finanzas, sin pre
 | Buenos Aires Software | Satisfecho | Satisfecho | Satisfecho | Cerca | Satisfecho |
 | Distribuidores | Informado | Informado | Informado | Informado | Informado |
 
-- **El dueño como sponsor sube y baja.** Está cerca cuando se aprueba el presupuesto y cuando decide el Go/No-Go. Entre medio alcanza con mantenerlo satisfecho, pero su respaldo tiene que verse delante del equipo al arrancar el piloto y al arrancar la activación, porque ahí se le pide trabajo nuevo a Producción y a Oficina. Un actor de alto poder mal informado es un riesgo latente: puede activar su veto.
+- **El dueño como sponsor sube y baja.** Está cerca cuando se aprueba el presupuesto y cuando decide el Go/No-Go; entre medio alcanza con mantenerlo satisfecho, pero su respaldo tiene que verse delante del equipo al arrancar el piloto y la activación, porque ahí se le pide trabajo nuevo a Producción y a Oficina. Un actor de alto poder mal informado puede activar su veto.
 - **Oficina y Producción activan su poder con el uso.** En la preparación no hay nada que cargar y la etapa es de escuchar. En el piloto y la activación suben. En la estabilización el interés baja porque ya es rutina, pero el poder queda, y es el momento de más riesgo silencioso: pueden dejar de cargar y nadie lo nota hasta que cae la exactitud. Si baja el indicador de días con producción cargada, vuelven a Cerca (sección 8).
 - **El responsable de sistemas está en Cerca todo el proyecto**, porque la propuesta le delega el poder desde el arranque. Sin el respaldo del dueño estaría en Voz y no podría pedirle a Producción que cargue ni a Oficina que reserve.
 - **Buenos Aires Software importa dos veces:** al principio, para saber si el módulo funciona como esperamos, y en la activación, cuando su soporte es la dependencia. El piloto es con planilla y no lo necesita.
