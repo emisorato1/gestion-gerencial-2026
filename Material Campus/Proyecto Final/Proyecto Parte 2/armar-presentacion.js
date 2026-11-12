@@ -240,7 +240,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     fontFace: B, fontSize: 21, color: CREAM, valign: "top",
   });
   pie(s);
-  s.addNotes("El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % es una cuenta nuestra sobre una semana de registro. Abajo, lo que mostró el relevamiento del proceso: el stock de producto terminado no se registra, los recortes pasan todas las semanas y vendrían sobre todo de la mezcla y el momento de producción más que de la capacidad, que es un supuesto nuestro a medir en el piloto.");
+  s.addNotes("El problema en una frase: acepta pedidos sin saber qué hay y produce sin mirar lo que se pidió. El 76 % lo calculamos sobre una semana de registro. Abajo, lo que mostró el relevamiento del proceso: el stock de producto terminado no se registra, los recortes pasan todas las semanas y vendrían sobre todo de la mezcla y el momento de producción más que de la capacidad, que es un supuesto nuestro a medir en el piloto.");
 }
 
 /* 3 - AS-IS: el diagrama completo, con las tres lentes marcadas */
@@ -554,7 +554,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
   });
   pie(s);
-  s.addNotes("La matriz de Mendelow, con la lectura de la clase del 23-10. El dueño aprueba el presupuesto y el Go/No-Go, pero el cambio lo hacen andar Producción y Oficina, y esas son las dos resistencias que anticipamos: trabajo nuevo con la planta saturada y un paso más antes de confirmar. Poder, interés y resistencias son lectura nuestra y las vamos a contrastar con cada grupo antes del piloto.");
+  s.addNotes("La matriz de poder e interés de Mendelow. El dueño aprueba el presupuesto y el Go/No-Go, pero el cambio lo sostienen Producción y Oficina, y esas son las dos resistencias que anticipamos: trabajo nuevo con la planta saturada y un paso más antes de confirmar. Poder, interés y resistencias son lectura nuestra y las vamos a contrastar con cada grupo antes del piloto.");
 }
 
 /* 8 - El piloto */
@@ -618,7 +618,7 @@ const px = (k, x0, y0, x1, y1) => ({ x: x0 * k, y: y0 * k, w: (x1 - x0) * k, h: 
     });
   });
   pie(s);
-  s.addNotes("El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales se acuerdan con el dueño antes de arrancar, para no leer el resultado a favor; todavía no están acordados. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
+  s.addNotes("El piloto es el experimento mínimo: dos semanas, un solo producto, con la misma regla de stock disponible. Mide cuatro cosas y cada una tiene su umbral. Los umbrales se acuerdan con el dueño antes de empezar, para no leer el resultado a favor; todavía no están acordados. Dos semanas con un producto dan una señal, no una demostración. Lo que no prueba: el efecto en todo el catálogo, la baja de horas extras y el retorno.");
 }
 
 /* 9 - Roadmap e indicadores */

@@ -8,15 +8,15 @@ son la fuente: si alguien toca una, hay que volver a correr esto. El archivo de
 entrega no se edita a mano porque se pisa en la proxima corrida.
 
 Es la misma idea que ../Proyecto/armar-entrega.py (Parte 1): caratula, indice,
-introduccion, secciones, bibliografia y anexos; docx con estilos de Word y
+introduccion, secciones y bibliografia; docx con estilos de Word y
 pdf con weasyprint. Lo propio de la Parte 2:
 
   - las secciones traen sus propios titulos y se numeran por el prefijo del
     archivo (01 es el capitulo 1);
   - si falta una seccion se avisa y se la saltea;
-  - los diagramas BPMN (bpmn/*.png) van solos en una hoja apaisada, tanto en
-    el pdf (pagina con nombre) como en el docx (seccion de Word apaisada);
-  - el anexo de datos pendientes sale de pendientes() de verificar.py.
+  - los diagramas BPMN (bpmn/*.png) van en la hoja vertical, al ancho util,
+    dentro del texto (pdf y docx);
+  - si queda algun "[dato pendiente" en las secciones, avisa por stderr.
 
 Necesita pandoc (docx y html) y weasyprint (pdf). Si falta alguno, avisa y
 sigue.
@@ -168,7 +168,6 @@ def fusionar(huecos):
 huecos = fusionar(huecos)
 
 NUM_BIBLIO = 9
-NUM_ANEXOS = 10
 
 L = []
 L.append("<!--PORTADA-->")
@@ -186,25 +185,25 @@ L.append("")
 L.append("Este trabajo es la segunda parte del proyecto integrador de Gestión Gerencial. "
          "En la primera hicimos un diagnóstico gerencial de Dulxelitos, una empresa "
          "familiar de San Rafael que fabrica, fracciona y distribuye snacks desde 1973. "
-         "En esta pasamos de diagnosticar a proponer: definimos el problema gerencial que "
-         "la Parte 1 había dejado pendiente, mapeamos el proceso actual y el futuro, "
+         "En esta pasamos de diagnosticar a proponer: a partir de ese diagnóstico definimos "
+         "el problema gerencial priorizado, mapeamos el proceso actual y el futuro, "
          "comparamos alternativas y armamos el plan para llevar la mejora a la práctica y "
          "medir si funciona.")
 L.append("")
-L.append("Seguimos sobre el mismo caso, pero al relevar de nuevo el proceso de atender un "
-         "pedido encontramos que tres cosas de la Parte 1 estaban mal o incompletas: el "
-         "stock de producto terminado no se registra, los pedidos recortados son semanales "
-         "y esos recortes vendrían de la mezcla y el momento de producción más que de la "
-         "capacidad total de la planta. La corrección está al comienzo de la sección 1, y "
-         "lo que sigue se apoya en la versión corregida.")
+L.append("Uno de los integrantes del grupo trabaja en la empresa, y con él relevamos en "
+         "detalle el proceso de atención de pedidos de distribuidores. Ese relevamiento "
+         "aportó más precisión sobre tres puntos: el stock de producto terminado no se "
+         "registra en ningún lado, los pedidos recortados o demorados se repiten todas las "
+         "semanas y, según creemos, tienen más que ver con qué se produce y cuándo que con "
+         "la capacidad de la planta. Sobre esa base armamos la propuesta.")
 L.append("")
-L.append("El documento va del problema a la forma de medirlo: la sección 1 plantea el "
-         "problema, los objetivos y el alcance; la 2 y la 3 describen el proceso actual y "
-         "el futuro, con las alternativas y la recomendación; la 4, la 5 y la 6 revisan el "
-         "modelo de negocio, a las personas y la arquitectura de datos; y la 7 y la 8 "
-         "explican cómo se valida con un piloto y cómo se mide con el roadmap, el OKR y los "
-         "indicadores. Lo que no sabemos queda marcado como «dato pendiente» y se junta "
-         "en el Anexo I.")
+L.append("La sección 1 plantea el problema, los objetivos y el alcance; la 2 y la 3 "
+         "describen el proceso actual y el futuro, con las alternativas que evaluamos; la "
+         "4, la 5 y la 6 revisan el modelo de negocio, los actores involucrados y la "
+         "arquitectura de datos, y la 7 y la 8 explican cómo validar la propuesta con un "
+         "piloto y cómo medirla. Las cifras de partida salen del relevamiento; las metas, "
+         "los umbrales y los responsables que proponemos son estimaciones del grupo que "
+         "habría que acordar con el dueño antes de empezar.")
 L.append("")
 
 # ------------------------------------------------------------------ capitulos
@@ -223,26 +222,16 @@ L.append("**Herramientas de análisis**")
 L.append("")
 L.append("- Doerr, J. (2018). *Measure What Matters*. Portfolio / Penguin.")
 L.append("- Freund, J. y Rücker, B. (2019). *Real-Life BPMN* (4.ª ed.). Camunda.")
+L.append("- Goodhart, C. A. E. (1975). Problems of monetary management: the U.K. experience. *Papers in Monetary Economics*, 1. Reserve Bank of Australia.")
+L.append("- Heifetz, R. A., Grashow, A. y Linsky, M. (2009). *The Practice of Adaptive Leadership*. Harvard Business Press.")
 L.append("- Heifetz, R. A. y Laurie, D. L. (1997). The work of leadership. *Harvard Business Review*, 75(1), 124-134.")
-L.append("- Heifetz, R., Grashow, A. y Linsky, M. (2009). *The Practice of Adaptive Leadership*. Harvard Business Press.")
 L.append("- Hiatt, J. M. (2006). *ADKAR: A Model for Change in Business, Government and Our Community*. Prosci.")
 L.append("- Mendelow, A. L. (1981). Environmental scanning: the impact of the stakeholder concept. *Proceedings of the Second International Conference on Information Systems*, 407-418.")
+L.append("- Mitchell, R. K., Agle, B. R. y Wood, D. J. (1997). Toward a theory of stakeholder identification and salience: defining the principle of who and what really counts. *Academy of Management Review*, 22(4), 853-886.")
 L.append("- Osterwalder, A. y Pigneur, Y. (2010). *Business Model Generation*. John Wiley & Sons.")
 L.append("- Osterwalder, A., Pigneur, Y., Bernarda, G. y Smith, A. (2014). *Value Proposition Design*. John Wiley & Sons.")
-L.append("- Rogers, D. L. (2023). *davidrogers.digital* [sitio web]. Citado en la Clase 7.")
+L.append("- Rogers, D. L. (2023). *The Digital Transformation Roadmap: Rebuild Your Organization for Continuous Change*. Columbia Business School Publishing.")
 L.append("- Savoia, A. (2019). *The Right It*. HarperOne.")
-L.append("")
-L.append("**Material de cátedra (UTN FRSR)**")
-L.append("")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase 3: Transformación Digital, Madurez Tecnológica y Cartera de Oportunidades.")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase 4: gestión del cambio y liderazgo adaptativo.")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase 5: medir la estrategia (objetivos, OKR, KPI y tablero).")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase 6: modelado de procesos con BPMN.")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase 7: de procesos a estrategia digital.")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase del 05-10: línea de base y procesos balde.")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase del 19-10: evaluación de tecnologías.")
-L.append("- Cátedra de Gestión Gerencial (2026). Clase del 23-10: partes interesadas y roadmap.")
-L.append("- Cátedra de Gestión Gerencial (2026). Trabajo Práctico Final, Parte 2: consigna y guía de ejemplo.")
 L.append("")
 L.append("**Fuentes primarias del caso**")
 L.append("")
@@ -250,26 +239,9 @@ L.append("- Lepez, J., Geyer, J. J., Lopez, J. y Sorato, E. (2026). *Trabajo Pr�
 L.append("- Relevamiento del proceso de atención de pedidos con un integrante del equipo que trabaja en Dulxelitos (2026), y entrevistas y observación directa del equipo en la organización (Parte 1).")
 L.append("")
 
-# --------------------------------------------------------------------- anexos
-L.append(PBH)
-L.append("")
-L.append("# %d. Anexos" % NUM_ANEXOS)
-L.append("")
-L.append("## Anexo I: datos pendientes")
-L.append("")
-L.append("Lo dejamos escrito en vez de inventar una cifra. Cada uno de estos datos aparece "
-         "en el texto marcado como «dato pendiente» y acá se juntan sin repetir los que "
-         "figuran en más de una sección. Algunos salen del primer conteo físico, otros se "
-         "le preguntan al proveedor o se sacan de la liquidación de sueldos de la empresa.")
-L.append("")
 if huecos:
-    L.append("| Dato | Sección |")
-    L.append("|------------------------------------------------------------|----------|")
-    for dato, caps in huecos.values():
-        L.append("| %s | %s |" % (dato.replace("|", "\\|"), unir(sorted(caps))))
-else:
-    L.append("No quedan datos pendientes.")
-L.append("")
+    print("ojo: quedan huecos [dato pendiente] en las secciones: %s"
+          % ", ".join(d for d, _ in huecos.values()), file=sys.stderr)
 
 crudo = re.sub(r"\n{3,}", "\n\n", "\n".join(L)).rstrip() + "\n"
 
@@ -457,10 +429,8 @@ RE_IMG = re.compile(r"^!\[([^\]]*)\]\(([^)\s]+)\)\s*$")
 
 
 def preparar_imagenes(texto, modo):
-    """Imagenes de bpmn/ solas en una hoja apaisada; el resto, con ancho acotado.
-
-    El titulo que antecede al diagrama se lleva a la hoja apaisada para que no
-    quede suelto al pie de la hoja anterior. modo es 'docx' o 'html'.
+    """Imagenes de bpmn/ al ancho util de la hoja vertical; el resto, con ancho
+    acotado. modo es 'docx' o 'html'.
     """
     ls = texto.split("\n")
     out = []
@@ -477,25 +447,13 @@ def preparar_imagenes(texto, modo):
                 l = "![%s](%s){width=%.2fin}" % (alt, ruta, w)
             out.append(l)
             continue
-        # el titulo inmediato anterior (saltando renglones en blanco)
-        k = len(out) - 1
-        while k >= 0 and not out[k].strip():
-            k -= 1
-        titulo = []
-        if k >= 0 and encabezado(out[k]) and encabezado(out[k])[0] >= 2:
-            titulo = [out[k], ""]
-            del out[k:]
-            while out and not out[-1].strip():
-                out.pop()
+        # diagramas BPMN: en la hoja vertical, al ancho util, dentro del texto
         if modo == "docx":
-            w = pulgadas(ruta, 10.4, 5.6)
+            w = pulgadas(ruta, 6.5, 9.0)
             TAMANOS[alt] = (w, ruta)
-            bloque = ["", corte_de_seccion(VERTICAL), ""] + titulo + [
-                "![%s](%s){width=%.2fin}" % (alt, ruta, w),
-                "", corte_de_seccion(APAISADA), ""]
+            out.append("![%s](%s){width=%.2fin}" % (alt, ruta, w))
         else:
-            bloque = ["", '::: bpmn'] + titulo + [l, ":::", ""]
-        out += bloque
+            out += ["", "::: diagrama", l, ":::", ""]
     return "\n".join(out)
 
 
@@ -581,8 +539,6 @@ CSS = """
 /* la caratula no lleva encabezado ni numero */
 @page :first { margin: 0; @top-center { content: none; } @bottom-center { content: none; } }
 
-/* hoja apaisada para los diagramas BPMN: se leen ampliados */
-@page apaisada { size: A4 landscape; margin: 2.4cm 1.4cm 1.5cm; }
 
 body { font-family: Arial, Helvetica, sans-serif; font-size: 11pt;
   line-height: 1.45; color: #000; }
@@ -625,10 +581,8 @@ figure { margin: .8em 0; text-align: center; }
 figure img { max-width: 100%; max-height: 13cm; width: auto; height: auto; }
 figcaption { font-size: 9pt; font-style: italic; margin-top: .3em; text-align: center;
   color: #55636B; }
-.bpmn { page: apaisada; }
-.bpmn h2, .bpmn h3 { margin-top: 0; }
-.bpmn figure { margin: .4em 0 0; }
-.bpmn figure img { width: 100%; max-height: 15cm; object-fit: contain; }
+.diagrama figure { margin: .5em 0 .8em; page-break-inside: avoid; }
+.diagrama figure img { width: 100%; max-height: none; }
 
 /* ------------------------------- caratula ------------------------------- */
 .portada { padding: 0 2.2cm; height: 100%; position: relative; }

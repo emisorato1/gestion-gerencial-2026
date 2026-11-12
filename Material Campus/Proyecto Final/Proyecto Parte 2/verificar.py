@@ -15,8 +15,10 @@ Reglas
                "## Problema gerencial" tiene hasta 60 palabras y ninguna de las
                palabras que nombran una herramienta (software, sistema, app,
                modulo, Discovery, planilla; tambien en plural).
-  parte1       un parrafo que menciona "Parte 1" y "stock" exige que el archivo
-               diga "corrige" o "correccion" en algun lado.
+  delatores    nada que delate como se armo el trabajo: clases, transcripciones,
+               catedra, guia de ejemplo, enunciado o consigna, docentes, huecos
+               "[dato pendiente" ni la Parte 1 contada como error (corrige,
+               correccion, equivocado, sobreestimado).
   cifras       porcentajes, horas, meses y semanas fuera de la lista blanca
                (76, 24, 25, 30, 125, 20 / 6 meses / 2 semanas): advertencia.
   encabezados  cada archivo tiene los "##" que exige su tarea (se chequean
@@ -49,7 +51,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 # Encabezados "##" obligatorios por archivo (regla encabezados).
 ENCABEZADOS = {
     "01 - Problema y objetivos.md": [
-        "Lo que corrige el relevamiento", "Problema gerencial",
+        "Lo que encontramos en el relevamiento", "Problema gerencial",
         "Objetivo general", "Objetivos específicos", "Alcance",
         "Fuera de alcance",
     ],
@@ -102,8 +104,8 @@ INDICADORES = [
     # exactitud: el hueco o el porcentaje tienen que estar en una linea que diga
     # "base"; un porcentaje cualquiera (la meta, por ejemplo) no alcanza
     ("Exactitud de stock",
-     r"\bbase\b[^\n]*?(?:\[dato pendiente|" + NOSOL + r"\d+(?:[.,]\d+)?\s*%)",
-     "[dato pendiente o un porcentaje en la línea de la base"),
+     r"\bbase\b[^\n]*?(?:primer conteo|conteo inicial|" + NOSOL + r"\d+(?:[.,]\d+)?\s*%)",
+     "el primer conteo o un porcentaje en la línea de la base"),
     ("Días con producción cargada", NOSOL + r"20\s*%", "20 %"),
     ("Horas extras", NOSOL + r"25\s*(?:horas|hs|h)\b", "~25 horas"),
 ]
@@ -196,16 +198,25 @@ def regla_problema(lineas):
     return fallas
 
 
-def regla_parte1(lineas):
-    texto = "\n".join(lineas).lower()
-    if "corrige" in texto or "corrección" in texto:
-        return []
+DELATORES = [
+    (re.compile(r"\bclases?\s+(?:\d|del\b)|\ben\s+(?:la\s+)?clase\b", re.I), "nombra una clase"),
+    (re.compile(r"transcripci", re.I), "nombra transcripciones"),
+    (re.compile(r"c[áa]tedra", re.I), "nombra la cátedra"),
+    (re.compile(r"gu[íi]a\s+(?:de\s+)?ejemplo|\bla\s+gu[íi]a\b", re.I), "nombra la guía"),
+    (re.compile(r"\b(?:enunciado|consigna)\b", re.I), "nombra la consigna"),
+    (re.compile(r"\b(?:profes?|profesor(?:es|a|as)?|docentes?)\b", re.I), "nombra a los docentes"),
+    (re.compile(r"\[dato pendiente", re.I), "hueco [dato pendiente]"),
+    (re.compile(r"\bcorrig|\bcorrige|correcci[óo]n|equivocad|sobreestimad", re.I), "cuenta algo como corrección o error"),
+]
+
+
+def regla_delatores(lineas):
     fallas = []
-    for ini, par in parrafos(lineas):
-        bajo = par.lower()
-        if re.search(r"parte\s*1\b", bajo) and "stock" in bajo:
-            fallas.append((ini, "menciona la Parte 1 y el stock pero el archivo "
-                           "no dice 'corrige' ni 'corrección'"))
+    for nro, ln in enumerate(lineas, 1):
+        for patron, msg in DELATORES:
+            m = patron.search(ln)
+            if m:
+                fallas.append((nro, "%s: '%s'" % (msg, m.group(0))))
     return fallas
 
 
@@ -314,7 +325,7 @@ def revisar(ruta):
 
     if nombre == ARCHIVO_PROBLEMA:
         anotar("problema", regla_problema(lineas))
-    anotar("parte1", regla_parte1(lineas))
+    anotar("delatores", regla_delatores(lineas))
     anotar("encabezados", regla_encabezados(lineas, nombre))
     if nombre == ARCHIVO_PROCESO:
         anotar("trazas", trazas_lanes(lineas, carpeta))
