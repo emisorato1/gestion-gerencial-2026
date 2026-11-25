@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Guion de exposición Parte 3 Dulxelitos</title>
+<!--
+  Fuente del guion de la defensa de la Parte 3 (adaptado del de la Parte 2).
+  Salida:  nice -n 10 "../Proyecto Parte 2/.venv/bin/weasyprint" guion-exposicion.html "Entrega/Guion de exposición Parte 3 - Dulxelitos.pdf"
+  Usa guion-assets/miniaturas/lamina-NN.png (una imagen de cada lámina del pptx) y
+  guion-assets/fuentes/ (Oswald y Public Sans). Si faltan las fuentes, cae en Arial Narrow y Arial.
+  Las cifras son las del informe (Entrega/TP Final Parte 3 - Dulxelitos.md) y las de caso.json.
+-->
+<style>
+@font-face { font-family: "Oswald"; font-weight: 400; src: url("guion-assets/fuentes/oswald-latin-400-normal.woff"); }
+@font-face { font-family: "Oswald"; font-weight: 500; src: url("guion-assets/fuentes/oswald-latin-500-normal.woff"); }
+@font-face { font-family: "Oswald"; font-weight: 600; src: url("guion-assets/fuentes/oswald-latin-600-normal.woff"); }
+@font-face { font-family: "Oswald"; font-weight: 700; src: url("guion-assets/fuentes/oswald-latin-700-normal.woff"); }
+@font-face { font-family: "Public Sans"; font-weight: 300; src: url("guion-assets/fuentes/public-sans-latin-300-normal.woff"); }
+@font-face { font-family: "Public Sans"; font-weight: 400; src: url("guion-assets/fuentes/public-sans-latin-400-normal.woff"); }
+@font-face { font-family: "Public Sans"; font-weight: 600; src: url("guion-assets/fuentes/public-sans-latin-600-normal.woff"); }
+@font-face { font-family: "Public Sans"; font-weight: 700; src: url("guion-assets/fuentes/public-sans-latin-700-normal.woff"); }
+@font-face { font-family: "Public Sans"; font-weight: 400; font-style: italic; src: url("guion-assets/fuentes/public-sans-latin-400-italic.woff"); }
+@font-face { font-family: "Public Sans"; font-weight: 600; font-style: italic; src: url("guion-assets/fuentes/public-sans-latin-600-italic.woff"); }
+
+/* Paleta de la presentacion (armar-presentacion.js). El naranja de la paleta va en
+   filetes y numeros grandes; para texto chico se usa el naranja oscurecido, como en
+   las laminas, para que se lea impreso. */
+:root {
+  --ink: #1B2B34;
+  --orange: #C8791E;
+  --orange-txt: #9E5C15;
+  --rust: #A33B22;
+  --green: #2F6B5E;
+  --blue: #1E5C85;
+  --grey: #55636B;
+  --muted: #8FA3AB;
+  --paper: #FDFCF8;
+  --rule: #E2DCCC;
+  --peach: #F6EBD8;
+}
+@page { size: A4; margin: 13mm 16mm 12mm 16mm; background: var(--paper); }
+* { box-sizing: border-box; }
+html { font-family: "Public Sans", "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.45; }
+body { margin: 0; }
+h1, h2, h3, .cond { font-family: "Oswald", "Arial Narrow", Arial, sans-serif; }
+
+/* encabezado */
+.eyebrow { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 9pt; letter-spacing: .22em; color: var(--orange-txt); text-transform: uppercase; margin: 0 0 2mm; }
+h1 { font-weight: 600; font-size: 32pt; line-height: 1.05; margin: 0 0 2mm; }
+.sub { color: var(--grey); font-size: 11pt; max-width: 135mm; margin: 0 0 3.6mm; line-height: 1.4; }
+.stats { display: flex; gap: 8mm; align-items: baseline; padding-bottom: 3mm; border-bottom: 1.5pt solid var(--ink); }
+.stat { font-size: 9.5pt; color: var(--grey); }
+.stat b { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 18pt; color: var(--ink); margin-right: 1.5mm; }
+
+/* idea central */
+.idea { background: var(--peach); border-left: 3pt solid var(--orange); border-radius: 2mm; padding: 3.4mm 5mm 3mm; margin: 3.6mm 0 1mm; }
+.idea .rot { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 8.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--orange-txt); margin: 0 0 1.2mm; }
+.idea p { font-size: 10.6pt; color: var(--ink); margin: 0; line-height: 1.45; }
+
+/* cuadro de turnos */
+table.turnos { width: 100%; border-collapse: collapse; margin: 2.4mm 0 1.2mm; font-size: 9pt; }
+table.turnos th { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 500; font-size: 8pt; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 2mm 1.4mm 0; border-bottom: .75pt solid var(--rule); }
+table.turnos td { padding: .5mm 2mm .5mm 0; border-bottom: .5pt solid var(--rule); vertical-align: top; }
+table.turnos td.n { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; color: var(--orange-txt); width: 9mm; }
+table.turnos td.t { color: var(--grey); white-space: nowrap; width: 22mm; }
+table.turnos tr.bloque td { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 500; font-size: 7.8pt; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); padding: 1.8mm 0 .3mm; border-bottom: .5pt solid var(--rule); }
+table.turnos tr.total td { border-bottom: none; font-weight: 600; padding-top: 1.4mm; }
+.nota-turnos { color: var(--grey); font-size: 8.8pt; line-height: 1.42; margin: 1mm 0 1.2mm; }
+.nota-turnos b { color: var(--ink); }
+.tres { list-style: none; padding: 0; margin: 2mm 0 0; counter-reset: r; }
+.tres li { counter-increment: r; display: flex; gap: 3mm; padding: 0 0 1.4mm; margin: 0 0 1.4mm; border-bottom: .5pt solid var(--rule); font-size: 9.2pt; line-height: 1.4; color: var(--grey); }
+.tres li::before { content: counter(r); font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 14pt; color: var(--orange); width: 6mm; flex: none; line-height: 1.1; }
+.tres li b { color: var(--ink); }
+
+.portada2 { display: flex; gap: 6mm; align-items: flex-start; margin-top: 2.4mm; }
+.portada2 .izq { flex: 1.08; }
+.portada2 .der { flex: 1; }
+.portada2 table.turnos { margin-top: 0; }
+.portada2 .tres { margin-top: 0; }
+.portada2 .nota-turnos { margin: 0 0 1.8mm; }
+
+/* una lámina */
+section.lamina { break-before: page; }
+.cab { display: flex; align-items: flex-start; gap: 5mm; margin: 0 0 1.6mm; }
+.cab .izq { flex: 1; }
+.cab .linea { display: flex; align-items: center; gap: 3mm; margin: 0 0 1mm; }
+.cab .num { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 11pt; letter-spacing: .2em; color: var(--orange-txt); text-transform: uppercase; white-space: nowrap; }
+.cab .raya { width: 8mm; height: 0; border-top: 1.5pt solid var(--rule); }
+.cab .t { color: var(--grey); font-size: 9.6pt; white-space: nowrap; }
+.cab img { margin-left: auto; flex: none; width: 54mm; border: .75pt solid var(--rule); border-radius: 1.6mm; box-shadow: 0 .6mm 1.8mm rgba(27,43,52,.18); }
+h2 { font-weight: 600; font-size: 23pt; line-height: 1.1; margin: 0 0 1.4mm; }
+.enpantalla { font-style: italic; color: var(--muted); font-size: 9pt; line-height: 1.4; margin: 0; }
+p { margin: 0 0 1.7mm; }
+p.pausa { font-style: italic; color: var(--muted); font-size: 9.2pt; margin: 2.6mm 0 2mm; }
+mark { background: var(--peach); color: var(--ink); padding: .2mm 1.4mm; border-radius: .8mm; box-decoration-break: clone; }
+b { font-weight: 700; }
+h3 { font-weight: 600; font-size: 9.6pt; letter-spacing: .16em; text-transform: uppercase; margin: 2.4mm 0 1.6mm; padding-bottom: .8mm; border-bottom: 1.4pt solid; display: inline-block; }
+h3.verde { color: var(--green); border-color: var(--green); }
+h3.azul { color: var(--blue); border-color: var(--blue); }
+h3.naranja { color: var(--orange-txt); border-color: var(--orange); }
+h3.rojo { color: var(--rust); border-color: var(--rust); }
+h3.gris { color: var(--grey); border-color: var(--grey); }
+p.sihay { color: var(--grey); }
+p.sihay::before { content: "si hay tiempo · "; font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 500; font-size: 8.4pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pase { color: var(--grey); font-style: italic; font-size: 9.6pt; margin: 2.6mm 0 0; padding-left: 3mm; border-left: 1.5pt solid var(--orange); }
+
+/* recuadros */
+.caja { border: .75pt solid var(--rule); border-left: 2.2pt solid var(--orange); background: #FFFEFA; border-radius: 2mm; padding: 2.1mm 4mm 1.8mm; margin: 2.6mm 0 0; break-inside: avoid; }
+.caja .rot { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 8.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--orange-txt); margin: 0 0 1.2mm; }
+.caja p { font-size: 9pt; color: var(--grey); margin: 0 0 1mm; line-height: 1.46; }
+.caja p:last-child { margin-bottom: 0; }
+.caja p b { color: var(--ink); }
+
+/* fila de dos columnas: en qué fijarse + cifras */
+.fila2 { display: flex; gap: 4mm; align-items: flex-start; margin: 2.6mm 0 0; }
+.fila2 .caja { flex: 1.15; margin: 0; }
+.fila2 .c2 { flex: 1; }
+.fila2 .datos-t { margin: 0 0 1.4mm; }
+.qs { display: flex; flex-wrap: wrap; gap: 2mm; }
+.qs .q { flex: 1 1 47%; margin: 0; }
+
+/* datos */
+.datos-t { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 500; font-size: 8.4pt; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 3.2mm 0 1.6mm; }
+.chips { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+.chip { border: .75pt solid var(--rule); background: #fff; border-radius: 1.4mm; padding: .7mm 2.2mm; font-size: 8.7pt; line-height: 1.35; }
+.chip b { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; color: var(--orange-txt); margin-right: 1.2mm; font-size: 9.2pt; }
+.chip small { font-size: 7.6pt; color: var(--muted); font-style: italic; margin-left: 1mm; }
+
+/* preguntas */
+.q { border: .75pt solid var(--rule); background: #FFFEFA; border-radius: 2mm; padding: 1.9mm 3.6mm 1.5mm; margin: 0 0 2mm; break-inside: avoid; }
+.q h4 { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; font-size: 10.6pt; line-height: 1.25; margin: 0 0 .9mm; }
+.q p { font-size: 8.9pt; color: var(--grey); margin: 0 0 1mm; line-height: 1.4; }
+.q p:last-child { margin-bottom: 0; }
+.q p b { color: var(--ink); }
+.hoja { break-before: page; }
+.hoja h2 { margin-bottom: 1mm; }
+.hoja .lead { color: var(--grey); margin: 0 0 3mm; }
+.hoja .q { padding: 2mm 4mm 1.6mm; margin: 0 0 2mm; }
+.hoja .q h4 { font-size: 11pt; }
+.hoja .q p { font-size: 8.8pt; line-height: 1.4; }
+.pie { color: var(--muted); font-size: 8.8pt; margin: 3mm 0 0; }
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA DEL GUION ============ -->
+<p class="eyebrow">Gestión Gerencial · UTN FRSR · TP Final, Parte 3</p>
+<h1>Qué decir en cada lámina</h1>
+<p class="sub">El guion de la defensa del proyecto completo de Dulxelitos ante el comité de dirección. Está cortado en frases sueltas para decirlo en voz alta, no para leerlo corrido.</p>
+<div class="stats">
+  <span class="stat"><b>14</b>láminas</span>
+  <span class="stat"><b>20</b>minutos, con margen hasta 25</span>
+  <span class="stat"><b>5</b>integrantes</span>
+</div>
+
+<div class="idea">
+  <div class="rot">La idea central</div>
+  <p>Seguir igual cuesta unos <b>$1.570.000 por mes</b>. Poner el stock a la vista cuesta sobre todo tiempo del personal (de caja salen $446.400 en todo el proyecto) y se recupera en <b>13 meses</b> aun con la mitad de la mejora. Por eso la dirección no decide hoy un gasto grande: aprueba <b>un piloto de 2 semanas con un tope de $712.600</b>, y el resto del proyecto se libera solo si el piloto da Go.</p>
+</div>
+
+<div class="portada2">
+<div class="izq">
+<table class="turnos">
+  <tr><th>Lám.</th><th>Título</th><th>Tiempo</th><th>Acumulado</th></tr>
+  <tr class="bloque"><td colspan="4">Lo que ya conocen: repaso de las Partes 1 y 2</td></tr>
+  <tr><td class="n">01</td><td>Portada</td><td class="t">45 s</td><td class="t">0:45</td></tr>
+  <tr><td class="n">02</td><td>El problema</td><td class="t">1 min 25</td><td class="t">2:10</td></tr>
+  <tr><td class="n">03</td><td>La propuesta</td><td class="t">1 min 20</td><td class="t">3:30</td></tr>
+  <tr><td class="n">04</td><td>El piloto</td><td class="t">1 min 10</td><td class="t">4:40</td></tr>
+  <tr class="bloque"><td colspan="4">El caso de negocio</td></tr>
+  <tr><td class="n">05</td><td>Lo que cuesta seguir igual</td><td class="t">1 min 20</td><td class="t">6:00</td></tr>
+  <tr><td class="n">06</td><td>Dos escenarios</td><td class="t">1 min 50</td><td class="t">7:50</td></tr>
+  <tr><td class="n">07</td><td>Cuánto se pone y cuándo vuelve</td><td class="t">1 min 30</td><td class="t">9:20</td></tr>
+  <tr class="bloque"><td colspan="4">Plan, gobierno y riesgos</td></tr>
+  <tr><td class="n">08</td><td>Los primeros 30 días</td><td class="t">1 min 25</td><td class="t">10:45</td></tr>
+  <tr><td class="n">09</td><td>Quién decide y cuándo</td><td class="t">1 min 30</td><td class="t">12:15</td></tr>
+  <tr><td class="n">10</td><td>Qué puede salir mal</td><td class="t">1 min 35</td><td class="t">13:50</td></tr>
+  <tr class="bloque"><td colspan="4">Personas y conversación con la dirección</td></tr>
+  <tr><td class="n">11</td><td>Personas y adopción</td><td class="t">1 min 40</td><td class="t">15:30</td></tr>
+  <tr><td class="n">12</td><td>Impactos responsables</td><td class="t">1 min 30</td><td class="t">17:00</td></tr>
+  <tr><td class="n">13</td><td>Lo que puede preguntar la dirección</td><td class="t">1 min 25</td><td class="t">18:25</td></tr>
+  <tr class="bloque"><td colspan="4">Cierre</td></tr>
+  <tr><td class="n">14</td><td>Lo que le pedimos a la dirección</td><td class="t">1 min 25</td><td class="t">19:50</td></tr>
+  <tr class="total"><td></td><td>Total</td><td class="t">19 min 50</td><td></td></tr>
+</table>
+</div>
+<div class="der">
+<div class="datos-t" style="margin-top:0">Tres cosas que no pueden faltar</div>
+<ol class="tres">
+  <li><div><b>La distinción entre tiempo y dinero.</b> De los $1.570.000 por mes, $270.000 son horas extras pagadas y $1.300.000 es tiempo de gente que cobra igual. Se mantiene en todo el caso.</div></li>
+  <li><div><b>El escenario conservador.</b> $342.722 por mes de neto, recupero en 13 meses, VAN a 3 años de $6,1 millones. Con la mitad de la mejora.</div></li>
+  <li><div><b>La decisión.</b> Tope de $712.600, techo de $2.457.883 que se libera solo con el Go, un hijo como responsable y la fecha límite del 15-1-2027.</div></li>
+</ol>
+<p class="nota-turnos"><b>Cómo se cuenta el tiempo.</b> Los tiempos salen de contar las palabras de cada lámina a unas 140 por minuto, un ritmo de exposición, más pausado que una conversación porque hay que señalar la lámina. Las frases marcadas “si hay tiempo” no están en la cuenta y suman alrededor de un minuto. Hablando a 120 palabras por minuto, con las frases “si hay tiempo” incluidas, el texto dura casi 25 minutos: ese es el margen. <b>Puntos de control:</b> la lámina 4 tendría que terminar cerca del minuto 5, la 7 cerca del 9, la 10 cerca del 14 y la 13 cerca del 18. Si el reloj va atrasado, omitir las frases “si hay tiempo” y, en la lámina 6, saltear el detalle del tiempo interno nuevo.</p>
+<p class="nota-turnos"><b>Quién habla.</b> No está asignado: el grupo lo decide después. Conviene que cada integrante tenga un tramo seguido y que los cortes caigan entre los bloques del cuadro.</p>
+<p class="nota-turnos"><b>Las cifras.</b> Las láminas muestran los montos exactos ($342.722 por mes) y el informe los redondea a miles ($343.000). Son los mismos. Todo está en pesos constantes de noviembre de 2026.</p>
+</div>
+</div>
+
+<!-- ============ LÁMINA 01 ============ -->
+<section class="lamina" data-n="01">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 01</span><span class="raya"></span><span class="t">45 s</span></div><h2>Portada</h2><p class="enpantalla">En pantalla: el nombre de la empresa, la Parte 3 y los cinco integrantes.</p></div><img src="guion-assets/miniaturas/lamina-01.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Buenas. Hoy presentamos el proyecto completo de <b>Dulxelitos</b>, de punta a punta, en unos 20 minutos.</p>
+  <p>Primero repasamos en tres láminas lo que ya conocen: <mark>el problema, la propuesta y el piloto</mark>. Después viene lo nuevo: lo que cuesta seguir igual, el caso de negocio, el primer mes, quién decide, qué puede salir mal, las personas y, al final, la decisión que le pedimos a la dirección.</p>
+  <p>Al final hay un pedido concreto, con monto, responsable y fecha. Les pedimos que escuchen como si fueran la dirección de la empresa: lo que sigue está armado para que puedan decidir sin nosotros.</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>Comenzar despacio y sin leer el orden: son tres frases. La última fija el tono de toda la defensa, porque se habla a una dirección que tiene que decidir. Las láminas 2 a 4 son repaso y no conviene extenderlas: el tiempo está en el caso de negocio.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Lo que hay que tener presente</div>
+  <div class="chips">
+    <span class="chip"><b>14</b>láminas</span>
+    <span class="chip"><b>3</b>de repaso: problema, propuesta y piloto</span>
+    <span class="chip"><b>20 min</b>con margen hasta 25</span>
+  </div></div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 02 ============ -->
+<section class="lamina" data-n="02">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 02</span><span class="raya"></span><span class="t">1 min 25</span></div><h2>El problema</h2><p class="enpantalla">En pantalla: cuatro números grandes (30 de ~125, 76 % al 90 %, 40 a 50 h, 20 % al 100 %) y abajo, en una franja oscura, lo que mostró el relevamiento.</p></div><img src="guion-assets/miniaturas/lamina-02.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Empezamos por el problema, que ya conocen de la Parte 1. <mark>Dulxelitos acepta pedidos sin saber qué hay en stock y produce sin mirar lo que se pidió.</mark></p>
+  <p>Entran unos <b>125 pedidos por semana</b>. En la semana que registramos, <b>30</b> salieron recortados o demorados: un <b>76 % de pedidos completos y a tiempo</b>. Es una sola semana, y por eso el plan la vuelve a medir antes de comenzar. La meta es llegar al <b>90 %</b> en 6 meses.</p>
+  <p>Las horas extras son <b>entre 40 y 50 por mes</b>, según la liquidación de sueldos. En la Parte 2 habíamos estimado unas 25: se midieron mejor. Y la producción se carga <b>una vez por semana</b>, es decir, un 20 % de los días.</p>
+  <p>Lo que mostró el relevamiento es que <b>el stock de producto terminado no se registra en ningún lado</b>. Y cada pedido recortado le lleva a Oficina y Depósito alrededor de <b>una hora</b> para avisar, rearmar, facturar y coordinar.</p>
+  <p>Que el stock no se registre no es un detalle: hoy la disponibilidad se averigua mirando el depósito y preguntando a Producción, y <mark>el faltante aparece recién cuando se arma el pedido</mark>, cuando ya se confirmó.</p>
+  <p class="pase">Pase: “Veamos qué proponemos para esto.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>El 76 % sale de <b>una sola semana</b>: no presentarlo como promedio. Las horas extras cambiaron respecto de la Parte 2 (de unas 25 a 40 a 50): decirlo de frente, como una medición mejor, antes de que lo pregunten. Y no decir “falta un sistema”: la causa es de registro y de criterio.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>30</b>de ~125 por semana<small>dato, una semana</small></span>
+    <span class="chip"><b>76 → 90 %</b>en 6 meses<small>dato y meta</small></span>
+    <span class="chip"><b>40 a 50 h</b>extras por mes<small>dato; esperado 45</small></span>
+    <span class="chip"><b>20 %</b>de los días con carga<small>dato</small></span>
+    <span class="chip"><b>~1 h</b>por recortado<small>dato aproximado</small></span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿El 76 % es un promedio?</h4>
+    <p>No: es el dato de <b>una sola semana</b> (supuesto 9 de la Parte 2). Por eso las semanas 1 a 3 vuelven a medirlo. Si el promedio se aleja más de 5 puntos del 76 %, el hijo responsable se lo informa al dueño en la semana 4 y se revisan las metas.</p>
+  </div>
+  <div class="q">
+    <h4>¿De dónde sale la hora de retrabajo por pedido?</h4>
+    <p>Es un dato aproximado de la empresa: alrededor de una hora entre Oficina y Depósito para avisar, rearmar, facturar y coordinar, en horario normal. Los tiempos de retrabajo se miden de nuevo en las semanas 1 a 5, con la línea de base y el piloto.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 03 ============ -->
+<section class="lamina" data-n="03">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 03</span><span class="raya"></span><span class="t">1 min 20</span></div><h2>La propuesta</h2><p class="enpantalla">En pantalla: tres cambios en verde, las alternativas A (planilla, primero) y B (Discovery, destino) y la regla del stock disponible.</p></div><img src="guion-assets/miniaturas/lamina-03.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>La propuesta, que ya vieron en la Parte 2, cabe en una frase: <mark>primero se mira qué hay, después se confirma.</mark></p>
+  <p>Cambian tres cosas. Una <b>consulta</b> del disponible antes de confirmar, en lugar de averiguar dos veces. Una <b>carga</b> del pedido, en lugar de anotarlo tres veces. Y la producción se carga <b>todos los días</b>, no una vez por semana.</p>
+  <p>En la Parte 2 evaluamos cuatro alternativas y quedaron dos casi empatadas: una planilla compartida y el módulo de stock de Discovery. Decidió el argumento y no el puntaje.</p>
+  <p>Por eso hay dos pasos. Primero, la <b>planilla</b>, solo con papas fritas y durante 2 semanas: permite probar, sin gastar, si el equipo sostiene el hábito de cargar. Después, el <b>módulo de stock de Discovery</b>, que ya está en la licencia y la empresa no usa, y es donde ya se factura. Se activa de a una línea de producto.</p>
+  <p>La regla es la misma en la planilla y en Discovery: el <mark>stock disponible es el físico menos lo reservado</mark> por pedidos confirmados que todavía no se facturaron.</p>
+  <p class="pase">Pase: “Veamos cómo se prueba, antes de gastar.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>La regla del stock disponible, de memoria. Qué producir lo sigue decidiendo el dueño o uno de los hijos, ahora con pedidos y stock a la vista. Que el módulo esté en la licencia es un dato de la empresa: se confirma por escrito con Buenos Aires Software antes del Go. Es un repaso: no extenderse.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>1</b>consulta, no 2</span>
+    <span class="chip"><b>1</b>carga del pedido, no 3</span>
+    <span class="chip"><b>diaria</b>la carga de producción</span>
+    <span class="chip"><b>A → B</b>planilla primero, Discovery después</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Por qué empezar con una planilla y no con Discovery?</h4>
+    <p>Porque lo primero que hay que saber es si el equipo sostiene la carga diaria. Si no la sostiene en una planilla simple, tampoco la sostendrá en Discovery. Además, el piloto no toca Discovery ni gasta en activación: si los recortes no bajan, no se sigue.</p>
+  </div>
+  <div class="q">
+    <h4>¿Quién decide qué producir?</h4>
+    <p>Lo sigue decidiendo quien conoce la planta. Ningún sistema elige qué producir: con el stock y los pedidos en una hoja se decide con más información, y los hijos fijan el stock mínimo de cada producto.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 04 ============ -->
+<section class="lamina" data-n="04">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 04</span><span class="raya"></span><span class="t">1 min 10</span></div><h2>El piloto</h2><p class="enpantalla">En pantalla: cuatro medidas con su umbral (carga, recortes, conteo, fechas) y abajo tres tarjetas: fechas, tope y semana de decisión.</p></div><img src="guion-assets/miniaturas/lamina-04.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>El piloto es el experimento mínimo: <b>dos semanas</b>, un solo producto, <b>papas fritas</b>, en una planilla compartida y sin tocar Discovery. Va del <b>22 de febrero al 5 de marzo</b>.</p>
+  <p>Mide cuatro cosas. Que la producción esté cargada en <b>8 de los 10 días hábiles</b>, cuando hoy lo está el 20 % de los días. Que los pedidos recortados o demorados queden en la <b>mitad o menos</b> de la base. Que la diferencia entre la planilla y lo contado sea de <b>hasta un 10 %</b>. Y que <b>4 de cada 5</b> avisos con fecha estimada se cumplan.</p>
+  <p>Lo que se pone en juego es acotado: un <b>tope de $712.600</b>, de los cuales solo <b>$57.600</b> salen de la caja. El resto es tiempo de gente que cobra su sueldo igual.</p>
+  <p>La decisión es en la <b>semana 6</b> y la toma el dueño: Go, Ajustar o Pausar, con valores que se acuerdan antes de empezar.</p>
+  <p class="sihay">Dos semanas con un solo producto dan una señal, no una demostración: no prueban el efecto en todo el catálogo ni la baja de las horas extras.</p>
+  <p class="pase">Pase: “Ahora, cuánto cuesta no hacer nada.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>El tope de $712.600 incluye el tiempo del personal valorado; solo <b>$57.600</b> son dinero de caja. La base de los recortados es la de papas fritas: sale de las semanas 1 a 3 (línea de base) y no de los 30 de ~125, que son de todos los productos.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>8 de 10</b>días con carga<small>hoy 20 %</small></span>
+    <span class="chip"><b>½ o menos</b>de recortados<small>hipótesis</small></span>
+    <span class="chip"><b>10 %</b>de diferencia en el conteo<small>hipótesis</small></span>
+    <span class="chip"><b>4 de 5</b>fechas cumplidas<small>hipótesis</small></span>
+    <span class="chip"><b>$712.600</b>tope; $57.600 de caja<small>estimación</small></span>
+    <span class="chip"><b>22-2 al 5-3</b>piloto, semanas 4 y 5</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Y si un día la planilla no está al día?</h4>
+    <p>Oficina confirma como siempre, a ojo y consultando a Producción, y lo anota. El piloto no toca Discovery ni el armado de pedidos.</p>
+  </div>
+  <div class="q">
+    <h4>¿Qué pasa si el piloto no da?</h4>
+    <p>Se vuelve atrás sin haber tocado Discovery y el techo no se libera. Con menos de 5 días de 10 con carga es Pausar; con 5 a 7 es Ajustar y se repite, y si al repetir no hay Go, es Pausar.</p>
+  </div>
+  <div class="q">
+    <h4>¿Quién decide el Go y con qué valores?</h4>
+    <p>El dueño, con valores que acuerda o cambia en la semana 1, antes de ver resultados. El Go del piloto exige además que la prueba técnica de Discovery pase y que el recupero con costos reales no supere los 13 meses del conservador.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 05 ============ -->
+<section class="lamina" data-n="05">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 05</span><span class="raya"></span><span class="t">1 min 20</span></div><h2>Lo que cuesta seguir igual</h2><p class="enpantalla">En pantalla: $1.570.000 por mes en rojo; a la derecha dos barras (tiempo en naranja, dinero en oscuro) y abajo dos franjas.</p></div><img src="guion-assets/miniaturas/lamina-05.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Ahora lo nuevo. <mark>Seguir igual equivale a $1.570.000 por mes</mark>, unos $18.840.000 por año. Son dos cosas distintas y conviene no mezclarlas.</p>
+  <p>Lo naranja es <b>tiempo</b>: $1.300.000 por mes. Son unas 130 horas de Oficina y Depósito que se van en rearmar y avisar los 30 pedidos recortados por semana. La empresa las paga igual, porque son sueldos, así que no cambian lo que sale de la caja. Pero esa gente podría estar haciendo otra cosa.</p>
+  <p>Lo oscuro es <b>dinero</b>: $270.000 por mes de horas extras para completar pedidos. Es la mitad de las 45 horas, a $12.000 cada una, y es lo único que sale de la caja. La otra mitad responde a falta de capacidad y no la contamos.</p>
+  <p>Esta diferencia entre tiempo y dinero la mantenemos en todo el caso de negocio, con los mismos colores.</p>
+  <p>Y dos cosas más. Cada mes que se demora la decisión se pierde el neto mensual del proyecto, entre <b>$342.722 y $800.639</b>. Y queda sin cuantificar el riesgo de que un distribuidor se canse de recibir pedidos incompletos.</p>
+  <p class="pase">Pase: “Veamos cuánto cuesta cambiar y cuánto se gana.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>Decir “equivale a”, no “perdemos”. Los colores son los de todo el caso: naranja es tiempo del personal que cobra igual y oscuro es dinero de caja. Las 45 horas son el valor esperado del rango de 40 a 50, y que la mitad se ligue a pedidos faltantes es el supuesto 7 de la Parte 2.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>$1.570.000</b>por mes<small>estimación</small></span>
+    <span class="chip"><b>$18.840.000</b>por año</span>
+    <span class="chip"><b>$1.300.000</b>tiempo, unas 130 h<small>estimación</small></span>
+    <span class="chip"><b>$270.000</b>dinero, 22,5 h extras<small>estimación</small></span>
+    <span class="chip"><b>$12.000</b>la hora extra<small>dato aproximado</small></span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Por qué no cuentan todas las horas extras?</h4>
+    <p>Solo la mitad de las 45 horas se hace para completar pedidos que faltaron (supuesto 7). La otra mitad responde a la falta de capacidad de la planta, que la propuesta no resuelve, y por eso no la contamos.</p>
+  </div>
+  <div class="q">
+    <h4>¿De dónde sale que cada recortado vale una hora de $10.000?</h4>
+    <p>La hora de retrabajo es un dato aproximado de la empresa, en horario normal, y se valora al costo de la hora de Oficina, $10.000. Si fuera de media hora, el conservador seguiría cerrando: VAN de $1,4 millones y recupero en el mes 22.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 06 ============ -->
+<section class="lamina" data-n="06">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 06</span><span class="raya"></span><span class="t">1 min 50</span></div><h2>Dos escenarios</h2><p class="enpantalla">En pantalla: dos tarjetas, conservador y esperado, cada una con dos entradas (recortados y horas extras), una barra de beneficio mensual en naranja y oscuro y el neto por mes en verde.</p></div><img src="guion-assets/miniaturas/lamina-06.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Cuantificamos <b>solo la alternativa elegida</b>: activar el módulo de stock de Discovery, con el piloto antes. No hay licencia ni equipos nuevos: el módulo ya está incluido, las PC ya existen y las horas de Juanjo son las de su servicio contratado. El costo es <b>tiempo del personal</b>.</p>
+  <p>Armamos dos escenarios, que cambian solo lo más incierto. El <b>conservador</b> supone la mitad de la mejora: los recortados bajan de 30 a unos 21 por semana, las horas extras bajan un 15 % y el efecto tarda 8 semanas más en llegar. El <b>esperado</b> llega a la meta: 90 % de pedidos completos, unos 12 o 13 recortados por semana y un 29 % menos de horas extras.</p>
+  <p>Miren la barra de cada tarjeta. Lo naranja es tiempo liberado: <b>$379.167</b> en el conservador y <b>$758.333</b> en el esperado. Lo oscuro es dinero que deja de salir: <b>$78.750</b> y <b>$157.500</b>.</p>
+  <p>A ese beneficio hay que restarle el <b>tiempo interno nuevo</b>, neto de lo que reemplaza: <b>$115.194 por mes</b>. La carga diaria reemplaza el control semanal, y cargar el pedido una vez reemplaza las copias.</p>
+  <p>El resultado es <mark>$342.722 por mes en el conservador y $800.639 en el esperado</mark>. Solo en caja, $78.750 y $157.500. Como referencia, alcanza con evitar unos 3 de los 30 recortados por semana para cubrir el tiempo interno nuevo, sin contar las horas extras.</p>
+  <p>No sumamos el margen de los recortados, porque la venta no se pierde, se manda después. El pedido de aprobación sale del escenario conservador.</p>
+  <p class="sihay">Con las tres líneas en uso, las tareas nuevas suman unas 64 horas por mes y reemplazan unas 52: agregan unas 12 horas netas.</p>
+  <p class="pase">Pase: “Veamos cuánto hay que poner y cuándo vuelve.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>Son dos vistas: la completa valora el tiempo al costo de la hora y la de caja cuenta solo horas extras. La baja de horas extras del caso (unas 7 y unas 13 por mes) es más prudente que la meta de la mitad, y es a propósito. El informe redondea a miles: $343.000 y $801.000 de neto, $458.000 y $916.000 de beneficio.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>$342.722</b>neto por mes, conservador<small>estimación</small></span>
+    <span class="chip"><b>$800.639</b>neto por mes, esperado<small>estimación</small></span>
+    <span class="chip"><b>$78.750 / $157.500</b>neto de caja</span>
+    <span class="chip"><b>$115.194</b>tiempo interno nuevo, neto</span>
+    <span class="chip"><b>30 → 21,25 / 12,5</b>recortados por semana<small>hipótesis</small></span>
+    <span class="chip"><b>45 → 38,44 / 31,87 h</b>extras por mes<small>estimación</small></span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Cuánto cuesta ponerlo en marcha?</h4>
+    <p>La puesta en marcha de las semanas 1 a 26 es de <b>$1.523.000</b>, y con contingencia llega a $1.752.000 (15 %, esperado) o $1.828.000 (20 %, conservador). Es tiempo del personal. Lo único que sale de la caja son las horas extras de los conteos: $446.400 con la contingencia del conservador. No hay licencias ni equipos.</p>
+  </div>
+  <div class="q">
+    <h4>¿Por qué la mejora del conservador es la mitad?</h4>
+    <p>Es una hipótesis prudente: nadie midió todavía cuánto bajan los recortados. Se mide desde la semana 1 y el Go de cada línea exige que bajen, contra su base.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 07 ============ -->
+<section class="lamina" data-n="07">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 07</span><span class="raya"></span><span class="t">1 min 30</span></div><h2>Cuánto se pone y cuándo vuelve</h2><p class="enpantalla">En pantalla: un gráfico de 18 meses con tres líneas (esperado, conservador y conservador solo caja) y a la derecha las cifras de cada escenario.</p></div><img src="guion-assets/miniaturas/lamina-07.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>El gráfico muestra el saldo acumulado mes a mes, en millones de pesos. Cuanto más abajo está la línea, más se puso. Cuando cruza el cero, <mark>se recuperó lo invertido</mark>.</p>
+  <p>El <b>esperado</b> toca fondo en mayo de 2027, con <b>$1,33 millones</b> puestos, y se recupera en el <b>mes 7</b>, agosto de 2027.</p>
+  <p>El <b>conservador</b>, que es el que importa para decidir, toca fondo en julio de 2027 con <b>$2,2 millones</b> puestos y se recupera en el <b>mes 13</b>, febrero de 2028. El primer año queda en unos $300.000 por debajo de cero y recién después empieza a dar ganancia.</p>
+  <p>La línea punteada es solo caja, las horas extras que salen o dejan de salir. Lo máximo expuesto es de <b>$436.304</b> y se recupera en el mes 12.</p>
+  <p>Con una tasa del 12 % real anual, el VAN a 3 años es de <b>$6,1 millones</b> en el conservador y de <b>$19,2 millones</b> en el esperado. Dicho simple: <mark>conviene, aunque en el conservador tarda un año en devolver lo invertido</mark>.</p>
+  <p>Dos aclaraciones sobre estas cifras. El máximo expuesto incluye el tiempo del personal valorado al costo de la hora, y lo que sale de la caja es bastante menos. Y todo está en pesos constantes de noviembre de 2026.</p>
+  <p class="sihay">Los primeros meses concentran la preparación, el piloto, los conteos y el doble registro, y por eso la línea baja al principio.</p>
+  <p class="pase">Pase: “Veamos qué pasa en el primer mes.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>El máximo expuesto es lo más que la empresa llega a poner antes de recuperar, con el tiempo del personal valorado; no es la inversión. Los $1,33 M de la lámina son $1,3 millones en el informe. El gráfico tiene 18 meses: los 12 primeros salen de la planilla y los 6 siguientes siguen con el neto mensual pleno. El 12 % es una decisión nuestra.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>$2,2 M · mes 13</b>conservador: máximo expuesto y recupero</span>
+    <span class="chip"><b>$1,33 M · mes 7</b>esperado: máximo expuesto y recupero</span>
+    <span class="chip"><b>$436.304 · mes 12</b>conservador, solo caja</span>
+    <span class="chip"><b>$6,1 M / $19,2 M</b>VAN a 3 años<small>estimación</small></span>
+    <span class="chip"><b>−$295.877</b>primer año, conservador</span>
+    <span class="chip"><b>12 %</b>tasa real anual</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Cuánto es lo máximo que puede perder la empresa?</h4>
+    <p>Antes de recuperar, el máximo expuesto del conservador es de $2,2 millones, de los cuales $436.304 son dinero de caja; casi todo es tiempo de su gente. Solo en caja también cierra: VAN de $1,5 millones y recupero en el mes 12. Y como se aprueba por tramos, lo que se compromete primero es el tope del piloto, $712.600.</p>
+  </div>
+  <div class="q">
+    <h4>¿Y si el efecto tarda más o rinde menos?</h4>
+    <p>El conservador ya suma 8 semanas de demora. Probamos más variantes sobre él: con retrabajo de media hora, VAN de $1,4 millones (mes 22); con 5 minutos para cargar y reservar, VAN de $1,2 millones (mes 24). Cierra en todas menos en una, que está entre las preguntas difíciles.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 08 ============ -->
+<section class="lamina" data-n="08">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 08</span><span class="raya"></span><span class="t">1 min 25</span></div><h2>Los primeros 30 días</h2><p class="enpantalla">En pantalla: cuatro tarjetas, una por semana, con sus tareas y su responsable; la cuarta, oscura, es el comienzo del piloto. Abajo, una franja verde.</p></div><img src="guion-assets/miniaturas/lamina-08.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>El plan lo lleva adelante la propia empresa. Veamos el primer mes, semana a semana. Si la dirección decide <b>antes del 15 de enero</b>, la semana 1 comienza el <b>lunes 1 de febrero de 2027</b>.</p>
+  <p>En la <b>semana 1</b>, el dueño designa por escrito al responsable y a los suplentes, fija los umbrales y el tope, y Oficina vuelve a medir la línea de base: cada pedido con su faltante.</p>
+  <p>En la <b>semana 2</b>, que incluye Carnaval, se arman la planilla de papas fritas y el tablero, y se le consulta por escrito a Buenos Aires Software la versión, el soporte, el plazo y la salida de datos.</p>
+  <p>En la <b>semana 3</b> hay prueba técnica, capacitación con siete casos de prueba reales y el conteo inicial el fin de semana, el 20 y el 21.</p>
+  <p>Y en la <b>semana 4</b>, el 22 de febrero, comienza el piloto: carga diaria al cierre del turno y una reunión de 10 minutos.</p>
+  <p><mark>La semana 1 solo necesita decisiones del dueño y datos que la empresa ya tiene.</mark> Las tareas técnicas son las del servicio que Juanjo tiene contratado, y cada una tiene un suplente interno.</p>
+  <p class="pase">Pase: “Ahora, quién decide y cuándo.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>La fecha límite es el viernes 15-1-2027. El lunes siguiente a la aprobación, el 18-1 como máximo, ya se designa al responsable y se envía la consulta al proveedor, y se piden a liquidación 6 meses de horas extras. La carga diaria es de 14:40 a 15:00, dentro del turno de Producción. El piloto no comienza hasta la semana 4.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>15-1-2027</b>fecha límite de decisión</span>
+    <span class="chip"><b>1-2-2027</b>semana 1</span>
+    <span class="chip"><b>22-2</b>comienza el piloto</span>
+    <span class="chip"><b>7</b>casos de prueba</span>
+    <span class="chip"><b>20 y 21-2</b>conteo inicial</span>
+    <span class="chip"><b>14:40 a 15:00</b>carga diaria</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Y si la decisión se demora?</h4>
+    <p>El calendario se corre, y cada mes de demora se pierde el neto mensual del proyecto, entre $342.722 y $800.639.</p>
+  </div>
+  <div class="q">
+    <h4>¿Cuánto tiempo le lleva esto al hijo responsable?</h4>
+    <p>Una reunión semanal de 20 minutos, el tablero de tareas y las decisiones del día a día. Puede no tener tiempo, y por eso el otro hijo revisa con él el tablero cada semana y el dueño acuerda por escrito el tiempo que se le reserva.</p>
+  </div>
+  <div class="q">
+    <h4>¿Quién es el suplente interno?</h4>
+    <p>Una persona de Oficina que maneja Discovery. Tiene usuario de administrador propio y repite con Juanjo cada tarea técnica durante el piloto.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 09 ============ -->
+<section class="lamina" data-n="09">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 09</span><span class="raya"></span><span class="t">1 min 30</span></div><h2>Quién decide y cuándo</h2><p class="enpantalla">En pantalla: una línea de tiempo con cinco puntos (semanas 6, 12, 17, 22 y 26), las tres salidas (Go, Ajustar, Pausar) y una franja con los roles.</p></div><img src="guion-assets/miniaturas/lamina-09.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Hay <b>cinco puntos de decisión</b> en 6 meses. En cada uno decide el dueño, con valores que se acuerdan <mark>antes de ver los resultados</mark>.</p>
+  <p>El primero, el jueves <b>11 de marzo</b>, es el grande: termina el piloto y se decide activar la primera línea, Salados, repetir o parar. Con el Go se libera el techo del proyecto. Después hay uno al cerrar cada línea, en las semanas 12, 17 y 22, y uno de cierre a los 6 meses.</p>
+  <p>En todos se miran las mismas cuatro medidas: la <b>carga diaria, los recortados contra su base, la exactitud del conteo y las fechas cumplidas</b>.</p>
+  <p>Con <b>Go</b>, sigue el roadmap. Con <b>Ajustar</b>, se resuelve lo que falló y se repite, con el calendario corrido. Con <b>Pausar</b>, no se avanza ni se gasta más, y el dueño decide si revisa la causa o vuelve al proceso anterior.</p>
+  <p>Para activar cada línea, los recortados tienen que estar en el 70 % o menos de su base; en el piloto, en la mitad o menos.</p>
+  <p>El responsable único es <b>uno de los hijos</b>, que ya decide la producción y mira los pedidos. <b>Juanjo</b> es el líder técnico, con un suplente interno. Y hay una reunión de 20 minutos los lunes.</p>
+  <p class="pase">Pase: “Veamos qué puede salir mal.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>El umbral de recortados cambia: mitad o menos en el piloto, 70 % o menos en las líneas. Los puntos 2 a 4 exigen además que las horas extras no superen las 45 por mes de hoy, sin las de los conteos iniciales. La lámina no muestra los valores de Ajustar y Pausar, que están en el informe, sección 3.4; los más preguntados van abajo.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Los valores de las cuatro medidas</div>
+  <div class="chips">
+    <span class="chip"><b>Carga</b>Go 80 % o más · Ajustar 50 a 79 % · Pausar menos de 50 %</span>
+    <span class="chip"><b>Exactitud</b>Go 9 de 10 o más · Ajustar 80 a 89 % · Pausar menos de 80 %</span>
+    <span class="chip"><b>Fechas</b>Go 80 % o más · Ajustar 60 a 79 % · Pausar menos de 60 %</span>
+    <span class="chip"><b>Recortados</b>Piloto: Go la mitad o menos, Ajustar 51 a 80 %, Pausar más de 80 %</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Qué impide leer el resultado a favor?</h4>
+    <p>Los valores se acuerdan en la semana 1, antes de ver resultados, y los ajustes dentro de lo acordado quedan en el registro. Se miran las mismas cuatro medidas en todos los puntos.</p>
+  </div>
+  <div class="q">
+    <h4>¿Quién puede frenar el proyecto?</h4>
+    <p>El hijo responsable pausa o activa el plan B el mismo día. Reanudar o avanzar lo decide el dueño: pausar no necesita permiso, avanzar sí.</p>
+  </div>
+  <div class="q">
+    <h4>¿Por qué un hijo como responsable y no Juanjo?</h4>
+    <p>Porque Juanjo es un servicio externo contratado, no un empleado, y el cambio lo tiene que sostener la empresa. El hijo que se designe ya decide la producción y mira los pedidos; si falta una semana, lo reemplaza el otro hijo.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 10 ============ -->
+<section class="lamina" data-n="10">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 10</span><span class="raya"></span><span class="t">1 min 35</span></div><h2>Qué puede salir mal</h2><p class="enpantalla">En pantalla: cuatro riesgos (datos, Juanjo, continuidad, caja), cada uno con su probabilidad e impacto, y a la derecha el plan B en cuatro pasos.</p></div><img src="guion-assets/miniaturas/lamina-10.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Los riesgos que importan son los de <b>ejecución</b>, porque los supuestos de la Parte 2 ya se prueban en el piloto. Los ordenamos por urgencia. La probabilidad y el impacto son una lectura nuestra, que se revisa en cada punto de decisión.</p>
+  <p>El primero son los <b>datos</b>: que el disponible no coincida con lo que hay. Se controla con un conteo inicial por línea, con el visto bueno de Depósito, y manda lo contado.</p>
+  <p>Segundo, la <b>dependencia de Juanjo</b>, que es quien mejor conoce Discovery. Por eso hay un instructivo de una página por tarea técnica, que el suplente interno hace una vez con él mirando, y un contacto de soporte con nombre en Buenos Aires Software.</p>
+  <p>Tercero, la <b>continuidad</b>: un solo turno y la planta al límite. El responsable de carga tiene suplente y la carga va dentro del turno. Cuarto, la <b>caja</b>: se aprueba por tramos, con una contingencia del 20 %, y una línea por vez.</p>
+  <p>Y está el <b>plan B</b>, que el responsable declara el mismo día, sin esperar al dueño, porque volver a confirmar como hoy cuesta lo mismo que no haber empezado y se puede deshacer. Se congela con una exportación, se cierran las reservas abiertas, se cuenta y se sigue como hoy. <mark>Nada se borra.</mark></p>
+  <p class="sihay">En el registro también están el soporte de Buenos Aires Software, los accesos y el respaldo de los datos.</p>
+  <p class="pase">Pase: “Veamos cómo cuidamos a las personas.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>Decir “Juanjo” sin rodeos: integra el grupo, pero sus tareas son las de su servicio contratado con la empresa, que sigue después de este trabajo. La lámina muestra 4 de los 6 riesgos del informe; la franja de abajo nombra los otros. La probabilidad y el impacto son hipótesis nuestras.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>Datos</b>prob. alta, impacto alto</span>
+    <span class="chip"><b>Juanjo y continuidad</b>prob. media, impacto alto</span>
+    <span class="chip"><b>Caja</b>prob. media, impacto medio</span>
+    <span class="chip"><b>20 %</b>contingencia del conservador</span>
+    <span class="chip"><b>5 días hábiles</b>de plan B para decidir reanudar o pausar</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Y si Discovery no hace lo que esperamos?</h4>
+    <p>Hay dos pasos que no están probados: el reparto parcial y que la factura consuma la reserva. La prueba técnica los revisa antes del Go y se repite tras cada actualización. Si falla, se sigue con la planilla y no se activan más líneas hasta resolverlo.</p>
+  </div>
+  <div class="q">
+    <h4>¿Y si el conteo no coincide con lo que hay?</h4>
+    <p>Se frena la línea siguiente, se recuenta la afectada y Oficina confirma como hoy. Con dos conteos seguidos con menos de 9 de cada 10 productos dentro de la tolerancia de 10 %, se declara el plan B.</p>
+  </div>
+  <div class="q">
+    <h4>¿Qué pasa con los datos si algún día se deja Discovery?</h4>
+    <p>Antes del Go se confirma por escrito cómo se exportan el stock y los movimientos. Además hay una exportación semanal, fuera de las PC de la planta, que se prueba en el piloto.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 11 ============ -->
+<section class="lamina" data-n="11">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 11</span><span class="raya"></span><span class="t">1 min 40</span></div><h2>Personas y adopción</h2><p class="enpantalla">En pantalla: cuatro tarjetas de capacitación (Producción, Oficina, Depósito, Dirección) y, abajo en verde, tres indicadores de adopción.</p></div><img src="guion-assets/miniaturas/lamina-11.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>En personas, lo nuevo respecto de la Parte 2 es que las tareas de <b>Juanjo</b> son las de su servicio contratado con la empresa. Configura, prueba, capacita la primera vez y deja instructivos. La rutina la sostiene la empresa, con un hijo como responsable.</p>
+  <p>La capacitación es <b>en el puesto</b>, por grupo. Producción, una hora de práctica con la producción del día anterior. Oficina, dos sesiones de una hora con los casos de prueba. Depósito, una hora con el conteo inicial de papas fritas. Y la dirección, una hora para leer el tablero y aplicar Go, Ajustar o Pausar.</p>
+  <p>Cada tarea tiene un titular y un suplente, y los dos se capacitan. Después capacita el hijo responsable o quien esté a cargo de Oficina, para que nada dependa de una persona externa.</p>
+  <p>La adopción se mide con tres indicadores que salen de lo que registra el sistema: <mark>a nadie se le pregunta si lo usa</mark>. Los días con producción cargada, hoy en 20 %, con 8 de 10 como meta. Los pedidos reservados antes de confirmar, también 8 de 10. Y que los suplentes carguen, cada semana.</p>
+  <p>Si un valor es bajo, antes de pensar en las personas se revisan la capacitación, la carga de trabajo y las reglas, en ese orden. El dato sirve para planificar, no para evaluar.</p>
+  <p class="pase">Pase: “Y el impacto de todo esto en la gente.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>El 8 de 10 de “reservados antes de confirmar” es una meta propuesta, a validar con la línea de base de las semanas 1 a 3. Para hablar del miedo al cambio, nombrar lo que cuida cada persona: no tener más trabajo, que el dato no señale a alguien y que no bajen las horas extras, que son ingreso.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>1 h</b>Producción, Depósito y Dirección</span>
+    <span class="chip"><b>2 × 1 h</b>Oficina</span>
+    <span class="chip"><b>8 de 10</b>días con carga<small>hoy 20 %</small></span>
+    <span class="chip"><b>8 de 10</b>reservados antes de confirmar<small>hipótesis</small></span>
+    <span class="chip"><b>los dos</b>suplentes cargan cada semana</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Y si alguien no sabe usar bien la computadora?</h4>
+    <p>La capacitación es en el puesto, con pedidos reales y un instructivo de una página. El parte pide solo producto y cantidad. Quien tenga dificultad entrega el parte en papel y el suplente lo carga, sin que cuente como error.</p>
+  </div>
+  <div class="q">
+    <h4>¿Qué hacen si la gente no carga?</h4>
+    <p>Se mira el motivo anotado de cada día sin carga (turno apretado, PC ocupada, suplente sin capacitar) y se acorta lo que se carga, siempre dentro del turno. Si la carga genera horas extras, el punto queda en Ajustar.</p>
+  </div>
+  <div class="q">
+    <h4>¿Este dato se va a usar para evaluar a las personas?</h4>
+    <p>No. El dueño lo confirma ante todos: el dato sirve para planificar. No se usa para evaluar personas ni para repartir horas extras.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 12 ============ -->
+<section class="lamina" data-n="12">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 12</span><span class="raya"></span><span class="t">1 min 30</span></div><h2>Impactos responsables</h2><p class="enpantalla">En pantalla: seis tarjetas, la primera destacada (horas extras: de −7 a −13 h por mes) y las otras cinco: cambio de tareas, habilidad digital, papel, privacidad y equipos.</p></div><img src="guion-assets/miniaturas/lamina-12.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Seis impactos. Empezamos por el más sensible: las <b>horas extras</b>, que para los operarios son ingreso.</p>
+  <p>Esperamos que bajen <b>unas 7 horas por mes</b> en el conservador y <b>unas 13</b> en el esperado. Para cuidarlo, se les avisa antes del piloto cuánto se espera que bajen, baja por línea y no de golpe, y solo bajan las que se hacían por pedidos faltantes: las demás rotan entre quienes las hacen hoy. Los conteos de fin de semana, que se pagan como horas extras, se les ofrecen primero.</p>
+  <p>Segundo, el <b>cambio de tareas</b>: cada tarea nueva reemplaza otra. El caso <mark>no supone ninguna baja de personal</mark>, y proponemos que el dueño lo diga al presentar el proyecto.</p>
+  <p>Después vienen la habilidad digital desigual, el papel, la privacidad de los 57 distribuidores y los equipos, que no se compran: se usan las PC que ya están.</p>
+  <p>Dos cosas quedan sin compensar y las decimos. La baja de horas extras en sí, que es el resultado buscado. Y la energía de las PC, que es un consumo marginal. Si la dirección quiere reconocer ese ingreso de otra forma, es una decisión suya y el caso no la incluye.</p>
+  <p class="pase">Pase: “Estas son las frases que escuchamos en la empresa.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>Conviven dos números de horas extras. La meta del proyecto es la mitad, de 40 a 50 por mes a 20 o 25. La estimación del caso es más prudente: una baja de unas 7 a unas 13 horas. Decirlo con claridad para que no parezca una contradicción. La lámina muestra la estimación.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>−7 a −13 h</b>extras por mes<small>estimación</small></span>
+    <span class="chip"><b>40 a 50 → 20 a 25</b>meta de horas extras<small>hipótesis</small></span>
+    <span class="chip"><b>57</b>distribuidores</span>
+    <span class="chip"><b>$0</b>en equipos nuevos</span>
+    <span class="chip"><b>0</b>bajas de personal en el caso</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>Si bajan las horas extras, ¿los operarios cobran menos?</h4>
+    <p>Sí, en esas horas: se hacían para completar pedidos que faltaron y su baja es el resultado que se busca. Se mitiga con aviso previo, baja por línea y rotación, y los conteos de fin de semana se les ofrecen primero. Reconocer ese ingreso de otra forma queda en manos de la dirección.</p>
+  </div>
+  <div class="q">
+    <h4>¿Habrá despidos?</h4>
+    <p>El caso no supone ninguna baja de personal. Cada tarea nueva reemplaza otra, y proponemos que el dueño lo diga al presentar el proyecto.</p>
+  </div>
+  <div class="q">
+    <h4>¿Qué pasa con los datos de los distribuidores en la planilla?</h4>
+    <p>La planilla usa número de pedido, producto y cantidad, sin datos fiscales ni de contacto. La ven con cuenta de la empresa solo Oficina, Producción y el responsable, y al terminar el piloto se archiva y se retira el acceso.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 13 ============ -->
+<section class="lamina" data-n="13">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 13</span><span class="raya"></span><span class="t">1 min 25</span></div><h2>Lo que puede preguntar la dirección</h2><p class="enpantalla">En pantalla: seis objeciones entre comillas, cada una con una respuesta corta.</p></div><img src="guion-assets/miniaturas/lamina-13.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Estas son las frases que se escuchan en la empresa. <mark>Todas parten de algo cierto</mark>, y cada respuesta empieza por reconocerlo.</p>
+  <p><b>“Siempre anduvo así.”</b> Es cierto, y anduvo mientras el volumen se podía seguir de memoria. Hoy 30 de unos 125 pedidos salen recortados o demorados, y seguir igual equivale a $1.570.000 por mes, de los cuales $270.000 son dinero.</p>
+  <p><b>“La gente no va a cargar.”</b> Tiene razón en que una planta sin margen no suma tareas sola. Por eso la carga reemplaza el control semanal, va dentro del turno, tiene suplente y es condición para el Go: 8 de 10 días, o no se sigue.</p>
+  <p><b>“No sabemos si lo que se gasta se recupera.”</b> En el conservador, $342.722 de neto por mes, recupero en 13 meses y VAN a 3 años de $6,1 millones. Por eso el pedido es acotado.</p>
+  <p><b>“Lo manejamos a simple vista.”</b> Funciona para quien conoce la planta, y ese conocimiento no se descarta. Pero el stock no se registra y el faltante aparece recién al armar el pedido. Si a simple vista alcanzaba, el piloto lo va a mostrar: 2 semanas, un solo producto.</p>
+  <p class="sihay">“Con la planta al límite, un cambio puede trabar todo”: el peor caso es chico, 2 semanas, y se corta cuando se quiera. “Si registramos el stock, pierdo el criterio”: sigue decidiendo quien conoce la planta, ahora con los pedidos a la vista.</p>
+  <p class="pase">Pase: “Resumimos lo que le pedimos a la dirección.”</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>No leer las seis: decir las cuatro del guion y señalar que las otras dos están en la lámina. Esta lámina anticipa lo que probablemente se pregunte, así que conviene hablar sin apuro y dejar el tiempo previsto. Las objeciones salen del relevamiento con el responsable de sistemas y de las entrevistas de la Parte 1.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>$1.570.000</b>por mes; $270.000 en dinero</span>
+    <span class="chip"><b>8 de 10</b>días con carga, condición del Go</span>
+    <span class="chip"><b>$712.600</b>tope del piloto</span>
+    <span class="chip"><b>13 meses</b>recupero, conservador</span>
+    <span class="chip"><b>$6,1 M</b>VAN a 3 años, conservador</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Y si el piloto da Pausar?</h4>
+    <p>No se avanza ni se gasta más, y la operación vuelve a confirmar pedidos como hoy sin perder información: se congela con una exportación, se cierran las reservas, se cuenta y se sigue. A las 4 semanas el dueño decide entre revisar la causa o volver al proceso anterior.</p>
+  </div>
+  <div class="q">
+    <h4>¿Qué evidencia hay de que la gente cargará?</h4>
+    <p>Todavía no hay evidencia, y por eso el piloto es con planilla: hoy la producción se carga una vez por semana, un 20 % de los días. El piloto mide si se llega a 8 de 10; con 5 a 7 se ajusta y con menos de 5 se pausa.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LÁMINA 14 ============ -->
+<section class="lamina" data-n="14">
+  <div class="cab"><div class="izq"><div class="linea"><span class="num">Lámina 14</span><span class="raya"></span><span class="t">1 min 25</span></div><h2>Lo que le pedimos a la dirección</h2><p class="enpantalla">En pantalla, sobre fondo oscuro: cuatro compromisos (tope, techo, responsable, fecha) y una franja verde con el escenario conservador.</p></div><img src="guion-assets/miniaturas/lamina-14.png" alt=""></div>
+  <h3 class="verde">Qué decir</h3>
+  <p>Lo que le pedimos a la dirección es acotado: <mark>aprobar el piloto de 2 semanas con papas fritas</mark>, con cuatro compromisos.</p>
+  <p>Primero, el <b>tope</b>: $712.600 para el piloto, las semanas 1 a 6. De eso, $57.600 salen de la caja. Si el piloto no da, se vuelve atrás sin haber tocado Discovery.</p>
+  <p>Segundo, el <b>techo</b>: $2.457.883 para el proyecto completo, las semanas 1 a 26, sin restar beneficios. De eso, $446.400 son caja. <b>Se libera solo con el Go</b> de la semana 6.</p>
+  <p>Tercero, el <b>responsable</b>: que la dirección designe a uno de los hijos como responsable único, con Juanjo como líder técnico y un suplente interno.</p>
+  <p>Cuarto, la <b>fecha</b>: la decisión, antes del 15 de enero de 2027, para comenzar el lunes 1 de febrero. El piloto es del 22 de febrero al 5 de marzo, y el Go, Ajustar o Pausar, el jueves 11 de marzo.</p>
+  <p>Aun en el escenario conservador, el proyecto deja <b>$342.722 por mes</b>, se recupera en <b>13 meses</b> y el VAN a 3 años es de <b>$6,1 millones</b>. Y se puede cortar en cualquier momento: <mark>pausar no necesita permiso, avanzar sí</mark>.</p>
+  <p class="pausa">Pausa de un segundo antes de la última frase. Después, una sola línea de cierre y pasar a las preguntas.</p>
+  <p>Eso es lo que necesitamos que decidan. Quedamos a disposición para las preguntas. Gracias.</p>
+  <div class="fila2">
+  <div class="caja">
+    <div class="rot">En qué fijarse</div>
+    <p>No apurar el final y no agregar cifras nuevas. Si piden un resumen de una línea: tope, techo, responsable y fecha. No cerrar con “bueno, eso sería todo”: la última idea que queda es que lo que se pide hoy es chico y se puede cortar.</p>
+  </div>
+  <div class="c2"><div class="datos-t">Las cifras de esta lámina</div>
+  <div class="chips">
+    <span class="chip"><b>$712.600</b>tope; $57.600 de caja</span>
+    <span class="chip"><b>$2.457.883</b>techo; $446.400 de caja</span>
+    <span class="chip"><b>15-1-2027</b>fecha límite</span>
+    <span class="chip"><b>11-3</b>Go, Ajustar o Pausar</span>
+    <span class="chip"><b>$342.722 · 13 meses · $6,1 M</b>conservador</span>
+  </div></div>
+  </div>
+  <h3 class="azul">Preguntas probables del comité</h3>
+  <div class="qs">
+  <div class="q">
+    <h4>¿Por qué el techo es de $2.457.883 si la puesta en marcha es de $1.828.000?</h4>
+    <p>Porque el techo es la puesta en marcha completa con 20 % de contingencia, $1,83 millones, más $630.000 del tiempo interno recurrente de las semanas 4 a 26, a medida que cada línea queda en uso. No resta beneficios.</p>
+  </div>
+  <div class="q">
+    <h4>¿Hay gastos fuera de estos montos?</h4>
+    <p>No hay licencias, equipos ni servicios nuevos. Si Buenos Aires Software informara algún costo (usuarios nuevos o ambiente de prueba, por ejemplo), se suma a la planilla y se revisa el caso antes de activar. Nada se gasta sobre el tope sin el dueño.</p>
+  </div>
+  <div class="q">
+    <h4>¿Y si aprobamos solo una parte?</h4>
+    <p>Aprobar el piloto con su tope ya alcanza para comenzar. El techo no se libera sin el Go de la semana 6, así que la dirección puede decidir en dos tramos.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ PREGUNTAS DIFÍCILES ============ -->
+<section class="hoja">
+  <h2>Preguntas difíciles</h2>
+  <p class="lead">Las siete que más conviene tener ensayadas, con la respuesta corta. Todas las cifras son las del informe.</p>
+
+  <div class="q">
+    <h4>¿Por qué valoran el tiempo del personal como beneficio, si no cambia lo que sale de la caja?</h4>
+    <p>Porque casi todo el costo y buena parte del beneficio son horas de gente que cobra igual: si solo se contara la caja, habría que ignorar también el costo en tiempo ($115.194 por mes de tiempo interno nuevo). Por eso mostramos <b>dos vistas</b>. La completa valora el tiempo al costo de la hora y la de caja cuenta solo horas extras, y el conservador cierra en las dos: VAN de $6,1 millones y recupero en 13 meses en la completa; VAN de $1,5 millones y recupero en 12 en caja. La empresa no paga menos, pero recupera tiempo para otras tareas sin contratar, y el caso no supone ninguna baja de personal.</p>
+  </div>
+
+  <div class="q">
+    <h4>La TIR da altísima. ¿No es poco creíble?</h4>
+    <p>Es alta porque lo que se pone al principio es chico frente a lo que vuelve: la TIR mensual es de 10 % en el conservador y de 28 % en el esperado, y la anual supera el 200 % en el conservador. Por eso <b>no decidimos con la TIR</b> sino con el máximo expuesto ($2,2 millones en el conservador), el recupero (13 meses) y el VAN ($6,1 millones). Como referencia, alcanza con evitar unos 3 recortes por semana para cubrir el tiempo interno nuevo, sin contar las horas extras.</p>
+  </div>
+
+  <div class="q">
+    <h4>¿Y si Juanjo no está? Integra el grupo que armó el proyecto.</h4>
+    <p>Es cierto que integra el grupo, pero sus tareas en el plan son las de <b>su servicio contratado con la empresa</b>, que sigue después de este trabajo, y sus horas ya están en lo que cobra. Para no depender de una sola persona hay un <b>suplente interno</b> (de Oficina, con usuario de administrador propio, que repite con él cada tarea técnica durante el piloto), un instructivo de una página por tarea y un contacto de soporte con nombre en Buenos Aires Software. Si el servicio termina, lo reemplazan el suplente interno y Buenos Aires Software; si no responde en un día hábil se pasa al siguiente de la cadena, y pasados 5 días hábiles se activa el plan B. Si sus 47 horas se valoraran a $10.000, el VAN conservador sería de $5,7 millones, con recupero en el mes 15.</p>
+  </div>
+
+  <div class="q">
+    <h4>¿Por qué no una herramienta nueva?</h4>
+    <p>Porque el módulo de stock <b>ya está en la licencia</b>, sin costo de activación ni de soporte (se confirma por escrito antes del Go): no se contrata nada y el costo es tiempo del personal. En la Parte 2 el sistema en la nube sumó 20 puntos sobre 50 y se descartó por la cuota nueva, la migración y la doble carga. Y no resuelve lo central: si el equipo no sostiene la carga en una planilla simple, tampoco la sostendrá en un sistema más grande, y por eso el piloto es con planilla.</p>
+  </div>
+
+  <div class="q">
+    <h4>¿Qué pasa si la carga diaria se paga como horas extras?</h4>
+    <p>Es el <b>único caso que no cierra</b>. Si la carga diaria y la reunión de Producción se pagaran como horas extras ($130.000 por mes), el conservador en caja da un VAN de −$2 millones: el costo supera el ahorro de $78.750 por mes. La vista completa no cambia, y en el esperado apenas cierra (VAN de $218.976, recupero en 24 meses). Por eso la carga, de 14:40 a 15:00, y la reunión van dentro del turno; si la carga genera horas extras el punto queda en Ajustar, y no se activa otra línea si las horas extras pasan de las 45 por mes de hoy, sin contar las de los conteos iniciales.</p>
+  </div>
+
+  <div class="q">
+    <h4>Si la meta es la mitad de las horas extras, ¿por qué bajan tan poco en el caso?</h4>
+    <p>Porque el caso es más prudente que la meta. Solo la mitad de las 45 horas se hace para completar pedidos que faltaron (supuesto 7), y suponemos que esa mitad baja en la misma proporción que los recortados: unas <b>13 horas por mes en el esperado y unas 6,6 en el conservador</b>. La otra mitad es capacidad y no la contamos. La meta, de 20 a 25 horas por mes, se mide en los puntos de decisión pero no sostiene el caso: si se cumpliera, el VAN conservador subiría a $10,9 millones, con recupero en el mes 11.</p>
+  </div>
+
+  <div class="q">
+    <h4>En la Parte 2 eran unas 25 horas extras y ahora son 40 a 50. ¿Qué cambió?</h4>
+    <p>Se <b>midió mejor</b>: según la liquidación de sueldos son entre 40 y 50 por mes (dato; usamos 45), no unas 25. La meta pasa a ser la mitad, de 20 a 25 por mes en vez de 12 o 13, pero el beneficio del caso no se apoya en ese número: usa solo la baja ligada a los pedidos faltantes, unas 7 a 13 horas. Y apenas aprobado el proyecto se piden a liquidación 6 meses de horas extras para fijar la base con datos propios.</p>
+  </div>
+</section>
+
+</body>
+</html>

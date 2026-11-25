@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía socrática Parte 3</title>
+<style>
+:root{
+  --bg:#f7f3ea; --surface:#fffdf8; --ink:#1f2b2a; --muted:#5b6866; --line:#e2dccd;
+  --accent:#0f6b63; --accent-soft:#e0efec; --warn:#9a5b0d; --warn-soft:#f8ecd9;
+  --ok:#2c6e3a; --ok-soft:#e3f1e5; --shadow:0 1px 2px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121817; --surface:#1a2221; --ink:#e7ece9; --muted:#9fb0ad; --line:#2c3836;
+    --accent:#5cc2b6; --accent-soft:#1d3532; --warn:#e3a95a; --warn-soft:#352a1a;
+    --ok:#7fcb8c; --ok-soft:#1d3322; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121817; --surface:#1a2221; --ink:#e7ece9; --muted:#9fb0ad; --line:#2c3836;
+  --accent:#5cc2b6; --accent-soft:#1d3532; --warn:#e3a95a; --warn-soft:#352a1a;
+  --ok:#7fcb8c; --ok-soft:#1d3322; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 64px}
+header.top{padding:40px 0 16px}
+.kicker{color:var(--accent);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+h1{font-size:clamp(26px,4vw,36px);line-height:1.2;margin:6px 0 12px}
+h2{font-size:24px;line-height:1.25;margin:0 0 4px}
+h3{font-size:17px;margin:20px 0 8px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:17px}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0;margin-bottom:24px}
+nav.toc ol{display:flex;gap:6px;overflow-x:auto;list-style:none;margin:0;padding:0 0 4px}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px}
+nav.toc a .dot{width:8px;height:8px;border-radius:50%;background:var(--line)}
+nav.toc a.done .dot{background:var(--ok)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}
+button,.btn{font:inherit;font-size:14px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px}
+button:hover{border-color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0;box-shadow:var(--shadow)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0 0;padding:0;list-style:none;counter-reset:s}
+.howto li{counter-increment:s;background:var(--accent-soft);border-radius:10px;padding:12px 14px;font-size:15px}
+.howto li::before{content:counter(s);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--surface);font-weight:700;font-size:13px;margin-right:8px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px 20px;margin:8px 0 0;padding:0;list-style:none}
+.facts li{padding-left:14px;position:relative;font-size:15px}
+.facts li::before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.note{font-size:14px;color:var(--muted)}
+section.sec{scroll-margin-top:64px;margin:40px 0}
+.sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.sec-num{font-size:28px;font-weight:800;color:var(--accent)}
+.goal{color:var(--muted);margin-top:8px}
+ol.qs{list-style:none;padding:0;margin:16px 0;counter-reset:q}
+ol.qs>li{counter-increment:q;position:relative;padding:12px 14px 12px 48px;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 10px 10px 0;margin:10px 0}
+ol.qs>li::before{content:"P" counter(q);position:absolute;left:12px;top:12px;font-weight:800;color:var(--accent);font-size:14px}
+.q{font-weight:600}
+details.hint{margin-top:6px}
+details.hint>summary{cursor:pointer;color:var(--warn);font-size:14px;list-style:none}
+details.hint>summary::-webkit-details-marker{display:none}
+details.hint>summary::before{content:"💡 "}
+details.hint[open]>summary{margin-bottom:4px}
+details.hint p{background:var(--warn-soft);border-radius:8px;padding:8px 12px;margin:0;font-size:15px}
+.answer label{display:block;font-weight:600;font-size:14px;margin:16px 0 6px}
+.answer textarea{width:100%;min-height:96px;font:inherit;font-size:15px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;resize:vertical}
+.answer textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+details.sol{margin:16px 0 0;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+details.sol>summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:700;color:var(--accent);display:flex;justify-content:space-between;align-items:center}
+details.sol>summary::-webkit-details-marker{display:none}
+details.sol>summary::after{content:"Ver cómo se resuelve ▾";font-size:14px;font-weight:600}
+details.sol[open]>summary::after{content:"Ocultar ▴"}
+details.sol>summary .lbl{font-size:15px}
+.sol-body{padding:0 16px 16px;border-top:1px solid var(--line)}
+.why{background:var(--ok-soft);border-radius:10px;padding:12px 16px;margin-top:16px}
+.why h3{margin:0 0 6px;color:var(--ok)}
+.why ul{margin:0;padding-left:20px}
+.transfer{border:2px dashed var(--accent);border-radius:12px;padding:14px 16px;margin-top:16px}
+.transfer h3{margin:0 0 6px;color:var(--accent)}
+.tw{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:480px}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+td.n,th.n{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700}
+ul.plain{padding-left:20px;margin:6px 0}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.flow .col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.flow .col h3{margin:0 0 6px;color:var(--accent)}
+.flow ul{margin:0;padding-left:18px;font-size:15px}
+footer{color:var(--muted);font-size:13px;margin-top:48px;border-top:1px solid var(--line);padding-top:16px}
+@media print{
+  nav.toc,.toolbar,.answer{display:none}
+  details.sol,details.hint{display:block}
+  details.sol>summary::after{content:""}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Gestión Gerencial · TP Final · Parte 3</div>
+  <h1>Guía socrática: de la propuesta a la decisión</h1>
+  <p class="lead">Caso ficticio <strong>Distribuidora Montaña SRL</strong>. Antes de ver cada resolución, respondan las preguntas. El objetivo no es copiar el ejemplo, sino entrenar el razonamiento que después aplican a su organización.</p>
+  <ol class="howto">
+    <li>Lean los datos del caso.</li>
+    <li>Respondan cada pregunta con sus palabras. Si se traban, abran la pista.</li>
+    <li>Anoten su respuesta en el recuadro.</li>
+    <li>Recién entonces abran la resolución y comparen.</li>
+    <li>Cierren con la pregunta «Ahora, en su TP».</li>
+  </ol>
+  <div class="toolbar">
+    <button type="button" id="openAll">Abrir todas las resoluciones</button>
+    <button type="button" id="closeAll">Cerrar todo</button>
+    <button type="button" id="clearNotes">Borrar mis respuestas</button>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <ol>
+    <li><a href="#caso"><span class="dot"></span>Caso</a></li>
+    <li><a href="#s1" data-sec="s1"><span class="dot"></span>1 Resumen</a></li>
+    <li><a href="#s2" data-sec="s2"><span class="dot"></span>2 Caso de negocio</a></li>
+    <li><a href="#s3" data-sec="s3"><span class="dot"></span>3 Plan</a></li>
+    <li><a href="#s4" data-sec="s4"><span class="dot"></span>4 Riesgos</a></li>
+    <li><a href="#s5" data-sec="s5"><span class="dot"></span>5 Personas</a></li>
+    <li><a href="#s6" data-sec="s6"><span class="dot"></span>6 Impactos</a></li>
+    <li><a href="#s7" data-sec="s7"><span class="dot"></span>7 Dirección</a></li>
+    <li><a href="#s8" data-sec="s8"><span class="dot"></span>8 Acta</a></li>
+    <li><a href="#s9" data-sec="s9"><span class="dot"></span>9 Defensa</a></li>
+    <li><a href="#traza"><span class="dot"></span>Trazabilidad</a></li>
+  </ol>
+</nav>
+
+<!-- CASO -->
+<section class="sec" id="caso">
+  <div class="sec-head"><h2>Lo que ya sabemos del caso</h2></div>
+  <div class="card">
+    <h3>La empresa</h3>
+    <ul class="facts">
+      <li>Distribuidora familiar de Maipú (Mendoza), fundada en 2012.</li>
+      <li>7 personas: Carlos (gerente y vendedor), Laura (administración y cobranza), 2 vendedores, 2 choferes, 1 en depósito.</li>
+      <li>~120 comercios clientes (kioscos, despensas, almacenes).</li>
+      <li>Facturación anual estimada: ARS 480M (~USD 400k).</li>
+      <li>Pedidos por WhatsApp, stock en Excel, cobranza en el cuaderno de Laura.</li>
+    </ul>
+    <h3>Parte 1: el problema</h3>
+    <p>Pierde clientes y acumula deuda porque pedidos, stock y cobranza viven en herramientas que no se hablan. En un año, <strong>15 clientes</strong> dejaron de comprar sin que nadie lo notara y la cartera morosa llegó a <strong>ARS 8M</strong>.</p>
+    <h3>Parte 2: la propuesta</h3>
+    <ul class="facts">
+      <li>Alternativa elegida: sistema de pedidos y cobranza en la nube (SaaS), ~USD 70/mes.</li>
+      <li>Piloto en 1 ruta, 30 clientes, 1 vendedor.</li>
+      <li>Roadmap de 6 meses con inicio en marzo (después de la temporada alta).</li>
+      <li>Stakeholders: Carlos sponsor; Laura usuaria clave; vendedores con posible resistencia por pérdida de autonomía.</li>
+    </ul>
+    <p class="note">Todos los números son supuestos didácticos de un caso ficticio.</p>
+  </div>
+</section>
+
+<!-- 1 -->
+<section class="sec" id="s1" data-sec="s1">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Resumen ejecutivo</h2></div>
+  <p class="goal">Meta: una página que permita a la dirección decidir aunque no lea nada más.</p>
+  <ol class="qs">
+    <li><div class="q">Carlos tiene 60 segundos entre un cliente y otro. ¿Qué debe escuchar primero: la solución o lo que está perdiendo? ¿Por qué?</div>
+      <details class="hint"><summary>Pista</summary><p>Un gerente presta atención a lo que le duele, no a la herramienta. «Un sistema SaaS» no le dice nada; «perdiste 15 clientes» sí.</p></details></li>
+    <li><div class="q">De todo el diagnóstico, ¿qué dos datos le harían levantar la vista del celular?</div>
+      <details class="hint"><summary>Pista</summary><p>Busquen los que están expresados en plata o en clientes, y que él no conocía.</p></details></li>
+    <li><div class="q">¿Qué es lo mínimo que Carlos puede aprobar sin arriesgar demasiado?</div>
+      <details class="hint"><summary>Pista</summary><p>No le pidan el proyecto completo. Pídanle el primer paso, con un tope de gasto y una fecha para revisar.</p></details></li>
+    <li><div class="q">Si Carlos lee solo la última línea, ¿sabe qué tiene que decidir y para cuándo?</div></li>
+  </ol>
+  <div class="answer"><label for="n-s1">Su respuesta (borrador del resumen en 7 frases)</label><textarea id="n-s1" data-note="s1" placeholder="Problema… Evidencia… Costo de seguir igual… Propuesta… Costo y beneficio… Riesgo… Decisión…"></textarea></div>
+  <details class="sol" data-sec="s1"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <div class="tw"><table>
+      <tr><th>Pregunta</th><th>Respuesta</th></tr>
+      <tr><td>¿Quién y qué problema?</td><td>Distribuidora Montaña pierde clientes y no sabe cuánto le deben, porque pedidos, stock y cobranza viven en WhatsApp, Excel y un cuaderno.</td></tr>
+      <tr><td>¿Qué evidencia?</td><td>15 clientes dejaron de comprar sin que nadie lo notara; ARS 8M de cartera morosa que Laura detecta con un mes de atraso.</td></tr>
+      <tr><td>¿Cuánto cuesta seguir igual?</td><td>~1 cliente perdido por mes y ~ARS 700k de mora adicional por mes.</td></tr>
+      <tr><td>¿Qué proponemos?</td><td>Un sistema simple de pedidos y cobranza (SaaS) por USD 70/mes, probado primero en 1 ruta con 30 clientes.</td></tr>
+      <tr><td>¿Cuánto cuesta y qué se gana?</td><td>Primer paso: hasta USD 520 (suscripción, horas internas y contingencia). Se espera recuperar entre el 40 % y el 60 % de la mora.</td></tr>
+      <tr><td>¿Principal riesgo y control?</td><td>Que los vendedores no carguen los pedidos. Se mide cada semana; si no llegan al 80 %, se ajusta o se vuelve al proceso anterior.</td></tr>
+      <tr><td><strong>¿Qué decisión pedimos?</strong></td><td><strong>Aprobar el piloto de 2 meses, con Laura como responsable, a partir de marzo.</strong></td></tr>
+    </table></div>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>Empieza por el dolor, con números que Carlos reconoce.</li>
+      <li>El costo de seguir igual hace visible lo que hoy es invisible.</li>
+      <li>La decisión es chica, tiene tope y se puede deshacer.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>Escriban las siete respuestas en una frase cada una. Si alguna necesita más de dos líneas, todavía no la tienen clara. El resumen se escribe al final, pero este borrador les muestra qué les falta.</p></div>
+</section>
+
+<!-- 2 -->
+<section class="sec" id="s2" data-sec="s2">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Caso de negocio</h2></div>
+  <p class="goal">Meta: mostrar que conviene, que la caja lo aguanta y que los números resisten si los supuestos fallan.</p>
+  <ol class="qs">
+    <li><div class="q">Además de la suscripción, ¿qué otros costos tiene el proyecto, aunque nadie los facture?</div>
+      <details class="hint"><summary>Pista</summary><p>¿Quién carga los clientes y precios? ¿Quién se capacita y en qué horario? Ese tiempo tiene un valor.</p></details></li>
+    <li><div class="q">De los beneficios posibles (mora recuperada, clientes retenidos, horas ahorradas), ¿cuál es el más seguro y cuál el más dudoso? ¿Conviene sumarlos todos desde el primer mes?</div>
+      <details class="hint"><summary>Pista</summary><p>La mora ya existe y está medida en el cuaderno. Que vuelvan clientes es una hipótesis. Lo dudoso conviene contarlo más tarde o como tope.</p></details></li>
+    <li><div class="q">¿En qué mes Carlos deja de poner plata? ¿Cuánto es lo máximo que pone antes de eso?</div>
+      <details class="hint"><summary>Pista</summary><p>Armen el saldo acumulado mes a mes. El punto más bajo es el máximo expuesto; el mes en que el saldo se vuelve positivo es el recupero.</p></details></li>
+    <li><div class="q">Supongamos que las cosas salen peor: se recupera la mitad de la mora, se ahorra la mitad de las horas, vuelven 4 clientes en lugar de 8 y el dólar sube 30 %. Rehagan la cuenta con esos valores. ¿En qué mes se recupera ahora? ¿Cuánto llega a poner Carlos? ¿Sigue conviniendo?</div>
+      <details class="hint"><summary>Pista</summary><p>Eso es el escenario conservador: el mismo cálculo, cambiando solo los supuestos más inciertos. Los costos no cambian (están en dólares). Multipliquen los beneficios por 0,5 y divídanlos por 1,3, y vuelvan a armar el saldo acumulado.</p></details></li>
+    <li><div class="q">¿Con qué escenario conviene calcular el presupuesto que se le pide a Carlos: el esperado o el conservador? ¿Por qué?</div></li>
+    <li><div class="q">¿Cómo sabemos que USD 70 es el precio real? ¿Hay otro proveedor que convenga más?</div>
+      <details class="hint"><summary>Pista</summary><p>Un precio sin cotización es un supuesto. Comparen al menos dos opciones con los requisitos que no pueden faltar.</p></details></li>
+  </ol>
+  <div class="answer"><label for="n-s2">Su respuesta</label><textarea id="n-s2" data-note="s2"></textarea></div>
+  <details class="sol" data-sec="s2"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <h3>Costos y beneficios a 3 años (escenario esperado)</h3>
+    <div class="tw"><table>
+      <tr><th>Concepto</th><th class="n">Año 1</th><th class="n">Año 2</th><th class="n">Año 3</th></tr>
+      <tr><td>Suscripción SaaS (USD 70 × 12)</td><td class="n">840</td><td class="n">840</td><td class="n">840</td></tr>
+      <tr><td>Capacitación (horas internas)</td><td class="n">200</td><td class="n">50</td><td class="n">0</td></tr>
+      <tr><td>Carga inicial de datos (horas internas)</td><td class="n">150</td><td class="n">–</td><td class="n">–</td></tr>
+      <tr class="total"><td>Total costos (USD)</td><td class="n">1.190</td><td class="n">890</td><td class="n">840</td></tr>
+      <tr><td>Reducción de cartera morosa (50 % de ARS 8M ≈ USD 3.300)</td><td class="n">3.300</td><td class="n">1.000</td><td class="n">500</td></tr>
+      <tr><td>Retención de 8 clientes (USD 250/mes × 12) *</td><td class="n">0</td><td class="n">24.000</td><td class="n">24.000</td></tr>
+      <tr><td>Horas de Laura en conciliación (4 h/semana)</td><td class="n">500</td><td class="n">600</td><td class="n">600</td></tr>
+      <tr class="total"><td>Total beneficios (USD)</td><td class="n">3.800</td><td class="n">25.600</td><td class="n">25.100</td></tr>
+    </table></div>
+    <p class="note">* Se cuenta desde el año 2. Está valuada en ventas; el beneficio real es el margen, por eso se presenta como tope y no como ganancia. Flujo neto anual: año 1 USD 2.610; año 2 USD 24.710; año 3 USD 24.260.</p>
+
+    <h3>Flujo de caja de los primeros 6 meses (escenario esperado, USD)</h3>
+    <div class="tw"><table>
+      <tr><th></th><th class="n">Mes 1</th><th class="n">Mes 2</th><th class="n">Mes 3</th><th class="n">Mes 4</th><th class="n">Mes 5</th><th class="n">Mes 6</th></tr>
+      <tr><td>Costos</td><td class="n">320</td><td class="n">170</td><td class="n">70</td><td class="n">70</td><td class="n">70</td><td class="n">70</td></tr>
+      <tr><td>Beneficios</td><td class="n">0</td><td class="n">100</td><td class="n">600</td><td class="n">900</td><td class="n">800</td><td class="n">600</td></tr>
+      <tr><td>Saldo del mes</td><td class="n">−320</td><td class="n">−70</td><td class="n">+530</td><td class="n">+830</td><td class="n">+730</td><td class="n">+530</td></tr>
+      <tr class="total"><td>Saldo acumulado</td><td class="n">−320</td><td class="n">−390</td><td class="n">140</td><td class="n">970</td><td class="n">1.700</td><td class="n">2.230</td></tr>
+    </table></div>
+    <p><strong>Máximo expuesto:</strong> USD 390. <strong>Recupero:</strong> mes 3.</p>
+
+    <h3>Escenarios: esperado y conservador</h3>
+    <p>Lo anterior es el escenario <strong>esperado</strong>. Para el <strong>conservador</strong> se cambian solo los supuestos más inciertos y se rehace el mismo cálculo. Los costos no cambian porque están en dólares.</p>
+    <div class="tw"><table>
+      <tr><th></th><th>Conservador</th><th>Esperado</th></tr>
+      <tr><td>Mora recuperada</td><td>25 % (la mitad)</td><td>50 %</td></tr>
+      <tr><td>Horas de Laura ahorradas</td><td>2 h/semana (la mitad)</td><td>4 h/semana</td></tr>
+      <tr><td>Clientes retenidos desde el año 2</td><td>4</td><td>8</td></tr>
+      <tr><td>Tipo de cambio</td><td>+30 % (lo que se gana en pesos vale menos en dólares)</td><td>Sin cambios</td></tr>
+      <tr><td>Saldo acumulado, meses 1 a 6 (USD)</td><td>−320 / −452 / −291 / −15 / +223 / +384</td><td>−320 / −390 / +140 / +970 / +1.700 / +2.230</td></tr>
+      <tr class="total"><td>Máximo expuesto</td><td>USD 452</td><td>USD 390</td></tr>
+      <tr class="total"><td>Mes de recupero</td><td>Mes 5</td><td>Mes 3</td></tr>
+      <tr><td>Flujo neto anual, años 1 / 2 / 3 (USD)</td><td>270 / 8.956 / 8.814</td><td>2.610 / 24.710 / 24.260</td></tr>
+      <tr class="total"><td>VAN a 3 años (tasa 12 % anual en USD)</td><td>≈ USD 13.650</td><td>≈ USD 39.300</td></tr>
+      <tr><td>TIR</td><td>No aplica (ver nota)</td><td>No aplica</td></tr>
+    </table></div>
+    <p class="note">Conservador: beneficios de cobranza y horas × 0,5 ÷ 1,3; retención 4 × USD 250 × 12 ÷ 1,3 ≈ USD 9.230 por año; costos iguales. La tasa del 12 % es un supuesto docente.</p>
+    <p><strong>Interpretación:</strong> aun en el conservador, se recupera en el mes 5 y el VAN es positivo; la decisión es robusta. El presupuesto se pide con el conservador: USD 452 × 1,15 de contingencia ≈ <strong>USD 520</strong>.</p>
+    <p class="note"><strong>Sobre la TIR:</strong> necesita una inversión inicial (flujo negativo) seguida de flujos positivos. Con una suscripción, los flujos anuales son todos positivos y la TIR no se puede calcular o da un valor sin sentido. Se informa que no aplica y se decide con el recupero, el máximo expuesto y el VAN. Si hay compra de equipos o desarrollo inicial, la TIR sí aplica.</p>
+
+    <h3>Tabla de supuestos (extracto)</h3>
+    <div class="tw"><table>
+      <tr><th>Supuesto</th><th>Valor</th><th>Tipo</th><th>Fuente</th><th>Si falla</th></tr>
+      <tr><td>Mora recuperable</td><td>40 %–60 % de ARS 8M</td><td>Estimación</td><td>Cuaderno de Laura, revisado en entrevista</td><td>Con 20 %, el recupero pasa al mes 6</td></tr>
+      <tr><td>Clientes retenidos</td><td>8 de 15</td><td>Hipótesis</td><td>Entrevista con vendedores</td><td>Con 4, el año 2 baja a ~USD 12.000 y sigue siendo rentable</td></tr>
+      <tr><td>Precio SaaS</td><td>USD 70/mes</td><td>Dato</td><td>Cotización del proveedor A, con fecha</td><td>Al doble, el recupero se corre un mes</td></tr>
+      <tr><td>Tipo de cambio</td><td>Se trabaja en USD</td><td>Supuesto</td><td>Cotización oficial a la fecha</td><td>Con +30 %, los beneficios en pesos valen ~23 % menos y el recupero pasa al mes 4</td></tr>
+    </table></div>
+
+    <h3>Proveedor y contrato</h3>
+    <div class="tw"><table>
+      <tr><th></th><th>Proveedor A</th><th>Proveedor B</th></tr>
+      <tr><td>Toma pedidos sin conexión (imprescindible)</td><td>Sí</td><td>No</td></tr>
+      <tr><td>Integración con el facturador de ARCA (imprescindible)</td><td>Sí, por exportación de archivo</td><td>Sí, directa</td></tr>
+      <tr><td>Precio y ajuste</td><td>USD 70/mes; ajuste anual con aviso de 60 días</td><td>USD 95/mes; ajuste trimestral</td></tr>
+      <tr><td>Soporte</td><td>Correo y WhatsApp en horario comercial</td><td>Correo</td></tr>
+      <tr><td>Plazo mínimo</td><td>Mensual</td><td>Anual</td></tr>
+      <tr><td>Salida de datos</td><td>Exportación completa en CSV</td><td>Solo a pedido</td></tr>
+      <tr class="total"><td>Conclusión</td><td>Elegido</td><td>Descartado: no funciona sin conexión</td></tr>
+    </table></div>
+    <p class="note">Proveedores anónimos por ser un caso ficticio; en el TP real se nombran y se adjunta cada cotización. El contador confirmó cómo se registra el gasto (servicio del exterior, con IVA y percepciones en el precio final).</p>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>Cuenta las horas internas, que son el costo que más se olvida.</li>
+      <li>El beneficio más dudoso (retención) entra tarde y como tope.</li>
+      <li>Muestra la caja mes a mes y cuánto se arriesga como máximo.</li>
+      <li>Calcula dos escenarios con los mismos indicadores y muestra que conviene incluso en el peor.</li>
+      <li>Cada número tiene fuente, y se dice qué pasa si se equivoca.</li>
+      <li>El precio sale de una cotización, comparada con otra opción.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>Elijan el supuesto del que más depende su caso. ¿De dónde sale? ¿Qué pasa con el recupero si vale la mitad? Si no pueden contestarlo, esa es la primera pregunta para la organización esta semana.</p></div>
+</section>
+
+<!-- 3 -->
+<section class="sec" id="s3" data-sec="s3">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Plan de implementación y gobierno</h2></div>
+  <p class="goal">Meta: que la organización pueda arrancar el lunes y seguir sin ustedes.</p>
+  <ol class="qs">
+    <li><div class="q">Si Carlos firma el viernes, ¿qué hace Laura el lunes a la mañana?</div>
+      <details class="hint"><summary>Pista</summary><p>Si la respuesta es «empezar la implementación», todavía es muy vaga. Piensen en tareas de una semana con un entregable.</p></details></li>
+    <li><div class="q">¿Una empresa de 7 personas necesita un comité de proyecto? ¿Qué es lo mínimo para hacer seguimiento?</div></li>
+    <li><div class="q">¿Qué número tiene que dar el piloto para seguir? ¿Y para pausar? ¿Qué pasa en el medio?</div>
+      <details class="hint"><summary>Pista</summary><p>«Si funciona bien, seguimos» no es un criterio. Elijan indicadores de la Parte 2 y pónganles umbrales.</p></details></li>
+    <li><div class="q">¿Desde qué día deja de valer el cuaderno de Laura? ¿Qué pasa si los saldos del sistema no coinciden con los del cuaderno?</div></li>
+    <li><div class="q">En marzo ustedes ya no van a estar. ¿A quién llama el vendedor cuando no puede cargar un pedido? ¿Quién da de alta a un usuario nuevo?</div>
+      <details class="hint"><summary>Pista</summary><p>Revisen el RACI: si alguna tarea posterior a la entrega depende del equipo de alumnos, el plan no es aplicable.</p></details></li>
+  </ol>
+  <div class="answer"><label for="n-s3">Su respuesta</label><textarea id="n-s3" data-note="s3"></textarea></div>
+  <details class="sol" data-sec="s3"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <h3>Cambios respecto del roadmap de la Parte 2</h3>
+    <p>Se mantiene el roadmap de 6 meses (preparación, piloto, evaluación, escalamiento, estabilización) con inicio en marzo.</p>
+    <div class="tw"><table>
+      <tr><th>Cambio</th><th>Motivo</th></tr>
+      <tr><td>El proyecto arranca en la segunda semana de marzo</td><td>Carlos pidió no cruzar la preparación con el cierre de mes</td></tr>
+      <tr><td>Se configuran permisos por rol en la fase 1</td><td>Carlos objetó que los choferes vean la deuda de los clientes</td></tr>
+    </table></div>
+    <h3>Primeros 30 días</h3>
+    <div class="tw"><table>
+      <tr><th>Semana</th><th>Tareas</th><th>Responsable</th><th>Entregable</th></tr>
+      <tr><td>1</td><td>Contratar la prueba del SaaS; elegir los 30 clientes de la Ruta 1</td><td>Laura</td><td>Cuenta activa y lista de clientes</td></tr>
+      <tr><td>2</td><td>Cargar clientes, productos y precios; usuarios y permisos</td><td>Laura, con soporte del proveedor</td><td>Datos maestros cargados</td></tr>
+      <tr><td>3</td><td>Capacitación del proveedor; pruebas con casos reales</td><td>Laura</td><td>Instructivo de 1 página y casos aprobados</td></tr>
+      <tr><td>4</td><td>Prueba en la ruta con 5 clientes y ajustes</td><td>Laura</td><td>Fecha de inicio del piloto confirmada</td></tr>
+    </table></div>
+    <h3>Gobierno</h3>
+    <div class="tw"><table>
+      <tr><th>Rol</th><th>Persona</th><th>RACI</th></tr>
+      <tr><td>Sponsor (aprueba, desbloquea)</td><td>Carlos</td><td>A</td></tr>
+      <tr><td>Responsable operativo (único)</td><td>Laura</td><td>R</td></tr>
+      <tr><td>Usuario referente</td><td>Vendedor Ruta 1</td><td>C</td></tr>
+      <tr><td>Soporte técnico</td><td>Proveedor</td><td>C</td></tr>
+      <tr><td>Informados</td><td>Choferes, depósito</td><td>I</td></tr>
+    </table></div>
+    <p>Seguimiento: 20 minutos cada lunes entre Carlos y Laura, con un tablero <em>Pendiente / En curso / Listo</em>. Laura decide los ajustes operativos; Carlos, cualquier gasto o cambio de alcance. El equipo del TP no figura: el proyecto empieza después de la entrega.</p>
+    <h3>Criterio Go / Ajustar / Pausar (fin del mes 3)</h3>
+    <div class="tw"><table>
+      <tr><th>Indicador</th><th>Línea base</th><th>Go</th><th>Ajustar</th><th>Pausar</th></tr>
+      <tr><td>Pedidos del piloto cargados</td><td>0 %</td><td>&gt; 80 %</td><td>50–80 %</td><td>&lt; 50 %</td></tr>
+      <tr><td>Días para conocer la mora de un cliente</td><td>~30</td><td>≤ 2</td><td>3–10</td><td>&gt; 10</td></tr>
+      <tr><td>Horas semanales de conciliación</td><td>8</td><td>≤ 4</td><td>5–7</td><td>≥ 8</td></tr>
+    </table></div>
+    <h3>Puesta en marcha</h3>
+    <ul class="plain">
+      <li><strong>Datos:</strong> se depuran clientes y precios antes de cargarlos; se comparan los saldos con el cuaderno, cliente por cliente. Carlos da el visto bueno.</li>
+      <li><strong>Pruebas:</strong> 8 casos reales (pedido normal, con faltante, devolución, cobro total, cobro parcial, deuda vencida, cambio de precio, pedido sin conexión).</li>
+      <li><strong>Día de corte:</strong> el cuaderno convive 2 semanas con el sistema; desde la semana 3 vale solo el sistema.</li>
+    </ul>
+    <h3>Traspaso a la operación</h3>
+    <ul class="plain">
+      <li><strong>Administra:</strong> Laura; Carlos tiene un usuario de respaldo.</li>
+      <li><strong>Consultas:</strong> primero Laura; después, soporte del proveedor por WhatsApp.</li>
+      <li><strong>Documentación:</strong> procedimiento de 2 páginas e instructivos por rol.</li>
+      <li><strong>Revisión de beneficios:</strong> a los 3 y 6 meses. Si la mora no baja al menos 20 % a los 6 meses, se revisa la cobranza antes de seguir pagando.</li>
+    </ul>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>No rehace el roadmap: indica qué cambió y por qué.</li>
+      <li>La primera semana tiene tareas concretas y un responsable.</li>
+      <li>Las decisiones se toman con números definidos de antemano.</li>
+      <li>Nada depende de los alumnos después de la entrega.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>Lean su RACI y tachen al equipo de alumnos. ¿Queda alguna tarea sin dueño? Ese es el hueco que tienen que cerrar con la organización.</p></div>
+</section>
+
+<!-- 4 -->
+<section class="sec" id="s4" data-sec="s4">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Riesgos, seguridad y continuidad</h2></div>
+  <p class="goal">Meta: saber qué puede salir mal al ejecutar y qué se hace ese mismo día.</p>
+  <ol class="qs">
+    <li><div class="q">De los supuestos que plantearon en la Parte 2, ¿cuáles ya se probaron y cuáles siguen abiertos?</div>
+      <details class="hint"><summary>Pista</summary><p>No se vuelven a analizar: se informa su estado. Los abiertos pasan al piloto o al registro de riesgos.</p></details></li>
+    <li><div class="q">Le roban el celular a un vendedor que tiene acceso a precios y deudas de clientes. ¿Qué tiene que estar resuelto de antemano?</div></li>
+    <li><div class="q">El sistema se cae un viernes a la tarde con la ruta en la calle. ¿Cómo se siguen tomando pedidos?</div></li>
+    <li><div class="q">Laura se enferma dos semanas en pleno piloto. ¿Quién sabe hacer lo que ella hace?</div></li>
+    <li><div class="q">De todos estos riesgos, ¿cuáles son a la vez probables y graves? ¿Por qué esos van primero?</div>
+      <details class="hint"><summary>Pista</summary><p>Una lista de 20 riesgos no ayuda a nadie. Prioricen cuatro a seis y pónganle un responsable a cada uno.</p></details></li>
+  </ol>
+  <div class="answer"><label for="n-s4">Su respuesta</label><textarea id="n-s4" data-note="s4"></textarea></div>
+  <details class="sol" data-sec="s4"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <h3>Estado de los supuestos de la Parte 2</h3>
+    <div class="tw"><table>
+      <tr><th>Supuesto</th><th>Estado</th><th>Evidencia</th></tr>
+      <tr><td>El kiosquero usará el catálogo digital</td><td>Validado</td><td>6 de 10 clientes hicieron al menos 1 pedido en 2 semanas</td></tr>
+      <tr><td>Los vendedores cargan los datos</td><td>Pendiente</td><td>Se valida en el piloto (criterio Go del 80 %)</td></tr>
+    </table></div>
+    <h3>Registro de riesgos de ejecución (extracto)</h3>
+    <div class="tw"><table>
+      <tr><th>Riesgo</th><th>Prob.</th><th>Impacto</th><th>Señal de alerta</th><th>Medida</th><th>Resp.</th></tr>
+      <tr><td>Precios desactualizados en el Excel</td><td>Alta</td><td>Medio</td><td>Diferencias entre precio cargado y facturado</td><td>Revisar la lista con Carlos antes de cargarla</td><td>Laura</td></tr>
+      <tr><td>Laura concentra todo el conocimiento de la cobranza</td><td>Alta</td><td>Alto</td><td>Retrasos si falta un día</td><td>Instructivo y una persona suplente</td><td>Carlos</td></tr>
+      <tr><td>Pérdida o robo de celular</td><td>Media</td><td>Alto</td><td>–</td><td>Usuarios individuales, bloqueo remoto, baja el mismo día</td><td>Carlos</td></tr>
+      <tr><td>El proveedor sube el precio o cierra</td><td>Baja</td><td>Medio</td><td>Aviso de cambio de tarifas</td><td>Exportación mensual en CSV</td><td>Laura</td></tr>
+    </table></div>
+    <h3>Seguridad y datos (controles mínimos)</h3>
+    <ul class="plain">
+      <li>Un usuario por persona, con permisos según el rol (el chofer no ve deudas).</li>
+      <li>Verificación en dos pasos para Laura y Carlos.</li>
+      <li>Baja de accesos el mismo día en que alguien se va.</li>
+      <li>Exportación semanal y una prueba de restauración durante el piloto.</li>
+      <li>El proveedor declara dónde guarda los datos y cumple la Ley 25.326.</li>
+      <li>Si se usa IA para redactar recordatorios, sin montos ni datos personales, y Laura revisa cada mensaje.</li>
+    </ul>
+    <h3>Plan B</h3>
+    <ul class="plain">
+      <li>Durante el piloto el vendedor sigue anotando en paralelo; el proceso anterior no se elimina hasta el Go.</li>
+      <li>Si el sistema se cae: planilla impresa de la ruta y carga posterior por Laura.</li>
+      <li>Si se pausa: se exportan los datos y se vuelve atrás sin perder información; el gasto no supera los USD 520 aprobados.</li>
+    </ul>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>No repite el derisking de la Parte 2: informa su estado.</li>
+      <li>Pocos riesgos, cada uno con señal de alerta y responsable.</li>
+      <li>Los controles de seguridad son simples y los puede sostener una PyME.</li>
+      <li>El plan B se puede ejecutar el mismo día.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>¿Quién es la «Laura» de su organización: la persona sin la cual el proceso se detiene? ¿Qué pasa si falta dos semanas?</p></div>
+</section>
+
+<!-- 5 -->
+<section class="sec" id="s5" data-sec="s5">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Personas: cambio, capacitación y adopción</h2></div>
+  <p class="goal">Meta: que la gente efectivamente use la solución.</p>
+  <ol class="qs">
+    <li><div class="q">¿Qué pierde el vendedor con este cambio? Piensen más allá del tiempo: autonomía, costumbre, «poder» sobre su cartera.</div></li>
+    <li><div class="q">En la Parte 2 ya analizaron las resistencias. ¿Apareció alguna nueva desde entonces? ¿Dónde?</div>
+      <details class="hint"><summary>Pista</summary><p>Las pruebas de validación y las entrevistas suelen mostrar resistencias que no se veían en el escritorio.</p></details></li>
+    <li><div class="q">¿Qué capacitación funciona para alguien que pasa el día en la calle? ¿Sirve un curso de 4 horas en una sala?</div></li>
+    <li><div class="q">En la semana 3 del piloto, ¿cómo saben si realmente lo están usando, sin preguntárselo?</div>
+      <details class="hint"><summary>Pista</summary><p>Busquen un dato que el propio sistema genere: pedidos cargados, cobros registrados, usuarios activos.</p></details></li>
+  </ol>
+  <div class="answer"><label for="n-s5">Su respuesta</label><textarea id="n-s5" data-note="s5"></textarea></div>
+  <details class="sol" data-sec="s5"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <h3>Resistencias nuevas (las de la Parte 2 no se repiten)</h3>
+    <div class="tw"><table>
+      <tr><th>Resistencia</th><th>Dónde surgió</th><th>Respuesta</th></tr>
+      <tr><td>«Van a controlar todo lo que hago» (más fuerte de lo previsto)</td><td>Prueba de una semana con el vendedor</td><td>Sin reportes de productividad por vendedor durante el piloto; se avisa antes de empezar</td></tr>
+      <tr><td>Los choferes no quieren cobrar con su celular propio</td><td>Entrevista en el depósito</td><td>Se usa un celular de la empresa en la ruta piloto</td></tr>
+    </table></div>
+    <h3>Capacitación (ADKAR: conocimiento, habilidad y refuerzo)</h3>
+    <div class="tw"><table>
+      <tr><th>Grupo</th><th>Qué debe saber hacer</th><th>Formato</th><th>Duración</th><th>Soporte</th><th>Cómo medimos</th></tr>
+      <tr><td>Laura</td><td>Cargar cobros, ver la mora por cliente</td><td>Práctica con casos reales</td><td>2 h + acompañamiento</td><td>Proveedor</td><td>Cobros cargados en el día</td></tr>
+      <tr><td>Vendedor piloto</td><td>Cargar un pedido en menos de 2 minutos</td><td>Práctica en ruta e instructivo de 1 página</td><td>1 h + primera semana</td><td>Laura</td><td>% de pedidos cargados</td></tr>
+      <tr><td>Choferes y depósito</td><td>Registrar entrega y cobro</td><td>Microcapacitación en el depósito</td><td>30 min</td><td>Laura</td><td>Entregas registradas</td></tr>
+    </table></div>
+    <p><strong>Comunicación:</strong> Carlos anuncia el piloto, aclara que nadie pierde su puesto y en la semana 3 abre 15 minutos para escuchar qué molesta y qué se ajusta.</p>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>Parte de la Parte 2 y solo agrega lo nuevo.</li>
+      <li>Cada resistencia tiene una respuesta concreta, no un «se va a concientizar».</li>
+      <li>La capacitación se adapta al trabajo real de cada grupo.</li>
+      <li>La adopción se mide con datos del propio sistema.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>Completen esta frase para cada grupo: «Sabremos que lo usan cuando ___ llegue a ___ en la semana ___».</p></div>
+</section>
+
+<!-- 6 -->
+<section class="sec" id="s6" data-sec="s6">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Impactos responsables</h2></div>
+  <p class="goal">Meta: ver a quién afecta el proyecto fuera de la empresa y qué se hace al respecto.</p>
+  <ol class="qs">
+    <li><div class="q">¿Quién queda afectado por el proyecto sin formar parte de la empresa?</div></li>
+    <li><div class="q">¿Alguien pierde su trabajo? Y si nadie lo pierde, ¿hace falta decirlo igual? ¿Por qué?</div>
+      <details class="hint"><summary>Pista</summary><p>Cuando se automatiza algo, el rumor de despidos aparece aunque no sea cierto, y alimenta la resistencia.</p></details></li>
+    <li><div class="q">Un kiosquero no tiene smartphone o tiene mala señal. ¿Queda afuera?</div></li>
+  </ol>
+  <div class="answer"><label for="n-s6">Su respuesta</label><textarea id="n-s6" data-note="s6"></textarea></div>
+  <details class="sol" data-sec="s6"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <div class="tw"><table>
+      <tr><th>Impacto</th><th>A quién afecta</th><th>Medida</th></tr>
+      <tr><td>Los datos de deuda de cada cliente quedan en un sistema externo</td><td>Kiosqueros</td><td>Controles de la sección 4; avisar a los clientes qué datos se registran y para qué</td></tr>
+      <tr><td>Empleo</td><td>Laura, vendedores</td><td>Ningún puesto se elimina y se comunica explícitamente: cambian tareas, no personas</td></tr>
+      <tr><td>Inclusión digital</td><td>Clientes sin smartphone o con poca conectividad</td><td>El vendedor mantiene el canal presencial; lo digital es complementario</td></tr>
+      <tr><td>Papel</td><td>Ambiente</td><td>Se reducen cuadernos y agendas (impacto menor y positivo)</td></tr>
+    </table></div>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>Cada impacto tiene una medida concreta.</li>
+      <li>La privacidad remite a los controles de la sección 4 en lugar de repetirlos.</li>
+      <li>Es proporcional: cuatro filas que importan, no una lista de buenas intenciones.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>¿Qué cliente, empleado o proveedor de su organización podría quedar en peor situación con el cambio? ¿Qué harían por esa persona?</p></div>
+</section>
+
+<!-- 7 -->
+<section class="sec" id="s7" data-sec="s7">
+  <div class="sec-head"><span class="sec-num">7</span><h2>Preparación de la conversación con la dirección</h2></div>
+  <p class="goal">Meta: anticipar las objeciones reales y responderlas con evidencia, sin contradecir.</p>
+  <ol class="qs">
+    <li><div class="q">Carlos dice: «Con el WhatsApp me arreglo, siempre funcionó». ¿Es falso? ¿Qué cambió desde que empezó a usarlo?</div>
+      <details class="hint"><summary>Pista</summary><p>Darle la razón sobre el pasado y mostrarle qué cambió suele funcionar mejor que discutir. ¿Cuántos clientes tenían antes?</p></details></li>
+    <li><div class="q">¿Qué le importa de verdad a Carlos: la tecnología, la caja, su tiempo, el control?</div></li>
+    <li><div class="q">«Ya probé un sistema y no anduvo.» ¿Qué le preguntarían antes de responder?</div></li>
+    <li><div class="q">Si tuvieran que convencerlo en tres frases, ¿cuáles serían?</div></li>
+  </ol>
+  <div class="answer"><label for="n-s7">Su respuesta</label><textarea id="n-s7" data-note="s7"></textarea></div>
+  <details class="sol" data-sec="s7"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <p><strong>Quién decide</strong> (según la matriz de la Parte 2): Carlos aprueba; Laura influye directamente y el contador influye sobre todo lo que toque la facturación.</p>
+    <div class="tw"><table>
+      <tr><th>Objeción</th><th>Respuesta</th></tr>
+      <tr><td>«Con WhatsApp siempre funcionó»</td><td>Funcionó con 50 clientes. Con 120 se pierden pedidos entre los mensajes. WhatsApp no es malo: el volumen lo superó.</td></tr>
+      <tr><td>«No tengo tiempo para aprender un sistema»</td><td>Vos no vas a cargar datos; lo hacen Laura y los vendedores. Vos mirás un tablero con tres números: ventas del día, mora total y stock bajo.</td></tr>
+      <tr><td>«Ya probé un sistema y no anduvo»</td><td>¿Qué falló? Ahora probamos con 30 clientes durante 2 meses y volvemos atrás si no funciona. Riesgo máximo: USD 520.</td></tr>
+      <tr><td>«No quiero depender de un proveedor»</td><td>Tus datos son tuyos (exportación CSV mensual). Hoy dependés de la memoria de Laura y de tu agenda.</td></tr>
+    </table></div>
+    <p><strong>Mensaje central:</strong> <em>Perdemos clientes y plata porque no vemos lo que pasa. Con un sistema simple, probado en una ruta, vamos a verlo en dos meses. Si no funciona, volvemos atrás con una pérdida de USD 520 como máximo.</em></p>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>Las objeciones son las que dijo Carlos, no inventadas.</li>
+      <li>Cada respuesta reconoce algo válido antes de proponer.</li>
+      <li>El mensaje une dolor, resultado y primer paso de bajo riesgo.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>¿Cuál es la frase que más escucharon en sus entrevistas para justificar que las cosas sigan igual? Esa es su primera objeción.</p></div>
+</section>
+
+<!-- 8 -->
+<section class="sec" id="s8" data-sec="s8">
+  <div class="sec-head"><span class="sec-num">8</span><h2>Devolución a la organización y acta de inicio</h2></div>
+  <p class="goal">Meta: que la propuesta deje de ser un trabajo práctico y pase a ser una decisión de la empresa.</p>
+  <ol class="qs">
+    <li><div class="q">Si Carlos nunca vio la propuesta, ¿se puede decir que es aplicable?</div></li>
+    <li><div class="q">En la reunión aparece una objeción que no habían previsto. ¿La defienden o ajustan la propuesta?</div>
+      <details class="hint"><summary>Pista</summary><p>Una objeción del dueño es información sobre la organización. Si cambia algo del plan, se registra qué cambió y por qué.</p></details></li>
+    <li><div class="q">¿Qué tiene que decir una hoja para que Carlos la firme sin miedo?</div>
+      <details class="hint"><summary>Pista</summary><p>Qué aprueba, qué no, cuánto como máximo, quién es responsable, cuándo se revisa y quién puede cambiar las reglas.</p></details></li>
+    <li><div class="q">¿En qué condiciones su recomendación deja de ser válida?</div></li>
+  </ol>
+  <div class="answer"><label for="n-s8">Su respuesta</label><textarea id="n-s8" data-note="s8"></textarea></div>
+  <details class="sol" data-sec="s8"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <h3>Registro de la devolución</h3>
+    <div class="tw"><table>
+      <tr><th>Dato</th><th>Detalle</th></tr>
+      <tr><td>Participantes</td><td>Reunión de 30 minutos con Carlos y Laura</td></tr>
+      <tr><td>Qué les convenció</td><td>El tablero de tres números y el tope de USD 520</td></tr>
+      <tr><td>Objeciones nuevas</td><td>Que los choferes no vean datos de deuda</td></tr>
+      <tr><td>Qué ajustamos</td><td>Permisos por rol; inicio en la segunda semana de marzo</td></tr>
+    </table></div>
+    <h3>Acta de inicio</h3>
+    <div class="tw"><table>
+      <tr><th>Qué se aprueba</th><td>Preparación (mes 1) y piloto de 2 meses con 30 clientes de la Ruta 1</td></tr>
+      <tr><th>Fuera de alcance</th><td>Rutas 2 y 3, catálogo abierto a clientes, integración directa con el facturador</td></tr>
+      <tr><th>Presupuesto</th><td>USD 520 (suscripción, horas internas y 15 % de contingencia)</td></tr>
+      <tr><th>Responsable e inicio</th><td>Laura; segunda semana de marzo</td></tr>
+      <tr><th>Revisión</th><td>Último lunes del mes 3, con los criterios Go / Ajustar / Pausar</td></tr>
+      <tr><th>Cambios de alcance o presupuesto</th><td>Solo con aprobación de Carlos</td></tr>
+      <tr><th>Conformidad</th><td>Firma: Carlos Montaña, gerente general — Fecha: ____</td></tr>
+    </table></div>
+    <h3>Cierre honesto</h3>
+    <ul class="plain">
+      <li><strong>Sin validar:</strong> cuántos de los 15 clientes perdidos se habrían retenido.</li>
+      <li><strong>Datos que faltan:</strong> margen real por cliente.</li>
+      <li><strong>Deja de valer si:</strong> el precio supera USD 150/mes o la mora real es menos de la mitad de la estimada.</li>
+    </ul>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>La organización vio la propuesta y la propuesta cambió con lo que dijo.</li>
+      <li>El acta es chica, concreta, con tope y fecha de revisión.</li>
+      <li>Reconoce lo que no se sabe y cuándo la recomendación deja de valer.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>¿Ya tienen fecha para la reunión de devolución? Si no la tienen, pídanla esta semana: es lo que más se demora.</p></div>
+</section>
+
+<!-- 9 -->
+<section class="sec" id="s9" data-sec="s9">
+  <div class="sec-head"><span class="sec-num">9</span><h2>Defensa final</h2></div>
+  <p class="goal">Meta: en 8 minutos, llevar al comité del problema a la decisión; en 7, sostenerla con preguntas.</p>
+  <ol class="qs">
+    <li><div class="q">Tienen 8 minutos y material para 40. ¿Qué dejan afuera sin que se pierda el hilo?</div>
+      <details class="hint"><summary>Pista</summary><p>El hilo es: problema → solución → números → ejecución → decisión. Lo que no sostiene ese hilo va al dossier, no a la presentación.</p></details></li>
+    <li><div class="q">Si fueran el comité, ¿cuál sería la pregunta más incómoda para este caso?</div>
+      <details class="hint"><summary>Pista</summary><p>El comité busca el supuesto más débil y lo que depende de una sola persona.</p></details></li>
+    <li><div class="q">¿Qué debe recordar el comité al salir de la sala?</div></li>
+  </ol>
+  <div class="answer"><label for="n-s9">Su respuesta</label><textarea id="n-s9" data-note="s9"></textarea></div>
+  <details class="sol" data-sec="s9"><summary><span class="lbl">Resolución</span></summary><div class="sol-body">
+    <h3>Guion de 8 minutos</h3>
+    <div class="tw"><table>
+      <tr><th>Bloque</th><th class="n">Tiempo</th><th>Contenido</th></tr>
+      <tr><td>El problema</td><td class="n">1:30</td><td>15 clientes perdidos, ARS 8M en mora, costo de seguir igual</td></tr>
+      <tr><td>La solución</td><td class="n">2:00</td><td>Alternativa elegida, por qué esa y no otra; nuevo flujo</td></tr>
+      <tr><td>El caso de negocio</td><td class="n">1:30</td><td>Costos, recupero entre el mes 3 (esperado) y el mes 5 (conservador), VAN</td></tr>
+      <tr><td>La ejecución</td><td class="n">1:30</td><td>Primeros 30 días, responsables, riesgos y plan B, quién lo sostiene</td></tr>
+      <tr><td>Las personas</td><td class="n">0:30</td><td>Resistencias, capacitación, indicador de adopción</td></tr>
+      <tr><td>La decisión</td><td class="n">1:00</td><td>«Aprobar el piloto de 2 meses por hasta USD 520». Qué dijo Carlos</td></tr>
+    </table></div>
+    <h3>Preguntas probables del comité</h3>
+    <ul class="plain">
+      <li>¿Por qué no eligieron el proveedor B, que se integra directo con el facturador?</li>
+      <li>¿Qué pasa con el caso de negocio si el dólar sube?</li>
+      <li>¿Quién sostiene esto en marzo, cuando ustedes ya no estén?</li>
+      <li>¿Qué dijo Carlos cuando le presentaron la propuesta?</li>
+      <li>¿Qué pasa si Laura se va de la empresa?</li>
+    </ul>
+    <div class="why"><h3>Por qué funciona</h3><ul>
+      <li>Termina con una decisión, no con un «muchas gracias».</li>
+      <li>Ensayar las preguntas incómodas evita improvisar en la defensa.</li>
+      <li>Cualquier integrante puede responder porque todos conocen el hilo.</li>
+    </ul></div>
+  </div></details>
+  <div class="transfer"><h3>Ahora, en su TP</h3><p>Ensayen con un «abogado del diablo»: un integrante hace solo preguntas incómodas. Las que no puedan responder, resuélvanlas antes de entregar.</p></div>
+</section>
+
+<!-- TRAZABILIDAD -->
+<section class="sec" id="traza">
+  <div class="sec-head"><h2>Trazabilidad entre las tres partes</h2></div>
+  <p class="goal">Cada sección de la Parte 3 debe poder señalar de qué hallazgo anterior viene. Si no se conecta con nada, probablemente sobra.</p>
+  <div class="flow">
+    <div class="col"><h3>Parte 1 · Diagnóstico</h3><ul>
+      <li>Problema priorizado y evidencia</li><li>Costo de no actuar (madurez)</li><li>BMC y propuesta de valor actuales</li></ul></div>
+    <div class="col"><h3>Parte 2 · Propuesta</h3><ul>
+      <li>Alternativa elegida y TO-BE</li><li>Supuestos (BMC Shift y derisking)</li><li>Stakeholders y resistencias</li><li>Roadmap e indicadores</li></ul></div>
+    <div class="col"><h3>Parte 3 · Decisión</h3><ul>
+      <li>Caso de negocio ← costo de no actuar + supuestos</li><li>Plan y traspaso ← roadmap + indicadores</li><li>Riesgos ← supuestos pendientes</li><li>Personas y objeciones ← stakeholders</li><li>Acta de inicio ← todo lo anterior</li></ul></div>
+  </div>
+</section>
+
+<footer>
+  Gestión Gerencial · UTN FRSR · Cursado 2026. Caso ficticio con fines didácticos: situaciones y cifras son supuestos docentes. Sus respuestas se guardan solo en este navegador.
+</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='gg-socratica-p3:';
+  function get(k){try{return localStorage.getItem(KEY+k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(KEY+k,v)}catch(e){}}
+  function del(k){try{localStorage.removeItem(KEY+k)}catch(e){}}
+
+  // Notas
+  document.querySelectorAll('textarea[data-note]').forEach(function(t){
+    var k='note-'+t.dataset.note, v=get(k);
+    if(v) t.value=v;
+    t.addEventListener('input',function(){set(k,t.value)});
+  });
+
+  // Progreso: una sección cuenta como vista al abrir su resolución
+  function mark(sec){
+    var a=document.querySelector('nav.toc a[data-sec="'+sec+'"]');
+    if(a) a.classList.add('done');
+  }
+  document.querySelectorAll('details.sol').forEach(function(d){
+    var sec=d.dataset.sec;
+    if(get('seen-'+sec)) mark(sec);
+    d.addEventListener('toggle',function(){
+      if(d.open){set('seen-'+sec,'1');mark(sec);}
+    });
+  });
+
+  function setAll(open){
+    document.querySelectorAll('details.sol, details.hint').forEach(function(d){d.open=open});
+  }
+  document.getElementById('openAll').addEventListener('click',function(){setAll(true)});
+  document.getElementById('closeAll').addEventListener('click',function(){setAll(false)});
+  document.getElementById('clearNotes').addEventListener('click',function(){
+    if(!confirm('¿Borrar todas sus respuestas y el progreso guardado en este navegador?')) return;
+    document.querySelectorAll('textarea[data-note]').forEach(function(t){t.value='';del('note-'+t.dataset.note)});
+    document.querySelectorAll('details.sol').forEach(function(d){del('seen-'+d.dataset.sec)});
+    document.querySelectorAll('nav.toc a.done').forEach(function(a){a.classList.remove('done')});
+  });
+})();
+</script>
+</body>
+</html>
